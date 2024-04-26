@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DoAnNhom11.Models.OrderDetail>
+@{
+    decimal tong=0;
+}
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+                <h1>Đơn hàng của tôi</h1>
+            </ol>
+        </div>
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image" style="width: 200px;">Ảnh</td>
+                        <td class="description">Tên sản phẩm</td>
+                        <td class="price">Đơn giá</td>
+                        <td class="quantity">Số lượng mua</td>
+                        <td class="total">Thành tiền</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        tong += item.Order.TotalPrice;
+                        <tr>
+                            <td class="cart_product" style="width: 200px;">
+                                <a href=""><img src="@item.Product.AnhDaiDien" alt="" width="120" height="100"></a>
+                            </td>
+                            <td class="cart_description">
+                                <h4><a href="">@item.Product.TenSp</a></h4>
+                                <p>Web ID: @item.ProductId</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>@item.Price</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>@item.Quantity</p>
+                            </td>
+                            <td class="cart_total" id="cartTotal">
+                                <p class="cart_total_price" id="totalPrice">@(item.Price * item.Quantity)</p>
+                            </td>
+                        </tr>
+                        
+                    }
+                    
+                </tbody>
+            </table>
+            <tr >
+                <h1 style="text-align: center; color:red">Tổng đơn hàng: @tong</h1>
+            </tr>
+        </div>
+    </div>
+</section> <!--/#cart_items-->

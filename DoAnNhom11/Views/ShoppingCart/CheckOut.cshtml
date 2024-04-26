@@ -1,0 +1,17 @@
+﻿@model Order
+<h2>Điền thông tin đơn hàng</h2>
+<form asp-action="Checkout" method="post">
+    <div class="form-group">
+        <label asp-for="ShippingAddress">Địa chỉ giao hàng</label>
+        <input asp-for="ShippingAddress" class="form-control" value="@ViewBag.Address" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Notes" >Ghi Chú</label>
+        <input asp-for="Notes" class="form-control" value="Đặt hàng" />
+    </div>
+    <div class="form-group">
+        <label asp-for="VoucherId" class="control-label">Chọn mã giảm giá</label>
+        <select asp-for="VoucherId" class="form-control" asp-items="ViewBag.VoucherName"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Hoàn thành đặt hàng</button>
+</form>

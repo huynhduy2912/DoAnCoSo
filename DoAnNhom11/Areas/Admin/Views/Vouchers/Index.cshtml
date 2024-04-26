@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DoAnNhom11.Models.Voucher>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Shared/AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VoucherCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhanTramGiam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayHetHan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoLuongCon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VoucherCategory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VoucherCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhanTramGiam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayHetHan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongCon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VoucherCategory.VoucherCategoryId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.VoucherId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.VoucherId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.VoucherId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

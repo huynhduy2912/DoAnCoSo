@@ -1,0 +1,94 @@
+﻿@model IEnumerable<DoAnNhom11.Models.Product>
+@{
+    ViewData["Title"] = "Home";
+    ViewBag.Size = 3;
+}
+<title>@ViewData["Title"]</title>
+
+<section id="slider">
+    <!--slider-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider-carousel" data-slide-to="1"></li>
+                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        @{
+                            Product itemShow1 = ViewBag.itemShow1;
+                        }
+                        <div class="item active">
+                            <div class="col-sm-6">
+                                <h1><span>TECH</span>SHOP</h1>
+                                <h2>@itemShow1.TenSp</h2>
+                                <p>@itemShow1.MoTa </p>
+                                <a asp-controller="Products" asp-action="Details" asp-route-ma="@itemShow1.ProductId" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Xem Chi Tiết</a>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="@itemShow1.AnhDaiDien" class="girl img-responsive" alt="" style="width: 90%; height: 90%;" />
+                            </div>
+                        </div>
+                        @{
+                            Product itemShow2 = ViewBag.itemShow2;
+                        }
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>TECH</span>SHOP</h1>
+                                <h2>@itemShow2.TenSp</h2>
+                                <p>@itemShow2.MoTa </p>
+                                <a asp-controller="Products" asp-action="Details" asp-route-ma="@itemShow2.ProductId" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Xem Chi Tiết</a>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="@itemShow2.AnhDaiDien" class="girl img-responsive" alt="" style="width: 90%; height: 90%;" />
+                            </div>
+                        </div>
+                        @{
+                            Product itemShow3 = ViewBag.itemShow3;
+                        }
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>TECH</span>SHOP</h1>
+                                <h2>@itemShow3.TenSp</h2>
+                                <p>@itemShow3.MoTa </p>
+                                <a asp-controller="Products" asp-action="Details" asp-route-ma="@itemShow3.ProductId" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Xem Chi Tiết</a>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="@itemShow3.AnhDaiDien" class="girl img-responsive" alt="" style="width: 90%; height: 90%;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!--/slider-->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="features_items">
+                    <!--features_items-->
+                    <h2 style="text-transform: capitalize;" class="title text-center">Sản Phẩm Giảm Giá</h2>
+                    @foreach (var item in Model)
+                    {
+                        @Html.Partial("_ProductPartial", item)
+                    }
+                    
+                </div><!--features_items-->
+            </div>
+        </div>
+</section>

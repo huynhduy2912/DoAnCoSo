@@ -1,0 +1,100 @@
+﻿@model DoAnNhom11.Models.Product
+@{
+    ViewData["Title"] = "Edit";
+    bool first = true;
+    int count = 1;
+}
+<div class="product-details">
+    <!--product-details-->
+    <div class="col-sm-5">
+        <div class="view-product">
+            <img src="@Model.AnhDaiDien" alt="" />
+        </div>
+        <div id="similar-product" class="carousel slide" data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                @for (int j = 0; j < ViewBag.productImagesCount; j+=3)
+                {
+                    @if (first == true)
+                    {
+                        <div class="item active">
+                            @for (int i = 0; i < ViewBag.productImagesCount; i++)
+                            {
+                                if (i != (j+3))
+                                {
+                                    <a href=""><img src="@ViewBag.productImages[i].Url" width="125px" height="125px" alt=""></a>
+                                }
+                                else
+                                {
+                                    first = false;
+                                    break;
+                                }
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="item">
+                            @for (int i = j; i < ViewBag.productImagesCount; i++)
+                            {
+                                if (i != (j + 3))
+                                {
+                                    <a href=""><img src="@ViewBag.productImages[i].Url" width="125px" height="125px" alt=""></a>
+                                }
+                                else
+                                {
+                                    first = false;
+                                    break;
+                                }
+                            }
+                        </div>
+                    }
+                }           
+            </div>
+            <!-- Controls -->
+            <a class="left item-control" href="#similar-product" data-slide="prev">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            <a class="right item-control" href="#similar-product" data-slide="next">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+
+    </div>
+    <div class="col-sm-7">
+        <div class="product-information">
+            <!--/product-information-->
+            <h2>@Model.TenSp</h2>
+            <p>Web ID:@Model.ProductId</p>
+            <p style="text-decoration: line-through;">@((int)(Model.GiaBan)) vnđ</p>
+            <span>
+                <span> Giá:@((int)(Model.GiaBan / 100 * (100 - Model.PhanTramGiam))) vnđ</span>
+                <form asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@Model.ProductId">
+                    <input id="txtQuantity" onchange="updateCount()" type="number" min="1" value="@count" oninput="removeNegative()" name="quantity"/>
+                    <button type="submit" class="btn btn-fefault cart">
+                        <a style="color:white" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'"><i class="fa fa-shopping-cart"></i>Bỏ vào giỏ</a>
+                    </button>
+                </form>
+                
+            </span>
+            <p><b>Số lượng còn:</b> @Model.SoLuongCon</p>
+            <p><b>Mô tả:</b> @Model.MoTa</p>
+            <p><b>Thông số:</b> @Model.ThongSo</p>
+            <p><b>Hãng:</b> @Model.Brand.TenNhanHieu</p>
+            <p><b>Loại:</b> @Model.ProductCategory.TenLoai</</p>
+            <a href=""><img src="../myLayout/images/product-details/share.png" class="share img-responsive" alt="" /></a>
+        </div><!--/product-information-->
+    </div>
+</div><!--/product-details-->
+<div>
+    <a asp-action="Index">Về trang danh sách sản phẩm</a>
+</div>
+<script>
+    function removeNegative() {
+        var inputElement = document.getElementById('txtQuantity');
+        if (inputElement.value.includes("-") || inputElement.value.includes("0")) {
+            inputElement.value = "1";
+        }
+    }
+</script>

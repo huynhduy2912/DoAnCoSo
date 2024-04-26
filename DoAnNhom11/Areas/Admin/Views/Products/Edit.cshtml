@@ -1,0 +1,131 @@
+﻿@model DoAnNhom11.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Shared/AdminLayout.cshtml";
+
+}
+
+<h1>Edit</h1>
+
+<h4>Product</h4>
+<hr />
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ProductId" />
+    <div class="form-group">
+        <label asp-for="TenSp" class="control-label"></label>
+        <input asp-for="TenSp" class="form-control" />
+        <span asp-validation-for="TenSp" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AnhDaiDien" class="control-label"></label>
+        <input asp-for="AnhDaiDien" class="form-control" />
+        <span asp-validation-for="AnhDaiDien" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MoTa" class="control-label"></label>
+        <input asp-for="MoTa" class="form-control" />
+        <span asp-validation-for="MoTa" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ThongSo" class="control-label"></label>
+        <input asp-for="ThongSo" class="form-control" />
+        <span asp-validation-for="ThongSo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="GiaNhap" class="control-label"></label>
+        <input asp-for="GiaNhap" class="form-control" />
+        <span asp-validation-for="GiaNhap" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="GiaBan" class="control-label"></label>
+        <input asp-for="GiaBan" class="form-control" />
+        <span asp-validation-for="GiaBan" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SoLuongCon" class="control-label"></label>
+        <input asp-for="SoLuongCon" class="form-control" />
+        <span asp-validation-for="SoLuongCon" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PhanTramGiam" class="control-label"></label>
+        <input asp-for="PhanTramGiam" class="form-control" />
+        <span asp-validation-for="PhanTramGiam" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProductCategoryId" class="control-label"></label>
+        <select asp-for="ProductCategoryId" class="form-control" asp-items="ViewBag.ProductCategoryId"></select>
+        <span asp-validation-for="ProductCategoryId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BrandId" class="control-label"></label>
+        <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId"></select>
+        <span asp-validation-for="BrandId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AnhDaiDien">Product Image</label>
+        <input type="file" asp-for="AnhDaiDien" name="imageUrl" class="form-control" id="imageInput" />
+        <br />
+        <img src="@Model.AnhDaiDien" id="previewImage" style="max-width:200px;" alt="Image preview" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Images">Image Description</label>
+        <input type="file" asp-for="Images" id="files" name="files" multiple accept="image/*">
+        <div id="preview">
+            @foreach (var item in ViewBag.productImages)
+            {
+                <img src="@item.Url" width="200"  />
+            }
+        </div>
+        <br />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<script>
+    document.getElementById('imageInput').addEventListener('change', function (event) {
+        var output = document.getElementById('previewImage');
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                output.src = e.target.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+    document.getElementById('files').addEventListener('change', function (event) {
+        var files = event.target.files;
+        var preview = document.getElementById('preview');
+
+        preview.innerHTML = '';
+
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+
+            reader.readAsDataURL(file);
+
+            reader.onload = function (e) {
+                var img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.maxWidth = '200px';
+                img.style.maxHeight = '200px';
+                preview.appendChild(img);
+            }
+        }
+    });
+</script>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
