@@ -1,17 +1,136 @@
 ﻿@model Order
-<h2>Điền thông tin đơn hàng</h2>
+
+@{
+    int tong = 0;
+}
 <form asp-action="Checkout" method="post">
-    <div class="form-group">
-        <label asp-for="ShippingAddress">Địa chỉ giao hàng</label>
-        <input asp-for="ShippingAddress" class="form-control" value="@ViewBag.Address" />
+
+    <h2>Điền thông tin đơn hàng</h2>
+    <div style="padding-left: 1em;">
+        <div class="form-group">
+            <label asp-for="ShippingAddress">Địa chỉ giao hàng</label>
+            <input asp-for="ShippingAddress" class="form-control" value="@ViewBag.Address" />
+        </div>
+        <hr>
+        <div class="form-group">
+            <label asp-for="Notes">Ghi Chú</label>
+            <input asp-for="Notes" class="form-control" value="Đặt hàng" />
+        </div>
+
+       
+        
     </div>
-    <div class="form-group">
-        <label asp-for="Notes" >Ghi Chú</label>
-        <input asp-for="Notes" class="form-control" value="Đặt hàng" />
+    <hr>
+    <section id="cart_items">
+        <label style="padding-left: 1em;">Chi tiết đơn hàng</label>
+
+        <div class="container">
+            <div class="breadcrumbs">
+            </div>
+
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="image" style="width: 200px;">Ảnh</td>
+                            <td class="description">Tên sản phẩm</td>
+                            <td class="price">Đơn Giá</td>
+                            <td class="quantity">Số Lượng</td>
+                            <td class="total">Thành Tiền</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.cart.Items)
+                        {
+                            tong += @item.Price * @item.Quantity;
+                            <tr>
+                                <td class="cart_product" style="width: 200px;">
+                                    <a a asp-controller="Products" asp-action="Details" asp-route-ma="@item.ProductId"><img src="@item.ProductImage" alt="" width="120" height="90"></a>
+                                </td>
+                                <td class="cart_description">
+                                    <h4><a asp-controller="Products" asp-action="Details" asp-route-ma="@item.ProductId">@item.ProductName</a></h4>
+                                    <p>Web ID: @item.ProductId</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>@StringFormat.CurrencyFormat((int)item.Price)</p>
+                                </td>
+                                <td>
+                                    <p>@item.Quantity</p>
+                                </td>
+                                <td class="cart_total" id="cartTotal">
+                                    <p class="cart_total_price" id="totalPrice">@StringFormat.CurrencyFormat((int)(item.Price * item.Quantity))</p>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <tr>
+                </tr>
+            </div>
+        </div>
+    </section> <!--/#cart_items-->
+    <div style="padding-left: 1em;">
+        <hr>
+        <div class="form-group">
+            <label asp-for="PaymentId" class="control-label">Chọn phương thức thanh toán</label>
+            <select asp-for="PaymentId" class="form-control" asp-items="ViewBag.Payment"></select>
+        </div>
+        <hr>
+        <button style="background: none; border: none;color:red" type="button" id="btnPopup" type="button" onclick="openPopup()">Chọn mã giảm giá</button>
+        
+        <div id="popup" style="display: none;" class="form-group">
+            <label asp-for="VoucherId" class="control-label">Chọn mã giảm giá</label>
+            <select asp-for="VoucherId" class="form-control" id="selectBox">
+                @foreach (var vouchers in ViewBag.Voucher)
+                {
+                    if (vouchers.VoucherId != 1&&vouchers.SoLuongCon>0)
+                    {
+                        <option value="@vouchers.VoucherId" data-info="@vouchers.PhanTramGiam">@vouchers.VoucherCode -@vouchers.PhanTramGiam% tổng đơn hàng(@vouchers.SoLuongCon)</option>                       
+                    }
+                    else
+                    {
+                        <option style=" display:none;" value="@vouchers.VoucherId" data-info="@vouchers.PhanTramGiam">Chọn mã giảm giá</option>
+                    }
+                }
+            </select>
+            <button style="background: none; border: none;color:darkred" type="button" onclick="closePopup()">Hủy chọn</button>
+        </div>
+        <hr>
+        <label>Chi tiết thanh toán</label>
+        <p>Tổng đơn hàng: @StringFormat.CurrencyFormat(tong)</p>
+        <p id="percentDiscount">Giảm giá đơn hàng: 0 ₫</p>
+        <p id="totalOrderPrice">Tổng thanh toán: @StringFormat.CurrencyFormat(tong)</p>
+
+        <button type="submit" class="btn btn-primary">Hoàn thành đặt hàng</button>
     </div>
-    <div class="form-group">
-        <label asp-for="VoucherId" class="control-label">Chọn mã giảm giá</label>
-        <select asp-for="VoucherId" class="form-control" asp-items="ViewBag.VoucherName"></select>
-    </div>
-    <button type="submit" class="btn btn-primary">Hoàn thành đặt hàng</button>
 </form>
+
+<script>
+    document.getElementById('selectBox').addEventListener('change', function () {
+        updateOrderPaymentDetail();
+
+    });
+    function updateOrderPaymentDetail() {
+        var selectElement = document.getElementById("selectBox");
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        var selectedVoucherDiscount = selectedOption.getAttribute("data-info");
+        var paragraph = document.getElementById('paragraph');
+        var percentDiscount = document.getElementById('percentDiscount');
+        var total = document.getElementById('totalOrderPrice');
+        total.innerHTML = 'Tổng thanh toán: ' + formatCurrency((@tong/100 * (100-selectedVoucherDiscount)));
+        percentDiscount.innerHTML = 'Giảm giá đơn hàng: -' + formatCurrency(@tong/100 * selectedVoucherDiscount);
+    }
+    function openPopup() {
+        document.getElementById("popup").style.display = "block";
+        document.getElementById("btnPopup").style.display = "none";
+    }
+
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("btnPopup").style.display = "block";
+        document.getElementById("selectBox").selectedIndex = 0;
+        updateOrderPaymentDetail();
+
+    }
+</script>

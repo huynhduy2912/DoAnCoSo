@@ -61,6 +61,8 @@ namespace DoAnNhom11.Controllers
         // GET: Admin/Products/Details/5
         public async Task<IActionResult> Details(int ma)
         {
+            var productReviews = _context.Reviews.Where(p => p.ProductId == ma).Include(r => r.Customer).Include(r => r.Product).ToList();
+            ViewBag.productReviews = productReviews;
             var productImages = _context.ProducImages.Where(p => p.ProductId == ma).ToList();
             ViewBag.productImages = productImages;
             ViewBag.productImagesCount = productImages.Count;
@@ -82,11 +84,10 @@ namespace DoAnNhom11.Controllers
         }
         public async Task<IActionResult> SearchProducts(string query, int? page)
         {
-            int pageSize = 9;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
             IQueryable<Product> productsQuery = _context.Products.Include(p => p.ProductCategory)
             .Where(p => p.TenSp.Contains(query));
-            PagedList<Product> listProductQuery = new PagedList<Product>(productsQuery, pageNumber, 6);
+            PagedList<Product> listProductQuery = new PagedList<Product>(productsQuery, pageNumber, 9);
             //string viewFromAnotherController = await this.RenderViewToStringAsync("/Views/Shared/ProductListPartial.cshtml", listProductQuery);
             ViewBag.categories = await _context.Categories.ToListAsync();
             ViewBag.brands = await _context.Brands.ToListAsync();

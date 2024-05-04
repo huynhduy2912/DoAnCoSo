@@ -8,7 +8,7 @@
             <div class="productinfo text-center">
                 <img src="@Model.AnhDaiDien" height="200px" alt="" />
                 <p style="text-align: right;color:red;background-color: yellow; display: inline;">-@Model.PhanTramGiam %</p>
-                <h2>@((int)(Model.GiaBan / 100 * (100 - Model.PhanTramGiam))) vnđ</h2>
+                <h2>@StringFormat.CurrencyFormat((int)(Model.GiaBan / 100 * (100 - Model.PhanTramGiam)))</h2>
                 <p>@Model.TenSp</p>
                 <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@Model.ProductId" asp-route-quantity="1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Bỏ Vào Giỏ</a>
                 <a asp-controller="Products" asp-action="Details" asp-route-ma="@Model.ProductId" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Xem Chi Tiết</a>

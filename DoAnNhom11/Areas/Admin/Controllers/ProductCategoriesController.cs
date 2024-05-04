@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,24 +9,23 @@ using DoAnNhom11.Models;
 
 namespace DoAnNhom11.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin")]
     [Area("Admin")]
-    public class CategoriesController : Controller
+    public class ProductCategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public CategoriesController(ApplicationDbContext context)
+        public ProductCategoriesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Admin/Categories
+        // GET: Admin/ProductCategories
         public async Task<IActionResult> Index()
         {
             return View(await _context.Categories.ToListAsync());
         }
 
-        // GET: Admin/Categories/Details/5
+        // GET: Admin/ProductCategories/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,39 +33,39 @@ namespace DoAnNhom11.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories
+            var productCategory = await _context.Categories
                 .FirstOrDefaultAsync(m => m.ProductCategoryId == id);
-            if (category == null)
+            if (productCategory == null)
             {
                 return NotFound();
             }
 
-            return View(category);
+            return View(productCategory);
         }
 
-        // GET: Admin/Categories/Create
+        // GET: Admin/ProductCategories/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Categories/Create
+        // POST: Admin/ProductCategories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryId,TenLoai")] ProductCategory category)
+        public async Task<IActionResult> Create([Bind("ProductCategoryId,TenLoai,AnhDaiDien")] ProductCategory productCategory)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(category);
+                _context.Add(productCategory);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(category);
+            return View(productCategory);
         }
 
-        // GET: Admin/Categories/Edit/5
+        // GET: Admin/ProductCategories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -75,22 +73,22 @@ namespace DoAnNhom11.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null)
+            var productCategory = await _context.Categories.FindAsync(id);
+            if (productCategory == null)
             {
                 return NotFound();
             }
-            return View(category);
+            return View(productCategory);
         }
 
-        // POST: Admin/Categories/Edit/5
+        // POST: Admin/ProductCategories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,TenLoai")] ProductCategory category)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductCategoryId,TenLoai,AnhDaiDien")] ProductCategory productCategory)
         {
-            if (id != category.ProductCategoryId)
+            if (id != productCategory.ProductCategoryId)
             {
                 return NotFound();
             }
@@ -99,12 +97,12 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(category);
+                    _context.Update(productCategory);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoryExists(category.ProductCategoryId))
+                    if (!ProductCategoryExists(productCategory.ProductCategoryId))
                     {
                         return NotFound();
                     }
@@ -115,10 +113,10 @@ namespace DoAnNhom11.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(category);
+            return View(productCategory);
         }
 
-        // GET: Admin/Categories/Delete/5
+        // GET: Admin/ProductCategories/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -126,32 +124,32 @@ namespace DoAnNhom11.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Categories
+            var productCategory = await _context.Categories
                 .FirstOrDefaultAsync(m => m.ProductCategoryId == id);
-            if (category == null)
+            if (productCategory == null)
             {
                 return NotFound();
             }
 
-            return View(category);
+            return View(productCategory);
         }
 
-        // POST: Admin/Categories/Delete/5
+        // POST: Admin/ProductCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
-            if (category != null)
+            var productCategory = await _context.Categories.FindAsync(id);
+            if (productCategory != null)
             {
-                _context.Categories.Remove(category);
+                _context.Categories.Remove(productCategory);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CategoryExists(int id)
+        private bool ProductCategoryExists(int id)
         {
             return _context.Categories.Any(e => e.ProductCategoryId == id);
         }

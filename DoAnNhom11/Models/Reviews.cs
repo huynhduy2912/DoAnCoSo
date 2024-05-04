@@ -10,7 +10,7 @@ namespace DoAnNhom11.Models
 
         public DateTime ThoiGianDanhGia { get; set; }
 
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; }
         public ApplicationUser? Customer { get; set; }
         public int ProductId { get; set; }
         public Product? Product { get; set; }

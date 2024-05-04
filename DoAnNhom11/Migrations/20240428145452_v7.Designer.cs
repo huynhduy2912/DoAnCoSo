@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoAnNhom11.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240424141042_t")]
-    partial class T
+    [Migration("20240428145452_v7")]
+    partial class v7
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -115,23 +115,6 @@ namespace DoAnNhom11.Migrations
                     b.ToTable("Brands");
                 });
 
-            modelBuilder.Entity("DoAnNhom11.Models.Category", b =>
-                {
-                    b.Property<int>("CategoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
-
-                    b.Property<string>("TenLoai")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CategoryId");
-
-                    b.ToTable("Categories");
-                });
-
             modelBuilder.Entity("DoAnNhom11.Models.Order", b =>
                 {
                     b.Property<int>("OrderId")
@@ -147,6 +130,9 @@ namespace DoAnNhom11.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("OrderStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PaymentId")
                         .HasColumnType("int");
 
                     b.Property<string>("ShippingAddress")
@@ -165,6 +151,8 @@ namespace DoAnNhom11.Migrations
                     b.HasKey("OrderId");
 
                     b.HasIndex("OrderStatusId");
+
+                    b.HasIndex("PaymentId");
 
                     b.HasIndex("UserId");
 
@@ -219,6 +207,23 @@ namespace DoAnNhom11.Migrations
                     b.ToTable("OrderStatuses");
                 });
 
+            modelBuilder.Entity("DoAnNhom11.Models.Payment", b =>
+                {
+                    b.Property<int>("PaymentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentId"));
+
+                    b.Property<string>("TenLoai")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PaymentId");
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("DoAnNhom11.Models.Product", b =>
                 {
                     b.Property<int>("ProductId")
@@ -233,7 +238,7 @@ namespace DoAnNhom11.Migrations
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("DiemDanhGia")
                         .HasColumnType("int");
 
                     b.Property<decimal>("GiaBan")
@@ -246,6 +251,12 @@ namespace DoAnNhom11.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("PhanTramGiam")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShopId")
                         .HasColumnType("int");
 
                     b.Property<int>("SoLuongCon")
@@ -262,18 +273,39 @@ namespace DoAnNhom11.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("ProductCategoryId");
+
+                    b.HasIndex("ShopId");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("DoAnNhom11.Models.ProductImage", b =>
+            modelBuilder.Entity("DoAnNhom11.Models.ProductCategory", b =>
                 {
-                    b.Property<int>("PImageId")
+                    b.Property<int>("ProductCategoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PImageId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductCategoryId"));
+
+                    b.Property<string>("AnhDaiDien")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TenLoai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProductCategoryId");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("DoAnNhom11.Models.ProductImage", b =>
+                {
+                    b.Property<int>("ProductImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductImageId"));
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -282,11 +314,134 @@ namespace DoAnNhom11.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PImageId");
+                    b.HasKey("ProductImageId");
 
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductImage");
+                });
+
+            modelBuilder.Entity("DoAnNhom11.Models.Reviews", b =>
+                {
+                    b.Property<int>("ReviewsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewsId"));
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CustomerId1")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("DiemDanhGia")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NoiDung")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ThoiGianDanhGia")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ReviewsId");
+
+                    b.HasIndex("CustomerId1");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("DoAnNhom11.Models.ReviewsImage", b =>
+                {
+                    b.Property<int>("ReviewsImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewsImageId"));
+
+                    b.Property<int>("ProductReviewsId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ReviewsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ReviewsImageId");
+
+                    b.HasIndex("ReviewsId");
+
+                    b.ToTable("ReviewsImage");
+                });
+
+            modelBuilder.Entity("DoAnNhom11.Models.Shop", b =>
+                {
+                    b.Property<int>("ShopId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShopId"));
+
+                    b.Property<string>("AnhBia")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AnhDaiDien")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DiaChi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LienHe")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MoTa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("NgayTao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ShopCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TenCuaHang")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ShopId");
+
+                    b.HasIndex("ShopCategoryId");
+
+                    b.ToTable("Shops");
+                });
+
+            modelBuilder.Entity("DoAnNhom11.Models.ShopCategory", b =>
+                {
+                    b.Property<int>("ShopCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShopCategoryId"));
+
+                    b.Property<string>("TenLoai")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ShopCategoryId");
+
+                    b.ToTable("ShopCategories");
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.Voucher", b =>
@@ -476,6 +631,10 @@ namespace DoAnNhom11.Migrations
                         .WithMany("Orders")
                         .HasForeignKey("OrderStatusId");
 
+                    b.HasOne("DoAnNhom11.Models.Payment", "Payment")
+                        .WithMany("Orders")
+                        .HasForeignKey("PaymentId");
+
                     b.HasOne("DoAnNhom11.Models.ApplicationUser", "ApplicationUser")
                         .WithMany("Oders")
                         .HasForeignKey("UserId")
@@ -489,6 +648,8 @@ namespace DoAnNhom11.Migrations
                     b.Navigation("ApplicationUser");
 
                     b.Navigation("OrderStatus");
+
+                    b.Navigation("Payment");
 
                     b.Navigation("VouCher");
                 });
@@ -520,15 +681,23 @@ namespace DoAnNhom11.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DoAnNhom11.Models.Category", "Category")
+                    b.HasOne("DoAnNhom11.Models.ProductCategory", "ProductCategory")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("ProductCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DoAnNhom11.Models.Shop", "Shop")
+                        .WithMany("Products")
+                        .HasForeignKey("ShopId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Brand");
 
-                    b.Navigation("Category");
+                    b.Navigation("ProductCategory");
+
+                    b.Navigation("Shop");
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.ProductImage", b =>
@@ -540,6 +709,43 @@ namespace DoAnNhom11.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("DoAnNhom11.Models.Reviews", b =>
+                {
+                    b.HasOne("DoAnNhom11.Models.ApplicationUser", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId1");
+
+                    b.HasOne("DoAnNhom11.Models.Product", "Product")
+                        .WithMany("ProductReviews")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("DoAnNhom11.Models.ReviewsImage", b =>
+                {
+                    b.HasOne("DoAnNhom11.Models.Reviews", "Reviews")
+                        .WithMany("ReviewsImages")
+                        .HasForeignKey("ReviewsId");
+
+                    b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("DoAnNhom11.Models.Shop", b =>
+                {
+                    b.HasOne("DoAnNhom11.Models.ShopCategory", "ShopCategories")
+                        .WithMany("Shops")
+                        .HasForeignKey("ShopCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ShopCategories");
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.Voucher", b =>
@@ -614,11 +820,6 @@ namespace DoAnNhom11.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("DoAnNhom11.Models.Category", b =>
-                {
-                    b.Navigation("Products");
-                });
-
             modelBuilder.Entity("DoAnNhom11.Models.Order", b =>
                 {
                     b.Navigation("OrderDetails");
@@ -629,11 +830,38 @@ namespace DoAnNhom11.Migrations
                     b.Navigation("Orders");
                 });
 
+            modelBuilder.Entity("DoAnNhom11.Models.Payment", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
             modelBuilder.Entity("DoAnNhom11.Models.Product", b =>
                 {
                     b.Navigation("Images");
 
                     b.Navigation("OrderDetails");
+
+                    b.Navigation("ProductReviews");
+                });
+
+            modelBuilder.Entity("DoAnNhom11.Models.ProductCategory", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("DoAnNhom11.Models.Reviews", b =>
+                {
+                    b.Navigation("ReviewsImages");
+                });
+
+            modelBuilder.Entity("DoAnNhom11.Models.Shop", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("DoAnNhom11.Models.ShopCategory", b =>
+                {
+                    b.Navigation("Shops");
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.Voucher", b =>

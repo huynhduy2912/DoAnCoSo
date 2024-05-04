@@ -86,3 +86,10 @@ function getProductsByCategoryAndPage() {
         }
     });
 }
+function formatCurrency(number) {
+    var formattedNumber = number.toLocaleString('vi-VN');
+
+    formattedNumber += ' ₫';
+
+    return formattedNumber;
+}

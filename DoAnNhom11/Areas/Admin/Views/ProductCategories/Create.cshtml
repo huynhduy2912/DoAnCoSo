@@ -7,7 +7,7 @@
 
 <h1>Create</h1>
 
-<h4>Category</h4>
+<h4>ProductCategory</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -17,6 +17,11 @@
                 <label asp-for="TenLoai" class="control-label"></label>
                 <input asp-for="TenLoai" class="form-control" />
                 <span asp-validation-for="TenLoai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnhDaiDien" class="control-label"></label>
+                <input asp-for="AnhDaiDien" class="form-control" />
+                <span asp-validation-for="AnhDaiDien" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

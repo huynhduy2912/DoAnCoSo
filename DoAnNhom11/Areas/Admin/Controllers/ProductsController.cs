@@ -11,7 +11,6 @@ using Microsoft.EntityFrameworkCore;
 using DoAnNhom11.Extensions;
 using DoAnNhom11.Models;
 using X.PagedList;
-using DoAnNhom11.Extensions;
 
 namespace DoAnNhom11.Areas.Admin.Controllers
 {
@@ -190,9 +189,9 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             }
             return RedirectToAction(nameof(Index));
 
-            ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandId", product.BrandId);
+            /*ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandId", product.BrandId);
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.ProductCategoryId);
-            return View(product);
+            return View(product);*/
         }
 
         // GET: Admin/Products/Delete/5
@@ -236,11 +235,10 @@ namespace DoAnNhom11.Areas.Admin.Controllers
         }
         public async Task<IActionResult> SearchProducts(string query, int? page)
         {
-            int pageSize = 9;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
             IQueryable<Product> productsQuery = _context.Products.Include(p => p.ProductCategory)
             .Where(p => p.TenSp.Contains(query));
-            PagedList<Product> listProductQuery = new PagedList<Product>(productsQuery, pageNumber, 6);
+            PagedList<Product> listProductQuery = new PagedList<Product>(productsQuery, pageNumber, 9);
             string viewFromAnotherController = await this.RenderViewToStringAsync("/Views/Shared/ProductListPartial.cshtml", listProductQuery);
             ViewBag.categories = await _context.Categories.ToListAsync();
             ViewBag.brands = await _context.Brands.ToListAsync();

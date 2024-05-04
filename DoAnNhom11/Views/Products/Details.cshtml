@@ -14,14 +14,14 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                @for (int j = 0; j < ViewBag.productImagesCount; j+=3)
+                @for (int j = 0; j < ViewBag.productImagesCount; j += 3)
                 {
                     @if (first == true)
                     {
                         <div class="item active">
                             @for (int i = 0; i < ViewBag.productImagesCount; i++)
                             {
-                                if (i != (j+3))
+                                if (i != (j + 3))
                                 {
                                     <a href=""><img src="@ViewBag.productImages[i].Url" width="125px" height="125px" alt=""></a>
                                 }
@@ -50,7 +50,7 @@
                             }
                         </div>
                     }
-                }           
+                }
             </div>
             <!-- Controls -->
             <a class="left item-control" href="#similar-product" data-slide="prev">
@@ -67,16 +67,16 @@
             <!--/product-information-->
             <h2>@Model.TenSp</h2>
             <p>Web ID:@Model.ProductId</p>
-            <p style="text-decoration: line-through;">@((int)(Model.GiaBan)) vnđ</p>
+            <p style="text-decoration: line-through;">@StringFormat.CurrencyFormat((int)(Model.GiaBan))</p>
             <span>
-                <span> Giá:@((int)(Model.GiaBan / 100 * (100 - Model.PhanTramGiam))) vnđ</span>
+                <span> Giá:@StringFormat.CurrencyFormat((int)(Model.GiaBan / 100 * (100 - Model.PhanTramGiam)))</span>
                 <form asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@Model.ProductId">
-                    <input id="txtQuantity" onchange="updateCount()" type="number" min="1" value="@count" oninput="removeNegative()" name="quantity"/>
+                    <input id="txtQuantity" onchange="updateCount()" type="number" min="1" value="@count" oninput="removeNegative()" name="quantity" />
                     <button type="submit" class="btn btn-fefault cart">
                         <a style="color:white" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'"><i class="fa fa-shopping-cart"></i>Bỏ vào giỏ</a>
                     </button>
                 </form>
-                
+
             </span>
             <p><b>Số lượng còn:</b> @Model.SoLuongCon</p>
             <p><b>Mô tả:</b> @Model.MoTa</p>
@@ -90,6 +90,42 @@
 <div>
     <a asp-action="Index">Về trang danh sách sản phẩm</a>
 </div>
+<hr />
+<h1>ĐÁNH GIÁ SẢN PHẨM</h1>
+@if (ViewBag.productReviews.Count > 0)
+{
+    @foreach (var item in ViewBag.productReviews)
+    {
+       
+        <div class="row">
+            <p>
+                <b>@item.Customer.FullName</b>
+            </p>
+            <p>
+                Điểm: @for (int i = 0; i < item.DiemDanhGia; i++)
+                {
+                   <span>*</span>
+                }
+            </p>
+            <p>
+                @item.NoiDung
+            </p>
+
+            <p>
+                @item.ThoiGianDanhGia
+            </p>
+
+
+        </div>
+        <hr />
+    }
+
+}
+else
+{
+    <p>Chưa có đánh giá nào</p>
+}
+
 <script>
     function removeNegative() {
         var inputElement = document.getElementById('txtQuantity');

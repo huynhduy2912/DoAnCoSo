@@ -15,20 +15,25 @@ namespace DoAnNhom11.Controllers
     [Authorize]
     public class ShoppingCartController : Controller
     {
-        private static IHttpContextAccessor _httpContextAccessor;
+       // private static IHttpContextAccessor _httpContextAccessor;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         public ShoppingCartController(UserManager<ApplicationUser> userManager,
 			ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
-            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
+            //_httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
             _context= context;
             _userManager= userManager;
 
         }
         public async Task<IActionResult> CheckOut()
         {
+            var applicationDbContext = _context.Vouchers.Include(v => v.VoucherCategory);
+            ViewBag.Voucher = applicationDbContext;
             ViewData["VoucherName"] = new SelectList(_context.Vouchers, "VoucherId", "VoucherCode");
+            ViewData["Payment"] = new SelectList(_context.Payments, "PaymentId", "TenLoai");
+            var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart") ?? new ShoppingCart();
+            ViewBag.Cart = cart;
             var user = await _userManager.GetUserAsync(User);
             ViewBag.Address = user.Address;
             //Response.WriteAsync("<script>alert('Data inserted successfully')</script>");
@@ -42,22 +47,32 @@ namespace DoAnNhom11.Controllers
             {
                 return RedirectToAction("Index");
             }
+            var voucher = await _context.Vouchers.FirstOrDefaultAsync(m => m.VoucherId == order.VoucherId);
             var user = await _userManager.GetUserAsync(User);
             order.UserId = user.Id;
             order.OrderDate = DateTime.Now;
-            order.TotalPrice = cart.Items.Sum(i => i.Price * i.Quantity);
+            order.TotalPrice = (cart.Items.Sum(i => i.Price * i.Quantity))/100*(100-voucher.PhanTramGiam) ;
             order.OrderStatusId = 1;
+            
             order.OrderDetails = cart.Items.Select(i => new OrderDetail
             {
                 ProductId = i.ProductId,
                 Quantity = (int)i.Quantity,
                 Price = i.Price
             }).ToList();
+            Voucher _voucher = _context.Vouchers.FirstOrDefault(p => p.VoucherId == order.VoucherId);
+            if (_voucher.VoucherId != 1 && voucher.SoLuongCon > 0)
+            {
+                _voucher.SoLuongCon--;
+            }
             _context.Orders.Add(order);
+
+            //Console.WriteLine("zz:"+order.VouCher.VoucherCode);
+
             await _context.SaveChangesAsync();
             HttpContext.Session.Remove("Cart");
-            var port = LocalHost.GetPort(_httpContextAccessor);
-            //return Redirect("http://localhost:"+ port+"/Orders/Details?ma=" + order.OrderId);
+            /*var port = LocalHost.GetPort(_httpContextAccessor);
+            //return Redirect("http://localhost:"+ port+"/Orders/Details?ma=" + order.OrderId);*/
             return RedirectToAction("Details","Orders", new { ma = order.OrderId });
         }
         public async Task<IActionResult> AddToCart(int productId, int quantity)

@@ -12,6 +12,7 @@ namespace DoAnNhom11.Models
         public string? Notes { get; set; }
         public int? VoucherId { get; set; }
         public Voucher? VouCher { get; set; }
+        public int? PaymentId { get; set; }
         public Payment? Payment { get; set; }
         public int? OrderStatusId { get; set; }
         public OrderStatus? OrderStatus { get; set; }

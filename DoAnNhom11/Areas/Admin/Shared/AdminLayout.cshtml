@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ASM6</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TECHSHOP</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,21 +26,25 @@
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Products" asp-action="Index">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Categories" asp-action="Index">ProductCategories</a>
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="ProductCategories" asp-action="Index">ProductCategories</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Brands" asp-action="Index">Brand</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Vouchers" asp-action="Index">Voucher</a>
-                        </li></li>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="VoucherCategories" asp-action="Index">VoucherCategories</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="ProductImages" asp-action="Index">ProductImages</a>
-                        </li><li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Orders" asp-action="Index">Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Reviews" asp-action="Index">Reviews</a>
                         </li>
                     </ul>
                     @Html.Partial("~/Areas/Admin/Shared/AdminLoginPartial.cshtml")

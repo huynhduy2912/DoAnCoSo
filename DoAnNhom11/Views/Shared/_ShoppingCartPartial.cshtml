@@ -1,0 +1,54 @@
+﻿@model ShoppingCart
+
+@{
+    decimal tong = 0;
+}
+<section id="cart_items">
+    <div class="container">
+<div class="table-responsive cart_info">
+    <table class="table table-condensed">
+        <thead>
+            <tr class="cart_menu">
+                <td class="image" style="width: 200px;">Ảnh</td>
+                <td class="description">Tên sản phẩm</td>
+                <td class="price">Đơn Giá</td>
+                <td class="quantity">Số Lượng</td>
+                <td class="total">Thành Tiền</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                tong += @item.Price * @item.Quantity;
+                <tr>
+                    <td class="cart_product" style="width: 200px;">
+                        <a asp-controller="Products" asp-action="Details" asp-route-ma="@item.ProductId"><img src="@item.ProductImage" alt="" width="120" height="100"></a>
+                    </td>
+                    <td class="cart_description">
+                        <h4><a asp-controller="Products" asp-action="Details" asp-route-ma="@item.ProductId">@item.ProductName</a></h4>
+                        <p>Web ID: @item.ProductId</p>
+                    </td>
+                    <td class="cart_price">
+                        <p>@StringFormat.CurrencyFormat((int)item.Price)</p>
+                    </td>
+                    <td>
+                        <div>
+                            <div class="form-group">
+                                <input id="txtQuantity_@item.ProductId" onchange="updateCart(@item.ProductId)" type="number" min="1" name="txtQuantity" value="@item.Quantity" style="width:100" oninput="removeNegativeSign(@item.ProductId)" />
+                            </div>
+                        </div>
+                    </td>
+                    <td class="cart_total" id="cartTotal">
+                        <p class="cart_total_price" id="totalPrice">@StringFormat.CurrencyFormat((int)(item.Price * item.Quantity))</p>
+                    </td>
+                    <td class="cart_delete">
+                        <a class="cart_quantity_delete" asp-action="RemoveFromCart" asp-route-productId="@item.ProductId"><i class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    </div>
+</section> <!--/#cart_items-->

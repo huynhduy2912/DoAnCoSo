@@ -22,6 +22,16 @@ namespace DoAnNhom11.Models
                 Items.Add(item);//thêm 1 sản phẩm vào giỏ hàng
             }
         }
+        public decimal TotalPrice()
+            
+        {
+            decimal total = 0;
+            foreach (var item in Items)
+            {
+                total += item.Price * item.Quantity;
+            }
+            return total;
+        }
         public void RemoveItem(int productId)
         {
             Items.RemoveAll(i => i.ProductId == productId);//xóa 1 sản phẩm trong giỏ hàng
