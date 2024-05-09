@@ -4,6 +4,49 @@
     bool first = true;
     int count = 1;
 }
+<style>
+    .mycontainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: auto;
+        border-radius: 8px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        background-color: rgba(0, 0, 0, 0.1); /* Màu nền xám nhạt với độ mờ 30% */
+    }
+    .avatar img{
+        flex: 0 0 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #ccc;
+        border: 2px solid #ccc;
+        margin-left:20px;
+    }
+
+    .content {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .text {
+        color:black;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .my-button {
+        background-color: red;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+</style>
 <div class="product-details">
     <!--product-details-->
     <div class="col-sm-5">
@@ -88,7 +131,15 @@
     </div>
 </div><!--/product-details-->
 <div>
-    <a asp-action="Index">Về trang danh sách sản phẩm</a>
+    <div class="mycontainer" style="background-image:@Model.Shop.AnhBia">
+        <div class="avatar"><img src="@Model.Shop.AnhDaiDien" alt="Avatar"></div>
+        <div class="content">
+            <div class="text">@Model.Shop.TenCuaHang</div>
+            <button type="button" class="my-button">
+                <a asp-controller="Shops" asp-action="Details" asp-route-ma="@Model.ShopId" style="color:white" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'">Xem Shop</a>
+            </button>
+        </div>
+    </div>
 </div>
 <hr />
 <h1>ĐÁNH GIÁ SẢN PHẨM</h1>
@@ -112,7 +163,7 @@
             </p>
 
             <p>
-                @item.ThoiGianDanhGia
+                @StringFormat.DateFormat( item.ThoiGianDanhGia)
             </p>
 
 

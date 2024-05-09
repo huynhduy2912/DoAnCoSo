@@ -1,0 +1,27 @@
+﻿@model DoAnNhom11.Models.Reviews
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NoiDung" class="control-label"></label>
+                <input asp-for="NoiDung" class="form-control" />
+                <span asp-validation-for="NoiDung" class="text-danger">zzz</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiemDanhGia" class="control-label"></label>
+                <input asp-for="DiemDanhGia" class="form-control" />
+                <span asp-validation-for="DiemDanhGia" class="text-danger">xxx</span>
+            </div>          
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

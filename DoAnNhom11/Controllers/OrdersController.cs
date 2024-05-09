@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using DoAnNhom11.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using Azure;
+using X.PagedList;
 
 namespace DoAnNhom11.Controllers
 {
@@ -22,12 +24,15 @@ namespace DoAnNhom11.Controllers
             _userManager = userManager;
 
         }
-        public async Task<IActionResult> Index(int? id)
+        public async Task<IActionResult> Index(int? page)
         {
-
+            int pageSize = 9;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
             var user = await _userManager.GetUserAsync(User);
             var applicationDbContext = await _context.Orders.Where(p => p.UserId == user.Id).Include(o => o.ApplicationUser).Include(o => o.VouCher).Include(o => o.OrderStatus).ToListAsync();
-            return View(applicationDbContext);
+            applicationDbContext.Reverse();
+            PagedList<Order> listOrder = new PagedList<Order>(applicationDbContext, pageNumber, pageSize);
+            return View(listOrder);
         }
 
         public async Task<IActionResult> Details(int ma)
@@ -125,7 +130,28 @@ namespace DoAnNhom11.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddReviews(string? noiDung,int diem,int productId,int orderId)
+        {
 
+            Reviews reviews =new Reviews();
+            reviews.NoiDung = noiDung??" ";
+            reviews.DiemDanhGia = diem;
+            reviews.ThoiGianDanhGia=DateTime.Now;
+            reviews.ProductId = productId;
+            var user = await _userManager.GetUserAsync(User);
+            reviews.CustomerId= user.Id;
+            if (ModelState.IsValid)
+            {
+                var order = await _context.OrderDetails.Where(p => p.OrderId == orderId && p.ProductId == productId).FirstOrDefaultAsync();
+                order.IsReview = 1;
+                _context.Add(reviews);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(reviews);
+        }
         private bool OrderExists(int id)
         {
             return _context.Orders.Any(e => e.OrderId == id);

@@ -6,6 +6,7 @@ namespace DoAnNhom11.Models
     {
         public int ReviewsId { get; set; }
         public string NoiDung { get; set; }
+        [Range(0, 5, ErrorMessage = "Giá trị từ 0-5")]
         public int? DiemDanhGia { get; set; }
 
         public DateTime ThoiGianDanhGia { get; set; }

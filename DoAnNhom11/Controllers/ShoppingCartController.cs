@@ -53,7 +53,15 @@ namespace DoAnNhom11.Controllers
             order.OrderDate = DateTime.Now;
             order.TotalPrice = (cart.Items.Sum(i => i.Price * i.Quantity))/100*(100-voucher.PhanTramGiam) ;
             order.OrderStatusId = 1;
-            
+            foreach (var item in cart.Items)
+            {
+                Product _product = _context.Products.FirstOrDefault(p => p.ProductId == item.ProductId);
+                if (_product.SoLuongCon > 0)
+                {
+                    _product.SoLuongCon-=(int)item.Quantity;
+                }
+
+            }
             order.OrderDetails = cart.Items.Select(i => new OrderDetail
             {
                 ProductId = i.ProductId,
@@ -67,12 +75,9 @@ namespace DoAnNhom11.Controllers
             }
             _context.Orders.Add(order);
 
-            //Console.WriteLine("zz:"+order.VouCher.VoucherCode);
 
             await _context.SaveChangesAsync();
             HttpContext.Session.Remove("Cart");
-            /*var port = LocalHost.GetPort(_httpContextAccessor);
-            //return Redirect("http://localhost:"+ port+"/Orders/Details?ma=" + order.OrderId);*/
             return RedirectToAction("Details","Orders", new { ma = order.OrderId });
         }
         public async Task<IActionResult> AddToCart(int productId, int quantity)

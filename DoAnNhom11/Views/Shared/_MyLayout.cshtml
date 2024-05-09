@@ -15,6 +15,7 @@
     <link href="../myLayout/css/animate.css" rel="stylesheet">
     <link href="../myLayout/css/main.css" rel="stylesheet">
     <link href="../myLayout/css/responsive.css" rel="stylesheet">
+    <link href="../wwwroot/css/site.css" rel="stylesheet">
     <style>
         .dropdown-content {
             display: none;
@@ -26,10 +27,7 @@
             z-index: 1000; /* Ensure dropdown is above other elements */
             max-height: 200px; /* Adjust max-height as needed */
             overflow-y: auto; /* Enable scrolling if needed */
-            width: 100%; /* Set width to match search input */
-            box-sizing: border-box; /* Ensure width includes padding and
-
-                            border */
+            box-sizing: border-box; /* Ensure width includes padding and border */
         }
 
         .suggestion {
@@ -44,10 +42,12 @@
         #suggestions {
             display: none;
             position: absolute;
-            background-color: #f1f1f1;
+            background-color: white;
             min-width: 150px;
+            width:593px;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
+            z-index: 999;
+            list-style-type: none;
         }
 
             #suggestions li {
@@ -109,7 +109,7 @@
                     <div class="col-sm-8">
                         <form id="search-form" asp-controller="Products" asp-action="SearchProducts" method="post" class="dropdown">
                             <input type="text" name="query" id="searchInput" style="width: 600px;height:50px" placeholder="Tìm kiếm sản phẩm...">
-                            <ul id="suggestions"></ul>
+                            <div id="suggestions"></div>
                             <button style="width: 100px;height:50px; background-color: red; color: white;border: none;" type="submit" value="search" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'">Tìm Kiếm</button>
                         </form>
                     </div>
@@ -132,7 +132,6 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a onclick="activateLink(this)" asp-controller="Home" asp-action="Index">Trang Chủ</a></li>
-                                <li><a onclick="activateLink(this)" asp-controller="Products" asp-action="Index">Sản Phẩm</a></li>
                                 <li><a onclick="activateLink(this)" asp-controller="Orders" asp-action="Index">Đơn Hàng</a></li>
                                 <li><a onclick="activateLink(this)" asp-controller="ShoppingCart" asp-action="Index"><i class="fa fa-shopping-cart"></i> Giỏ Hàng</a></li>
                                 <li><a asp-area="Identity" asp-page="/Account/Manage/Index"><i class="fa fa-user"></i> Tài Khoản</a></li>

@@ -58,7 +58,6 @@ namespace DoAnNhom11.Controllers
             return PartialView("ProductListPartial", listProduct);
 
         }
-        // GET: Admin/Products/Details/5
         public async Task<IActionResult> Details(int ma)
         {
             var productReviews = _context.Reviews.Where(p => p.ProductId == ma).Include(r => r.Customer).Include(r => r.Product).ToList();
@@ -69,6 +68,7 @@ namespace DoAnNhom11.Controllers
             var product = await _context.Products
                 .Include(p => p.Brand)
                 .Include(p => p.ProductCategory)
+                .Include(p => p.Shop)
                 .FirstOrDefaultAsync(m => m.ProductId == ma);
             if (product == null)
             {
