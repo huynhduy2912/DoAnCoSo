@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DoAnNhom11.Models;
+using static NuGet.Packaging.PackagingConstants;
+using Azure;
+using X.PagedList;
 
 namespace DoAnNhom11.Controllers
 {
@@ -18,16 +21,9 @@ namespace DoAnNhom11.Controllers
             _context = context;
         }
 
-        // GET: Shops
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Details(int? ma,int? page)
         {
-            var applicationDbContext = _context.Shops.Include(s => s.ShopCategories);
-            return View(await applicationDbContext.ToListAsync());
-        }
-
-        // GET: Shops/Details/5
-        public async Task<IActionResult> Details(int? ma)
-        {
+         
             if (ma == null)
             {
                 return NotFound();
@@ -39,121 +35,26 @@ namespace DoAnNhom11.Controllers
             {
                 return NotFound();
             }
+            
             var listProductByShop = await _context.Products
                .Where(p => p.ShopId == ma).AsNoTracking().ToListAsync();
-            ViewBag.ProductList = listProductByShop;
-            return View(shop);
-        }
 
-        // GET: Shops/Create
-        public IActionResult Create()
-        {
-            ViewData["ShopCategoryId"] = new SelectList(_context.ShopCategories, "ShopCategoryId", "ShopCategoryId");
-            return View();
-        }
-
-        // POST: Shops/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ShopId,TenCuaHang,DiaChi,LienHe,AnhDaiDien,AnhBia,NgayTao,MoTa,ShopCategoryId")] Shop shop)
-        {
-            if (ModelState.IsValid)
+            int totalQuantitySold = 0;
+            foreach (var product in listProductByShop)
             {
-                _context.Add(shop);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                totalQuantitySold += _context.OrderDetails.Where(o => o.ProductId == product.ProductId).Sum(o => o.Quantity);
             }
-            ViewData["ShopCategoryId"] = new SelectList(_context.ShopCategories, "ShopCategoryId", "ShopCategoryId", shop.ShopCategoryId);
-            return View(shop);
-        }
+            
 
-        // GET: Shops/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            int pageSize = 8;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            PagedList<Product> listProductByShopAndPage = new PagedList<Product>(listProductByShop, pageNumber, pageSize);
 
-            var shop = await _context.Shops.FindAsync(id);
-            if (shop == null)
-            {
-                return NotFound();
-            }
-            ViewData["ShopCategoryId"] = new SelectList(_context.ShopCategories, "ShopCategoryId", "ShopCategoryId", shop.ShopCategoryId);
-            return View(shop);
-        }
-
-        // POST: Shops/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ShopId,TenCuaHang,DiaChi,LienHe,AnhDaiDien,AnhBia,NgayTao,MoTa,ShopCategoryId")] Shop shop)
-        {
-            if (id != shop.ShopId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(shop);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ShopExists(shop.ShopId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["ShopCategoryId"] = new SelectList(_context.ShopCategories, "ShopCategoryId", "ShopCategoryId", shop.ShopCategoryId);
-            return View(shop);
-        }
-
-        // GET: Shops/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var shop = await _context.Shops
-                .Include(s => s.ShopCategories)
-                .FirstOrDefaultAsync(m => m.ShopId == id);
-            if (shop == null)
-            {
-                return NotFound();
-            }
+            ViewBag.TotalQuantitySold = totalQuantitySold;
+            ViewBag.ProductQuantity = listProductByShop.Count();
+            ViewBag.ProductList = listProductByShopAndPage;
 
             return View(shop);
-        }
-
-        // POST: Shops/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var shop = await _context.Shops.FindAsync(id);
-            if (shop != null)
-            {
-                _context.Shops.Remove(shop);
-            }
-
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
         }
 
         private bool ShopExists(int id)

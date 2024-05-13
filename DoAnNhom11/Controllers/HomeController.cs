@@ -16,10 +16,11 @@ namespace DoAnNhom11.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Products.Include(p => p.Brand).Include(p => p.ProductCategory).Take(12).OrderByDescending(p => p.PhanTramGiam);
-            ViewBag.itemShow1 = _context.Products.OrderBy(p => p.GiaBan).FirstOrDefault();
-            ViewBag.itemShow2 = _context.Products.OrderByDescending(p => p.ProductId).FirstOrDefault();
-            ViewBag.itemShow3 = _context.Products.OrderByDescending(p => p.PhanTramGiam).FirstOrDefault();
-
+            List<Product> listItemShow = new List<Product>();
+            listItemShow.Add(_context.Products.OrderBy(p => p.GiaBan).FirstOrDefault());
+            listItemShow.Add(_context.Products.OrderByDescending(p => p.ProductId).FirstOrDefault());
+            listItemShow.Add(_context.Products.OrderByDescending(p => p.PhanTramGiam).FirstOrDefault());
+            ViewBag.listItemShow=listItemShow;
             return View(await applicationDbContext.ToListAsync());
         }
 

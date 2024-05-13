@@ -4,7 +4,8 @@
     {
         public int ReviewsImageId { get; set; }
         public string Url{ get; set; }
-        public int ProductReviewsId { get; set; }
+        public int ReviewsId { get; set; }
         public Reviews? Reviews { get; set; }
+
     }
 }

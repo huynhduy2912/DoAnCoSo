@@ -4,6 +4,8 @@
     ViewData["Title"] = "Home";
     ViewBag.Size = 3;
 }
+<link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+
 <title>@ViewData["Title"]</title>
 
 <section id="slider">
@@ -13,56 +15,28 @@
             <div class="col-sm-12">
                 <div id="slider-carousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#slider-carousel" data-slide-to="1"></li>
-                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                        @for (int i = 0; i < ViewBag.listItemShow.Count; i++)
+                        {
+                            <li data-target="#slider-carousel" data-slide-to="0" class="@(i ==0 ? "active " : " ")"></li>
+
+                        }                     
                     </ol>
                     <div class="carousel-inner">
-                        @{
-                            Product itemShow1 = ViewBag.itemShow1;
-                        }
-                        <div class="item active">
-                            <div class="col-sm-6">
-                                <h1><span>TECH</span>SHOP</h1>
-                                <h2>@itemShow1.TenSp</h2>
-                                <p>@itemShow1.MoTa </p>
-                                <a asp-controller="Products" asp-action="Details" asp-route-ma="@itemShow1.ProductId" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Xem Chi Tiết</a>
+                        @for (int i = 0; i < ViewBag.listItemShow.Count; i++)
+                        {
+                            <div class="item @(i ==0 ? "active " : " ")">
+                                <div class="col-sm-6">
+                                    <h1><span>TECH</span>SHOP</h1>
+                                    <h2>@ViewBag.listItemShow[i].TenSp</h2>
+                                    <p>@ViewBag.listItemShow[i].ThongSo </p>
+                                    <a asp-controller="Products" asp-action="Details" asp-route-ma="@ViewBag.listItemShow[i].ProductId" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Xem Chi Tiết</a>
 
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="@ViewBag.listItemShow[i].AnhDaiDien" class="girl img-responsive" alt="" style="width: 90%; height: 90%;" />
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <img src="@itemShow1.AnhDaiDien" class="girl img-responsive" alt="" style="width: 90%; height: 90%;" />
-                            </div>
-                        </div>
-                        @{
-                            Product itemShow2 = ViewBag.itemShow2;
                         }
-                        <div class="item">
-                            <div class="col-sm-6">
-                                <h1><span>TECH</span>SHOP</h1>
-                                <h2>@itemShow2.TenSp</h2>
-                                <p>@itemShow2.MoTa </p>
-                                <a asp-controller="Products" asp-action="Details" asp-route-ma="@itemShow2.ProductId" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Xem Chi Tiết</a>
-
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="@itemShow2.AnhDaiDien" class="girl img-responsive" alt="" style="width: 90%; height: 90%;" />
-                            </div>
-                        </div>
-                        @{
-                            Product itemShow3 = ViewBag.itemShow3;
-                        }
-                        <div class="item">
-                            <div class="col-sm-6">
-                                <h1><span>TECH</span>SHOP</h1>
-                                <h2>@itemShow3.TenSp</h2>
-                                <p>@itemShow3.MoTa </p>
-                                <a asp-controller="Products" asp-action="Details" asp-route-ma="@itemShow3.ProductId" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Xem Chi Tiết</a>
-
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="@itemShow3.AnhDaiDien" class="girl img-responsive" alt="" style="width: 90%; height: 90%;" />
-                            </div>
-                        </div>
                     </div>
 
                     <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
@@ -93,88 +67,3 @@
             </div>
         </div>
 </section>
-<button id="openModalBtn">Mở Modal</button>
-
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Nhập tên và tuổi</h2>
-        <form id="myForm">
-            <label for="name">Tên:</label>
-            <input type="text" id="name" name="name"><br><br>
-            <label for="age">Tuổi:</label>
-            <input type="text" id="age" name="age"><br><br>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-</div>
-<style>
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .modal-content {
-        background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 40%;
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }</style>
-<script>
-    // Lấy phần tử modal
-    var modal = document.getElementById("myModal");
-
-    // Lấy nút mở modal
-    var btn = document.getElementById("openModalBtn");
-
-    // Lấy phần tử <span> đóng modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // Khi người dùng nhấn nút, mở modal
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
-
-    // Khi người dùng nhấn vào <span> (x), đóng modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    // Khi người dùng nhấn bất kỳ đâu bên ngoài modal, đóng modal
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-    // Xử lý form
-    document.getElementById("myForm").onsubmit = function (event) {
-        event.preventDefault(); // Ngăn chặn việc gửi form mặc định
-        var name = document.getElementById("name").value;
-        var age = document.getElementById("age").value;
-        console.log("Tên:", name, "Tuổi:", age);
-        modal.style.display = "none"; // Đóng modal sau khi submit
-    }
-</script>

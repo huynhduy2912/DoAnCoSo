@@ -20,8 +20,6 @@ namespace DoAnNhom11.Models
         [ValidateNever]
         public ApplicationUser? ApplicationUser { get; set; }
         public string UserId { get; set; }
-        
-
         public List<OrderDetail>? OrderDetails { get; set; }
     }
 }

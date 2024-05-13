@@ -185,8 +185,12 @@ namespace DoAnNhom11.Extensions
             {
                 OrderStatusId = 5,
                 TenTrangThai = "Đã Đã Thanh Toán Và Nhận Hàng"
+            },
+            new OrderStatus
+            {
+                OrderStatusId = 6,
+                TenTrangThai = "Đã Hủy Đơn"
             }
-
            );
 
             modelBuilder.Entity<Voucher>().HasData(new Voucher

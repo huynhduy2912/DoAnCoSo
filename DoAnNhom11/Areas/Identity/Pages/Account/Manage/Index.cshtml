@@ -7,9 +7,10 @@
 
 <h3>Thông tin cá nhân</h3>
 <partial name="_StatusMessage" for="StatusMessage" />
+<form id="profile-form" method="post" enctype="multipart/form-data">
+
 <div class="row">
     <div class="col-md-6">
-        <form id="profile-form" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
                 <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
@@ -37,10 +38,36 @@
             </div>
 
             <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-danger">Lưu Thông Tin</button>
-        </form>
+    </div>
+    <div class="col-md-4 text-center">
+            <img id="previewImage" src="@ViewData["Avatar"]" width="200" height="200" style="margin:20px;border-radius: 50%;">
+        <br />
+        <button type="button" id="openButton" onclick="openImageBox()" style="padding: 5px 10px;" class="btn btn-secondary"><icon class="fa fa-camera"></icon> Chọn Ảnh</button>
+        <div class="form-group">
+            <input type="file" name="imageUrl" class="form-control" id="imageInput" style="display:none;" />
+        </div>
     </div>
 </div>
+</form>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+<script>
+    document.getElementById('imageInput').addEventListener('change', function (event) {
+        var output = document.getElementById('previewImage');
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                output.src = e.target.result;
+            };
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
+    function openImageBox() {
+        document.getElementById('imageInput').click();
+    }
+
+</script>

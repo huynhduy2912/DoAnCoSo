@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Admin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TECHSHOP</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="@Url.Action("Index", "Home", new { area = "", folder = "Controllers" })">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Seller" asp-controller="Shops" asp-action="Index">Shops</a>
+                        </li>
+
+                    </ul>
+                    @Html.Partial("~/Areas/Seller/Views/Shared/SellerLoginPartial.cshtml")
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <nav class="vertical-nav">
+            <ul>
+                <li>
+                    <button class="btn-dropdown">
+                        <i class="fa fa-inbox"></i>
+                        <strong>Quản lý sản phẩm</strong>
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="submenu">
+                        <li><a asp-area="Seller" asp-controller="Shops" asp-action="Products" asp-route-page="1">Tất cả sản phẩm</a></li>
+                        <li><a asp-area="Seller" asp-controller="Shops" asp-action="AddProduct">Thêm Sản Phẩm</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="btn-dropdown">
+                        <i class="fa fa-list-alt"></i>
+                        <strong>Quản lý đơn hàng</strong>
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="submenu">
+                        <li><a href="#">Tất Cả</a></li>
+                        <li><a href="#">Đơn Hủy</a></li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <button class="btn-dropdown">
+                        <i class="fa fa-cog"></i>
+                        <strong>Thiết Lập Shop</strong>
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="submenu">
+                        <li><a asp-area="Seller" asp-controller="Shops" asp-action="Edit" asp-route-id="1">Thông tin shop</a></li>
+                        <li><a href="#">Nhân viên</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="btn-dropdown">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <strong>Dữ liệu</strong>
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="submenu">
+                        <li><a href="#">Phân tích bán hàng</a></li>
+                        <li><a href="#">Doanh thu</a></li>
+                        <li><a href="#">Số dư</a></li>
+                    </ul>
+                </li>            
+            </ul>
+        </nav>
+        <div class="main-content">
+            @RenderBody()
+        </div>
+
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+<style>
+    .btn-dropdown {
+        background: none;
+        border: none;
+    }
+    header {
+        position: sticky;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        top: 0;
+    }
+    .vertical-nav {
+        position: fixed;
+        left: 0;
+        width: 225px;
+        height: calc(100% - 100px); 
+        background-color: white;
+        color: #333;
+        padding: 20px;
+        z-index: 1000;
+        overflow-y: auto; /* Tạo thanh cuộn dọc nếu nội dung vượt quá kích thước */
+    }
+
+        .vertical-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .vertical-nav li {
+            margin-bottom: 10px;
+        }
+
+        .vertical-nav a {
+            color: black;
+            text-decoration: none;
+        }
+
+    .main-content {
+        margin-left: 200px;
+    }
+
+    .submenu {
+        display: block;
+        padding-left: 20px;
+    }
+
+        .submenu li {
+            margin-bottom: 5px;
+            margin-left: 10px;
+        }
+
+        .submenu a {
+            color: black;
+            text-decoration: none;
+        }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuItems = document.querySelectorAll('.vertical-nav > ul > li');
+        menuItems.forEach(function (menuItem) {
+            const buttondropdown = menuItem.querySelector('.btn-dropdown');
+            buttondropdown.addEventListener('click', function () {
+                const submenu = menuItem.querySelector('.submenu');
+                const iconupdown = menuItem.querySelector('.fa fa-angle-up');
+                if (submenu) {
+                    if (submenu.style.display === 'none') {
+                        submenu.style.display = 'block';
+                    } else {
+                        submenu.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+</script>

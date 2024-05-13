@@ -23,6 +23,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Reviews.Include(r => r.Product).Include(r => r.Customer);
+
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -33,7 +34,8 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
+            var reviewImage = _context.ReviewsImage.Where(p => p.ReviewsId == id).ToList();
+            ViewBag.reviewImage = reviewImage;
             var reviews = await _context.Reviews
                 .Include(r => r.Product)
                 .FirstOrDefaultAsync(m => m.ReviewsId == id);

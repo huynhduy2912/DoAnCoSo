@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using DoAnNhom11.Models;
+using DoAnNhom11.Extensions;
 
 namespace DoAnNhom11.Areas.Identity.Pages.Account.Manage
 {
@@ -61,6 +62,7 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
             public string FullName { get; set; }
+            public string Avatar { get; set; }
             public string Address { get; set; }
             [EmailAddress]
             public string Email { get; set; }
@@ -73,6 +75,7 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account.Manage
             var email = await _userManager.GetEmailAsync(user);
             var fullName = user.FullName;
             var address = user.Address;
+            var avatar = user.Avatar;
             Username = userName;
 
 
@@ -81,7 +84,8 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account.Manage
                 Email = email,
                 Address = address,
                 FullName = fullName,
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                Avatar = avatar
             };
         }
 
@@ -92,12 +96,12 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account.Manage
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
-
+            ViewData["Avatar"] = user.Avatar;
             await LoadAsync(user);
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(IFormFile imageUrl)
         {
             var user = await _userManager.GetUserAsync(User);
 
@@ -111,7 +115,12 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account.Manage
                 await LoadAsync(user);
                 return Page();
             }
+            if (imageUrl != null&& user.Avatar != ("/images/" + imageUrl.FileName))
+            {
+                user.Avatar = await UploadImage.SaveImage(imageUrl);
+                var result = await _userManager.UpdateAsync(user);
 
+            }
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != phoneNumber)
             {

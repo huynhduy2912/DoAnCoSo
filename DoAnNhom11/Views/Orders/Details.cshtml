@@ -40,28 +40,50 @@
                                 <p class="cart_total_price" id="totalPrice">@StringFormat.CurrencyFormat(item.Price * item.Quantity)</p>
                             </td>
                             <td>
-                                @if (Model.OrderStatusId == 5&&item.IsReview!=1)
+                                @if (Model.OrderStatusId == 5)
                                 {
-                                    <button onclick="openForm(@item.ProductId)" id="openModalBtn" type="submit" class="btn btn-danger">Đánh Giá</button>
+                                    if (item.IsReview != 1)
+                                    {
+                                        <button onclick="openForm(@item.ProductId)" id="openModalBtn" type="button" class="btn btn-fefault cart">Đánh Giá</button>
 
-                                    <div id="myModal-@item.ProductId" class="modal">
-                                        <div class="modal-content">
-                                            <span onclick="closeForm(@item.ProductId)" class="close">&times;</span>
-                                            <form asp-controller="Orders" asp-action="AddReviews" asp-route-productId="@item.ProductId" asp-route-orderId="@item.OrderId">
-                                                <label for="diem">Điểm:</label>
-                                                <input id="diem" type="number" min="0" max="5" name="diem" required /><strong>/5</strong><br />
-                                                <label for="noiDung">Nội Dung:</label>
-                                                <textarea rows="4" cols="50" id="textNoiDung" name="noiDung"></textarea>
+                                        <div id="myModal-@item.ProductId" class="modal">
+                                            <div class="modal-content">
+                                                <span onclick="closeForm(@item.ProductId)" class="close">&times;</span>
+                                                <form asp-controller="Orders" asp-action="AddReviews" asp-route-productId="@item.ProductId" asp-route-orderId="@item.OrderId" method="post" enctype="multipart/form-data">
+                                                    <label for="diem">Điểm:</label>
+                                                    <input id="diem" type="number" min="0" max="5" name="diem" required /><strong>/5</strong>
+                                                    <br />
+                                                    <label for="noiDung">Nội Dung:</label>
+                                                    <textarea rows="4" cols="50" id="textNoiDung" name="noiDung"></textarea>
+                                                    <br />
 
-                                                <button type="submit" class="btn btn-danger">
-                                                    Submit
-                                                </button>
-                                            </form>
+                                                    <label>Ảnh Mô Tả(tối đa 5):</label>
+                                                    <input type="file" id="files" name="myFile" multiple accept="image/*" onchange="limitFiles(this, 5)">
 
+                                                    <div id="preview">
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                    </div>
+                                                    <br />
+
+                                                    <button style="float: right;" type="submit" class="btn btn-danger">
+                                                        Hoàn Thành
+                                                    </button>
+                                                </form>
+
+                                            </div>
                                         </div>
-                                    </div>
+                                    }
+                                    <button type="button" class="btn btn-fefault cart">
+                                        <a a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@item.ProductId" asp-route-quantity="1" style="color:white" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'">Mua Lại</a>
+                                    </button>
                                 }
+                                
                             </td>
+                            
                         </tr>
                         
                     }      
@@ -133,18 +155,21 @@
 
 <style>
     .modal {
+        width:100%;
+        height:100%;
         display: none;
         position: fixed;
         z-index: 1;
         left: 0;
         top: 0;
-        width: 100%;
-        height: 100%;
         overflow: auto;
         background-color: rgba(0, 0, 0, 0.5);
     }
 
     .modal-content {
+        width:400px;
+        height:400px;
+        overflow-y: auto;
         background-color: #fefefe;
         margin: 15% auto;
         padding: 20px;
@@ -188,5 +213,32 @@
             // Ẩn phần tử nếu tìm thấy
             firstBlockElement.style.display = "none";
         }        
+    }
+    document.getElementById('files').addEventListener('change', function (event) {
+        var files = event.target.files;
+        var preview = document.getElementById('preview');
+
+        preview.innerHTML = '';
+
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            var reader = new FileReader();
+
+            reader.readAsDataURL(file);
+
+            reader.onload = function (e) {
+                var img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.maxWidth = '100px';
+                img.style.maxHeight = '100px';
+                preview.appendChild(img);
+            }
+        }
+    });
+    function limitFiles(input, maxFiles) {
+        if (input.files.length > maxFiles) {
+            alert("Bạn chỉ có thể chọn tối đa " + maxFiles + " tệp!");
+            input.value = '';
+        }
     }
 </script>

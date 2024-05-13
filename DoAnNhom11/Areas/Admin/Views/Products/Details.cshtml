@@ -84,6 +84,10 @@
 
     </dl>
 </div>
+@foreach (var item in Model.Images)
+{
+    <img src="@item.Url" width=" 100" />
+}
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.ProductId">Edit</a> |
     <a asp-action="Index">Back to List</a>

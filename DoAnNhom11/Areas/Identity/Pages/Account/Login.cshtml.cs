@@ -15,17 +15,21 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.General;
 
 namespace DoAnNhom11.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
+            _userManager = userManager;
             _logger = logger;
         }
 
@@ -114,6 +118,12 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    var user = await _userManager.FindByNameAsync(Input.UserName);
+                    var roles = await _userManager.GetRolesAsync(user);
+                    /*if (roles.Contains("Admin"))
+                    {
+                        return RedirectToPage("/Index", new { area = "Admin" });
+                    }*/
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }

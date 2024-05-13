@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Azure;
 using X.PagedList;
+using DoAnNhom11.Extensions;
 
 namespace DoAnNhom11.Controllers
 {
@@ -125,14 +126,14 @@ namespace DoAnNhom11.Controllers
             if (order != null)
             {
 
-                _context.Orders.Remove(order);
+                order.OrderStatusId = 6;
             }
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddReviews(string? noiDung,int diem,int productId,int orderId)
+        public async Task<IActionResult> AddReviews(string? noiDung,int diem,int productId,int orderId, List<IFormFile> myFile)
         {
 
             Reviews reviews =new Reviews();
@@ -144,13 +145,35 @@ namespace DoAnNhom11.Controllers
             reviews.CustomerId= user.Id;
             if (ModelState.IsValid)
             {
+                
                 var order = await _context.OrderDetails.Where(p => p.OrderId == orderId && p.ProductId == productId).FirstOrDefaultAsync();
                 order.IsReview = 1;
                 _context.Add(reviews);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (myFile != null)
+                {
+                    foreach (var file in myFile)
+                    {
+                        if (file.Length > 0)
+                        {
+                            using (var memoryStream = new MemoryStream())
+                            {
+                                await file.CopyToAsync(memoryStream);
+                                var image = new ReviewsImage
+                                {
+                                    Url = await UploadImage.SaveImage(file),
+                                    ReviewsId = reviews.ReviewsId
+                                };
+                                _context.ReviewsImage.Add(image);
+                                await _context.SaveChangesAsync();
+                            }
+                        }
+                    }
+                }
+                return RedirectToAction("Details", "Products", new { ma = productId });
+
             }
-            return View(reviews);
+            return Content("Lỗi");
         }
         private bool OrderExists(int id)
         {

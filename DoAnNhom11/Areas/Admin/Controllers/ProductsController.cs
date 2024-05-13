@@ -63,7 +63,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
         public IActionResult Create()
         {
             ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "TenNhanHieu");
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "TenLoai");
+            ViewData["ProductCategoryId"] = new SelectList(_context.Categories, "ProductCategoryId", "TenLoai");
             return View();
         }
 
@@ -105,7 +105,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandId", product.BrandId);
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.ProductCategoryId);
+            ViewData["ProductCategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.ProductCategoryId);
             return View(product);
         }
         // GET: Admin/Products/Edit/5
@@ -124,7 +124,8 @@ namespace DoAnNhom11.Areas.Admin.Controllers
                 return NotFound();
             }
             ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "TenNhanHieu", product.BrandId);
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "TenLoai", product.ProductCategoryId);
+            ViewData["ShopId"] = new SelectList(_context.Shops, "ShopId", "TenCuaHang", product.BrandId);
+            ViewData["ProductCategoryId"] = new SelectList(_context.Categories, "ProductCategoryId", "TenLoai", product.ProductCategoryId);
             return View(product);
         }
 

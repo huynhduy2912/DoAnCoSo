@@ -3,19 +3,33 @@
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@{
+    var user = await UserManager.GetUserAsync(User);
 
+}
 
 @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
 {
     <li class="nav-item">
-        <a id="manage" class="nav-link text-dark" asp-area="Admin" asp-controller="Products" asp-action="Index">Trang Admin</a>
+        <a style="color:red" id="manage" class="nav-link text-dark" asp-area="Admin" asp-controller="Products" asp-action="Index">.....</a>
     </li>
-    @* <li class="nav-item">
-        <a id="manage" class="nav-link text-dark"  asp-controller="Orders" asp-action="OrderManager">Quản Lý Đơn Hàng</a>
-    </li> *@
+    <li class="nav-item">
+        <a style="color:red" id="manage" class="nav-link text-dark" asp-area="Seller" asp-controller="Shops" asp-action="Products" asp-route-page="1">___</a>
+    </li>
 
     <li class="nav-item">
-        <a id="manage" class="nav-link text-dark" title="Manage">Xin chào @UserManager.GetUserName(User)!</a>
+        <div>
+            @* @if (user.Avatar != null)
+            {
+                <img style="border-radius:50%;" width="30" height="30" src="@user.Avatar" />
+            }
+            else
+            {
+                <img style="border-radius:50%;" width="30" height="30" src="~/myLayout/images/home/avataruser.jpg" />
+
+            } *@
+            <a id="manage" class="nav-link text-dark" title="Manage">@UserManager.GetUserName(User)</a>
+        </div>
     </li>
     <li class="nav-item">
         <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

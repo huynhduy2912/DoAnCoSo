@@ -60,11 +60,9 @@ namespace DoAnNhom11.Controllers
         }
         public async Task<IActionResult> Details(int ma)
         {
-            var productReviews = _context.Reviews.Where(p => p.ProductId == ma).Include(r => r.Customer).Include(r => r.Product).ToList();
-            ViewBag.productReviews = productReviews;
+            
             var productImages = _context.ProducImages.Where(p => p.ProductId == ma).ToList();
             ViewBag.productImages = productImages;
-            ViewBag.productImagesCount = productImages.Count;
             var product = await _context.Products
                 .Include(p => p.Brand)
                 .Include(p => p.ProductCategory)
@@ -74,7 +72,12 @@ namespace DoAnNhom11.Controllers
             {
                 return NotFound();
             }
-
+            var productReviews = await _context.Reviews.Where(p => p.ProductId == ma).Include(r => r.Customer).Include(r => r.Product).ToListAsync();
+            foreach (var productReview in productReviews)
+            {
+                var reviewImage = _context.ReviewsImage.Where(p => p.ReviewsId == productReview.ReviewsId).ToList();                
+            }
+            ViewBag.productReviews = productReviews;
             return View(product);
         }
 

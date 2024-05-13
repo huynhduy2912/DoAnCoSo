@@ -40,6 +40,21 @@ namespace DoAnNhom11.Models
             .HasOne(p => p.Brand)
             .WithMany(b => b.Products)
             .HasForeignKey(p => p.BrandId);
+            // Shop
+            modelBuilder.Entity<Product>()
+            .HasOne(p => p.Shop)
+            .WithMany(b => b.Products)
+            .HasForeignKey(p => p.ShopId);
+            // Shop
+            modelBuilder.Entity<Order>()
+            .HasOne(p => p.OrderStatus)
+            .WithMany(b => b.Orders)
+            .HasForeignKey(p => p.OrderStatusId);
+            // Shop
+            modelBuilder.Entity<Shop>()
+            .HasOne(p => p.ShopCategories)
+            .WithMany(b => b.Shops)
+            .HasForeignKey(p => p.ShopCategoryId);
 
             // Orders
             modelBuilder.Entity<Order>()
@@ -62,7 +77,7 @@ namespace DoAnNhom11.Models
             .HasForeignKey(p => p.ProductId);
            
             
-            //DataSeed.Seed(modelBuilder);
+            DataSeed.Seed(modelBuilder);
 
         }
         public DbSet<DoAnNhom11.Models.VoucherCategory> VoucherCategory { get; set; } = default!;

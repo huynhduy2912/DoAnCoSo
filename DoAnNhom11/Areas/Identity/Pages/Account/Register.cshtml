@@ -4,11 +4,12 @@
     ViewData["Title"] = "Register";
 }
 
+<form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" enctype="multipart/form-data">
 
-<div class="row justify-content-center">
-    <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Đăng ký tài khoản mới</h2>
+    <div class="row justify-content-center">
+        <h2 style="text-align: center;">Đăng ký tài khoản mới</h2>
+
+        <div class="col-md-4">
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
@@ -42,12 +43,36 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-danger">Đăng ký</button>
-        </form>
+        </div>
+        <div class="col-md-4 text-center">
+            <img id="previewImage" src="~/myLayout/images/home/avataruser.jpg" width="200" height="200" style="margin:20px;border-radius: 50%;">
+            <br />
+            <button type="button" id="openButton" onclick="openImageBox()" style="padding: 5px 10px;" class="btn btn-secondary"><icon class="fa fa-camera"></icon> Chọn Ảnh</button>
+            <div class="form-group">
+                <input type="file" asp-for="Input.Avatar" name="imageUrl" class="form-control" id="imageInput" style="display:none;" />
+            </div>
+        </div>
     </div>
-
-</div>
-</div>
+</form>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+<script>
+    document.getElementById('imageInput').addEventListener('change', function (event) {
+        var output = document.getElementById('previewImage');
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                output.src = e.target.result;
+            };
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
+    function openImageBox() {
+        document.getElementById('imageInput').click();
+    }
+
+</script>

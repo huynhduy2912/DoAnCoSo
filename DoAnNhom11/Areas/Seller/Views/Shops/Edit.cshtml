@@ -1,0 +1,120 @@
+﻿@model DoAnNhom11.Models.Shop
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 align="center">Thiết lập thông tin cửa hàng</h1>
+<hr />
+<form asp-action="Edit" enctype="multipart/form-data">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ShopId" />
+            <div class="form-group">
+                <label asp-for="TenCuaHang" class="control-label"><strong>Tên Cửa Hàng</strong></label>
+                <input asp-for="TenCuaHang" class="form-control" />
+                <span asp-validation-for="TenCuaHang" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiaChi" class="control-label"><strong>Địa Chỉ</strong></label>
+                <input asp-for="DiaChi" class="form-control" />
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LienHe" class="control-label"><strong>Liên Hệ</strong></label>
+                <input asp-for="LienHe" class="form-control" />
+                <span asp-validation-for="LienHe" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="AnhDaiDien" class="control-label"><strong></strong></label>
+                <input asp-for="AnhDaiDien" class="form-control" />
+                <span asp-validation-for="AnhDaiDien" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="AnhBia" class="control-label"><strong></strong></label>
+                <input asp-for="AnhBia" class="form-control" />
+                <span asp-validation-for="AnhBia" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="display:none">
+                <label asp-for="NgayTao" class="control-label"><strong></strong></label>
+                <input asp-for="NgayTao" class="form-control" />
+                <span asp-validation-for="NgayTao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoTa" class="control-label"><strong>Mô Tả Shop</strong></label>
+                <input asp-for="MoTa" class="form-control" />
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShopCategoryId" class="control-label"><strong>Loại Shop</strong></label>
+                <select asp-for="ShopCategoryId" class="form-control" asp-items="ViewBag.ShopCategoryId"></select>
+                <span asp-validation-for="ShopCategoryId" class="text-danger"></span>
+            </div>
+           
+        </div>
+        <div class="col-md-4 text-center" >
+            <div class="form-group" align="center">
+                <label asp-for="AnhDaiDien"><strong>Ảnh Đại Diện</strong></label>
+                <input type="file" asp-for="AnhDaiDien" name="imageAvatar" class="form-control" id="imageAvatar" style="display:none"/>
+                <br />
+                <img src="@Model.AnhDaiDien" id="previewAvatar" style="width:100px;height:100px;border-radius:50%;" alt="Image preview" />
+                <br />
+                <button type="button" id="openAvatarButton" onclick="openImageBox('imageAvatar')" style="padding: 5px 10px;" class="btn btn-secondary"><icon class="fa fa-camera"></icon> Chọn Ảnh Đại Diện</button>
+
+            </div>
+            <div class="form-group" align="center">
+                <label asp-for="AnhBia"><strong>Ảnh Bìa</strong></label>
+                <input type="file" asp-for="AnhBia" name="imageBackground" class="form-control" id="imageBackground" style="display:none" />
+                <br />
+                <img src="@Model.AnhBia" id="previewBackground" style="height:200px;" alt="Image preview"/>
+                <br />
+                <button type="button" id="openBackgroundButton" onclick="openImageBox('imageBackground')" style="padding: 5px 10px;" class="btn btn-secondary"><icon class="fa fa-camera"></icon> Chọn Ảnh Bìa</button>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group" align="center">
+        <input type="submit" value="Lưu" class="btn btn-primary" />
+    </div>
+</form>
+
+
+<script>
+    document.getElementById('imageAvatar').addEventListener('change', function (event) {
+        var output = document.getElementById('previewAvatar');
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                output.src = e.target.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+    document.getElementById('imageBackground').addEventListener('change', function (event) {
+        var output = document.getElementById('previewBackground');
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                output.src = e.target.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+    function openImageBox(buttonId) {
+        document.getElementById(buttonId).click();
+    }
+</script>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

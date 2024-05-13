@@ -15,13 +15,11 @@ namespace DoAnNhom11.Controllers
     [Authorize]
     public class ShoppingCartController : Controller
     {
-       // private static IHttpContextAccessor _httpContextAccessor;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         public ShoppingCartController(UserManager<ApplicationUser> userManager,
-			ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
+			ApplicationDbContext context)
         {
-            //_httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
             _context= context;
             _userManager= userManager;
 

@@ -16,22 +16,23 @@
         background-position: center;
         background-color: rgba(0, 0, 0, 0.1); /* Màu nền xám nhạt với độ mờ 30% */
     }
-    .avatar img{
+
+    .avatar img {
         flex: 0 0 100px;
         height: 100px;
         border-radius: 50%;
         background-color: #ccc;
         border: 2px solid #ccc;
-        margin-left:20px;
+        margin-left: 20px;
     }
 
-    .content {
+    .my-content {
         flex: 1;
         padding: 20px;
     }
 
     .text {
-        color:black;
+        color: black;
         font-size: 18px;
         margin-bottom: 10px;
     }
@@ -46,7 +47,56 @@
         cursor: pointer;
     }
 
+
+
+    .product {
+        align-items: flex-start;
+        border-bottom: 1px solid rgba(0, 0, 0, .09);
+        display: flex;
+        padding: 1rem 0 1rem 1.25rem;
+    }
+
+    .user-avatar2 {
+        margin-right: 20px;
+        text-align: center;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    .user-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+    }
+
+    div.stars {
+        width: 270px;
+    }
+
+    .stars i {
+        color: #feb60f;
+    }
+
+    .op1 {
+        font-size: 14px;
+        line-height: 20px;
+        color: rgba(0, 0, 0, 0.87);
+        word-break: break-word;
+        white-space: pre-wrap;
+        opacity: .8;
+    }
+
+    .op2 {
+        color: rgba(0, 0, 0, .54);
+        font-size: 13px;
+        margin-bottom: .9375rem;
+        margin-top: .25rem;
+    }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
 <div class="product-details">
     <!--product-details-->
     <div class="col-sm-5">
@@ -57,12 +107,12 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                @for (int j = 0; j < ViewBag.productImagesCount; j += 3)
+                @for (int j = 0; j < ViewBag.productImages.Count; j += 3)
                 {
                     @if (first == true)
                     {
                         <div class="item active">
-                            @for (int i = 0; i < ViewBag.productImagesCount; i++)
+                            @for (int i = 0; i < ViewBag.productImages.Count; i++)
                             {
                                 if (i != (j + 3))
                                 {
@@ -79,7 +129,7 @@
                     else
                     {
                         <div class="item">
-                            @for (int i = j; i < ViewBag.productImagesCount; i++)
+                            @for (int i = j; i < ViewBag.productImages.Count; i++)
                             {
                                 if (i != (j + 3))
                                 {
@@ -133,7 +183,7 @@
 <div>
     <div class="mycontainer" style="background-image:@Model.Shop.AnhBia">
         <div class="avatar"><img src="@Model.Shop.AnhDaiDien" alt="Avatar"></div>
-        <div class="content">
+        <div class="my-content">
             <div class="text">@Model.Shop.TenCuaHang</div>
             <button type="button" class="my-button">
                 <a asp-controller="Shops" asp-action="Details" asp-route-ma="@Model.ShopId" style="color:white" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'">Xem Shop</a>
@@ -143,32 +193,31 @@
 </div>
 <hr />
 <h1>ĐÁNH GIÁ SẢN PHẨM</h1>
+<hr />
 @if (ViewBag.productReviews.Count > 0)
 {
     @foreach (var item in ViewBag.productReviews)
     {
-       
-        <div class="row">
-            <p>
-                <b>@item.Customer.FullName</b>
-            </p>
-            <p>
-                Điểm: @for (int i = 0; i < item.DiemDanhGia; i++)
-                {
-                   <span>*</span>
-                }
-            </p>
-            <p>
-                @item.NoiDung
-            </p>
 
-            <p>
-                @StringFormat.DateFormat( item.ThoiGianDanhGia)
-            </p>
+        <div class="product">
 
+            <div class="user-avatar2"><img class="user-avatar" src="@item.Customer.Avatar" alt=""></div>
+            <div class="content">
+                <p>
+                    <b>@item.Customer.FullName</b>
+                </p>
+                <div class="stars">
+                    @for (int i = 0; i < 5; i++)
+                    {
+                        <i class="fa-@(i < item.DiemDanhGia ? "solid " : "regular ") fa-star"></i>
+                    }
+                </div>
 
+                <p class="op2"> @StringFormat.DateFormat(item.ThoiGianDanhGia)</p>
+                <p class="op1">Đúng với mô tả: Đúng</p>
+                <p>@item.NoiDung</p>
+            </div>
         </div>
-        <hr />
     }
 
 }
@@ -176,6 +225,7 @@ else
 {
     <p>Chưa có đánh giá nào</p>
 }
+
 
 <script>
     function removeNegative() {

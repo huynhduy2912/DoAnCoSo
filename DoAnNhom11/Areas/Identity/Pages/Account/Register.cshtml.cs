@@ -83,6 +83,7 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account
             public string FullName { get; set; }
             [Required]
             public string Address { get; set; }
+            public string Avatar { get; set; }
             [Required]
             public string UserName { get; set; }
             [Required]
@@ -117,7 +118,7 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null, IFormFile imageUrl=null)
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -129,6 +130,10 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account
                     await _roleManager.CreateAsync(new IdentityRole(RoleAccountRegister.Role));
                 }
                 await _userManager.AddToRoleAsync(user, RoleAccountRegister.Role);
+                if (imageUrl != null)
+                {
+                    user.Avatar = await UploadImage.SaveImage(imageUrl);
+                }
                 user.FullName = Input.FullName;
                 user.Address = Input.Address;
                 user.UserName = Input.UserName;
