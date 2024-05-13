@@ -3,6 +3,7 @@
 @{
     decimal tong = 0;
 }
+<strong style="padding-left:20px;color:red">@Model.shopName</strong>
 <section id="cart_items">
     <div class="container">
 <div class="table-responsive cart_info">
@@ -35,7 +36,7 @@
                     <td>
                         <div>
                             <div class="form-group">
-                                <input id="txtQuantity_@item.ProductId" onchange="updateCart(@item.ProductId)" type="number" min="1" name="txtQuantity" value="@item.Quantity" style="width:100" oninput="removeNegativeSign(@item.ProductId)" />
+                                        <input id="txtQuantity_@item.ProductId" onchange="updateCart(@item.ProductId,'@Model.shopName')" type="number" min="1" name="txtQuantity" value="@item.Quantity" style="width:100px" oninput="removeNegativeSign(@item.ProductId)" />
                             </div>
                         </div>
                     </td>
@@ -43,7 +44,7 @@
                         <p class="cart_total_price" id="totalPrice">@StringFormat.CurrencyFormat((int)(item.Price * item.Quantity))</p>
                     </td>
                     <td class="cart_delete">
-                        <a class="cart_quantity_delete" asp-action="RemoveFromCart" asp-route-productId="@item.ProductId"><i class="fa fa-times"></i></a>
+                        <a class="cart_quantity_delete" asp-action="RemoveFromCart" asp-route-productId="@item.ProductId" asp-route-shopName="@Model.shopName"><i class="fa fa-times"></i></a>
                     </td>
                 </tr>
             }

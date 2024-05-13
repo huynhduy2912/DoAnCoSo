@@ -24,13 +24,15 @@ namespace DoAnNhom11.Controllers
             _userManager= userManager;
 
         }
-        public async Task<IActionResult> CheckOut()
+        public async Task<IActionResult> CheckOut(string shopName)
         {
             var applicationDbContext = _context.Vouchers.Include(v => v.VoucherCategory);
             ViewBag.Voucher = applicationDbContext;
             ViewData["VoucherName"] = new SelectList(_context.Vouchers, "VoucherId", "VoucherCode");
             ViewData["Payment"] = new SelectList(_context.Payments, "PaymentId", "TenLoai");
-            var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart") ?? new ShoppingCart();
+
+            var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();
+            var cart = GetShoppingCartByShopId(listCart, shopName);
             ViewBag.Cart = cart;
             var user = await _userManager.GetUserAsync(User);
             ViewBag.Address = user.Address;
@@ -38,9 +40,10 @@ namespace DoAnNhom11.Controllers
             return View(new Order());
         }
         [HttpPost]
-        public async Task<IActionResult> CheckOut(Order order)
+        public async Task<IActionResult> CheckOut(Order order,string shopName)
         {
-            var cart =HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
+            var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();
+            var cart = GetShoppingCartByShopId(listCart, shopName);
             if (cart == null || !cart.Items.Any())
             {
                 return RedirectToAction("Index");
@@ -75,7 +78,8 @@ namespace DoAnNhom11.Controllers
 
 
             await _context.SaveChangesAsync();
-            HttpContext.Session.Remove("Cart");
+            listCart.Remove(cart);
+            HttpContext.Session.SetObjectAsJson("Cart", listCart);
             return RedirectToAction("Details","Orders", new { ma = order.OrderId });
         }
         public async Task<IActionResult> AddToCart(int productId, int quantity)
@@ -91,10 +95,42 @@ namespace DoAnNhom11.Controllers
 
             };
             //lưu sản phẩm trong giỏ hàng vào trong session
-            var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart") ?? new ShoppingCart();
-            cart.AddItem(cartItem);
-            HttpContext.Session.SetObjectAsJson("Cart", cart);
+            var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();
+            if (listCart.Count < 1)
+            {
+                ShoppingCart newShoppingCart = new ShoppingCart();
+                newShoppingCart.shopName = product.Shop.TenCuaHang;
+                newShoppingCart.AddItem(cartItem);
+                listCart.Add(newShoppingCart);
+            }
+            else
+            {
+                if (isShopExist(listCart,product.Shop.TenCuaHang,cartItem)) {
+                    HttpContext.Session.SetObjectAsJson("Cart", listCart);
+                    return RedirectToAction("Index"); ;
+                }
+                else
+                {
+                    ShoppingCart newShoppingCart = new ShoppingCart();
+                    newShoppingCart.shopName= product.Shop.TenCuaHang;
+                    newShoppingCart.AddItem(cartItem);
+                    listCart.Add(newShoppingCart);
+                }
+            }
+            HttpContext.Session.SetObjectAsJson("Cart", listCart);
             return RedirectToAction("Index");
+        }
+        public bool isShopExist(List<ShoppingCart> listCart,string shopName,CartItem cartItem)
+        {
+            foreach (var item in listCart)
+            {
+                if (item.shopName == shopName)
+                {
+                    item.AddItem(cartItem);
+                    return true;
+                }
+            }
+            return false;
         }
         public ActionResult OrderCompleted()
         {
@@ -102,20 +138,50 @@ namespace DoAnNhom11.Controllers
         }
         public IActionResult Index()
         {
-            
-            var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart") ?? new ShoppingCart();
-            return View(cart);
+            var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();
+            return View(listCart);
         }
-        public IActionResult RemoveFromCart(int productId)
+        public ShoppingCart? GetShoppingCartByShopId(List<ShoppingCart> listCart,string shopName)
         {
-            var cart =HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
+            foreach (var item in listCart)
+            {
+                if (item.shopName == shopName)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        public IActionResult RemoveFromCart(int productId,string shopName)
+        {
+            var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart");
+            var cart= GetShoppingCartByShopId(listCart, shopName);
             if (cart is not null)
             {
                 cart.RemoveItem(productId);// Lưu lại giỏ hàng vào Session sau khi đã xóa mục
-                HttpContext.Session.SetObjectAsJson("Cart", cart);
-                
+                HttpContext.Session.SetObjectAsJson("Cart", listCart);
             }
             return RedirectToAction("Index");
+        }
+        
+        public ActionResult UpdateCart(int id, int quantity,string shopName)
+        {
+            var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();
+            var cart = GetShoppingCartByShopId(listCart, shopName);
+            var findCartItem = cart.Items.FirstOrDefault(i => i.ProductId == id);
+            if (findCartItem != null)
+            {
+                findCartItem.Quantity = (uint)quantity;
+                HttpContext.Session.SetObjectAsJson("Cart", listCart);
+            }
+            return RedirectToAction("Index");
+        }
+        
+        //tìm kiếm thông tin sản phẩm từ DB
+        private async Task<Product> GetProductFromDatabase(int productId)
+        {
+            var product= await _context.Products.Include(p =>p.Shop).FirstOrDefaultAsync(p => p.ProductId == productId);
+            return product;
         }
         /*public IActionResult ClearCart(string productId)
         {
@@ -129,18 +195,7 @@ namespace DoAnNhom11.Controllers
             }
             return RedirectToAction("Index");
         }*/
-        public ActionResult UpdateCart(int id, int quantity)
-        {
-            var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
-            var findCartItem = cart.Items.FirstOrDefault(i => i.ProductId == id);
-            if (findCartItem != null)
-            {
-                findCartItem.Quantity = (uint)quantity;
-                HttpContext.Session.SetObjectAsJson("Cart", cart);
-            }
-            return RedirectToAction("Index");
-        }
-        public ActionResult UCart(int id, int quantity)
+        /*public ActionResult UCart(int id, int quantity)
         {
             var cart = HttpContext.Session.GetObjectFromJson<ShoppingCart>("Cart");
             var findCartItem = cart.Items.FirstOrDefault(i => i.ProductId == id);
@@ -150,13 +205,6 @@ namespace DoAnNhom11.Controllers
                 HttpContext.Session.SetObjectAsJson("Cart", cart);
             }
             return Json(findCartItem.Quantity * findCartItem.Price);
-        }
-        //tìm kiếm thông tin sản phẩm từ DB
-        private async Task<Product> GetProductFromDatabase(int productId)
-        {
-            var product= await _context.Products.Include(p =>
-            p.ProductCategory).FirstOrDefaultAsync(p => p.ProductId == productId);
-            return product;
-        }
+        }*/
     }
 }

@@ -3,7 +3,7 @@
 @{
     int tong = 0;
 }
-<form asp-action="Checkout" method="post">
+<form asp-action="Checkout" asp-route-shopName="@ViewBag.Cart.shopName" method="post">
 
     <h2>Điền thông tin đơn hàng</h2>
     <div style="padding-left: 1em;">

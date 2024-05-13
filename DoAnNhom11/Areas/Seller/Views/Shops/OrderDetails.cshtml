@@ -1,0 +1,160 @@
+﻿@model DoAnNhom11.Models.Order
+
+
+
+
+
+
+<section >
+    <div class="container">
+        <div >
+            <ol >
+                <h1 style="text-align:center">Thông tin đơn hàng</h1>
+            </ol>
+            <form asp-area="Seller" method="post" asp-controller="Shops" asp-action="UpdateOrder" asp-route-orderId="@Model.OrderId">
+                <label>Cập nhật trạng thái đơn hàng</label>
+                <select asp-for="OrderStatusId" class="form-control" asp-items="ViewBag.OrderStatusId" name="orderStatusId" style="width:300px"></select>
+                <button type="submit">Cập Nhật</button>
+            </form>
+        </div>
+        <div class="table">
+            <table class="table">
+                <thead>
+                    <tr >
+                        <td class="image" style="width: 200px;">Ảnh</td>
+                        <td class="description">Tên sản phẩm</td>
+                        <td class="price">Đơn giá</td>
+                        <td class="quantity">Số lượng mua</td>
+                        <td class="total">Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.OrderDetails)
+                    {
+                        <tr>
+                            <td class="cart_product" style="width: 200px;">
+                                <a asp-area="Seller" asp-controller="Shops" asp-action="EditProduct" asp-route-id="@item.ProductId"><img src="@item.Product.AnhDaiDien" alt="" width="120" height="100"></a>
+                            </td>
+                            <td class="cart_description">
+                                <h4><a asp-area="Seller" asp-controller="Shops" asp-action="EditProduct" asp-route-id="@item.ProductId">@item.Product.TenSp</a></h4>
+                                <p>Web ID: @item.ProductId</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>@StringFormat.CurrencyFormat(item.Price)</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>@item.Quantity</p>
+                            </td>
+                            <td class="cart_total" id="cartTotal">
+                                <p class="cart_total_price" id="totalPrice">@StringFormat.CurrencyFormat(item.Price * item.Quantity)</p>
+                            </td>
+                            <td>
+                                @if (Model.OrderStatusId == 5)
+                                {
+                                    if (item.IsReview != 1)
+                                    {
+                                        <button onclick="openForm(@item.ProductId)" id="openModalBtn" type="button" class="btn btn-fefault cart">Đánh Giá</button>
+
+                                        <div id="myModal-@item.ProductId" class="modal">
+                                            <div class="modal-content">
+                                                <span onclick="closeForm(@item.ProductId)" class="close">&times;</span>
+                                                <form asp-controller="Orders" asp-action="AddReviews" asp-route-productId="@item.ProductId" asp-route-orderId="@item.OrderId" method="post" enctype="multipart/form-data">
+                                                    <label for="diem">Điểm:</label>
+                                                    <input id="diem" type="number" min="0" max="5" name="diem" required /><strong>/5</strong>
+                                                    <br />
+                                                    <label for="noiDung">Nội Dung:</label>
+                                                    <textarea rows="4" cols="50" id="textNoiDung" name="noiDung"></textarea>
+                                                    <br />
+
+                                                    <label>Ảnh Mô Tả(tối đa 5):</label>
+                                                    <input type="file" id="files" name="myFile" multiple accept="image/*" onchange="limitFiles(this, 5)">
+
+                                                    <div id="preview">
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                    </div>
+                                                    <br />
+
+                                                    <button style="float: right;" type="submit" class="btn btn-danger">
+                                                        Hoàn Thành
+                                                    </button>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    }
+                                    <button type="button" class="btn btn-fefault cart">
+                                        <a a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@item.ProductId" asp-route-quantity="1" style="color:white" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'">Mua Lại</a>
+                                    </button>
+                                }
+
+                            </td>
+
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="padding-left: 1em;">
+        <dl class="row">
+            <dt class="col-sm-3">
+                Thời Gian Đặt:
+            </dt>
+            <dd class="col-sm-9">
+                @StringFormat.DateFormat(Model.OrderDate)
+
+            </dd>
+
+            <dt class="col-sm-3">
+                Địa Chỉ Giao Hàng:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.ShippingAddress)
+            </dd>
+            <dt class="col-sm-3">
+                Ghi Chú:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Notes)
+            </dd>
+            <dt class="col-sm-3">
+                Mã Giảm Giá:
+            </dt>
+            @if (Model.VouCher.PhanTramGiam == 0)
+            {
+                <dd class="col-sm-9">Không có</dd>
+            }
+            else
+            {
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.VouCher.VoucherCode): giảm @Html.DisplayFor(model => model.VouCher.PhanTramGiam) % tổng đơn hàng</dd>
+            }
+
+            <dt class="col-sm-3">
+                Tổng Đơn Hàng:
+            </dt>
+            <dd class="col-sm-9">
+                @StringFormat.CurrencyFormat(Model.TotalPrice)
+            </dd>
+            <dt class="col-sm-3">
+                Trạng Thái Đơn Hàng:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.OrderStatus.TenTrangThai)
+            </dd>
+            <dt class="col-sm-3">
+                Phương Thức Thanh Toán:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Payment.TenLoai)
+            </dd>
+        </dl>
+        
+    </div>
+</section> <!--/#cart_items-->
+

@@ -12,6 +12,7 @@ using Azure;
 using X.PagedList;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Build.Evaluation;
 
 namespace DoAnNhom11.Areas.Seller.Controllers
 {
@@ -35,7 +36,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
         {
             var applicationDbContext = _context.Shops.Include(s => s.ShopCategories);
             return View(await applicationDbContext.ToListAsync());
-        }     
+        }
         // GET: Seller/Shops/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -58,7 +59,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit( Shop shop, IFormFile imageAvatar, IFormFile imageBackground)
+        public async Task<IActionResult> Edit(Shop shop, IFormFile imageAvatar, IFormFile imageBackground)
         {
             if (seller == null)
             {
@@ -154,6 +155,55 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             ViewData["ProductCategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.ProductCategoryId);
             return View(product);
         }
+        public async Task<IActionResult> Orders(int? page)
+        {
+            int pageSize = 9;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            var user = await _userManager.GetUserAsync(User);
+            var applicationDbContext = await _context.Orders.Where(p => p.OrderDetails[0].Product.ShopId == user.ShopId && p.OrderStatusId != 6).Include(o => o.ApplicationUser).Include(o => o.VouCher).Include(o => o.OrderStatus).ToListAsync();
+            applicationDbContext.Reverse();
+            PagedList<Order> listOrder = new PagedList<Order>(applicationDbContext, pageNumber, pageSize);
+            return View(listOrder);
+        }
+        public async Task<IActionResult> CanceledOrders(int? page)
+        {
+            int pageSize = 9;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            var user = await _userManager.GetUserAsync(User);
+            var applicationDbContext = await _context.Orders.Where(p => p.OrderDetails[0].Product.ShopId == user.ShopId && p.OrderStatusId == 6).Include(o => o.ApplicationUser).Include(o => o.VouCher).Include(o => o.OrderStatus).ToListAsync();
+            applicationDbContext.Reverse();
+            PagedList<Order> listOrder = new PagedList<Order>(applicationDbContext, pageNumber, pageSize);
+            return View(listOrder);
+        }
+        public async Task<IActionResult> OrderDetails(int ma)
+        {
+            var applicationDbContext = await _context.OrderDetails.Where(p => p.OrderId == ma).Include(o => o.Order).Include(o => o.Product).Include(o => o.Product).ToListAsync();
+            ViewBag.OrderDetails = applicationDbContext;
+            var order = await _context.Orders
+                .Include(o => o.ApplicationUser)
+                .Include(o => o.OrderStatus)
+                .Include(o => o.VouCher)
+                .Include(o => o.Payment)
+                .FirstOrDefaultAsync(m => m.OrderId == ma);
+            ViewData["OrderStatusId"] = new SelectList(_context.OrderStatuses, "OrderStatusId", "TenTrangThai", order.OrderStatusId);
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            return View(order);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateOrder(int orderStatusId,int orderId)
+        {
+            var order = await _context.Orders.FirstOrDefaultAsync(m => m.OrderId == orderId);
+            order.OrderStatusId= orderStatusId;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Orders", "Shops", new {  page = 1 });
+        }
         public async Task<IActionResult> Products(int? page)
         {
             if (seller == null)
@@ -197,7 +247,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             return View(product);
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditProduct(int id, Product product, IFormFile imageUrl, List<IFormFile> files)
