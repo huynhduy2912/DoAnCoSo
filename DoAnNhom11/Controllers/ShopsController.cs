@@ -37,18 +37,17 @@ namespace DoAnNhom11.Controllers
             }
             
             var listProductByShop = await _context.Products
-               .Where(p => p.ShopId == ma).AsNoTracking().ToListAsync();
+               .Where(p => p.ShopId == ma).Where(p => p.DaAn == false).AsNoTracking().ToListAsync();
 
             int totalQuantitySold = 0;
             foreach (var product in listProductByShop)
             {
                 totalQuantitySold += _context.OrderDetails.Where(o => o.ProductId == product.ProductId).Sum(o => o.Quantity);
             }
-            
-
+            var _listProductByShopShow = listProductByShop.Where(p => p.DaAn == false&&p.SoLuongCon!=0).Where(p => p.DaAn == false).Reverse();
             int pageSize = 8;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            PagedList<Product> listProductByShopAndPage = new PagedList<Product>(listProductByShop, pageNumber, pageSize);
+            PagedList<Product> listProductByShopAndPage = new PagedList<Product>(_listProductByShopShow, pageNumber, pageSize);
 
             ViewBag.TotalQuantitySold = totalQuantitySold;
             ViewBag.ProductQuantity = listProductByShop.Count();

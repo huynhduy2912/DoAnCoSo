@@ -1,0 +1,32 @@
+﻿@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<Product>;
+@{
+    ViewData["Title"] = "Product by Category";
+    ViewBag.Size = 3;
+}
+<link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+
+<title>@ViewData["Title"]</title>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="features_items">
+                    <!--features_items-->
+                    <h2 style="text-transform: capitalize;" class="title text-center">Danh mục: @Model[0].ProductCategory.TenLoai</h2>
+                    @foreach (var item in Model)
+                    {
+                        @Html.Partial("_ProductPartial", item)
+                    }
+
+                </div><!--features_items-->
+            </div>
+        </div>
+</section>
+<center>
+    <ul class="pagination">
+        @Html.PagedListPager(Model, page => Url.Action("Category", new { categoryId = @Model[0].ProductCategory.ProductCategoryId, page = page }))
+    </ul>
+</center>
+

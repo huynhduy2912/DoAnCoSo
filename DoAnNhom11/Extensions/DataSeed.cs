@@ -24,41 +24,122 @@ namespace DoAnNhom11.Extensions
             Random random = new Random();
             modelBuilder.Entity<IdentityRole>().HasData(
                 new IdentityRole { Id = "2c5e174e-3b0e-446f-86af-483d56fd7210", Name = "Admin", NormalizedName = "ADMIN".ToUpper() },
-                new IdentityRole { Id = "2c5e174e-3b0e-446f-86af-483d56fd7211", Name = "Customer", NormalizedName = "CUSTOMER".ToUpper() });
+                new IdentityRole { Id = "2c5e174e-3b0e-446f-86af-483d56fd7211", Name = "Customer", NormalizedName = "CUSTOMER".ToUpper() },
+                new IdentityRole { Id = "2c5e174e-3b0e-446f-86af-483d56fd7212", Name = "ShopOwner", NormalizedName = "SHOPOWNER".ToUpper() },
+                new IdentityRole { Id = "2c5e174e-3b0e-446f-86af-483d56fd7213", Name = "ShopStaff", NormalizedName = "SHOPSTAFF".ToUpper() }
+                );
+            
             modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
             {
-                ProductCategoryId = 1,
-                TenLoai = "Laptop"
+                ProductCategoryId = count++,AnhDaiDien="/categoryImg/balotuivi.png",
+                TenLoai = "Balo & Túi Ví",
             },
                 new ProductCategory
                 {
-                    ProductCategoryId = 2,
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/dienthoai.png",
                     TenLoai = "Điện Thoại"
                 }, new ProductCategory
                 {
-                    ProductCategoryId = 3,
-                    TenLoai = "Máy Tính Bảng"
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/dientu.png",
+                    TenLoai = "Điện tử"
                 }, new ProductCategory
                 {
-                    ProductCategoryId = 4,
-                    TenLoai = "Đồng Hồ"
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/doan.png",
+                    TenLoai = "Thực phẩm"
                 }, new ProductCategory
                 {
-                    ProductCategoryId = 5,
-                    TenLoai = "Phụ Kiện"
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/dobep.png",
+                    TenLoai = "Đồ bếp"
                 }, new ProductCategory
                 {
-                    ProductCategoryId = 6,
-                    TenLoai = "Sim"
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/dochoi.png",
+                    TenLoai = "Đồ chơi"
                 }, new ProductCategory
                 {
-                    ProductCategoryId = 7,
-                    TenLoai = "Bàn phím"
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/dongho.png",
+                    TenLoai = "Đồng hồ"
+                },new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/giadung.png",
+                    TenLoai = "Đồ gia dụng"
                 }, new ProductCategory
                 {
-                    ProductCategoryId = 8,
-                    TenLoai = "Tai Nghe"
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/giaydepnam.png",
+                    TenLoai = "Giày dép nam"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/giaydepnu.png",
+                    TenLoai = "Giày dép nữ"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/mayanh.png",
+                    TenLoai = "Máy Ảnh"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/maytinh.png",
+                    TenLoai = "Máy tính"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/noitro.png",
+                    TenLoai = "Đồ nội trợ"
+                },new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/phuongtien.png",
+                    TenLoai = "Phương tiện"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/sacdep.png",
+                    TenLoai = "Sắc đẹp"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/sach.png",
+                    TenLoai = "Sách"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/thethao.png",
+                    TenLoai = "Thể thao"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/thietbi.png",
+                    TenLoai = "Thiết bị"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/thoitrangnam.png",
+                    TenLoai = "Thời trang nam"
+                },new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/thoitrangnu.png",
+                    TenLoai = "Thời trang nữ"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/thoitrangtreem.png",
+                    TenLoai = "Thời trang trẻ em"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/thucung'.png",
+                    TenLoai = "Thú cưng"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/trangsuc.png",
+                    TenLoai = "Trang sức"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/treem.png",
+                    TenLoai = "Trẻ em"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/tuivinu.png",
+                    TenLoai = "Túi Ví Nữ"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/voucherdichvu.png",
+                    TenLoai = "Dịch vụ"
+                }, new ProductCategory
+                {
+                    ProductCategoryId = count++,AnhDaiDien="/categoryImg/yte.png",
+                    TenLoai = "Y tế"
                 });
+            count = 1;
             modelBuilder.Entity<Payment>().HasData(new Payment
             {
                 PaymentId = 1,
@@ -190,16 +271,26 @@ namespace DoAnNhom11.Extensions
             {
                 OrderStatusId = 6,
                 TenTrangThai = "Đã Hủy Đơn"
+            },
+            new OrderStatus
+            {
+                OrderStatusId = 7,
+                TenTrangThai = "Yêu cầu trả hàng"
+            },
+            new OrderStatus
+            {
+                OrderStatusId = 8,
+                TenTrangThai = "Đã xác nhận yêu cầu trả hàng"
             }
            );
 
             modelBuilder.Entity<Voucher>().HasData(new Voucher
             {
                 VoucherId = 1,
-                VoucherCode = "GIAMGIA1",
+                VoucherCode = "không giảm",
                 SoLuongCon = 100,
                 NgayHetHan = DateTime.Now.AddMonths(2),
-                PhanTramGiam = 20,
+                PhanTramGiam = 0,
                 VoucherCategoryId = 1,
             },
             new Voucher
@@ -228,9 +319,18 @@ namespace DoAnNhom11.Extensions
                 NgayHetHan = DateTime.Now.AddMonths(2),
                 PhanTramGiam = 12,
                 VoucherCategoryId = 4,
+            },
+            new Voucher
+            {
+                VoucherId = 5,
+                VoucherCode = "GIAMGIA5",
+                SoLuongCon = 100,
+                NgayHetHan = DateTime.Now.AddMonths(2),
+                PhanTramGiam = 7,
+                VoucherCategoryId = 4,
             }
             );
-
+            count = 1;
             modelBuilder.Entity<Shop>().HasData(new Shop
             {
                 ShopId = count,
@@ -242,7 +342,7 @@ namespace DoAnNhom11.Extensions
                 NgayTao = DateTime.Now,
                 DiaChi = GenerateRandomString(random, 10)+","+ GenerateRandomString(random, 10) + ","+GenerateRandomString(random, 10),
                 LienHe= GenerateRandomString(random, 10)
-
+                
             },new Shop
             {
                 ShopId = count,
@@ -278,7 +378,8 @@ namespace DoAnNhom11.Extensions
                 NgayTao = DateTime.Now,
                 DiaChi = GenerateRandomString(random, 10)+","+ GenerateRandomString(random, 10) + ","+GenerateRandomString(random, 10),
                 LienHe= GenerateRandomString(random, 10)
-
+                 
+                
             },new Shop
             {
                 ShopId = count,
@@ -332,7 +433,7 @@ namespace DoAnNhom11.Extensions
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:"+ (random.Next(1, 5) * 100)+"GB Man hinh :"+ (random.Next(1, 5) * 4)+"inch",
                 MoTa = "Mô tả mẫu của sản phẩm"+count,
@@ -346,7 +447,7 @@ namespace DoAnNhom11.Extensions
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -355,12 +456,14 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
+                
+                
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -369,12 +472,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -383,12 +486,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -397,12 +500,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -411,12 +514,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -425,12 +528,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -439,12 +542,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -453,12 +556,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -467,12 +570,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -481,12 +584,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -495,12 +598,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -509,12 +612,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -523,12 +626,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -537,12 +640,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -551,12 +654,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -565,12 +668,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -579,12 +682,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -593,12 +696,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -607,12 +710,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -621,12 +724,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -635,12 +738,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -649,12 +752,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -663,12 +766,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -677,12 +780,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -691,12 +794,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -705,12 +808,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -719,12 +822,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -733,12 +836,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -747,12 +850,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -761,12 +864,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -775,12 +878,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -789,12 +892,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -803,12 +906,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -817,12 +920,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -831,12 +934,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -845,12 +948,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -859,12 +962,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -873,12 +976,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -887,12 +990,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -901,12 +1004,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -915,12 +1018,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -929,12 +1032,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -943,12 +1046,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -957,12 +1060,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -971,12 +1074,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -985,12 +1088,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -999,12 +1102,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1013,12 +1116,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1027,12 +1130,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1041,12 +1144,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1055,12 +1158,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1069,12 +1172,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1083,12 +1186,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1097,12 +1200,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1111,12 +1214,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1125,12 +1228,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1139,12 +1242,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1153,12 +1256,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1167,12 +1270,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1181,12 +1284,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1195,12 +1298,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1209,12 +1312,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1223,12 +1326,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1237,12 +1340,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1251,12 +1354,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1265,12 +1368,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1279,12 +1382,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1293,12 +1396,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1307,12 +1410,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1321,12 +1424,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1335,12 +1438,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1349,12 +1452,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1363,12 +1466,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1377,12 +1480,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1391,12 +1494,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1405,12 +1508,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1419,12 +1522,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1433,12 +1536,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1447,12 +1550,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1461,12 +1564,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1475,12 +1578,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1489,12 +1592,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1503,12 +1606,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1517,12 +1620,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1531,12 +1634,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1545,12 +1648,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1559,12 +1662,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1573,12 +1676,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1587,12 +1690,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1601,12 +1704,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1615,12 +1718,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1629,12 +1732,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1643,12 +1746,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1657,12 +1760,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1671,12 +1774,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1685,12 +1788,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1699,12 +1802,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1713,12 +1816,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1727,12 +1830,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1741,12 +1844,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1755,12 +1858,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1769,12 +1872,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1783,12 +1886,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1797,12 +1900,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1811,12 +1914,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1825,12 +1928,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1839,12 +1942,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1853,12 +1956,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1867,12 +1970,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1881,12 +1984,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1895,12 +1998,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1909,12 +2012,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1923,12 +2026,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1937,12 +2040,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1951,12 +2054,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1965,12 +2068,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1979,12 +2082,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -1993,12 +2096,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2007,12 +2110,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2021,12 +2124,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2035,12 +2138,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2049,12 +2152,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2063,12 +2166,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2077,12 +2180,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2091,12 +2194,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2105,12 +2208,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2119,12 +2222,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2133,12 +2236,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2147,12 +2250,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2161,12 +2264,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2175,12 +2278,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2189,12 +2292,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2203,12 +2306,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2217,12 +2320,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2231,12 +2334,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2245,12 +2348,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2259,12 +2362,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2273,12 +2376,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2287,12 +2390,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2301,12 +2404,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2315,12 +2418,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2329,12 +2432,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2343,12 +2446,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2357,12 +2460,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2371,12 +2474,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2385,12 +2488,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2399,12 +2502,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2413,12 +2516,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2427,12 +2530,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2441,12 +2544,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2455,12 +2558,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2469,12 +2572,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2483,12 +2586,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2497,12 +2600,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2511,12 +2614,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2525,12 +2628,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2539,12 +2642,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2553,12 +2656,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2567,12 +2670,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2581,12 +2684,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2595,12 +2698,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2609,12 +2712,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2623,12 +2726,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2637,12 +2740,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2651,12 +2754,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2665,12 +2768,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2679,12 +2782,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2693,12 +2796,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2707,12 +2810,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2721,12 +2824,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2735,12 +2838,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2749,12 +2852,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2763,12 +2866,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2777,12 +2880,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2791,12 +2894,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2805,12 +2908,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2819,12 +2922,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2833,12 +2936,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2847,12 +2950,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2861,12 +2964,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2875,12 +2978,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2889,12 +2992,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2903,12 +3006,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2917,12 +3020,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2931,12 +3034,12 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             },
             new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2945,11 +3048,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2958,11 +3061,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2971,11 +3074,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2984,11 +3087,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -2997,11 +3100,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3010,11 +3113,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3023,11 +3126,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3036,11 +3139,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3049,11 +3152,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3062,11 +3165,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3075,11 +3178,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3088,11 +3191,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3101,11 +3204,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3114,11 +3217,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3127,11 +3230,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3140,11 +3243,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3153,11 +3256,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3166,11 +3269,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3179,11 +3282,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3192,11 +3295,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3205,11 +3308,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3218,11 +3321,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3231,11 +3334,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3244,11 +3347,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3257,11 +3360,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3270,11 +3373,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3283,11 +3386,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3296,11 +3399,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3309,11 +3412,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3322,11 +3425,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3335,11 +3438,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3348,11 +3451,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3361,11 +3464,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3374,11 +3477,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3387,11 +3490,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3400,11 +3503,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3413,11 +3516,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3426,11 +3529,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3439,11 +3542,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3452,11 +3555,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3465,11 +3568,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3478,11 +3581,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3491,11 +3594,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3504,11 +3607,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3517,11 +3620,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3530,11 +3633,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3543,11 +3646,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3556,11 +3659,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3569,11 +3672,11 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }, new Product
             {
                 ProductId = count,ShopId = random.Next(1, 9),
-                ProductCategoryId = random.Next(1, 9),
+                ProductCategoryId = random.Next(1, 28),
                 BrandId= random.Next(1, 9),
                 ThongSo = "RAM:" + (random.Next(1, 32) ) +"Memory:"+random.Next(32, 512)+ "GB Man hinh :" + (random.Next(1, 5) * 4) + "inch",
                 MoTa = "Mô tả mẫu của sản phẩm" + count,
@@ -3582,7 +3685,7 @@ namespace DoAnNhom11.Extensions
                 SoLuongCon = random.Next(1, 5) * 100,
                 GiaNhap = random.Next(1, 50) * 1000000,
                 GiaBan = random.Next(1, 50) * 1000000,
-                PhanTramGiam = random.Next(5, 40),
+                PhanTramGiam = random.Next(5, 40),DaAn=false,
             }
             );
             count = 1;
@@ -8072,4312 +8175,6 @@ namespace DoAnNhom11.Extensions
                 ProductId = random.Next(1, 237),
                 Url= "/images/device (" + random.Next(1, 275)+ ").png"
             },new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 44) + ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
-            {
-                ProductImageId = count++,
-                ProductId = random.Next(1, 237),
-                Url= "/images/device (" + random.Next(1, 275)+ ").png"
-            },
-            new ProductImage
             {
                 ProductImageId = count++,
                 ProductId = random.Next(1, 237),

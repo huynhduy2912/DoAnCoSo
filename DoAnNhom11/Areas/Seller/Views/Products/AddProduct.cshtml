@@ -39,7 +39,11 @@
         <input asp-for="SoLuongCon" class="form-control" />
         <span asp-validation-for="SoLuongCon" class="text-danger"></span>
     </div>
-    <div class="form-group">
+    <div class="form-group" style="display:none">
+        <label asp-for="DaAn"></label>
+        <input asp-for="DaAn" type="checkbox"/>
+    </div>
+    <div class="form-group" >
         <label asp-for="PhanTramGiam" class="control-label"></label>
         <input asp-for="PhanTramGiam" class="form-control" />
         <span asp-validation-for="PhanTramGiam" class="text-danger"></span>

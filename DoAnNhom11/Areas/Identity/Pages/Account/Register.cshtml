@@ -12,11 +12,7 @@
         <div class="col-md-4">
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.UserName" class="form-control" aria-required="true" placeholder="UserName" />
-                <label asp-for="Input.UserName">Tên đăng nhập</label>
-                <span asp-validation-for="Input.UserName" class="text-danger"></span>
-            </div>
+            
             <div class="form-floating mb-3">
                 <input asp-for="Input.FullName" class="form-control" aria-required="true" placeholder="FullName" />
                 <label asp-for="Input.FullName">Họ tên</label>
@@ -28,9 +24,19 @@
                 <span asp-validation-for="Input.Address" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
+                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Điền số điện thoại của bạn" />
+                <label asp-for="Input.PhoneNumber" class="form-label">Số Điện Thoại</label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
                 <input asp-for="Input.Email" class="form-control" aria-required="true" placeholder="name@example.com" />
                 <label asp-for="Input.Email">Email</label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.UserName" class="form-control" aria-required="true" placeholder="UserName" />
+                <label asp-for="Input.UserName">Tên đăng nhập</label>
+                <span asp-validation-for="Input.UserName" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />

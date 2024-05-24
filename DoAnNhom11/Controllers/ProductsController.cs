@@ -20,12 +20,12 @@ namespace DoAnNhom11.Controllers
         {
             int pageSize = 9;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var applicationDbContext = await _context.Products.Include(p => p.Brand).Include(p => p.ProductCategory).AsNoTracking().OrderByDescending(x => x.ProductId).ToListAsync();
+            var applicationDbContext = await _context.Products.Where(p => p.SoLuongCon > 0).Where(p => p.DaAn == false && p.SoLuongCon != 0).Include(p => p.Brand).Include(p => p.ProductCategory).AsNoTracking().OrderByDescending(x => x.ProductId).ToListAsync();
             ViewBag.categories = await _context.Categories.ToListAsync();
             ViewBag.brands = await _context.Brands.ToListAsync();
             PagedList<Product> listProduct = new PagedList<Product>(applicationDbContext, pageNumber, pageSize);
-           /* string viewFromAnotherController = await this.RenderViewToStringAsync("/Views/Shared/ProductListPartial.cshtml", listProduct);
-            ViewBag.myView = viewFromAnotherController;*/
+            /* string viewFromAnotherController = await this.RenderViewToStringAsync("/Views/Shared/ProductListPartial.cshtml", listProduct);
+             ViewBag.myView = viewFromAnotherController;*/
             return View(listProduct);
         }
         public List<string> SearchSuggestions(string query)
@@ -38,11 +38,11 @@ namespace DoAnNhom11.Controllers
         }
         public async Task<IActionResult> GetProductsByCategory(int categoryId, int page)
         {
-            var listProductByCategory = await _context.Products.Include(p => p.Brand).Include(p => p.ProductCategory).AsNoTracking().OrderByDescending(x => x.ProductId).ToListAsync();
+            var listProductByCategory = await _context.Products.Where(p => p.SoLuongCon > 0).Where(p => p.DaAn == false).Include(p => p.Brand).Include(p => p.ProductCategory).AsNoTracking().OrderByDescending(x => x.ProductId).ToListAsync();
             PagedList<Product> listProduct = new PagedList<Product>(listProductByCategory, 1, 6);
             if (categoryId > 0)
             {
-                listProductByCategory = await _context.Products
+                listProductByCategory = await _context.Products.Where(p => p.SoLuongCon > 0)
                .Where(p => p.ProductCategoryId == categoryId).AsNoTracking()
                .OrderByDescending(x => x.ProductId).ToListAsync();
                 listProduct = new PagedList<Product>(listProductByCategory, page, 6);
@@ -52,15 +52,14 @@ namespace DoAnNhom11.Controllers
         public async Task<IActionResult> GetProductsByBrand(int brandId, int page)
         {
             var listProductByCategory = await _context.Products
-           .Where(p => p.BrandId == brandId).AsNoTracking()
+           .Where(p => p.BrandId == brandId).Where(p => p.SoLuongCon > 0).Where(p => p.DaAn == false).AsNoTracking()
            .OrderByDescending(x => x.ProductId).ToListAsync();
             PagedList<Product> listProduct = new PagedList<Product>(listProductByCategory, page, 6);
             return PartialView("ProductListPartial", listProduct);
-
         }
         public async Task<IActionResult> Details(int ma)
         {
-            
+
             var productImages = _context.ProducImages.Where(p => p.ProductId == ma).ToList();
             ViewBag.productImages = productImages;
             var product = await _context.Products
@@ -75,28 +74,40 @@ namespace DoAnNhom11.Controllers
             var productReviews = await _context.Reviews.Where(p => p.ProductId == ma).Include(r => r.Customer).Include(r => r.Product).ToListAsync();
             foreach (var productReview in productReviews)
             {
-                var reviewImage = _context.ReviewsImage.Where(p => p.ReviewsId == productReview.ReviewsId).ToList();                
+                var reviewImage = _context.ReviewsImage.Where(p => p.ReviewsId == productReview.ReviewsId).ToList();
             }
             ViewBag.productReviews = productReviews;
             return View(product);
         }
-
+        public async Task<IActionResult> SearchProducts(string query, int? page)
+        {
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            IQueryable<Product> productsQuery = _context.Products.Where(p => p.SoLuongCon > 0).Where(p => p.DaAn == false).Include(p => p.ProductCategory)
+            .Where(p => p.TenSp.Contains(query));
+            PagedList<Product> listProductQuery = new PagedList<Product>(productsQuery, pageNumber, 9);
+            ViewBag.categories = await _context.Categories.ToListAsync();
+            ViewBag.brands = await _context.Brands.ToListAsync();
+            ViewBag.querry = query;
+            return View("Search", listProductQuery);
+        }
+        public async Task<IActionResult> Category(int categoryId, int page)
+        {
+            var listProductByCategory = await _context.Products
+            .Where(p => p.SoLuongCon > 0)
+            .Where(p => p.DaAn == false)
+           .Where(p => p.ProductCategoryId == categoryId).Include(p => p.ProductCategory).AsNoTracking()
+           .OrderByDescending(x => x.ProductId).ToListAsync();
+            if(listProductByCategory.Count == 0)
+            {
+               return Content("Loại sản phẩm này đã hết hàng");
+            }
+            PagedList<Product> listProduct = new PagedList<Product>(listProductByCategory, page, 8);
+            return View(listProduct);
+        }
         private bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.ProductId == id);
         }
-        public async Task<IActionResult> SearchProducts(string query, int? page)
-        {
-            int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            IQueryable<Product> productsQuery = _context.Products.Include(p => p.ProductCategory)
-            .Where(p => p.TenSp.Contains(query));
-            PagedList<Product> listProductQuery = new PagedList<Product>(productsQuery, pageNumber, 9);
-            //string viewFromAnotherController = await this.RenderViewToStringAsync("/Views/Shared/ProductListPartial.cshtml", listProductQuery);
-            ViewBag.categories = await _context.Categories.ToListAsync();
-            ViewBag.brands = await _context.Brands.ToListAsync();
-            //ViewBag.myView = viewFromAnotherController;
-            ViewBag.querry = query;
-            return View("Search", listProductQuery);
-        }
+
     }
 }

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<DoAnNhom11.Models.ApplicationUser>
+
+
+
+
+<form asp-action="Staffs" method="post">
+    <p><strong>Thêm nhân viên</strong></p>
+    <div class="form-floating mb-3">
+        <input name="userName" class="form-control" style="width:300px" placeholder="username" />
+        <label>username</label>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        if (ViewBag.Message == -1)
+        {
+            <p style="color:red">Bạn chưa nhập tài khoản cần thêm</p>
+
+        }
+        else if (ViewBag.Message == 0)
+        {
+            <p style="color:red">Không tìm thấy tài khoản vừa nhập</p>
+
+        }
+        else if (ViewBag.Message == 2)
+        {
+            <p style="color:gold">Tài khoản này đã là nhân viên của shop</p>
+
+        }
+        else if (ViewBag.Message == -2)
+        {
+            <p style="color:red">Tài khoản này đang là nhân viên của shop khác</p>
+
+        }
+
+        else if (ViewBag.Message == 1)
+        {
+            <p style="color:green">Thêm tài khoản thành công</p>
+
+        }
+    }
+    else
+    {
+        <br />
+    }
+    <button type="submit" class="btn btn-primary">Thêm vào</button>
+</form>
+<hr />
+<h1>Nhân viên của shop</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>UserName</th>
+            <th>FullName</th>
+            <th>Email</th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.FullName</td>
+                <td>@user.Email</td>
+                <td>
+                    <form asp-action="DeleteStaff" asp-route-username="@user.UserName" method="post">
+                        <button type="submit" onclick="return confirm('Bạn Có Chắc Chắn Muốn Xóa Nhân Viên : @user.UserName Khỏi Shop?');" class="btn btn-danger">Xóa nhân viên</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

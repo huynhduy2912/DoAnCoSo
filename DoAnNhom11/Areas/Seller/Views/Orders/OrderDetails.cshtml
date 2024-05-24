@@ -1,0 +1,127 @@
+﻿@model DoAnNhom11.Models.Order
+@{
+    
+}
+<section>
+    <div class="container">
+        <div>
+            <ol>
+                <h1 style="text-align:center">Thông tin đơn hàng</h1>
+            </ol>
+            <hr />
+            <h5 style="display:inline;">Trạng Thái Đơn Hàng:</h5>
+            <p style="display:inline;padding-left:30px">@Html.DisplayFor(model => model.OrderStatus.TenTrangThai)</p>
+            @if (Model.OrderStatusId < 5)
+            {
+                int nextStatusId = Model.OrderStatusId++ ?? 1;
+                <form asp-action="UpdateOrder" asp-route-orderId="@Model.OrderId" style="display:inline;padding-left:30px">
+                    <button type="submit" class="btn btn-primary" style="color:lightgray">Cập Nhật: <p style="display:inline;color:white">@ViewBag.OrderStatus[nextStatusId]</p></button>
+                </form>
+            }
+
+            <hr />
+        </div>
+        
+        <div class="table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td class="image" style="width: 200px;">Ảnh</td>
+                        <td class="description">Tên sản phẩm</td>
+                        <td class="price">Đơn giá</td>
+                        <td class="quantity">Số lượng mua</td>
+                        <td class="total">Thành tiền</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.OrderDetails)
+                    {
+                        <tr>
+                            <td class="cart_product" style="width: 200px;">
+                                <a asp-area="Seller" asp-controller="Products" asp-action="EditProduct" asp-route-id="@item.ProductId"><img src="@item.Product.AnhDaiDien" alt="" width="120" height="100"></a>
+                            </td>
+                            <td class="cart_description">
+                                <h4><a asp-area="Seller" asp-controller="Products" asp-action="EditProduct" asp-route-id="@item.ProductId">@item.Product.TenSp</a></h4>
+                                <p>Web ID: @item.ProductId</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>@StringFormat.CurrencyFormat(item.Price)</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>@item.Quantity</p>
+                            </td>
+                            <td class="cart_total" id="cartTotal">
+                                <p class="cart_total_price" id="totalPrice">@StringFormat.CurrencyFormat(item.Price * item.Quantity)</p>
+                            </td>
+
+
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="padding-left: 1em;">
+        <dl class="row">
+            <dt class="col-sm-3">
+                Tên người đặt:
+            </dt>
+            <dd class="col-sm-9">
+                @ViewBag.CustomerInfo.FullName
+            </dd>
+            <dt class="col-sm-3">
+                Số điện thoại:
+            </dt>
+            <dd class="col-sm-9">
+                @ViewBag.CustomerInfo.PhoneNumber
+            </dd>
+            <dt class="col-sm-3">
+                Thời Gian Đặt:
+            </dt>
+            <dd class="col-sm-9">
+                @StringFormat.DateFormat(Model.OrderDate)
+            </dd>
+
+            <dt class="col-sm-3">
+                Địa Chỉ Giao Hàng:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.ShippingAddress)
+            </dd>
+            <dt class="col-sm-3">
+                Ghi Chú:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Notes)
+            </dd>
+            <dt class="col-sm-3">
+                Mã Giảm Giá:
+            </dt>
+            @if (Model.VouCher.PhanTramGiam == 0)
+            {
+                <dd class="col-sm-9">Không có</dd>
+            }
+            else
+            {
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.VouCher.VoucherCode): giảm @Html.DisplayFor(model => model.VouCher.PhanTramGiam) % tổng đơn hàng</dd>
+            }
+            <dt class="col-sm-3">
+                Phương Thức Thanh Toán:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Payment.TenLoai)
+            </dd>
+            <dt class="col-sm-3">
+                Tổng Đơn Hàng:
+            </dt>
+            <dd class="col-sm-9">
+                @StringFormat.CurrencyFormat(Model.TotalPrice)
+            </dd>
+            
+            
+        </dl>
+
+    </div>
+</section> <!--/#cart_items-->

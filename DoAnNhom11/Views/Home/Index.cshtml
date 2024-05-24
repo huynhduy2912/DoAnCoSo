@@ -52,6 +52,40 @@
     </div>
 </section><!--/slider-->
 <section>
+    <center>
+        <div class="container justify-content-center align-content-center">
+            <div class="wrapper">
+                <h2 style="text-transform: capitalize;" class="title text-center">Danh Mục Sản Phẩm</h2>
+
+                <button class="this-button button-left" onclick="scrollL()" onmouseover="this.style.color='red'" onmouseout="this.style.color='white'">&#9664;</button>
+                <div class="category-container" id="categoryContainer">
+                    @for (int i = 0; i < ViewBag.categories.Count; i += 2)
+                    {
+                        <div class="column">
+                            <div class="category">
+                                <a asp-controller="Products" asp-action="Category" asp-route-categoryId="@ViewBag.categories[i].ProductCategoryId" asp-route-page="1">
+                                    <img src="@ViewBag.categories[i].AnhDaiDien" alt="category">
+                                    <div class="category-name">@ViewBag.categories[i].TenLoai</div>
+                                </a>
+                            </div>
+                            <div class="category">
+                                @if ((i + 1) < ViewBag.categories.Count)
+                                {
+                                    <a asp-controller="Products" asp-action="Category" asp-route-categoryId="@ViewBag.categories[(i+1)].ProductCategoryId" asp-route-page="1">
+                                        <img src="@ViewBag.categories[(i+1)].AnhDaiDien" alt="category">
+                                        <div class="category-name">@ViewBag.categories[(i + 1)].TenLoai</div>
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    }
+                    <button class="this-button button-right" onclick="scrollR()" onmouseover="this.style.color='red'" onmouseout="this.style.color='white'">&#9654;</button>
+                </div>
+            </div>
+    </center>
+</section>
+<br />
+<section>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -67,3 +101,80 @@
             </div>
         </div>
 </section>
+
+<script>
+    function scrollR() {
+        document.getElementById('categoryContainer').scrollBy({
+            left: 1000,
+            behavior: 'smooth'
+        });
+    }
+    function scrollL() {
+        document.getElementById('categoryContainer').scrollBy({
+            left: -1000,
+            behavior: 'smooth'
+        });
+    }
+</script>
+<style>
+    .wrapper {
+        position: relative;
+        width: 94%;
+        overflow: hidden;
+    }
+
+    .category-container {
+        display: flex;
+        overflow-x: auto;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .column {
+        display: inline-block;
+        vertical-align: top;
+        white-space: normal;
+        margin-left:10px;
+    }
+
+    .category {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+        .category img {
+            width: 120px;
+            height: auto;
+        }
+
+        .category a {
+            text-decoration: none;
+            color: #000;
+        }
+
+            .category a:hover {
+                color: #007BFF;
+            }
+
+    .this-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .button-left {
+        left: 0;
+    }
+
+    .button-right {
+        right: 0;
+    }
+</style>

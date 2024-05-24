@@ -12,8 +12,9 @@
         public int SoLuongCon { get; set; }
         public int? PhanTramGiam { get; set; }
         public int? DiemDanhGia { get; set; }
-        public int ProductCategoryId { get; set; }
+        public bool DaAn { get; set; }
 
+        public int ProductCategoryId { get; set; }
         public ProductCategory? ProductCategory { get; set; }
         public int BrandId { get; set; }
         public Brand? Brand { get; set; }

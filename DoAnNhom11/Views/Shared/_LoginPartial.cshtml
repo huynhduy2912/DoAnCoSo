@@ -14,12 +14,12 @@
         <a style="color:red" id="manage" class="nav-link text-dark" asp-area="Admin" asp-controller="Products" asp-action="Index">.....</a>
     </li>
     <li class="nav-item">
-        <a style="color:red" id="manage" class="nav-link text-dark" asp-area="Seller" asp-controller="Shops" asp-action="Products" asp-route-page="1">___</a>
+        <a style="color:red" id="manage" class="nav-link text-dark" asp-area="Seller" asp-controller="Products" asp-action="Index" asp-route-page="1">___</a>
     </li>
 
     <li class="nav-item">
         <div>
-            @* @if (user.Avatar != null)
+            @if (user.Avatar != null)
             {
                 <img style="border-radius:50%;" width="30" height="30" src="@user.Avatar" />
             }
@@ -27,7 +27,7 @@
             {
                 <img style="border-radius:50%;" width="30" height="30" src="~/myLayout/images/home/avataruser.jpg" />
 
-            } *@
+            }
             <a id="manage" class="nav-link text-dark" title="Manage">@UserManager.GetUserName(User)</a>
         </div>
     </li>

@@ -6,7 +6,7 @@
 
 }
 
-<h1>Tất cả sản phẩm</h1>
+<h1>Sản phẩm bị ẩn</h1>
 
 <div class="col-sm-8">
     <form id="search-form" asp-controller="Products" asp-action="SearchProducts" method="post" class="dropdown">
@@ -24,7 +24,7 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model[1].AnhDaiDien)
-            </th>           
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model[1].GiaNhap)
             </th>
@@ -63,15 +63,19 @@
                     @Html.DisplayFor(modelItem => item.PhanTramGiam)
                 </td>
                 <td>
-                    <a asp-action="EditProduct" asp-route-id="@item.ProductId">Edit</a> |
-                    <a asp-action="DeleteProduct" asp-route-id="@item.ProductId">Delete</a>
+                    <button type="button" class="btn btn-success">
+                        <a asp-action="ShowProduct" asp-route-id="@item.ProductId" style="color:white">Hiện</a>
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        <a asp-action="EditProduct" asp-route-id="@item.ProductId" style="color:white">Chỉnh Sửa</a>
+                    </button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 <div align="center">
-    @Html.PagedListPager(Model, page => Url.Action("Products", new {ma=1, page = page }))
+    @Html.PagedListPager(Model, page => Url.Action("HiddenProducts", new { ma = 1, page = page }))
 
 </div>
 <style>
@@ -88,7 +92,7 @@
         width: 100%; /* Set width to match search input */
         box-sizing: border-box; /* Ensure width includes padding and
 
-                                        border */
+                                                border */
     }
 
     .suggestion {

@@ -4,13 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
-/*builder.Services.AddScoped<IProductRepository, EFProductRepository>();
-builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();*/
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EComerceDB")));
-
-
-
-
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 .AddDefaultTokenProviders()
 .AddDefaultUI()

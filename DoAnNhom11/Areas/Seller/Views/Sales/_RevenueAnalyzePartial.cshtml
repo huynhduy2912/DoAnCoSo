@@ -1,0 +1,40 @@
+﻿<label><h1>Doanh Thu</h1></label>
+<select id="revenue">
+    <option value="1">Tất Cả</option>
+    <option value="2">Hôm nay</option>
+    <option value="3">Hôm qua</option>
+    <option value="4">Trong 7 ngày qua</option>
+    <option value="5">Trong 30 ngày qua</option>
+</select>
+
+<h3 style="color:red" id="txtRevenue"> @StringFormat.CurrencyFormat(ViewBag.doanhThu)</h3>
+<script>
+    document.getElementById("revenue").onchange = function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var selectedValue = selectedOption.value;
+        if (selectedValue == 1) {
+            document.getElementById("txtRevenue").innerText = formatCurrency(@ViewBag.doanhThu);
+            return;
+        }
+        if (selectedValue == 2) {
+            document.getElementById("txtRevenue").innerText = formatCurrency(@ViewBag.doanhThuHomNay);
+
+            return;
+        }
+        if (selectedValue == 3) {
+            document.getElementById("txtRevenue").innerText = formatCurrency(@ViewBag.doanhThuHomQua);
+
+            return;
+        }
+        if (selectedValue == 4) {
+            document.getElementById("txtRevenue").innerText = formatCurrency(@ViewBag.doanhThuTuanNay);
+
+            return;
+        }
+        if (selectedValue == 5) {
+            document.getElementById("txtRevenue").innerText = formatCurrency(@ViewBag.doanhThuThangNay);
+
+            return;
+        }
+    };
+</script>

@@ -163,15 +163,23 @@
             <p style="text-decoration: line-through;">@StringFormat.CurrencyFormat((int)(Model.GiaBan))</p>
             <span>
                 <span> Giá:@StringFormat.CurrencyFormat((int)(Model.GiaBan / 100 * (100 - Model.PhanTramGiam)))</span>
-                <form asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@Model.ProductId">
-                    <input id="txtQuantity" onchange="updateCount()" type="number" min="1" value="@count" oninput="removeNegative()" name="quantity" />
-                    <button type="submit" class="btn btn-fefault cart">
-                        <a style="color:white" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'"><i class="fa fa-shopping-cart"></i>Bỏ vào giỏ</a>
-                    </button>
-                </form>
-
+                @if (Model.SoLuongCon > 0)
+                {
+                    <form asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@Model.ProductId">
+                        <input id="txtQuantity" onchange="updateCount()" type="number" min="1" value="@count" oninput="removeNegative()" name="quantity" />
+                        <button type="submit" class="btn btn-fefault cart">
+                            <a style="color:white" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'"><i class="fa fa-shopping-cart"></i>Bỏ vào giỏ</a>
+                        </button>
+                    </form>
+                }
             </span>
-            <p><b>Số lượng còn:</b> @Model.SoLuongCon</p>
+            @if (Model.SoLuongCon > 0)
+            {
+                <p><b>Số lượng còn:</b> @Model.SoLuongCon</p>
+            }
+            else{
+                <p><b style="color:red">------------Đã hết hàng-----------</b></p>
+            }
             <p><b>Mô tả:</b> @Model.MoTa</p>
             <p><b>Thông số:</b> @Model.ThongSo</p>
             <p><b>Hãng:</b> @Model.Brand.TenNhanHieu</p>

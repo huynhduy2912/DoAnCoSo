@@ -147,7 +147,7 @@ namespace DoAnNhom11.Controllers
             {
                 
                 var order = await _context.OrderDetails.Where(p => p.OrderId == orderId && p.ProductId == productId).FirstOrDefaultAsync();
-                order.IsReview = 1;
+                order.IsReview = true;
                 _context.Add(reviews);
                 await _context.SaveChangesAsync();
                 if (myFile != null)

@@ -87,6 +87,9 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account
             [Required]
             public string UserName { get; set; }
             [Required]
+            [Phone]
+            public string PhoneNumber { get; set; }
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -137,7 +140,7 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account
                 user.FullName = Input.FullName;
                 user.Address = Input.Address;
                 user.UserName = Input.UserName;
-
+                user.PhoneNumber = Input.PhoneNumber;
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
