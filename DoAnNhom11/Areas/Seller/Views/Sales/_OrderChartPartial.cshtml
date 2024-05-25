@@ -1,17 +1,17 @@
 ﻿<label><h1>Biểu Đồ Số Đơn Hàng Theo Ngày</h1></label>
-<select id="orders">
+<select id="orderChartSelect">
     <option value="1">Tất Cả</option>
     <option value="2">Trong 30 ngày qua</option>
     <option value="3">Trong 365 ngày qua</option>
 </select>
-<canvas id="myChart3" width="300" height="100"></canvas>
+<canvas id="myOrderChat" width="300" height="100"></canvas>
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
         // Biến lưu trữ biểu đồ
         let myChart;
 
         function drawMyChart(data) {
-            const ctx = document.getElementById('myChart3').getContext('2d');
+            const ctx = document.getElementById('myOrderChat').getContext('2d');
             if (myChart) {
                 myChart.destroy();
             }
@@ -58,9 +58,9 @@
         drawChart(1);
 
         // Lắng nghe sự kiện click của nút xóa
-        document.getElementById("orders").onchange = function () {
-            
-            const ctx = document.getElementById('myChart3').getContext('2d');
+        document.getElementById("orderChartSelect").onchange = function () {
+
+            const ctx = document.getElementById('myOrderChat').getContext('2d');
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
             // Hủy biểu đồ hiện tại nếu có
             if (myChart) {
@@ -69,37 +69,7 @@
             }
             var selectedOption = this.options[this.selectedIndex];
             var selectedValue = selectedOption.value;
-            drawChart(selectedValue);
-            if (selectedValue == 1) {
-                document.getElementById("txtOrder1").innerText = "@ViewBag.Don";
-                document.getElementById("txtOrder2").innerText = "@ViewBag.DonChoXacNhan";
-                document.getElementById("txtOrder3").innerText = "@ViewBag.DonDaThanhToan";
-                return;
-            }
-            if (selectedValue == 2) {
-                document.getElementById("txtOrder1").innerText = "@ViewBag.DonHomNay";
-                document.getElementById("txtOrder2").innerText = "@ViewBag.DonChoXacNhanHomNay";
-                document.getElementById("txtOrder3").innerText = "@ViewBag.DonDaThanhToanHomNay";
-                return;
-            }
-            if (selectedValue == 3) {
-                document.getElementById("txtOrder1").innerText = "@ViewBag.DonHomQua";
-                document.getElementById("txtOrder2").innerText = "@ViewBag.DonChoXacNhanHomQua";
-                document.getElementById("txtOrder3").innerText = "@ViewBag.DonDaThanhToanHomQua";
-                return;
-            }
-            if (selectedValue == 4) {
-                document.getElementById("txtOrder1").innerText = "@ViewBag.DonTuanNay";
-                document.getElementById("txtOrder2").innerText = "@ViewBag.DonChoXacNhanTuanNay";
-                document.getElementById("txtOrder3").innerText = "@ViewBag.DonDaThanhToanTuanNay";
-                return;
-            }
-            if (selectedValue == 5) {
-                document.getElementById("txtOrder1").innerText = "@ViewBag.DonThangNay";
-                document.getElementById("txtOrder2").innerText = "@ViewBag.DonChoXacNhanThangNay";
-                document.getElementById("txtOrder3").innerText = "@ViewBag.DonDaThanhToanThangNay";
-                return;
-            }
+            drawChart(selectedValue);          
         };
     });
 </script>

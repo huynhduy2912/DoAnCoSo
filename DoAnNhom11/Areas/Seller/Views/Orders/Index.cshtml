@@ -4,56 +4,21 @@
 @using X.PagedList.Mvc.Core;
 @model X.PagedList.IPagedList<Order>;
 <h1 style="text-align:center">Đơn hàng của shop</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Ngày Đặt
-            </th>
-            <th>
-                Tổng tiền
-            </th>
-            <th>
-                Địa chỉ giao hàng
-            </th>
-            <th>
-                Ghi chú
-            </th>
-            <th>
-                Trạng thái đơn hàng
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @StringFormat.DateFormat(item.OrderDate)
-                </td>
-                <td>
-                    @StringFormat.CurrencyFormat(item.TotalPrice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ShippingAddress)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Notes)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OrderStatus.TenTrangThai)
-                </td>
-                <td>
-                    <button type="button" class="btn btn-primary">
-                        <a asp-area="Seller" asp-controller="Orders" asp-action="OrderDetails" asp-route-ma="@item.OrderId" style="color:white">Xem chi tiết</a>
-                    </button>
-                </td>
-                
-            </tr>
-        }
-    </tbody>
-</table>
-<ul class="pagination">
+
+@foreach (var item in Model)
+{
+
+        @Html.Partial("_OrderPartial", item)
+
+}
+
+<div class="center">
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
-</ul>
+</div>
+<style>
+    .center {
+        display: flex;
+        justify-content: center;
+        height: 150%;
+    }
+</style>

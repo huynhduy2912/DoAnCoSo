@@ -1,5 +1,5 @@
-﻿<label><h1>Đơn hàng</h1></label>
-<select id="orders">
+﻿<label><h1>Số đơn hàng</h1></label>
+<select id="orders1">
     <option value="1">Tất Cả</option>
     <option value="2">Hôm nay</option>
     <option value="3">Hôm qua</option>
@@ -9,8 +9,9 @@
 <p>Tổng số: <span id="txtOrder1" style="color:red">@ViewBag.Don</span></p>
 <p>Chờ xác nhận: <span id="txtOrder2" style="color:red">@ViewBag.DonChoXacNhan</span></p>
 <p>Đã thanh toán: <span id="txtOrder3" style="color:red">@ViewBag.DonDaThanhToan</span></p>
+
 <script>
-    document.getElementById("orders").onchange = function () {
+    document.getElementById("orders1").onchange = function () {
         var selectedOption = this.options[this.selectedIndex];
         var selectedValue = selectedOption.value;
         if (selectedValue == 1) {
@@ -44,4 +45,5 @@
             return;
         }
     };
+    
 </script>

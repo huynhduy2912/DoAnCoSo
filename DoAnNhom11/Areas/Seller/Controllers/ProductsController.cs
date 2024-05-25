@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 using X.PagedList;
 
 namespace DoAnNhom11.Areas.Seller.Controllers
@@ -128,11 +129,39 @@ namespace DoAnNhom11.Areas.Seller.Controllers
                         }
                     }
                 }
-                return RedirectToAction("Index", "Products", new { ma = product.ShopId, page = 1 });
+                return RedirectToAction("Details", "Products", new { id = product.ProductId });
 
             }
             ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandId", product.BrandId);
             ViewData["ProductCategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.ProductCategoryId);
+            return View(product);
+        }
+        public async Task<IActionResult> Details(int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var productImages = _context.ProducImages.Where(p => p.ProductId == id).ToList();
+            ViewBag.productImages = productImages;
+            var product = await _context.Products
+                .Include(p => p.Brand)
+                .Include(p => p.ProductCategory)
+                .FirstOrDefaultAsync(m => m.ProductId == id);
+            if (seller == null)
+            {
+                seller = await _userManager.GetUserAsync(User);
+            }
+            if (seller.ShopId != product.ShopId)
+            {
+                return Content("Sản phẩm không tồn tại trong cửa hàng");
+            }
+            if (product == null)
+            {
+                return NotFound();
+            }
+
             return View(product);
         }
         public async Task<IActionResult> EditProduct(int? id)
@@ -220,7 +249,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
                     throw;
                 }
             }
-            return RedirectToAction("Index", "Products", new { page = 1 });
+            return RedirectToAction("Details", "Products", new { id = product.ProductId });
         }
 
         public async Task<IActionResult> DeleteProduct(int? id)
@@ -308,14 +337,14 @@ namespace DoAnNhom11.Areas.Seller.Controllers
         {
             return _context.Products.Any(e => e.ProductId == id);
         }
-        /*[HttpGet]
+        [HttpGet]
         public IActionResult UploadExcel()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> UploadExcel(UploadExcelViewModel model)
+        public async Task<IActionResult> UploadExcel(dynamic model)
         {
             if (model.ExcelFile == null || model.ExcelFile.Length == 0)
             {
@@ -364,7 +393,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
 
             return RedirectToAction("Index", "Products", new { page = 1 });
 
-        }*/
+        }
 
 
     }

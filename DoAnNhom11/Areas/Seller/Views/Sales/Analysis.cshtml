@@ -1,28 +1,29 @@
-﻿@model IEnumerable<DoAnNhom11.Models.Order>
+﻿
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <hr />
 <div id="orderView">
-
+    
 </div>
 <hr />
-<canvas id="myChart" width="300" height="100"></canvas>
+@Html.Partial("~/Areas/Seller/Views/Sales/_OrderChartPartial.cshtml")
+
 <hr />
 <div id="revenueView">
 
 </div>
 <hr />
 <canvas id="myChart2" width="300" height="100"></canvas>
-
 <hr />
 <div id="productView">
 
 </div>
 
 <hr />
+
 <script>
     $(document).ready(function () {
-
+       
         $.ajax({
             url: '/Seller/Sales/OrderAnalyze',
             type: 'GET',
@@ -59,51 +60,10 @@
 
 
 @section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    
     <script>
         $(document).ready(function () {
-            $.ajax({
-                url: '/Seller/Sales/GetOrdersData',
-                type: 'GET',
-                dataType: 'json',
-                success: function (data) {
-                    var dates = [];
-                    var quantities = [];
-                    
-
-                    data.forEach(function (item) {
-                        var formattedDate = moment(item.date).format('DD/MM/YYYY');
-                        dates.push(formattedDate);
-                        quantities.push(item.quantity);
-                    });
-
-                    var ctx = document.getElementById('myChart').getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: dates,
-                            datasets: [{
-                                label: 'Số lượng',
-                                data: quantities,
-                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                                borderColor: 'rgba(255, 99, 132, 1)',
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
-                    });
-                },
-                error: function () {
-                    alert('Có lỗi xảy ra trong quá trình lấy dữ liệu!');
-                }
-            }); 
+            
             $.ajax({
                 url: '/Seller/Sales/GetRevenuesData',
                 type: 'GET',
@@ -126,8 +86,8 @@
                             datasets: [{
                                 label: 'Doanh thu',
                                 data: revenues,
-                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                                borderColor: 'rgba(255, 99, 132, 1)',
+                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                borderColor: 'rgba(75, 192, 192, 1)',
                                 borderWidth: 1
                             }]
                         },

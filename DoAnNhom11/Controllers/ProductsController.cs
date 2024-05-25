@@ -99,7 +99,7 @@ namespace DoAnNhom11.Controllers
            .OrderByDescending(x => x.ProductId).ToListAsync();
             if(listProductByCategory.Count == 0)
             {
-               return Content("Loại sản phẩm này đã hết hàng");
+                return Content("<center><h1>Loại sản phẩm này đã hết hàng<h1><button onclick=\"window.history.back()\">Trở về</button></center>", "text/html", System.Text.Encoding.UTF8);
             }
             PagedList<Product> listProduct = new PagedList<Product>(listProductByCategory, page, 8);
             return View(listProduct);

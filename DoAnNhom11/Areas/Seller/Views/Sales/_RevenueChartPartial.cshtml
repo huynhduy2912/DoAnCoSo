@@ -1,0 +1,76 @@
+﻿<label><h1>Biểu Đồ Số Đơn Hàng Theo Ngày</h1></label>
+<select id="revenueChartSelect">
+    <option value="1">Tất Cả</option>
+    <option value="2">Trong 30 ngày qua</option>
+    <option value="3">Trong 365 ngày qua</option>
+</select>
+<canvas id="myRevenueChart" width="300" height="100"></canvas>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        // Biến lưu trữ biểu đồ
+        let myChart;
+
+        function drawMyChart(data) {
+            const ctx = document.getElementById('myRevenueChart').getContext('2d');
+            if (myChart) {
+                myChart.destroy();
+            }
+            myChart = new Chart(ctx, {
+                type: 'bar', // hoặc bất kỳ loại biểu đồ nào bạn muốn
+                data: data,
+            });
+        }
+
+        function drawChart(querry) {
+            let myChart;
+            $.ajax({
+                url: '/Seller/Sales/GetRevenuesData?querry=' + querry,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    var dates = [];
+                    var revenues = [];
+                    data.forEach(function (item) {
+                        var formattedDate = moment(item.date).format('DD/MM/YYYY');
+                        dates.push(formattedDate);
+                        revenues.push(item.revenue);
+                    });
+                    data = {
+                        labels: dates,
+                        datasets: [{
+                            label: 'Doanh Thu',
+                            data: revenues,
+                            fill: false,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    };
+
+                    drawMyChart(data);
+                },
+                error: function () {
+                    alert('Có lỗi xảy ra trong quá trình lấy dữ liệu!');
+                }
+            });
+        }
+
+        // Vẽ biểu đồ ban đầu
+        drawChart(1);
+
+        // Lắng nghe sự kiện click của nút xóa
+        document.getElementById("revenueChartSelect").onchange = function () {
+
+            const ctx = document.getElementById('myRevenueChart').getContext('2d');
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            // Hủy biểu đồ hiện tại nếu có
+            if (myChart) {
+                myChart.destroy();
+                myChart = null; // Đặt lại biến myChart để ngăn chặn lỗi khi click lại
+            }
+            var selectedOption = this.options[this.selectedIndex];
+            var selectedValue = selectedOption.value;
+            drawChart(selectedValue);
+        };
+    });
+</script>

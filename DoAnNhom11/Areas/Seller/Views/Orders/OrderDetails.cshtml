@@ -39,10 +39,10 @@
                     {
                         <tr>
                             <td class="cart_product" style="width: 200px;">
-                                <a asp-area="Seller" asp-controller="Products" asp-action="EditProduct" asp-route-id="@item.ProductId"><img src="@item.Product.AnhDaiDien" alt="" width="120" height="100"></a>
+                                <a asp-area="Seller" asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId"><img src="@item.Product.AnhDaiDien" alt="" width="120" height="100"></a>
                             </td>
                             <td class="cart_description">
-                                <h4><a asp-area="Seller" asp-controller="Products" asp-action="EditProduct" asp-route-id="@item.ProductId">@item.Product.TenSp</a></h4>
+                                <h4><a asp-area="Seller" asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId">@item.Product.TenSp</a></h4>
                                 <p>Web ID: @item.ProductId</p>
                             </td>
                             <td class="cart_price">

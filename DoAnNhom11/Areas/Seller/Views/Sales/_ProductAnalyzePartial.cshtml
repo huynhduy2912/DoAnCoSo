@@ -1,5 +1,5 @@
-﻿@model dynamic
-<H1>Sản Phẩm Bán Chạy</H1>
+﻿
+<H1>Top Bán Chạy</H1>
 <table class="table">
     <thead>
         <tr>
@@ -28,7 +28,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in ViewBag.topSaleProducts)
         {
             <tr>
                 <td>
@@ -42,7 +42,65 @@
                     <p style="color:red;">@item.SoLuongBan</p>
                 </td>
                 <td>
-                    @item.GiaBan
+                    @StringFormat.CurrencyFormat(item.GiaBan)
+                </td>
+                <td>
+                    @item.PhanTramGiam
+                </td>
+                <td>
+                    @item.SoLuongCon
+                </td>
+                <td>
+                    @item.DiemDanhGia
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<H1>Top Doanh Thu</H1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên
+            </th>
+            <th>
+                Ảnh
+            </th>
+
+            <th style="color:red">
+                Doanh Thu
+            </th>
+            <th>
+                Giá
+            </th>
+            <th>
+                Phần trăm giảm
+            </th>
+            <th>
+                Số lượng còn
+            </th>
+            <th>
+                Điểm Đánh Giá
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.topRevenueProducts)
+        {
+            <tr>
+                <td>
+                    @item.TenSp
+                </td>
+                <td>
+                    <img src="@item.AnhDaiDien" width="60" height="60" />
+                </td>
+
+                <td>
+                    <p style="color:red;">@StringFormat.CurrencyFormat(item.DoanhThu)</p>
+                </td>
+                <td>
+                    @StringFormat.CurrencyFormat(item.GiaBan)
                 </td>
                 <td>
                     @item.PhanTramGiam

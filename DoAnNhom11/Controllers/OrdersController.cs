@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Azure;
 using X.PagedList;
 using DoAnNhom11.Extensions;
+using OfficeOpenXml.Drawing.Controls;
 
 namespace DoAnNhom11.Controllers
 {
@@ -30,7 +31,12 @@ namespace DoAnNhom11.Controllers
             int pageSize = 9;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
             var user = await _userManager.GetUserAsync(User);
-            var applicationDbContext = await _context.Orders.Where(p => p.UserId == user.Id).Include(o => o.ApplicationUser).Include(o => o.VouCher).Include(o => o.OrderStatus).ToListAsync();
+            var applicationDbContext = await _context.Orders
+                .Where(p => p.UserId == user.Id)
+                .Include(o=>o.OrderDetails).ThenInclude(od => od.Product)
+                .Include(o => o.VouCher)
+                .Include(o => o.OrderStatus)
+                .ToListAsync();
             applicationDbContext.Reverse();
             PagedList<Order> listOrder = new PagedList<Order>(applicationDbContext, pageNumber, pageSize);
             return View(listOrder);
@@ -173,7 +179,8 @@ namespace DoAnNhom11.Controllers
                 return RedirectToAction("Details", "Products", new { ma = productId });
 
             }
-            return Content("Lỗi");
+            return Content("<center><h1>Lỗi<h1></center>", "text/html", System.Text.Encoding.UTF8);
+
         }
         private bool OrderExists(int id)
         {

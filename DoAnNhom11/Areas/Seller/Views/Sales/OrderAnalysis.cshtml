@@ -1,0 +1,34 @@
+﻿
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<hr />
+<div id="orderView">
+    <div class="loader"></div>
+</div>
+<hr />
+@Html.Partial("~/Areas/Seller/Views/Sales/_OrderChartPartial.cshtml")
+<hr />
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $.ajax({
+            url: '/Seller/Sales/OrderAnalyze',
+            type: 'GET',
+            success: function (result) {
+                $('#orderView').html(result);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+
+    });
+</script>
+
+
+
+
+

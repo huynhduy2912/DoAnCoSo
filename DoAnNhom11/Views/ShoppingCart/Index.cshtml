@@ -8,8 +8,7 @@
 @foreach (var item in Model)
 {
     
-    @Html.Partial("_ShoppingCartPartial", item)
-    ;
+    @Html.Partial("_ShoppingCartPartial", item);
     <tr>
         <h1 style="text-align: center; color:red">Tổng đơn hàng: @StringFormat.CurrencyFormat(item.TotalPrice())</h1>
     </tr>

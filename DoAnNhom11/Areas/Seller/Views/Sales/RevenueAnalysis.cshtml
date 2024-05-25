@@ -1,0 +1,36 @@
+﻿
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<hr />
+<div id="revenueView">
+    <div class="loader"></div>
+</div>
+<hr />
+@Html.Partial("~/Areas/Seller/Views/Sales/_RevenueChartPartial.cshtml")
+
+<hr />
+
+
+
+<script>
+    $(document).ready(function () {
+
+
+        $.ajax({
+            url: '/Seller/Sales/RevenueAnalyze',
+            type: 'GET',
+            success: function (result) {
+                $('#revenueView').html(result);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+
+    });
+</script>
+
+
+
+
+

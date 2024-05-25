@@ -22,13 +22,15 @@ namespace DoAnNhom11.Areas.Seller.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private ApplicationUser? seller;
         public ShopsController(UserManager<ApplicationUser> userManager,
-            ApplicationDbContext context)
+            ApplicationDbContext context,
+            RoleManager<IdentityRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
-
+            _roleManager = roleManager;
         }
         public async Task<IActionResult> Edit()
         {
@@ -116,7 +118,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             return View(staffInShop);
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public async Task<IActionResult> Staffs(string userName)
         {
             if (seller == null)
@@ -165,7 +167,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
              .Where(u => u.ShopId == id)
              .ToListAsync();
             return View(staffInShop);
-        }
+        }*/
         public async Task<IActionResult> GetShopName()
         {
             if (seller == null)
@@ -194,6 +196,85 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             staff.ShopId = null;
             await _context.SaveChangesAsync();           
             return RedirectToAction("Staffs","Shops");
+        }
+        [HttpGet]
+        public IActionResult AddStaff()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddStaff(RegisterViewModel model)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                if (seller == null)
+                {
+                    seller = await _userManager.GetUserAsync(User);
+                }
+                var user = new ApplicationUser
+                {
+
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    FullName = model.FullName,
+                    Address = model.Address,
+                    Avatar = model.Avatar,
+                    ShopId = seller.ShopId
+                };
+
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    if (!await _roleManager.RoleExistsAsync("Admin"))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole("Admin"));
+                    }
+
+                    await _userManager.AddToRoleAsync(user, "Admin");
+
+                    return RedirectToAction("Staffs", "Shops");
+                }
+                else
+                {
+                    Content("Đăng Ký Không Thành Công");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetStaffPassword(string userId)
+        {
+            if (string.IsNullOrEmpty(userId))
+            {
+                return BadRequest("User ID is required.");
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+            if (seller == null)
+            {
+                seller = await _userManager.GetUserAsync(User);
+            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user, token, "P@55W0rd");
+
+            if (result.Succeeded)
+            {
+                return Ok("Mật khẩu reset thành công.");
+            }
+
+            return BadRequest(result.Errors);
         }
         private bool ShopExists(int id)
         {

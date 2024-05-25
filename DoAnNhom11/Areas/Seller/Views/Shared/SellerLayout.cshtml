@@ -8,6 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bán hàng</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/myLayout/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -71,6 +72,7 @@
                     <ul class="submenu">
                         <li><a asp-area="Seller" asp-controller="Shops" asp-action="Edit">Thông tin shop</a></li>
                         <li><a asp-area="Seller" asp-controller="Shops" asp-action="Staffs">Nhân viên</a></li>
+                        <li><a asp-area="Seller" asp-controller="Shops" asp-action="AddStaff">Thêm nhân viên</a></li>
                     </ul>
                 </li>
                 <li>
@@ -80,7 +82,9 @@
                         <i class="fa fa-angle-down"></i>
                     </button>
                     <ul class="submenu">
-                        <li><a asp-area="Seller" asp-controller="Sales" asp-action="Analysis">Phân tích bán hàng</a></li>
+                        <li><a asp-area="Seller" asp-controller="Sales" asp-action="OrderAnalysis">Phân tích đơn hàng</a></li>
+                        <li><a asp-area="Seller" asp-controller="Sales" asp-action="RevenueAnalysis">Phân tích doanh thu</a></li>
+                        <li><a asp-area="Seller" asp-controller="Sales" asp-action="ProductAnalysis">Phân tích sản phẩm</a></li>
                         @* <li><a href="#">Doanh thu</a></li> *@
                         @* <li><a href="#">Số dư</a></li> *@
                     </ul>
@@ -92,9 +96,10 @@
         </div>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
@@ -111,6 +116,7 @@
         color: #fff;
         text-align: center;
         top: 0;
+        z-index:99
     }
 
     .vertical-nav {
@@ -121,7 +127,7 @@
         background-color: white;
         color: #333;
         padding: 20px;
-        z-index: 1000;
+        z-index: 99;
         overflow-y: auto; /* Tạo thanh cuộn dọc nếu nội dung vượt quá kích thước */
     }
 

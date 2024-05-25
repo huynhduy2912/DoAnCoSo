@@ -100,6 +100,7 @@ namespace DoAnNhom11.Controllers
             {
                 ShoppingCart newShoppingCart = new ShoppingCart();
                 newShoppingCart.shopName = product.Shop.TenCuaHang;
+                newShoppingCart.shopId = product.Shop.ShopId;
                 newShoppingCart.AddItem(cartItem);
                 listCart.Add(newShoppingCart);
             }
@@ -113,6 +114,8 @@ namespace DoAnNhom11.Controllers
                 {
                     ShoppingCart newShoppingCart = new ShoppingCart();
                     newShoppingCart.shopName= product.Shop.TenCuaHang;
+                    newShoppingCart.shopId = product.Shop.ShopId;
+
                     newShoppingCart.AddItem(cartItem);
                     listCart.Add(newShoppingCart);
                 }

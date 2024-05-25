@@ -1,0 +1,60 @@
+﻿@model DoAnNhom11.Models.Order
+@{
+    string action = ViewBag.Action ?? "OrderDetails";
+}
+<style>
+    .product {
+        border-top: 1px solid grey;
+        width: 99%;
+    }
+
+        .product img {
+            height: 50px;
+            width: 50px;
+        }
+</style>
+<section style="border:2px solid black">
+    <div class="container sum">
+        <div class="second p-3">
+            <strong>Ngày đặt: @StringFormat.DateFormat(Model.OrderDate)</strong>
+            @foreach (var item in Model.OrderDetails)
+            {
+                <div class="row product py-2">
+                    <div class="col-md-6 d-flex">
+                        <div class="images">
+                            <img src="@item.Product.AnhDaiDien" alt="">
+                        </div>
+                        <div class="context ml-3">
+                            <p>@item.Product.TenSp</p>
+                            x @item.Quantity
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <h5 class="text-dark">@StringFormat.CurrencyFormat(item.Price * item.Quantity)</h5>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="row third py-3" style="border-top:1px solid grey;width:99%">
+            <div class="col-md-6">
+                <h4 style="color:red;">@Model.OrderStatus.TenTrangThai</p>
+            </div>
+            <div class="col-md-6 text-right">
+                <h3 style="color: red;"><span>Thành tiền(-@Model.VouCher.PhanTramGiam%):</span>@StringFormat.CurrencyFormat(@Model.TotalPrice)</h3>
+                @if (action == "Details")
+                {
+                    <button type="button" class="btn btn-fefault cart">
+                        <a asp-controller="Orders" asp-action="Details" asp-route-ma="@Model.OrderId" style="color:white" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'">Xem chi tiết</a>
+                    </button>
+                    
+                }
+                else
+                {
+                    <button class="btn btn-primary"><a style="color:white" asp-action="@action" asp-route-ma="@Model.OrderId">Xem chi tiết</a></button>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<br />

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using X.PagedList;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace DoAnNhom11.Areas.Seller.Controllers
 {
@@ -32,14 +33,20 @@ namespace DoAnNhom11.Areas.Seller.Controllers
 
             return View(applicationDbContext);
         }
-        public async Task<IActionResult> Revenue(int? page)
+        public async Task<IActionResult> Chart()
         {
-
-            if (seller == null)
-            {
-                seller = await _userManager.GetUserAsync(User);
-            }
-
+            return View();
+        }
+        public async Task<IActionResult> OrderAnalysis()
+        {
+            return View();
+        }
+        public async Task<IActionResult> RevenueAnalysis()
+        {
+            return View();
+        }
+        public async Task<IActionResult> ProductAnalysis()
+        {
             return View();
         }
         public async Task<IActionResult> OrderAnalyze()
@@ -49,25 +56,40 @@ namespace DoAnNhom11.Areas.Seller.Controllers
                 seller = await _userManager.GetUserAsync(User);
             }
             var applicationDbContext = await _context.Orders.Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId).Include(o => o.ApplicationUser).Include(o => o.VouCher).Include(o => o.OrderStatus).ToListAsync();
-            ViewBag.Don = applicationDbContext.Count();
-            ViewBag.DonChoXacNhan = applicationDbContext.Count(o => o.OrderStatusId == 1);
-            ViewBag.DonDaThanhToan = applicationDbContext.Count(o => o.OrderStatusId == 5);
+            ViewBag.Don = applicationDbContext
+                .Count();
+            ViewBag.DonChoXacNhan = applicationDbContext
+                .Count(o => o.OrderStatusId == 1);
+            ViewBag.DonDaThanhToan = applicationDbContext
+                .Count(o => o.OrderStatusId == 5);
 
-            ViewBag.DonHomNay = applicationDbContext.Count(o => o.OrderDate.Date == DateTime.Today);
-            ViewBag.DonChoXacNhanHomNay = applicationDbContext.Count(o => o.OrderStatusId == 1 && o.OrderDate.Date == DateTime.Today);
-            ViewBag.DonDaThanhToanHomNay = applicationDbContext.Count(o => o.OrderStatusId == 5 && o.OrderDate.Date == DateTime.Today);
+            ViewBag.DonHomNay = applicationDbContext
+                .Count(o => o.OrderDate.Date == DateTime.Today);
+            ViewBag.DonChoXacNhanHomNay = applicationDbContext
+                .Count(o => o.OrderStatusId == 1 && o.OrderDate.Date == DateTime.Today);
+            ViewBag.DonDaThanhToanHomNay = applicationDbContext
+                .Count(o => o.OrderStatusId == 5 && o.OrderDate.Date == DateTime.Today);
 
-            ViewBag.DonHomQua = applicationDbContext.Count(o => o.OrderDate.Date == DateTime.Today.AddDays(-1));
-            ViewBag.DonChoXacNhanHomQua = applicationDbContext.Count(o => o.OrderStatusId == 1 && o.OrderDate.Date == DateTime.Today.AddDays(-1));
-            ViewBag.DonDaThanhToanHomQua = applicationDbContext.Count(o => o.OrderStatusId == 5 && o.OrderDate.Date == DateTime.Today.AddDays(-1));
+            ViewBag.DonHomQua = applicationDbContext
+                .Count(o => o.OrderDate.Date == DateTime.Today.AddDays(-1));
+            ViewBag.DonChoXacNhanHomQua = applicationDbContext
+                .Count(o => o.OrderStatusId == 1 && o.OrderDate.Date == DateTime.Today.AddDays(-1));
+            ViewBag.DonDaThanhToanHomQua = applicationDbContext
+                .Count(o => o.OrderStatusId == 5 && o.OrderDate.Date == DateTime.Today.AddDays(-1));
 
-            ViewBag.DonTuanNay = applicationDbContext.Count(o => o.OrderDate.Date >= DateTime.Today.AddDays(-7));
-            ViewBag.DonChoXacNhanTuanNay = applicationDbContext.Count(o => o.OrderStatusId == 1 && o.OrderDate.Date >= DateTime.Today.AddDays(-7));
-            ViewBag.DonDaThanhToanTuanNay = applicationDbContext.Count(o => o.OrderStatusId == 5 && o.OrderDate.Date >= DateTime.Today.AddDays(-7));
+            ViewBag.DonTuanNay = applicationDbContext
+                .Count(o => o.OrderDate.Date >= DateTime.Today.AddDays(-7));
+            ViewBag.DonChoXacNhanTuanNay = applicationDbContext
+                .Count(o => o.OrderStatusId == 1 && o.OrderDate.Date >= DateTime.Today.AddDays(-7));
+            ViewBag.DonDaThanhToanTuanNay = applicationDbContext
+                .Count(o => o.OrderStatusId == 5 && o.OrderDate.Date >= DateTime.Today.AddDays(-7));
 
-            ViewBag.DonThangNay = applicationDbContext.Count(o => o.OrderDate.Date >= DateTime.Today.AddDays(-30));
-            ViewBag.DonChoXacNhanThangNay = applicationDbContext.Count(o => o.OrderStatusId == 1 && o.OrderDate.Date >= DateTime.Today.AddDays(-30));
-            ViewBag.DonDaThanhToanThangNay = applicationDbContext.Count(o => o.OrderStatusId == 5 && o.OrderDate.Date >= DateTime.Today.AddDays(-30));
+            ViewBag.DonThangNay = applicationDbContext
+                .Count(o => o.OrderDate.Date >= DateTime.Today.AddDays(-30));
+            ViewBag.DonChoXacNhanThangNay = applicationDbContext
+                .Count(o => o.OrderStatusId == 1 && o.OrderDate.Date >= DateTime.Today.AddDays(-30));
+            ViewBag.DonDaThanhToanThangNay = applicationDbContext
+                .Count(o => o.OrderStatusId == 5 && o.OrderDate.Date >= DateTime.Today.AddDays(-30));
 
 
             return PartialView("/Areas/Seller/Views/Sales/_OrderAnalyzePartial.cshtml");
@@ -78,15 +100,28 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             {
                 seller = await _userManager.GetUserAsync(User);
             }
-            var applicationDbContext = await _context.Orders.Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId).Include(o => o.ApplicationUser).Include(o => o.VouCher).Include(o => o.OrderStatus).ToListAsync();
-            ViewBag.doanhThu = applicationDbContext.Where(o => o.OrderStatusId == 5).Sum(o => o.TotalPrice);
-            ViewBag.doanhThuHomNay = applicationDbContext.Where(o => o.OrderStatusId == 5 && o.OrderDate.Date == DateTime.Today).Sum(o => o.TotalPrice);
-            ViewBag.doanhThuHomQua = applicationDbContext.Where(o => o.OrderStatusId == 5 && o.OrderDate.Date == DateTime.Today.AddDays(-1)).Sum(o => o.TotalPrice);
-            ViewBag.doanhThuTuanNay = applicationDbContext.Where(o => o.OrderStatusId == 5 && o.OrderDate.Date >= DateTime.Today.AddDays(-7)).Sum(o => o.TotalPrice);
-            ViewBag.doanhThuThangNay = applicationDbContext.Where(o => o.OrderStatusId == 5 && o.OrderDate.Date >= DateTime.Today.AddDays(-30)).Sum(o => o.TotalPrice);
-
-
+            var applicationDbContext = await _context.Orders.
+                Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId)
+                .Include(o => o.ApplicationUser).Include(o => o.VouCher)
+                .Include(o => o.OrderStatus)
+                .ToListAsync();
+            ViewBag.doanhThu = applicationDbContext
+                .Where(o => o.OrderStatusId == 5)
+                .Sum(o => o.TotalPrice);
+            ViewBag.doanhThuHomNay = applicationDbContext
+                .Where(o => o.OrderStatusId == 5 && o.OrderDate.Date == DateTime.Today)
+                .Sum(o => o.TotalPrice);
+            ViewBag.doanhThuHomQua = applicationDbContext
+                .Where(o => o.OrderStatusId == 5 && o.OrderDate.Date == DateTime.Today.AddDays(-1))
+                .Sum(o => o.TotalPrice);
+            ViewBag.doanhThuTuanNay = applicationDbContext
+                .Where(o => o.OrderStatusId == 5 && o.OrderDate.Date >= DateTime.Today.AddDays(-7))
+                .Sum(o => o.TotalPrice);
+            ViewBag.doanhThuThangNay = applicationDbContext
+                .Where(o => o.OrderStatusId == 5 && o.OrderDate.Date >= DateTime.Today.AddDays(-30))
+                .Sum(o => o.TotalPrice);
             return PartialView("/Areas/Seller/Views/Sales/_RevenueAnalyzePartial.cshtml");
+
         }
         public async Task<IActionResult> ProductAnalyze()
         {
@@ -94,7 +129,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             {
                 seller = await _userManager.GetUserAsync(User);
             }
-            var topProducts = _context.Products.Where(p => p.ShopId == seller.ShopId)
+            var topSaleProducts = _context.Products.Where(p => p.ShopId == seller.ShopId)
             .Select(p => new
             {
                 p.TenSp,
@@ -109,17 +144,52 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             .Take(5)
             .Where(p => p.SoLuongBan != 0)
             .ToList();
-            return PartialView("/Areas/Seller/Views/Sales/_ProductAnalyzePartial.cshtml", topProducts);
+            var topRevenueProducts = _context.Products.Where(p => p.ShopId == seller.ShopId)
+            .Select(p => new
+            {
+                p.TenSp,
+                p.SoLuongCon,
+                p.AnhDaiDien,
+                p.PhanTramGiam,
+                p.GiaBan,
+                p.DiemDanhGia,
+                DoanhThu = p.OrderDetails.Where(o => o.Order.OrderStatusId == 5).Sum(o => o.Product.GiaBan*o.Quantity/100*(100-o.Order.VouCher.PhanTramGiam))
+            })
+            .OrderByDescending(p => p.DoanhThu)
+            .Take(5)
+            .Where(p => p.DoanhThu != 0)
+            .ToList();
+            ViewBag.topSaleProducts = topSaleProducts;
+            ViewBag.topRevenueProducts = topRevenueProducts;
+            return PartialView("/Areas/Seller/Views/Sales/_ProductAnalyzePartial.cshtml");
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetOrdersData()
+        public async Task<IActionResult> GetOrdersData(int querry)
         {
             if (seller == null)
             {
                 seller = await _userManager.GetUserAsync(User);
             }
-            var applicationDbContext = await _context.Orders.Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId).ToListAsync();
+            var applicationDbContext = new List<Order>();
+            if (querry == 1)
+            {
+                applicationDbContext = await _context.Orders
+                    .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId)
+                    .ToListAsync();
+            }else if(querry == 2)
+            {
+                applicationDbContext = await _context.Orders
+                    .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId)
+                    .Where(o => o.OrderDate.Date >= DateTime.Today.AddDays(-30))
+                    .ToListAsync();
+            }else if(querry == 3)
+            {
+                applicationDbContext = await _context.Orders
+                    .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId)
+                    .Where(o => o.OrderDate.Date >= DateTime.Today.AddDays(-365))
+                    .ToListAsync();
+            }
             var orders = applicationDbContext
                 .GroupBy(o => o.OrderDate.Date)
                 .Select(g => new
@@ -132,16 +202,36 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             return Json(orders);
         }    
         [HttpGet]
-        public async Task<IActionResult> GetRevenuesData()
+        public async Task<IActionResult> GetRevenuesData(int querry)
         {
             if (seller == null)
             {
                 seller = await _userManager.GetUserAsync(User);
             }
-            var applicationDbContext = await _context.Orders
-                .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId)
-                .Where(o => o.OrderStatusId == 5)
-                .ToListAsync();
+            var applicationDbContext = new List<Order>();
+            if (querry == 1)
+            {
+                applicationDbContext = await _context.Orders
+                    .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId)
+                    .Where(o => o.OrderStatusId == 5)
+                    .ToListAsync();
+            }
+            else if (querry == 2)
+            {
+                applicationDbContext = await _context.Orders
+                    .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId)
+                    .Where(o => o.OrderDate.Date >= DateTime.Today.AddDays(-30))
+                    .Where(o=>o.OrderStatusId==5)
+                    .ToListAsync();
+            }
+            else if (querry == 3)
+            {
+                applicationDbContext = await _context.Orders
+                    .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId)
+                    .Where(o => o.OrderDate.Date >= DateTime.Today.AddDays(-365))
+                    .Where(o => o.OrderStatusId == 5)
+                    .ToListAsync();
+            }
             var orders = applicationDbContext
                 .GroupBy(o => o.OrderDate.Date)
                 .Select(g => new

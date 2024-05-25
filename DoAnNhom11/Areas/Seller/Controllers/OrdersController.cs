@@ -31,7 +31,12 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             }
             int pageSize = 9;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var applicationDbContext = await _context.Orders.Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId && p.OrderStatusId != 6).Include(o => o.ApplicationUser).Include(o => o.VouCher).Include(o => o.OrderStatus).ToListAsync();
+            var applicationDbContext = await _context.Orders
+                .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId && p.OrderStatusId != 6)
+                .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
+                .Include(o => o.VouCher)
+                .Include(o => o.OrderStatus)
+                .ToListAsync();
             applicationDbContext.Reverse();
             PagedList<Order> listOrder = new PagedList<Order>(applicationDbContext, pageNumber, pageSize);
             return View(listOrder);
@@ -45,7 +50,12 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             }
             int pageSize = 9;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var applicationDbContext = await _context.Orders.Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId && p.OrderStatusId == 1).Include(o => o.ApplicationUser).Include(o => o.VouCher).Include(o => o.OrderStatus).ToListAsync();
+            var applicationDbContext = await _context.Orders
+                .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId && p.OrderStatusId == 1)
+                .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
+                .Include(o => o.VouCher)
+                .Include(o => o.OrderStatus)
+                .ToListAsync();
             applicationDbContext.Reverse();
             PagedList<Order> listOrder = new PagedList<Order>(applicationDbContext, pageNumber, pageSize);
             return View(listOrder);
@@ -58,7 +68,11 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             {
                 seller = await _userManager.GetUserAsync(User);
             }
-            var applicationDbContext = await _context.Orders.Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId && p.OrderStatusId == 6).Include(o => o.ApplicationUser).Include(o => o.VouCher).Include(o => o.OrderStatus).ToListAsync();
+            var applicationDbContext = await _context.Orders.Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId && p.OrderStatusId == 6)
+                .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
+                .Include(o => o.VouCher)
+                .Include(o => o.OrderStatus)
+                .ToListAsync();
             applicationDbContext.Reverse();
             PagedList<Order> listOrder = new PagedList<Order>(applicationDbContext, pageNumber, pageSize);
             return View(listOrder);
