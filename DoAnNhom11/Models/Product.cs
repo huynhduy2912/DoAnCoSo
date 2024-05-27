@@ -1,7 +1,12 @@
-﻿namespace DoAnNhom11.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace DoAnNhom11.Models
 {
     public class Product
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public required int ProductId { get; set; }
         public required string TenSp { get; set; }
         public string? AnhDaiDien { get; set; }
@@ -23,5 +28,9 @@
         public List<ProductImage>? Images { get; set; }
         public List<OrderDetail>? OrderDetails { get; set; }
         public List<Reviews>? ProductReviews { get; set; }
+        public decimal GiaSauGiam()
+        {
+            return GiaBan / 100 * (100 - PhanTramGiam??0);
+        }
     }
 }

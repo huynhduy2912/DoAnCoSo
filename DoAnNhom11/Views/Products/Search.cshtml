@@ -1,9 +1,7 @@
-﻿@using X.PagedList.Mvc.Core;
-@model X.PagedList.IPagedList<Product>;
+﻿
 
 @{
     ViewData["Title"] = "Index";
-
 }
 
 <section>
@@ -11,57 +9,61 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
-                    <h2>Lọc Theo loại</h2>
-                    <div class="panel-group category-products" id="accordian">
+                    <form>
+
+
+                        @* <h2>Lọc Theo loại</h2>
+                        <div class="panel-group category-products" id="accordian">
                         <!--category-productsr-->
                         @foreach (var item in ViewBag.categories)
                         {
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><button style="background-color: transparent; border: none;" onclick="getProductsByCategory(@item.ProductCategoryId)"><a>@item.TenLoai</a></button></h4>
-                                </div>
-                            </div>
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+                        <h4 class="panel-title"><button style="background-color: transparent; border: none;" onclick="getProductsByCategory(@item.ProductCategoryId)"><a>@item.TenLoai</a></button></h4>
+                        </div>
+                        </div>
                         }
-                    </div><!--/category-productsr-->
+                        </div><!--/category-productsr-->
 
-                    <div class="brands_products">
+                        <div class="brands_products">
                         <!--brands_products-->
                         <h2>Lọc Theo Hãng</h2>
                         <div class="brands-name">
-                            <ul class="nav nav-pills nav-stacked">
-                                @foreach (var item in ViewBag.brands)
-                                {
-                                    <li><button style="background-color: transparent; border: none;" onclick="getProductsByBrand(@item.BrandId)"><a>@item.TenNhanHieu</a></button></li>
-                                }
-                            </ul>
+                        <ul class="nav nav-pills nav-stacked">
+                        @foreach (var item in ViewBag.brands)
+                        {
+                        <li><button style="background-color: transparent; border: none;" onclick="getProductsByBrand(@item.BrandId)"><a>@item.TenNhanHieu</a></button></li>
+                        }
+                        </ul>
                         </div>
-                    </div><!--/brands_products-->
+                        </div><!--/brands_products--> *@
 
-                    <div class="price-range">
-                        <!--price-range-->
-                        <h2>Tầm Giá</h2>
-                        <div class="well">
-                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="50000000" data-slider-step="5" data-slider-value="[0,50000000]" id="sl2"><br />
-                            <b>$ 10000</b> <b class="pull-right">$50000000</b>
-                        </div>
-                    </div><!--/price-range-->
+                        <div class="price-range">
+                            <!--price-range-->
+                            <h2>Tầm Giá</h2>
+                            <div class="well">
+                                <table>
+                                    <tr>
+                                        <td><input id="minPrice" type="number" min="1000" style="width:100px" placeholder="Từ ₫" ></td>
+                                        <td>&mdash;</td>
+                                        <td><input id="maxPrice" type="number" min="1000" style="width:100px" placeholder="Đến ₫" ></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div><!--/price-range-->
+                        <center><button onclick="Filter(1)" type="button">Lọc</button></center>
 
-                    <div class="shipping text-center">
-                        <!--shipping-->
-                        <img src="../myLayout/images/home/shipping.jpg" alt="" />
-                    </div><!--/shipping-->
 
+                        <div class="shipping text-center">
+                            <!--ad-->
+                            <img src="../myLayout/images/home/shipping.jpg" alt="" />
+                        </div><!--/ad-->
+
+                    </form>
                 </div>
             </div>
-            <div class="col-sm-9 padding-right" id="paginationContainer">
-                <div class="features_items">
-                    <!--features_items-->
-                    <h2 class="title text-center">Danh Sách Sản Phẩm</h2>
-                    <div id="productContainer">@Html.Partial("ProductListPartial", Model)</div>
-                </div><!--features_items-->
-                <ul class="pagination">
-                    @Html.PagedListPager(Model, page => Url.Action("SearchProducts", new { query = ViewBag.querry, page = page }))
-                </ul>
+            <div class="col-sm-9 padding-right" id="searchResults">
+                <div class="loader"></div>
             </div>
         </div>
     </div>
@@ -71,5 +73,31 @@
 
 <div></div>
 @* @Html.Partial("ProductListPartial", Model); *@
+@section Scripts {
+    <script>
+        function Filter(page) {
+            var minPrice = $('#minPrice').val();
+            var maxPrice = $('#maxPrice').val();
+            $('#searchResults').html('<div class="loader"></div>');
+            $.ajax({
+                type: "GET",
+                url: '/Products/QuerryProduct?searchString=' + '@ViewBag.Search' + '&minPrice=' + minPrice + '&maxPrice=' + maxPrice + '&page=' + page,
+                success: function (data) {
+                    $('#searchResults').html(data);
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth' // Thêm hiệu ứng cuộn mượt
+                    });
+                },
+                error: function () {
+                    alert("lỗi");
+                }
+            });
 
+        }
+
+        Filter(1);
+
+    </script>
+}
 

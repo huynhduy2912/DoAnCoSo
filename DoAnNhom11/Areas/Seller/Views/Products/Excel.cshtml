@@ -1,0 +1,12 @@
+﻿<h2>Upload Products</h2>
+<form asp-area="Seller" asp-controller="Products" asp-action="Upload" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label for="file">Select Excel File</label>
+        <input type="file" name="file" id="file" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-info">@ViewBag.Message</div>
+}

@@ -2,6 +2,7 @@
 using DoAnNhom11.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Drawing.Printing;
 using X.PagedList;
 
 namespace DoAnNhom11.Controllers
@@ -20,7 +21,7 @@ namespace DoAnNhom11.Controllers
         {
             int pageSize = 9;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var applicationDbContext = await _context.Products.Where(p => p.SoLuongCon > 0).Where(p => p.DaAn == false && p.SoLuongCon != 0).Include(p => p.Brand).Include(p => p.ProductCategory).AsNoTracking().OrderByDescending(x => x.ProductId).ToListAsync();
+            var applicationDbContext = await _context.Products.Where(p => p.DaAn == false && p.SoLuongCon != 0).Include(p => p.Brand).Include(p => p.ProductCategory).AsNoTracking().OrderByDescending(x => x.ProductId).ToListAsync();
             ViewBag.categories = await _context.Categories.ToListAsync();
             ViewBag.brands = await _context.Brands.ToListAsync();
             PagedList<Product> listProduct = new PagedList<Product>(applicationDbContext, pageNumber, pageSize);
@@ -80,16 +81,36 @@ namespace DoAnNhom11.Controllers
             return View(product);
         }
         public async Task<IActionResult> SearchProducts(string query, int? page)
+        {   
+            ViewBag.Search = query;
+            return View("Search");
+        }
+        public async Task<IActionResult> QuerryProduct(int? page,string searchString,decimal? minPrice,decimal? maxPrice,int? categoryId )
         {
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            IQueryable<Product> productsQuery = _context.Products.Where(p => p.SoLuongCon > 0).Where(p => p.DaAn == false).Include(p => p.ProductCategory)
-            .Where(p => p.TenSp.Contains(query));
-            PagedList<Product> listProductQuery = new PagedList<Product>(productsQuery, pageNumber, 9);
-            ViewBag.categories = await _context.Categories.ToListAsync();
-            ViewBag.brands = await _context.Brands.ToListAsync();
-            ViewBag.querry = query;
-            return View("Search", listProductQuery);
+            var query = _context.Products.AsQueryable();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                query = query.Where(p => p.TenSp.Contains(searchString));
+            }
+            if (minPrice.HasValue)
+            {
+                query = query.Where(p => (p.GiaBan / 100 * (100 - p.PhanTramGiam)) >= minPrice);
+            }
+            if (maxPrice.HasValue)
+            {
+                query = query.Where(p => (p.GiaBan / 100 * (100 - p.PhanTramGiam)) <= maxPrice);
+            }
+            ViewBag.MinPrice = minPrice;
+            ViewBag.MaxPrice = maxPrice;
+            ViewBag.Search= searchString;
+            //query = query.Where(p => p.DaAn != true);
+            query = query.Where(p => p.SoLuongCon >0);
+
+            var products = await query.ToPagedListAsync(pageNumber, 9);     
+            return PartialView("_ListSearchPartial", products);
         }
+       
         public async Task<IActionResult> Category(int categoryId, int page)
         {
             var listProductByCategory = await _context.Products

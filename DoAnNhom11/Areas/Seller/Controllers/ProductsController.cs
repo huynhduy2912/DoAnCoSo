@@ -46,6 +46,21 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             PagedList<Product> listProductByShopAndPage = new PagedList<Product>(listProductByShop, pageNumber, pageSize);
             return View(listProductByShopAndPage);
         }
+        public async Task<IActionResult> SearchProducts(string query, int? page)
+        {
+            if (seller == null)
+            {
+                seller = await _userManager.GetUserAsync(User);
+            }
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            IQueryable<Product> productsQuery = _context.Products.Where(p => p.ShopId == seller.ShopId).Where(p => p.SoLuongCon > 0).Where(p => p.DaAn == false).Include(p => p.ProductCategory)
+            .Where(p => p.TenSp.Contains(query));
+            PagedList<Product> listProductQuery = new PagedList<Product>(productsQuery, pageNumber, 9);
+            ViewBag.categories = await _context.Categories.ToListAsync();
+            ViewBag.brands = await _context.Brands.ToListAsync();
+            ViewBag.querry = query;
+            return View( listProductQuery);
+        }
         public async Task<IActionResult> HiddenProducts(int? page)
         {
             if (seller == null)
@@ -77,7 +92,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
                 return NotFound();
             }
             var listProductByShop = await _context.Products
-               .Where(p => p.ShopId == ma).Where(p => p.SoLuongCon <= 0).AsNoTracking().ToListAsync();
+               .Where(p => p.ShopId == ma).Where(p => p.SoLuongCon <= 0).Where(p=>p.DaAn==false).AsNoTracking().ToListAsync();
             listProductByShop.Reverse();
             int pageSize = 5;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
@@ -96,7 +111,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             return View();
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddProduct(Product product, IFormFile imageUrl, List<IFormFile> files)
@@ -287,6 +302,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             if (product != null)
             {
                 product.DaAn = true;
+                product.SoLuongCon = 0;
             }
 
             await _context.SaveChangesAsync();
@@ -330,73 +346,74 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction("HiddenProducts", "Products", new {  page = 1 });
+            return RedirectToAction("HiddenProducts", "Products", new { page = 1 });
 
         }
         private bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.ProductId == id);
         }
-        [HttpGet]
-        public IActionResult UploadExcel()
+        public IActionResult Excel()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> UploadExcel(dynamic model)
+        public async Task<IActionResult> UploadProductFromExcel(IFormFile file)
         {
-            if (model.ExcelFile == null || model.ExcelFile.Length == 0)
+            if (file == null || file.Length == 0)
             {
-                ModelState.AddModelError("", "Please select a valid Excel file.");
-                return View();
+                ViewBag.Message = "Please select a valid file.";
+                return RedirectToAction("Index", "Products", new { page = 1 });
             }
 
             var products = new List<Product>();
-
+            if (seller == null)
+            {
+                seller = await _userManager.GetUserAsync(User);
+            }
             using (var stream = new MemoryStream())
             {
-                await model.ExcelFile.CopyToAsync(stream);
-
+                await file.CopyToAsync(stream);
                 using (var package = new ExcelPackage(stream))
                 {
-                    var worksheet = package.Workbook.Worksheets[0];
+
+                    var worksheet = package.Workbook.Worksheets.First();
                     var rowCount = worksheet.Dimension.Rows;
 
                     for (int row = 2; row <= rowCount; row++)
                     {
                         var product = new Product
                         {
-                            ProductId = int.Parse(worksheet.Cells[row, 1].Value.ToString().Trim()),
-                            TenSp = worksheet.Cells[row, 2].Value.ToString().Trim(),
-                            AnhDaiDien = worksheet.Cells[row, 3].Value?.ToString().Trim(),
-                            MoTa = worksheet.Cells[row, 4].Value?.ToString().Trim(),
-                            ThongSo = worksheet.Cells[row, 5].Value?.ToString().Trim(),
-                            GiaNhap = decimal.Parse(worksheet.Cells[row, 6].Value.ToString().Trim()),
-                            GiaBan = decimal.Parse(worksheet.Cells[row, 7].Value.ToString().Trim()),
-                            SoLuongCon = int.Parse(worksheet.Cells[row, 8].Value.ToString().Trim()),
-                            PhanTramGiam = worksheet.Cells[row, 9].Value != null ? (int?)int.Parse(worksheet.Cells[row, 9].Value.ToString().Trim()) : null,
-                            DiemDanhGia = worksheet.Cells[row, 10].Value != null ? (int?)int.Parse(worksheet.Cells[row, 10].Value.ToString().Trim()) : null,
-                            DaAn = bool.Parse(worksheet.Cells[row, 11].Value.ToString().Trim()),
-                            ProductCategoryId = int.Parse(worksheet.Cells[row, 12].Value.ToString().Trim()),
-                            BrandId = int.Parse(worksheet.Cells[row, 13].Value.ToString().Trim()),
-                            ShopId = int.Parse(worksheet.Cells[row, 14].Value.ToString().Trim())
+                            ProductId = int.TryParse(worksheet.Cells[row, 999].Text, out int productId) ? productId : 0,
+                            TenSp = worksheet.Cells[row, 1].Text,
+                            AnhDaiDien = worksheet.Cells[row, 2].Text,
+                            MoTa = worksheet.Cells[row,3].Text,
+                            ThongSo = worksheet.Cells[row, 4].Text,
+                            GiaNhap = decimal.TryParse(worksheet.Cells[row, 5].Text, out decimal giaNhap) ? giaNhap : 1,
+                            GiaBan = decimal.TryParse(worksheet.Cells[row,6].Text, out decimal giaBan) ? giaBan :1,
+                            SoLuongCon = int.TryParse(worksheet.Cells[row, 7].Text, out int soLuongCon) ? soLuongCon : 1,
+                            PhanTramGiam = int.TryParse(worksheet.Cells[row, 8].Text, out int ptg) ? ptg : (int?)null,
+                            ProductCategoryId = int.TryParse(worksheet.Cells[row, 9].Text, out int productCategoryId) ? productCategoryId : 1,
+                            BrandId = int.TryParse(worksheet.Cells[row, 10].Text, out int brandId) ? brandId : 1,
+                            DaAn = false,
+                            DiemDanhGia = 0,
+                            ShopId = seller.ShopId ??0,
                         };
-
                         products.Add(product);
                     }
                 }
             }
-
             _context.Products.AddRange(products);
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index", "Products", new { page = 1 });
-
         }
-
-
     }
+
+
+
 }
+
 
 
