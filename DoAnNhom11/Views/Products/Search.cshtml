@@ -1,6 +1,4 @@
-﻿
-
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
 
@@ -12,20 +10,13 @@
                     <form>
 
 
-                        @* <h2>Lọc Theo loại</h2>
-                        <div class="panel-group category-products" id="accordian">
-                        <!--category-productsr-->
-                        @foreach (var item in ViewBag.categories)
-                        {
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                        <h4 class="panel-title"><button style="background-color: transparent; border: none;" onclick="getProductsByCategory(@item.ProductCategoryId)"><a>@item.TenLoai</a></button></h4>
-                        </div>
-                        </div>
-                        }
-                        </div><!--/category-productsr-->
+                        
+                        <div class="panel-group category-products" id="categoryView">
 
-                        <div class="brands_products">
+                            
+                        </div>
+
+                        @*                         <div class="brands_products">
                         <!--brands_products-->
                         <h2>Lọc Theo Hãng</h2>
                         <div class="brands-name">
@@ -44,9 +35,9 @@
                             <div class="well">
                                 <table>
                                     <tr>
-                                        <td><input id="minPrice" type="number" min="1000" style="width:100px" placeholder="Từ ₫" ></td>
+                                        <td><input id="minPrice" type="number" min="1000" style="width:100px" placeholder="Từ ₫"></td>
                                         <td>&mdash;</td>
-                                        <td><input id="maxPrice" type="number" min="1000" style="width:100px" placeholder="Đến ₫" ></td>
+                                        <td><input id="maxPrice" type="number" min="1000" style="width:100px" placeholder="Đến ₫"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -70,33 +61,38 @@
 </section>
 
 
-
-<div></div>
 @* @Html.Partial("ProductListPartial", Model); *@
 @section Scripts {
-    <script>
+    <script>        
         function Filter(page) {
             var minPrice = $('#minPrice').val();
             var maxPrice = $('#maxPrice').val();
-            $('#searchResults').html('<div class="loader"></div>');
+            if (minPrice > maxPrice && minPrice != null && maxPrice != null) {
+                alert("vui lòng nhập đúng giá trị lọc");
+                return;
+            }
             $.ajax({
                 type: "GET",
                 url: '/Products/QuerryProduct?searchString=' + '@ViewBag.Search' + '&minPrice=' + minPrice + '&maxPrice=' + maxPrice + '&page=' + page,
                 success: function (data) {
                     $('#searchResults').html(data);
+
                     window.scrollTo({
                         top: 0,
                         behavior: 'smooth' // Thêm hiệu ứng cuộn mượt
                     });
                 },
                 error: function () {
-                    alert("lỗi");
+                    return;
                 }
             });
 
         }
+        $(document).ready(function () {
 
-        Filter(1);
+            Filter(1);
+        });
+
 
     </script>
 }

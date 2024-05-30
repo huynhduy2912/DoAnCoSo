@@ -302,7 +302,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             if (product != null)
             {
                 product.DaAn = true;
-                product.SoLuongCon = 0;
+                //product.SoLuongCon = 0;
             }
 
             await _context.SaveChangesAsync();

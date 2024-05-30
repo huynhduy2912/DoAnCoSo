@@ -28,9 +28,6 @@ namespace DoAnNhom11.Models
         public List<ProductImage>? Images { get; set; }
         public List<OrderDetail>? OrderDetails { get; set; }
         public List<Reviews>? ProductReviews { get; set; }
-        public decimal GiaSauGiam()
-        {
-            return GiaBan / 100 * (100 - PhanTramGiam??0);
-        }
+
     }
 }

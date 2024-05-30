@@ -1,43 +1,12 @@
 ﻿@using X.PagedList;
 @using X.PagedList.Mvc.Core;
 @model X.PagedList.IPagedList<Product>;
-@if (Model.PageCount > 1)
-{
-    <div class="features_items">
-        <!--features_items-->
-        <h2 class="title text-center">Danh Sách Sản Phẩm</h2>
-        <div>
-            @foreach (var item in Model)
-            {
-                @Html.Partial("_ProductPartial", item)
-            }
-        </div>
-    </div>
 
-    <!--features_items-->
-
-    <hr />
-    <center>
-
-        <ul class="pagination">
-            @for (int i = 1; i <= Model.PageCount; i++)
-            {
-                <li class="page-item @(i ==  Model.PageNumber ? "active" : "")">
-                    <a class="page-link" onclick="searchProducts(@i)">@i</a>
-                </li>
-            }
-        </ul>
-
-    </center>
-}
 <script>
     function searchProducts(page) {
-        $('#searchResults').html('<div class="loader"></div>');
-
         $.ajax({
-
             type: "GET",
-            url: '/Products/QuerryProduct?searchString=' + '@ViewBag.Search' + '&minPrice=' + '@ViewBag.MinPrice' + '&maxPrice=' + '@ViewBag.MaxPrice' + '&page=' + page,
+            url: '/Products/QuerryProduct?searchString=' + '@ViewBag.Search' + '&minPrice=' + '@ViewBag.MinPrice' + '&maxPrice=' + '@ViewBag.MaxPrice' + '&categoryId=' + '@ViewBag.CategoryId' + '&page=' + page,
             success: function (data) {
                 var thispage = document.getElementById("thisPage");
                 $('#searchResults').html(data);
@@ -51,5 +20,69 @@
             }
         });
     }
+    var myView = '@ViewBag.myViewCategory';
+    if (myView != 0) {
+        $('#categoryView').html(`@Html.Raw(ViewBag.myViewCategory)`);
+    }
+    var inputs = document.querySelectorAll('input[name="ratio"]');
+    inputs.forEach(function (input) {
+        input.addEventListener('change', function () {
+            if (this.checked) {
+                $.ajax({
+                    type: "GET",
+                    url: '/Products/QuerryProduct?searchString=' + '@ViewBag.Search' + '&minPrice=' + '@ViewBag.MinPrice' + '&maxPrice=' + '@ViewBag.MaxPrice' + '&page=1' + '&categoryId=' + this.value,
+                    success: function (data) {
+                        var thispage = document.getElementById("thisPage");
+                        $('#searchResults').html(data);
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth' // Thêm hiệu ứng cuộn mượt
+                        });
+                    },
+                    error: function () {
+                        return;
+                    }
+                });
+            }
+        });
+    });
 </script>
+
+@if (Model.PageCount != 0)
+{
+    <div class="features_items">
+        <!--features_items-->
+        <h2 style="text-transform: capitalize;" class="title text-center">Danh sách sản phẩm</h2>
+        <div>
+            @foreach (var item in Model)
+            {
+                @Html.Partial("_ProductPartial", item)
+            }
+        </div>
+    </div>
+    @if (Model.PageCount > 1)
+    {
+
+
+        <!--features_items-->
+        <hr />
+        <center>
+
+            <ul class="pagination">
+                @for (int i = 1; i <= Model.PageCount; i++)
+                {
+                    <li class="page-item @(i ==  Model.PageNumber ? "active" : "")">
+                        <a class="page-link" onclick="searchProducts(@i)">@i</a>
+                    </li>
+                }
+            </ul>
+
+        </center>
+    }
+
+}
+else
+{
+    <h2 class="title text-center">Không tìm thấy sản phẩm</h2>
+}
 

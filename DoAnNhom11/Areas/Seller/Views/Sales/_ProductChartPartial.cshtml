@@ -1,0 +1,56 @@
+﻿<h1>Biểu đồ sản phẩm theo loại</h1>
+<div style="width:400px; margin: auto;">
+    <canvas id="myPieChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    $.ajax({
+        url: '/Seller/Sales/GetProductCategoryChartData',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            const quantities = data.data;
+            const totalQuantity = quantities.reduce((sum, value) => sum + value, 0);
+            const percentages = quantities.map(value => ((value / totalQuantity) * 100).toFixed(2) + '%');
+            var backgroundColors = ['red', 'blue', 'yellow', 'green', 'orange', 'purple', 'pink', 'cyan', 'magenta', 'lime']; // Danh sách màu cho background color
+            var hoverColors = ['darkred', 'darkblue', 'darkyellow', 'darkgreen', 'darkorange', 'darkpurple', 'darkpink', 'darkcyan', 'darkmagenta', 'darklime']; // Danh sách màu cho hover background color
+            var ctx = document.getElementById('myPieChart').getContext('2d');
+
+            var productCategoryChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: data.labels,
+                    datasets: [{
+                        data: quantities,
+                        backgroundColor: backgroundColors.slice(0, data.labels.length), 
+                        hoverBackgroundColor: hoverColors.slice(0, data.labels.length) 
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'left',  
+                        },
+                        tooltip: {
+                            enabled: true,
+                            callbacks: {
+                                label: function (context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const percentage = ((value / totalQuantity) * 100).toFixed(2);
+                                    return  percentage + '% (' + value + ')';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        },
+        error: function (error) {
+            alert("đã xảy ra lỗi khi tải dữ liệu")
+        }
+    });
+
+</script>

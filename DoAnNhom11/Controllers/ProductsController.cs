@@ -80,7 +80,7 @@ namespace DoAnNhom11.Controllers
             ViewBag.productReviews = productReviews;
             return View(product);
         }
-        public async Task<IActionResult> SearchProducts(string query, int? page)
+        public async Task<IActionResult> SearchProducts(string query)
         {   
             ViewBag.Search = query;
             return View("Search");
@@ -91,24 +91,42 @@ namespace DoAnNhom11.Controllers
             var query = _context.Products.AsQueryable();
             if (!string.IsNullOrEmpty(searchString))
             {
+                ViewBag.Search = searchString;
                 query = query.Where(p => p.TenSp.Contains(searchString));
+                query.Count();
             }
             if (minPrice.HasValue)
             {
                 query = query.Where(p => (p.GiaBan / 100 * (100 - p.PhanTramGiam)) >= minPrice);
+                ViewBag.MinPrice = minPrice;
             }
             if (maxPrice.HasValue)
             {
                 query = query.Where(p => (p.GiaBan / 100 * (100 - p.PhanTramGiam)) <= maxPrice);
-            }
-            ViewBag.MinPrice = minPrice;
-            ViewBag.MaxPrice = maxPrice;
-            ViewBag.Search= searchString;
-            //query = query.Where(p => p.DaAn != true);
-            query = query.Where(p => p.SoLuongCon >0);
+                ViewBag.MaxPrice = maxPrice;
 
-            var products = await query.ToPagedListAsync(pageNumber, 9);     
-            return PartialView("_ListSearchPartial", products);
+            }
+            if (categoryId.HasValue)
+            {
+                query = query.Where(p => p.ProductCategoryId==categoryId);
+                ViewBag.CategoryId = categoryId;
+            }
+            query = query.Where(p => p.SoLuongCon >0).Where(p => p.DaAn != true).OrderByDescending(p=>p.ProductId);
+            var categories = await _context.Categories
+                                        .Where(c => query.Select(p => p.ProductCategoryId).Distinct().Contains(c.ProductCategoryId))
+                                        .ToListAsync();
+            if(categories.Count > 1)
+            {
+                ViewBag.myViewCategory = await this.RenderViewToStringAsync("/Views/Shared/_ListCategoryPartial.cshtml", categories);
+            }
+            else
+            {
+                ViewBag.myViewCategory = 0;
+            }
+
+            var productByPages = await query.ToPagedListAsync(pageNumber, 9);
+            
+            return PartialView("_ListSearchPartial", productByPages);
         }
        
         public async Task<IActionResult> Category(int categoryId, int page)

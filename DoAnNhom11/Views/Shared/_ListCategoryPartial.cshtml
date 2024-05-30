@@ -1,0 +1,13 @@
+﻿@model IEnumerable<DoAnNhom11.Models.ProductCategory>
+<h2>Lọc Theo loại</h2>
+@foreach (var item in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title" style="color:gray">
+                <input type="radio" id="option1" name="ratio" value="@item.ProductCategoryId">
+                @item.TenLoai
+            </h4>
+        </div>
+    </div>
+}

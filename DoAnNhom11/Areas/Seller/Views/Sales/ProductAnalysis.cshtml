@@ -2,16 +2,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <hr />
-
+@Html.Partial("~/Areas/Seller/Views/Sales/_ProductChartPartial.cshtml")
+<hr />
 <div id="productView">
     <div class="loader"></div>
 </div>
 
-<hr />
 
 <script>
     $(document).ready(function () {
-       
+
         $.ajax({
             url: '/Seller/Sales/ProductAnalyze',
             type: 'GET',
@@ -23,7 +23,7 @@
             }
         });
 
-    });   
+    });
 </script>
 
 

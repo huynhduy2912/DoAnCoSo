@@ -242,7 +242,26 @@ namespace DoAnNhom11.Areas.Seller.Controllers
                 .ToList();
 
             return Json(orders);
-        }       
+        }
+        public async Task<IActionResult> GetProductCategoryChartData()
+        {
+            if (seller == null)
+            {
+                seller = await _userManager.GetUserAsync(User);
+            }
+            var categories = _context.Categories
+             .Where(c => c.Products != null &&c.Products.Any(p => p.ShopId == seller.ShopId && p.SoLuongCon != 0 && p.DaAn == false))
+             .Include(p=>p.Products)
+             .ToList();
+
+
+            var data = categories.Select(c => c.Products.Count(p => p.ShopId == seller.ShopId&&p.SoLuongCon!=0&&p.DaAn==false)).ToList();
+            var labels = categories.Select(c => c.TenLoai).ToList();
+
+            var chartData = new { data = data, labels = labels };
+
+            return Json(chartData);
+        }
     }
 }
 

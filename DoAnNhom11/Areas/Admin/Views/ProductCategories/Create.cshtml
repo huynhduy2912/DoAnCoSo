@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Areas/Admin/Shared/AdminLayout.cshtml";
+
 }
 
 <h1>Create</h1>
@@ -18,10 +19,16 @@
                 <input asp-for="TenLoai" class="form-control" />
                 <span asp-validation-for="TenLoai" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display:none">
                 <label asp-for="AnhDaiDien" class="control-label"></label>
                 <input asp-for="AnhDaiDien" class="form-control" />
                 <span asp-validation-for="AnhDaiDien" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnhDaiDien">Product Image</label>
+                <input type="file" asp-for="AnhDaiDien" name="imageUrl" class="form-control" id="imageInput" />
+                <br />
+                <img id="previewImage" style="max-width:200px;display:none" alt="Image preview" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -33,7 +40,20 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+<script>
+    document.getElementById('imageInput').addEventListener('change', function (event) {
+        var output = document.getElementById('previewImage');
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function (e) {
+                output.src = e.target.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+</script>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -1,3 +1,4 @@
+using DoAnNhom11.Extensions;
 using DoAnNhom11.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,7 @@ builder.Services.AddSession(options =>
 });
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddSingleton<RandomProductService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

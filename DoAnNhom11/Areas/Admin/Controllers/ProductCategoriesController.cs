@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DoAnNhom11.Models;
+using DoAnNhom11.Extensions;
 
 namespace DoAnNhom11.Areas.Admin.Controllers
 {
@@ -19,13 +20,13 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Admin/ProductCategories
+        // GET: Seller/ProductCategories
         public async Task<IActionResult> Index()
         {
             return View(await _context.Categories.ToListAsync());
         }
 
-        // GET: Admin/ProductCategories/Details/5
+        // GET: Seller/ProductCategories/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,21 +44,25 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             return View(productCategory);
         }
 
-        // GET: Admin/ProductCategories/Create
+        // GET: Seller/ProductCategories/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/ProductCategories/Create
+        // POST: Seller/ProductCategories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductCategoryId,TenLoai,AnhDaiDien")] ProductCategory productCategory)
+        public async Task<IActionResult> Create([Bind("ProductCategoryId,TenLoai,AnhDaiDien")] ProductCategory productCategory, IFormFile imageUrl)
         {
             if (ModelState.IsValid)
             {
+                if (imageUrl != null)
+                {
+                    productCategory.AnhDaiDien = await UploadImage.SaveImage(imageUrl);
+                }
                 _context.Add(productCategory);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -65,7 +70,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             return View(productCategory);
         }
 
-        // GET: Admin/ProductCategories/Edit/5
+        // GET: Seller/ProductCategories/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,7 +86,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             return View(productCategory);
         }
 
-        // POST: Admin/ProductCategories/Edit/5
+        // POST: Seller/ProductCategories/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -116,7 +121,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             return View(productCategory);
         }
 
-        // GET: Admin/ProductCategories/Delete/5
+        // GET: Seller/ProductCategories/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,7 +139,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             return View(productCategory);
         }
 
-        // POST: Admin/ProductCategories/Delete/5
+        // POST: Seller/ProductCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
