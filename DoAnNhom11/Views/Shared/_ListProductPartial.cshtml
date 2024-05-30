@@ -6,7 +6,7 @@
     function searchProducts(page) {
         $.ajax({
             type: "GET",
-            url: '/Products/QuerryProduct?searchString=' + '@ViewBag.Search' + '&minPrice=' + '@ViewBag.MinPrice' + '&maxPrice=' + '@ViewBag.MaxPrice' + '&categoryId=' + '@ViewBag.CategoryId' + '&page=' + page,
+            url: '/Products/QuerryProduct?searchString=' + '@ViewBag.Search' + '&shopId=' + '@ViewBag.ShopId' + '&minPrice=' + '@ViewBag.MinPrice' + '&maxPrice=' + '@ViewBag.MaxPrice' + '&categoryId=' + '@ViewBag.CategoryId' + '&page=' + page,
             success: function (data) {
                 var thispage = document.getElementById("thisPage");
                 $('#searchResults').html(data);
@@ -30,7 +30,7 @@
             if (this.checked) {
                 $.ajax({
                     type: "GET",
-                    url: '/Products/QuerryProduct?searchString=' + '@ViewBag.Search' + '&minPrice=' + '@ViewBag.MinPrice' + '&maxPrice=' + '@ViewBag.MaxPrice' + '&page=1' + '&categoryId=' + this.value,
+                    url: '/Products/QuerryProduct?searchString=' + '@ViewBag.Search' + '&shopId=' + '@ViewBag.ShopId' + '&minPrice=' + '@ViewBag.MinPrice' + '&maxPrice=' + '@ViewBag.MaxPrice' + '&page=1' + '&categoryId=' + this.value,
                     success: function (data) {
                         var thispage = document.getElementById("thisPage");
                         $('#searchResults').html(data);
@@ -48,11 +48,11 @@
     });
 </script>
 
+
 @if (Model.PageCount != 0)
 {
     <div class="features_items">
         <!--features_items-->
-        <h2 style="text-transform: capitalize;" class="title text-center">Danh sách sản phẩm</h2>
         <div>
             @foreach (var item in Model)
             {
@@ -83,6 +83,6 @@
 }
 else
 {
-    <h2 class="title text-center">Không tìm thấy sản phẩm</h2>
+    <h2 style="text-transform: capitalize" class="title text-center">Không có sản phẩm</h2>
 }
 

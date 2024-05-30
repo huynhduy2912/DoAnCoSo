@@ -6,7 +6,7 @@
     <div class="product-image-wrapper">
         <div class="single-products">
             <div class="productinfo text-center">
-                <img src="@Model.AnhDaiDien" height="200px" alt="" />
+                <img src="@Model.AnhDaiDien" height="200" width="200" alt="" />
                 <p style="text-align: right;color:red;background-color: yellow; display: inline;">-@Model.PhanTramGiam %</p>
                 <h2>@StringFormat.CurrencyFormat((Model.GiaBan / 100 * (100 - Model.PhanTramGiam))??0)</h2>
                 <p>@Model.TenSp</p>

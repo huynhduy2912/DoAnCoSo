@@ -21,7 +21,7 @@ namespace DoAnNhom11.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Details(int? ma,int? page)
+        public async Task<IActionResult> Details(int? ma)
         {
          
             if (ma == null)
@@ -45,14 +45,11 @@ namespace DoAnNhom11.Controllers
                 totalQuantitySold += _context.OrderDetails.Where(o => o.ProductId == product.ProductId).Sum(o => o.Quantity);
             }
             var _listProductByShopShow = listProductByShop.Where(p => p.DaAn == false&&p.SoLuongCon!=0).Where(p => p.DaAn == false).Reverse();
-            int pageSize = 8;
-            int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            PagedList<Product> listProductByShopAndPage = new PagedList<Product>(_listProductByShopShow, pageNumber, pageSize);
+
+           
 
             ViewBag.TotalQuantitySold = totalQuantitySold;
             ViewBag.ProductQuantity = listProductByShop.Count();
-            ViewBag.ProductList = listProductByShopAndPage;
-
             return View(shop);
         }
 

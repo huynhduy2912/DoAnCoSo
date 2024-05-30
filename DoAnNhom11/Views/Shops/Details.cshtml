@@ -2,13 +2,11 @@
 @using X.PagedList.Mvc.Core;
 @using X.PagedList;
 @{
-    ViewBag.Size = 3;
-}
-
-@{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Shop";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
 }
+<title>@ViewData["Title"]</title>
+
 <hr />
 <div class="row">
     <div class="col-sm-5">
@@ -37,26 +35,129 @@
     </div>
 </div>
 <hr />
-<section>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="features_items">
-                    <!--features_items-->
-                    <h2 style="text-transform: capitalize;" class="title text-center">Tất Cả Sản Phẩm</h2>
-                    @foreach (var item in ViewBag.ProductList)
-                    {
-                        @Html.Partial("_ProductPartial", item as Product)
-                    }
+<h2 style="text-transform: capitalize" class="title text-center">Danh Sách Sản Phẩm</h2>
 
-                </div><!--features_items-->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <form>      
+                        <div class="price-range">
+                            <!--price-range-->
+                            <h2>Tìm trong shop</h2>
+                            <div class="well">
+                                <input id="searchI" type="text" style="width:200px;margin-bottom:15px" placeholder="Tìm trong shop">
+                                <br />
+                                <center><button onclick="SearchInShop()" type="button">Tìm Kiếm</button></center>
+
+                            </div>
+                        </div><!--/price-range-->
+                        <div class="panel-group category-products" id="categoryView">
+
+                            
+                        </div>
+
+                        <div class="price-range">
+                            <!--price-range-->
+                            <h2>Tầm Giá</h2>
+                            <div class="well">
+                                <table>
+                                    <tr>
+                                        <td><input id="minPrice" type="number" min="0" value="0" style="width:100px" placeholder="Từ ₫"></td>
+                                        <td>&mdash;</td>
+                                        <td><input id="maxPrice" type="number" min="0" style="width:100px" placeholder="Đến ₫"></td>
+                                    </tr>
+                                </table>
+                                <br />
+                                <center><button onclick="Filter(1)" type="button">Lọc</button></center>
+
+                            </div>
+                        </div><!--/price-range-->
+
+
+                        <div class="shipping text-center">
+                            <!--ad-->
+                            <img src="../myLayout/images/home/shipping.jpg" alt="" />
+                        </div><!--/ad-->
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-9 padding-right" id="searchResults">
+                <div class="loader"></div>
             </div>
         </div>
+    </div>
 </section>
-<div style="text-align: center;">
-    <ul class="pagination" style="display: inline-block;">
-        @Html.PagedListPager(ViewBag.ProductList as PagedList<Product>, page => Url.Action("Details", new { ma = Model.ShopId, page = page }))
-    </ul>
-</div>
+
+
+@* @Html.Partial("ProductListPartial", Model); *@
+@section Scripts {
+    <script>        
+        function Filter(page) {
+            var minPrice = $('#minPrice').val();
+            var maxPrice = $('#maxPrice').val();
+            if (minPrice == '' && maxPrice == '') {
+                alert("vui lòng nhập đúng giá trị lọc");
+                return;
+            }
+            else if (maxPrice!='') {
+                if (minPrice >= maxPrice) {
+                    alert("vui lòng nhập đúng giá trị lọc");
+                    return;
+                }   
+            }
+            
+            $.ajax({
+                type: "GET",
+                url: '/Products/QuerryProduct?searchString=' + '@ViewBag.Search' + '&shopId=' + '@Model.ShopId' + '&minPrice=' + minPrice + '&maxPrice=' + maxPrice + '&page=' + page,
+                success: function (data) {
+                    $('#searchResults').html(data);
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth' // Thêm hiệu ứng cuộn mượt
+                    });
+                },
+                error: function () {
+                    return;
+                }
+            });
+
+        } 
+        function SearchInShop() {
+            var searchInput = $('#searchI').val();
+            if (searchInput == '') {
+                alert("vui lòng nhập từ khóa");
+                return;
+            }
+            $.ajax({
+                type: "GET",
+                url: '/Products/QuerryProduct?searchString=' + searchInput + '&shopId=' + '@Model.ShopId' + ' &page=1',
+                success: function (data) {
+                    $('#searchResults').html(data);
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth' // Thêm hiệu ứng cuộn mượt
+                    });
+                },
+                error: function () {
+                    return;
+                }
+            });
+
+        }
+        $(document).ready(function () {
+
+            Filter(1);
+        });
+
+
+    </script>
+}
+
 <style>
     :root {
         --col-height: 125px;

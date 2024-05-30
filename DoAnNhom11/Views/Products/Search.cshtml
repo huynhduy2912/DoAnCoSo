@@ -1,6 +1,9 @@
 ﻿@{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Search";
 }
+<title>@ViewData["Title"]</title>
+
+<h2 style="text-transform: capitalize" class="title text-center">Danh Sách Sản Phẩm</h2>
 
 <section>
     <div class="container">
@@ -8,34 +11,16 @@
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <form>
-
-
-                        
                         <div class="panel-group category-products" id="categoryView">
-
                             
                         </div>
-
-                        @*                         <div class="brands_products">
-                        <!--brands_products-->
-                        <h2>Lọc Theo Hãng</h2>
-                        <div class="brands-name">
-                        <ul class="nav nav-pills nav-stacked">
-                        @foreach (var item in ViewBag.brands)
-                        {
-                        <li><button style="background-color: transparent; border: none;" onclick="getProductsByBrand(@item.BrandId)"><a>@item.TenNhanHieu</a></button></li>
-                        }
-                        </ul>
-                        </div>
-                        </div><!--/brands_products--> *@
-
                         <div class="price-range">
                             <!--price-range-->
                             <h2>Tầm Giá</h2>
                             <div class="well">
                                 <table>
                                     <tr>
-                                        <td><input id="minPrice" type="number" min="1000" style="width:100px" placeholder="Từ ₫"></td>
+                                        <td><input id="minPrice" type="number" min="1000" value="0" style="width:100px" placeholder="Từ ₫"></td>
                                         <td>&mdash;</td>
                                         <td><input id="maxPrice" type="number" min="1000" style="width:100px" placeholder="Đến ₫"></td>
                                     </tr>
@@ -43,13 +28,10 @@
                             </div>
                         </div><!--/price-range-->
                         <center><button onclick="Filter(1)" type="button">Lọc</button></center>
-
-
                         <div class="shipping text-center">
                             <!--ad-->
                             <img src="../myLayout/images/home/shipping.jpg" alt="" />
                         </div><!--/ad-->
-
                     </form>
                 </div>
             </div>
@@ -60,16 +42,20 @@
     </div>
 </section>
 
-
-@* @Html.Partial("ProductListPartial", Model); *@
 @section Scripts {
-    <script>        
+    <script>
         function Filter(page) {
             var minPrice = $('#minPrice').val();
             var maxPrice = $('#maxPrice').val();
-            if (minPrice > maxPrice && minPrice != null && maxPrice != null) {
+            if (minPrice == '' && maxPrice == '') {
                 alert("vui lòng nhập đúng giá trị lọc");
                 return;
+            }
+            else if (maxPrice != '') {
+                if (minPrice >= maxPrice) {
+                    alert("vui lòng nhập đúng giá trị lọc");
+                    return;
+                }
             }
             $.ajax({
                 type: "GET",

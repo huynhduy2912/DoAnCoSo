@@ -33,7 +33,7 @@ namespace DoAnNhom11.Controllers
             var user = await _userManager.GetUserAsync(User);
             var applicationDbContext = await _context.Orders
                 .Where(p => p.UserId == user.Id)
-                .Include(o=>o.OrderDetails).ThenInclude(od => od.Product)
+                .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
                 .Include(o => o.VouCher)
                 .Include(o => o.OrderStatus)
                 .ToListAsync();
@@ -58,71 +58,7 @@ namespace DoAnNhom11.Controllers
             }
 
             return View(order);
-        }
-        public async Task<IActionResult> OrderManager(int? id)
-        {
-
-            var applicationDbContext = await _context.Orders.Include(o => o.ApplicationUser).Include(o => o.VouCher).Include(o => o.OrderStatus).ToListAsync();
-            return View(applicationDbContext);
-        }
-        // GET: Orders/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var order = await _context.Orders.FindAsync(id);
-            if (order == null)
-            {
-                return NotFound();
-            }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
-            ViewData["OrderStatusId"] = new SelectList(_context.OrderStatuses, "OrderStatusId", "OrderStatusId", order.OrderStatusId);
-            ViewData["VoucherId"] = new SelectList(_context.Vouchers, "VoucherId", "VoucherId", order.VoucherId);
-            return View(order);
-        }
-
-        // POST: Orders/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("OrderId,OrderDate,TotalPrice,ShippingAddress,Notes,VoucherId,OrderStatusId,UserId")] Order order)
-        {
-            if (id != order.OrderId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(order);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!OrderExists(order.OrderId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", order.UserId);
-            ViewData["OrderStatusId"] = new SelectList(_context.OrderStatuses, "OrderStatusId", "OrderStatusId", order.OrderStatusId);
-            ViewData["VoucherId"] = new SelectList(_context.Vouchers, "VoucherId", "VoucherId", order.VoucherId);
-            return View(order);
-        }
-
-        // POST: Orders/Delete/5
+        }    
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -139,19 +75,19 @@ namespace DoAnNhom11.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddReviews(string? noiDung,int diem,int productId,int orderId, List<IFormFile> myFile)
+        public async Task<IActionResult> AddReviews(string? noiDung, int diem, int productId, int orderId, List<IFormFile> myFile)
         {
 
-            Reviews reviews =new Reviews();
-            reviews.NoiDung = noiDung??" ";
+            Reviews reviews = new Reviews();
+            reviews.NoiDung = noiDung ?? " ";
             reviews.DiemDanhGia = diem;
-            reviews.ThoiGianDanhGia=DateTime.Now;
+            reviews.ThoiGianDanhGia = DateTime.Now;
             reviews.ProductId = productId;
             var user = await _userManager.GetUserAsync(User);
-            reviews.CustomerId= user.Id;
+            reviews.CustomerId = user.Id;
             if (ModelState.IsValid)
             {
-                
+
                 var order = await _context.OrderDetails.Where(p => p.OrderId == orderId && p.ProductId == productId).FirstOrDefaultAsync();
                 order.IsReview = true;
                 _context.Add(reviews);

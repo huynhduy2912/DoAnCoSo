@@ -15,20 +15,6 @@ namespace DoAnNhom11.Controllers
         {
             _context = context;
         }
-
-        // GET: Admin/Products
-        public async Task<IActionResult> Index(int? page)
-        {
-            int pageSize = 9;
-            int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            var applicationDbContext = await _context.Products.Where(p => p.DaAn == false && p.SoLuongCon != 0).Include(p => p.Brand).Include(p => p.ProductCategory).AsNoTracking().OrderByDescending(x => x.ProductId).ToListAsync();
-            ViewBag.categories = await _context.Categories.ToListAsync();
-            ViewBag.brands = await _context.Brands.ToListAsync();
-            PagedList<Product> listProduct = new PagedList<Product>(applicationDbContext, pageNumber, pageSize);
-            /* string viewFromAnotherController = await this.RenderViewToStringAsync("/Views/Shared/ProductListPartial.cshtml", listProduct);
-             ViewBag.myView = viewFromAnotherController;*/
-            return View(listProduct);
-        }
         public List<string> SearchSuggestions(string query)
         {
             return _context.Products
@@ -80,12 +66,12 @@ namespace DoAnNhom11.Controllers
             ViewBag.productReviews = productReviews;
             return View(product);
         }
-        public async Task<IActionResult> SearchProducts(string query)
+        public async Task<IActionResult> SearchProducts(string? query)
         {   
             ViewBag.Search = query;
             return View("Search");
         }
-        public async Task<IActionResult> QuerryProduct(int? page,string searchString,decimal? minPrice,decimal? maxPrice,int? categoryId )
+        public async Task<IActionResult> QuerryProduct(int? page,string searchString,int? shopId,decimal? minPrice,decimal? maxPrice,int? categoryId )
         {
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
             var query = _context.Products.AsQueryable();
@@ -94,6 +80,11 @@ namespace DoAnNhom11.Controllers
                 ViewBag.Search = searchString;
                 query = query.Where(p => p.TenSp.Contains(searchString));
                 query.Count();
+            }
+            if (shopId.HasValue)
+            {
+                query = query.Where(p => p.ShopId==shopId);
+                ViewBag.ShopId = shopId;
             }
             if (minPrice.HasValue)
             {
@@ -126,22 +117,24 @@ namespace DoAnNhom11.Controllers
 
             var productByPages = await query.ToPagedListAsync(pageNumber, 9);
             
-            return PartialView("_ListSearchPartial", productByPages);
+            return PartialView("_ListProductPartial", productByPages);
         }
        
-        public async Task<IActionResult> Category(int categoryId, int page)
+        public async Task<IActionResult> Category(int? categoryId)
         {
-            var listProductByCategory = await _context.Products
-            .Where(p => p.SoLuongCon > 0)
-            .Where(p => p.DaAn == false)
-           .Where(p => p.ProductCategoryId == categoryId).Include(p => p.ProductCategory).AsNoTracking()
-           .OrderByDescending(x => x.ProductId).ToListAsync();
-            if(listProductByCategory.Count == 0)
+            if (categoryId == null)
             {
-                return Content("<center><h1>Loại sản phẩm này đã hết hàng<h1><button onclick=\"window.history.back()\">Trở về</button></center>", "text/html", System.Text.Encoding.UTF8);
+                return NotFound();
             }
-            PagedList<Product> listProduct = new PagedList<Product>(listProductByCategory, page, 8);
-            return View(listProduct);
+
+            var productCategory = await _context.Categories
+                .FirstOrDefaultAsync(m => m.ProductCategoryId == categoryId);
+            if (productCategory == null)
+            {
+                return NotFound();
+            }
+
+            return View(productCategory);
         }
         private bool ProductExists(int id)
         {

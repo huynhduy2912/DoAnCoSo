@@ -75,9 +75,14 @@ namespace DoAnNhom11.Models
             .HasOne(p => p.Product)
             .WithMany(b => b.OrderDetails)
             .HasForeignKey(p => p.ProductId);
-           
-            
-            DataSeed.Seed(modelBuilder);
+            //orderstatus
+            modelBuilder.Entity<Order>()
+         .HasOne(o => o.OrderStatus)
+         .WithMany()
+         .HasForeignKey(o => o.OrderStatusId)
+         .OnDelete(DeleteBehavior.Cascade);
+
+            // DataSeed.Seed(modelBuilder);
 
         }
         public DbSet<DoAnNhom11.Models.VoucherCategory> VoucherCategory { get; set; } = default!;

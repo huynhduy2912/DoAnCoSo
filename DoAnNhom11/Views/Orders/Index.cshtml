@@ -1,8 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Order";
-    Layout = "~/Views/Shared/_MyLayout.cshtml";
     ViewBag.Action = "Details";
 }
+<title>@ViewData["Title"]</title>
+
 @using X.PagedList.Mvc.Core;
 @model X.PagedList.IPagedList<Order>;
 <h1 style="text-align:center">Đơn hàng của tôi</h1>

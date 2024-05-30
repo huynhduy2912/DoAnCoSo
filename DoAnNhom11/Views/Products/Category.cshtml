@@ -1,32 +1,87 @@
-﻿@using X.PagedList.Mvc.Core;
-@model X.PagedList.IPagedList<Product>;
+﻿
+@model ProductCategory;
 @{
-    ViewData["Title"] = "Product by Category";
-    ViewBag.Size = 3;
+    ViewData["Title"] = "Category";
 }
-<link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
-
 <title>@ViewData["Title"]</title>
+
+<h2 style="text-transform: capitalize" class="title text-center">Danh Mục: @Model.TenLoai</h2>
 
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="features_items">
-                    <!--features_items-->
-                    <h2 style="text-transform: capitalize;" class="title text-center">Danh mục: @Model[0].ProductCategory.TenLoai</h2>
-                    @foreach (var item in Model)
-                    {
-                        @Html.Partial("_ProductPartial", item)
-                    }
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <form>
+                        <div class="price-range">
+                            <!--price-range-->
+                            <h2>Tầm Giá</h2>
+                            <div class="well">
+                                <table>
+                                    <tr>
+                                        <td><input id="minPrice" type="number" min="0" value="0" style="width:100px" placeholder="Từ ₫"></td>
+                                        <td>&mdash;</td>
+                                        <td><input id="maxPrice" type="number" min="0" style="width:100px" placeholder="Đến ₫"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div><!--/price-range-->
+                        <center><button onclick="Filter(1)" type="button">Lọc</button></center>
 
-                </div><!--features_items-->
+
+                        <div class="shipping text-center">
+                            <!--ad-->
+                            <img src="../myLayout/images/home/shipping.jpg" alt="" />
+                        </div><!--/ad-->
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-9 padding-right" id="searchResults">
+                <div class="loader"></div>
             </div>
         </div>
+    </div>
 </section>
-<center>
-    <ul class="pagination">
-        @Html.PagedListPager(Model, page => Url.Action("Category", new { categoryId = @Model[0].ProductCategory.ProductCategoryId, page = page }))
-    </ul>
-</center>
+@section Scripts {
+    <script>
+        function Filter(page) {
+            var minPrice = $('#minPrice').val();
+            var maxPrice = $('#maxPrice').val();
+            if (minPrice == '' && maxPrice == '') {
+                alert("vui lòng nhập đúng giá trị lọc");
+                return;
+            }
+            else if (maxPrice != '') {
+                if (minPrice >= maxPrice) {
+                    alert("vui lòng nhập đúng giá trị lọc");
+                    return;
+                }
+            }
+
+            $.ajax({
+                type: "GET",
+                url: '/Products/QuerryProduct?searchString=' + '@ViewBag.Search' + '&shopId=' + '@ViewBag.ShopId' + '&minPrice=' + minPrice + '&maxPrice=' + maxPrice + '&page=' + page + '&categoryId=' + '@Model.ProductCategoryId',
+                success: function (data) {
+                    $('#searchResults').html(data);
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth' // Thêm hiệu ứng cuộn mượt
+                    });
+                },
+                error: function () {
+                    return;
+                }
+            });
+
+        }
+        $(document).ready(function () {
+
+            Filter(1);
+        });
+
+
+    </script>
+}
 
