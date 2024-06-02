@@ -6,17 +6,27 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DoAnNhom11.Models;
+using Microsoft.AspNetCore.Identity;
+using NuGet.Protocol.Plugins;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DoAnNhom11.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Developer")]
+
     public class ShopsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public ShopsController(ApplicationDbContext context)
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        public ShopsController(UserManager<ApplicationUser> userManager,
+            ApplicationDbContext context,
+            RoleManager<IdentityRole> roleManager)
         {
             _context = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         // GET: Admin/Shops
@@ -45,84 +55,89 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             return View(shop);
         }
 
-        // GET: Admin/Shops/Create
-        public IActionResult Create()
+        public IActionResult AddShopOwner()
         {
-            ViewData["ShopCategoryId"] = new SelectList(_context.ShopCategories, "ShopCategoryId", "ShopCategoryId");
             return View();
         }
 
-        // POST: Admin/Shops/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ShopId,TenCuaHang,DiaChi,LienHe,AnhDaiDien,AnhBia,NgayTao,MoTa,ShopCategoryId")] Shop shop)
+        public async Task<IActionResult> AddShopOwner(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(shop);
+                var shop = new Shop
+                {
+                    TenCuaHang = " ",
+                    DiaChi = " ",
+                    LienHe = " ",
+                    AnhDaiDien = " ",
+                    AnhBia ="  ",
+                    NgayTao = DateTime.Now,
+                    MoTa = " ",
+                    ShopCategoryId=1
+                };
+
+                _context.Shops.Add(shop);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var user = new ApplicationUser
+                {
+
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    FullName = model.FullName,
+                    Address = model.Address,
+                    Avatar = model.Avatar,
+                    ShopId = shop.ShopId
+                };
+
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    if (!await _roleManager.RoleExistsAsync("ShopOwner"))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole("ShopOwner"));
+                    }
+
+                    await _userManager.AddToRoleAsync(user, "ShopOwner");
+
+                    return RedirectToAction("Index", "Shops");
+                }
+                else
+                {
+                    Content("Đăng Ký Không Thành Công");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
             }
-            ViewData["ShopCategoryId"] = new SelectList(_context.ShopCategories, "ShopCategoryId", "ShopCategoryId", shop.ShopCategoryId);
-            return View(shop);
+
+            return View(model);
         }
-
-        // GET: Admin/Shops/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var shop = await _context.Shops.FindAsync(id);
-            if (shop == null)
-            {
-                return NotFound();
-            }
-            ViewData["ShopCategoryId"] = new SelectList(_context.ShopCategories, "ShopCategoryId", "ShopCategoryId", shop.ShopCategoryId);
-            return View(shop);
-        }
-
-        // POST: Admin/Shops/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ShopId,TenCuaHang,DiaChi,LienHe,AnhDaiDien,AnhBia,NgayTao,MoTa,ShopCategoryId")] Shop shop)
+        public async Task<IActionResult> ResetShopOwnerPassword(string userId)
         {
-            if (id != shop.ShopId)
+            if (string.IsNullOrEmpty(userId))
             {
-                return NotFound();
+                return BadRequest("User ID is required.");
             }
 
-            if (ModelState.IsValid)
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
             {
-                try
-                {
-                    _context.Update(shop);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ShopExists(shop.ShopId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                return NotFound("User not found.");
             }
-            ViewData["ShopCategoryId"] = new SelectList(_context.ShopCategories, "ShopCategoryId", "ShopCategoryId", shop.ShopCategoryId);
-            return View(shop);
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user, token, "P@55W0rd");
+
+            if (result.Succeeded)
+            {
+                return Ok("Mật khẩu reset thành công.");
+            }
+
+            return BadRequest(result.Errors);
         }
-
-        // GET: Admin/Shops/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

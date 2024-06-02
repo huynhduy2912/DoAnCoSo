@@ -12,7 +12,8 @@ using DoAnNhom11.Extentions;
 
 namespace DoAnNhom11.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Developer,Customer")]
+
     public class ShoppingCartController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,7 +27,7 @@ namespace DoAnNhom11.Controllers
         }
         public async Task<IActionResult> CheckOut(string shopName)
         {
-            var applicationDbContext = _context.Vouchers.Include(v => v.VoucherCategory);
+            var applicationDbContext = _context.Vouchers.Where(v=>v.SoLuongCon>0&&v.NgayHetHan>DateTime.Now).Include(v => v.VoucherCategory);
             ViewBag.Voucher = applicationDbContext;
             ViewData["VoucherName"] = new SelectList(_context.Vouchers, "VoucherId", "VoucherCode");
             ViewData["Payment"] = new SelectList(_context.Payments, "PaymentId", "TenLoai");
@@ -40,7 +41,7 @@ namespace DoAnNhom11.Controllers
             return View(new Order());
         }
         [HttpPost]
-        public async Task<IActionResult> CheckOut(Order order,string shopName)
+        public async Task<IActionResult> CheckOut(Order order,string shopName,int? voucherId)
         {
             var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();
             var cart = GetShoppingCartByShopId(listCart, shopName);
@@ -48,11 +49,18 @@ namespace DoAnNhom11.Controllers
             {
                 return RedirectToAction("Index");
             }
-            var voucher = await _context.Vouchers.FirstOrDefaultAsync(m => m.VoucherId == order.VoucherId);
+            var voucher = await _context.Vouchers.FirstOrDefaultAsync(m => m.VoucherId == voucherId);
             var user = await _userManager.GetUserAsync(User);
             order.UserId = user.Id;
             order.OrderDate = DateTime.Now;
-            order.TotalPrice = (cart.Items.Sum(i => i.Price * i.Quantity))/100*(100-voucher.PhanTramGiam) ;
+            order.VoucherId = voucherId;
+            decimal cartPrice = cart.Items.Sum(i => i.Price * i.Quantity); 
+            decimal decreasePrice=cartPrice/100*voucher.PhanTramGiam;
+            if (decreasePrice > voucher.GiamToiDa&&voucher.GiamToiDa>0)
+            {
+                decreasePrice = voucher.GiamToiDa??decreasePrice;
+            }
+            order.TotalPrice = cartPrice-decreasePrice;
             order.OrderStatusId = 1;
             foreach (var item in cart.Items)
             {
@@ -69,10 +77,10 @@ namespace DoAnNhom11.Controllers
                 Quantity = (int)i.Quantity,
                 Price = i.Price
             }).ToList();
-            Voucher _voucher = _context.Vouchers.FirstOrDefault(p => p.VoucherId == order.VoucherId);
-            if (_voucher.VoucherId != 1 && voucher.SoLuongCon > 0)
+            
+            if (voucher.VoucherId != 1 && voucher.SoLuongCon > 0)
             {
-                _voucher.SoLuongCon--;
+                voucher.SoLuongCon--;
             }
             _context.Orders.Add(order);
 

@@ -9,7 +9,9 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 namespace DoAnNhom11.Areas.Seller.Controllers
 {
     [Area("Seller")]
-    [Authorize]
+    [Authorize(Roles = "Developer,ShopStaff,ShopOwner")]
+
+
     public class SalesController : Controller
     {
         private readonly ApplicationDbContext _context;

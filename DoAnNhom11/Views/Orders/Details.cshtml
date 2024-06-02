@@ -20,7 +20,7 @@
                         <td class="price">Đơn giá</td>
                         <td class="quantity">Số lượng mua</td>
                         <td class="total">Thành tiền</td>
-                        <td ></td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,7 +46,7 @@
                             <td>
                                 @if (Model.OrderStatusId == 5)
                                 {
-                                    if (item.IsReview != 1)
+                                    if (item.IsReview != true)
                                     {
                                         <button onclick="openForm(@item.ProductId)" id="openModalBtn" type="button" class="btn btn-fefault cart">Đánh Giá</button>
 
@@ -85,12 +85,12 @@
                                         <a a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@item.ProductId" asp-route-quantity="1" style="color:white" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'">Mua Lại</a>
                                     </button>
                                 }
-                                
+
                             </td>
-                            
+
                         </tr>
-                        
-                    }      
+
+                    }
                 </tbody>
             </table>
         </div>
@@ -104,7 +104,7 @@
                 @StringFormat.DateFormat(Model.OrderDate)
 
             </dd>
-            
+
             <dt class="col-sm-3">
                 Địa Chỉ Giao Hàng:
             </dt>
@@ -117,23 +117,9 @@
             <dd class="col-sm-9">
                 @Html.DisplayFor(model => model.Notes)
             </dd>
-            <dt class="col-sm-3">
-                Mã Giảm Giá:
-            </dt>
-                @if (Model.VouCher.PhanTramGiam==0)
-                {
-                <dd class="col-sm-9">Không có</dd>
-                }
-                else{
-                <dd class="col-sm-9">@Html.DisplayFor(model => model.VouCher.VoucherCode): giảm @Html.DisplayFor(model => model.VouCher.PhanTramGiam) % tổng đơn hàng</dd>                 
-                }
+           
+
             
-            <dt class="col-sm-3">
-                Tổng Đơn Hàng:
-            </dt>
-            <dd class="col-sm-9">
-                @StringFormat.CurrencyFormat(Model.TotalPrice)
-            </dd>
             <dt class="col-sm-3">
                 Trạng Thái Đơn Hàng:
             </dt>
@@ -146,21 +132,42 @@
             <dd class="col-sm-9">
                 @Html.DisplayFor(model => model.Payment.TenLoai)
             </dd>
+            <dt class="col-sm-3">
+                Mã Giảm Giá:
+            </dt>
+            @if (Model.VouCher.PhanTramGiam == 0)
+            {
+                <dd class="col-sm-9">Không có</dd>
+            }
+            else
+            {
+                <dd class="col-sm-9">
+                    @Model.VouCher.VoucherCode: giảm @Model.VouCher.PhanTramGiam % tổng đơn hàng
+                    @(Model.VouCher.DonToiThieu > 0 ? ", đơn tối thiểu " + @StringFormat.CurrencyFormat(Model.VouCher.DonToiThieu ?? 0) : "")
+                    @(Model.VouCher.GiamToiDa > 0 ? ", giảm tối đa " + StringFormat.CurrencyFormat(Model.VouCher.GiamToiDa ?? 0) : "")
+                </dd>
+            }
+            <dt class="col-sm-3">
+                <h3>Tổng Đơn Hàng:</h3>
+            </dt>
+            <dd class="col-sm-9">
+                <h3>@StringFormat.CurrencyFormat(Model.TotalPrice)</h3>
+            </dd>
         </dl>
         @if (Model.OrderStatusId <= 2)
         {
             <form asp-action="Delete" asp-controller="Orders" asp-route-id="@Model.OrderId" method="post">
                 <input type="submit" value="Hủy Đơn" onclick="return confirm('Bạn Có Chắc Chắn Muốn Hủy Đơn Này?');" class="btn btn-danger" />
             </form>
-        }   
+        }
     </div>
 </section> <!--/#cart_items-->
 
 
 <style>
     .modal {
-        width:100%;
-        height:100%;
+        width: 100%;
+        height: 100%;
         display: none;
         position: fixed;
         z-index: 1;
@@ -171,14 +178,15 @@
     }
 
     .modal-content {
-        width:400px;
-        height:400px;
-        overflow-y: auto;
+        box-sizing: border-box;
         background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
         border: 1px solid #888;
         width: 40%;
+        height: 400px;
+        position: relative;
+        overflow-y: auto;
+        margin: 5% auto;
+        padding: 20px;
     }
 
     .close {
@@ -194,13 +202,13 @@
             text-decoration: none;
             cursor: pointer;
         }</style>
-<script>         
+<script>
     function openForm(id) {
-        document.getElementById("myModal-"+id).style.display = "block";
+        document.getElementById("myModal-" + id).style.display = "block";
 
     }
     function closeForm(id) {
-        document.getElementById("myModal-"+id).style.display = "none";
+        document.getElementById("myModal-" + id).style.display = "none";
 
     }
     // Khi người dùng nhấn bất kỳ đâu bên ngoài modal, đóng modal
@@ -216,7 +224,7 @@
         if (event.target == firstBlockElement) {
             // Ẩn phần tử nếu tìm thấy
             firstBlockElement.style.display = "none";
-        }        
+        }
     }
     document.getElementById('files').addEventListener('change', function (event) {
         var files = event.target.files;

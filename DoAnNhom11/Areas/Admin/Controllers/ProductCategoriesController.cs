@@ -7,10 +7,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DoAnNhom11.Models;
 using DoAnNhom11.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DoAnNhom11.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Developer")]
+
+
     public class ProductCategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;

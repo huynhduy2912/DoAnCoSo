@@ -9,7 +9,7 @@ namespace DoAnNhom11.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public required int ProductId { get; set; }
         public required string TenSp { get; set; }
- //       public string? MaSP { get; set; }
+        public string? MaSP { get; set; }
         public string? AnhDaiDien { get; set; }
         public string? MoTa { get; set; }
         public string? ThongSo { get; set; }

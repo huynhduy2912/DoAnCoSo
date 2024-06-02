@@ -1,9 +1,16 @@
 ﻿@model Order
 @{
     ViewData["Title"] = "Checkout";
+    
 }
 @{
     int tong = 0;
+    List<Voucher> myVouchers = new List<Voucher>();
+    foreach (var item in ViewBag.Voucher)
+    {
+        myVouchers.Add(item);
+    }
+     
 }
 <title>@ViewData["Title"]</title>
 
@@ -19,10 +26,7 @@
         <div class="form-group">
             <label asp-for="Notes">Ghi Chú</label>
             <input asp-for="Notes" class="form-control" value="Đặt hàng" />
-        </div>
-
-       
-        
+        </div> 
     </div>
     <hr>
     <section id="cart_items">
@@ -48,6 +52,7 @@
                         @foreach (var item in ViewBag.cart.Items)
                         {
                             tong += @item.Price * @item.Quantity;
+                            
                             <tr>
                                 <td class="cart_product" style="width: 200px;">
                                     <a a asp-controller="Products" asp-action="Details" asp-route-ma="@item.ProductId"><img src="@item.ProductImage" alt="" width="120" height="90"></a>
@@ -81,9 +86,22 @@
             <select asp-for="PaymentId" class="form-control" asp-items="ViewBag.Payment"></select>
         </div>
         <hr>
-        <button style="background: none; border: none;color:red" type="button" id="btnPopup" type="button" onclick="openPopup()">Chọn mã giảm giá</button>
-        
-        <div id="popup" style="display: none;" class="form-group">
+        @{
+            ViewData["tong"] = tong;
+        }
+        @Html.Partial("~/Views/Shared/_ListVoucherPartial.cshtml", myVouchers,ViewData)
+
+        <hr>
+        <label>Chi tiết thanh toán</label>
+        <p>Tổng đơn hàng: @StringFormat.CurrencyFormat(tong)</p>
+        <p id="percentDiscount">Giảm giá đơn hàng: 0 ₫</p>
+        <p id="totalOrderPrice">Tổng thanh toán: @StringFormat.CurrencyFormat(tong)</p>
+
+        <button type="submit" class="btn btn-primary">Hoàn thành đặt hàng</button>
+    </div>
+</form>
+
+@*  <div id="popup" style="display: none;" class="form-group">
             <label asp-for="VoucherId" class="control-label">Chọn mã giảm giá</label>
             <select asp-for="VoucherId" class="form-control" id="selectBox">
                 @foreach (var vouchers in ViewBag.Voucher)
@@ -100,41 +118,22 @@
             </select>
             <button style="background: none; border: none;color:darkred" type="button" onclick="closePopup()">Hủy chọn</button>
         </div>
-        <hr>
-        <label>Chi tiết thanh toán</label>
-        <p>Tổng đơn hàng: @StringFormat.CurrencyFormat(tong)</p>
-        <p id="percentDiscount">Giảm giá đơn hàng: 0 ₫</p>
-        <p id="totalOrderPrice">Tổng thanh toán: @StringFormat.CurrencyFormat(tong)</p>
-
-        <button type="submit" class="btn btn-primary">Hoàn thành đặt hàng</button>
-    </div>
-</form>
-
 <script>
-    document.getElementById('selectBox').addEventListener('change', function () {
-        updateOrderPaymentDetail();
+    
+    document.getelementbyid('selectbox').addeventlistener('change', function () {
+        updateorderpaymentdetail();
 
     });
-    function updateOrderPaymentDetail() {
-        var selectElement = document.getElementById("selectBox");
-        var selectedOption = selectElement.options[selectElement.selectedIndex];
-        var selectedVoucherDiscount = selectedOption.getAttribute("data-info");
-        var paragraph = document.getElementById('paragraph');
-        var percentDiscount = document.getElementById('percentDiscount');
-        var total = document.getElementById('totalOrderPrice');
-        total.innerHTML = 'Tổng thanh toán: ' + formatCurrency((@tong/100 * (100-selectedVoucherDiscount)));
-        percentDiscount.innerHTML = 'Giảm giá đơn hàng: -' + formatCurrency(@tong/100 * selectedVoucherDiscount);
-    }
-    function openPopup() {
-        document.getElementById("popup").style.display = "block";
-        document.getElementById("btnPopup").style.display = "none";
+    function openpopup() {
+        document.getelementbyid("popup").style.display = "block";
+        document.getelementbyid("btnpopup").style.display = "none";
     }
 
-    function closePopup() {
-        document.getElementById("popup").style.display = "none";
-        document.getElementById("btnPopup").style.display = "block";
-        document.getElementById("selectBox").selectedIndex = 0;
-        updateOrderPaymentDetail();
+    function closepopup() {
+        document.getelementbyid("popup").style.display = "none";
+        document.getelementbyid("btnpopup").style.display = "block";
+        document.getelementbyid("selectbox").selectedindex = 0;
+        updateorderpaymentdetail();
 
     }
-</script>
+</script> *@

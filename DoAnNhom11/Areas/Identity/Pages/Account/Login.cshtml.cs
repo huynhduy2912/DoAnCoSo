@@ -120,10 +120,15 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account
                 {
                     var user = await _userManager.FindByNameAsync(Input.UserName);
                     var roles = await _userManager.GetRolesAsync(user);
-                    /*if (roles.Contains("Admin"))
+                    if (roles.Contains("Admin"))
                     {
                         return RedirectToPage("/Index", new { area = "Admin" });
-                    }*/
+                    }
+                    if (roles.Contains("ShopOwner")|| roles.Contains("ShopStaff"))
+                    {
+                        return RedirectToAction("Index", "Products", new { area = "Seller" });
+
+                    }
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }

@@ -15,7 +15,8 @@ using OfficeOpenXml.Drawing.Controls;
 
 namespace DoAnNhom11.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Developer,Customer")]
+
     public class OrdersController : Controller
     {
         private readonly ApplicationDbContext _context;

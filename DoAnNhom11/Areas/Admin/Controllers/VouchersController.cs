@@ -11,7 +11,7 @@ using DoAnNhom11.Models;
 namespace DoAnNhom11.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Admin")]
-    [Area("Admin")]
+    [Authorize(Roles = "Admin,Developer")]
     public class VouchersController : Controller
     {
         private readonly ApplicationDbContext _context;

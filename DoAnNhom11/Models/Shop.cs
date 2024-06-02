@@ -12,7 +12,7 @@ namespace DoAnNhom11.Models
         public string? AnhBia { get; set; }
         public DateTime NgayTao { get; set; }
         public string MoTa { get; set; }
-        public int ShopCategoryId { get; set; }
+        public int? ShopCategoryId { get; set; }
         public List<ApplicationUser>? Sellers { get; set; }
 
         public ShopCategory? ShopCategories { get; set; }

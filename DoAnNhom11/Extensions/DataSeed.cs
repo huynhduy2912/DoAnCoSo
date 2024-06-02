@@ -153,7 +153,7 @@ namespace DoAnNhom11.Extensions
             modelBuilder.Entity<ShopCategory>().HasData(new ShopCategory
             {
                 ShopCategoryId = 1,
-                TenLoai = "Công Nghệ"
+                TenLoai = "Tạp Hóa"
             },
                 new ShopCategory
                 {
@@ -183,6 +183,10 @@ namespace DoAnNhom11.Extensions
                 {
                     ShopCategoryId = 8,
                     TenLoai = "Đồ Gia Dụng"
+                }, new ShopCategory
+                {
+                    ShopCategoryId = 9,
+                    TenLoai = "công nghệ"
                 });
 
             modelBuilder.Entity<Brand>().HasData(new Brand
@@ -287,11 +291,13 @@ namespace DoAnNhom11.Extensions
             modelBuilder.Entity<Voucher>().HasData(new Voucher
             {
                 VoucherId = 1,
-                VoucherCode = "không giảm",
+                VoucherCode = "mặc định",
                 SoLuongCon = 100,
                 NgayHetHan = DateTime.Now.AddMonths(2),
                 PhanTramGiam = 0,
                 VoucherCategoryId = 1,
+                DonToiThieu = -1,
+                GiamToiDa = -1,
             },
             new Voucher
             {
@@ -301,6 +307,8 @@ namespace DoAnNhom11.Extensions
                 NgayHetHan = DateTime.Now.AddMonths(2),
                 PhanTramGiam = 10,
                 VoucherCategoryId = 2,
+                DonToiThieu = 3000000,
+                GiamToiDa= 15000,
             },
             new Voucher
             {
@@ -310,6 +318,8 @@ namespace DoAnNhom11.Extensions
                 NgayHetHan = DateTime.Now.AddMonths(2),
                 PhanTramGiam = 15,
                 VoucherCategoryId = 3,
+                DonToiThieu = 10000000,
+                GiamToiDa = 50000,
             },
             new Voucher
             {
@@ -319,6 +329,8 @@ namespace DoAnNhom11.Extensions
                 NgayHetHan = DateTime.Now.AddMonths(2),
                 PhanTramGiam = 12,
                 VoucherCategoryId = 4,
+                DonToiThieu = 8000000,
+                GiamToiDa = 100000,
             },
             new Voucher
             {
@@ -328,6 +340,52 @@ namespace DoAnNhom11.Extensions
                 NgayHetHan = DateTime.Now.AddMonths(2),
                 PhanTramGiam = 7,
                 VoucherCategoryId = 4,
+                DonToiThieu = 5000000,
+                GiamToiDa = 20000,
+            },
+            new Voucher
+            {
+                VoucherId = 5,
+                VoucherCode = "GIAMGIA5",
+                SoLuongCon = 100,
+                NgayHetHan = DateTime.Now.AddMonths(2),
+                PhanTramGiam = 8,
+                VoucherCategoryId = 4,
+                DonToiThieu = -1,
+                GiamToiDa = -1,
+            },
+            new Voucher
+            {
+                VoucherId = 5,
+                VoucherCode = "GIAMGIA5",
+                SoLuongCon = 100,
+                NgayHetHan = DateTime.Now.AddMonths(2),
+                PhanTramGiam = 15,
+                VoucherCategoryId = 4,
+                DonToiThieu = 12000000,
+                GiamToiDa = -1,
+            },
+            new Voucher
+            {
+                VoucherId = 5,
+                VoucherCode = "GIAMGIA5",
+                SoLuongCon = 100,
+                NgayHetHan = DateTime.Now.AddMonths(2),
+                PhanTramGiam = 21,
+                VoucherCategoryId = 4,
+                DonToiThieu = -1,
+                GiamToiDa = 40000,
+            },
+            new Voucher
+            {
+                VoucherId = 5,
+                VoucherCode = "GIAMGIA5",
+                SoLuongCon = 100,
+                NgayHetHan = DateTime.Now.AddMonths(2),
+                PhanTramGiam = 16,
+                VoucherCategoryId = 4,
+                DonToiThieu = 12000000,
+                GiamToiDa = 1000000,
             }
             );
             count = 1;

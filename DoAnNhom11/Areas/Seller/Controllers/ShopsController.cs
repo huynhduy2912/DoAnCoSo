@@ -17,7 +17,8 @@ using Microsoft.Build.Evaluation;
 namespace DoAnNhom11.Areas.Seller.Controllers
 {
     [Area("Seller")]
-    [Authorize]
+    [Authorize(Roles = "Developer,ShopOwner")]
+
     public class ShopsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -197,7 +198,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             await _context.SaveChangesAsync();           
             return RedirectToAction("Staffs","Shops");
         }
-        [HttpGet]
+        
         public IActionResult AddStaff()
         {
             return View();
@@ -221,18 +222,19 @@ namespace DoAnNhom11.Areas.Seller.Controllers
                     FullName = model.FullName,
                     Address = model.Address,
                     Avatar = model.Avatar,
-                    ShopId = seller.ShopId
+                    ShopId = seller.ShopId,
+                    
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    if (!await _roleManager.RoleExistsAsync("Admin"))
+                    if (!await _roleManager.RoleExistsAsync("ShopStaff"))
                     {
-                        await _roleManager.CreateAsync(new IdentityRole("Admin"));
+                        await _roleManager.CreateAsync(new IdentityRole("ShopStaff"));
                     }
 
-                    await _userManager.AddToRoleAsync(user, "Admin");
+                    await _userManager.AddToRoleAsync(user, "ShopStaff");
 
                     return RedirectToAction("Staffs", "Shops");
                 }
@@ -271,7 +273,8 @@ namespace DoAnNhom11.Areas.Seller.Controllers
 
             if (result.Succeeded)
             {
-                return Ok("Mật khẩu reset thành công.");
+
+                return RedirectToAction("Staffs", "Shops");
             }
 
             return BadRequest(result.Errors);

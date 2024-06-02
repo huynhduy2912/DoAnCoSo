@@ -1,7 +1,16 @@
 ﻿@using Microsoft.AspNetCore.Identity
 
 @using Microsoft.AspNetCore.Mvc.Rendering
+@using DoAnNhom11.Models
 
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+{
+   
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,21 +68,22 @@
                         <li><a asp-area="Seller" asp-controller="Orders" asp-action="OrdersNotConfirm" asp-route-page="1">Chờ Xác Nhận</a></li>
                         <li><a asp-area="Seller" asp-controller="Orders" asp-action="CanceledOrders" asp-route-page="1">Đơn Hủy</a></li>
                     </ul>
-                </li>
-                
-
-                <li>
-                    <button class="btn-dropdown">
-                        <i class="fa fa-cog"></i>
-                        <strong>Thiết Lập Shop</strong>
-                        <i class="fa fa-angle-down"></i>
-                    </button>
-                    <ul class="submenu">
-                        <li><a asp-area="Seller" asp-controller="Shops" asp-action="Edit">Thông tin shop</a></li>
-                        <li><a asp-area="Seller" asp-controller="Shops" asp-action="Staffs">Nhân viên</a></li>
-                        <li><a asp-area="Seller" asp-controller="Shops" asp-action="AddStaff">Thêm nhân viên</a></li>
-                    </ul>
-                </li>
+                </li>              
+                @if (SignInManager.IsSignedIn(User) && (User.IsInRole("ShopOwner") || User.IsInRole("Developer")))
+                {
+                    <li>
+                        <button class="btn-dropdown">
+                            <i class="fa fa-cog"></i>
+                            <strong>Thiết Lập Shop</strong>
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="submenu">
+                            <li><a asp-area="Seller" asp-controller="Shops" asp-action="Edit">Thông tin shop</a></li>
+                            <li><a asp-area="Seller" asp-controller="Shops" asp-action="Staffs">Nhân viên</a></li>
+                            <li><a asp-area="Seller" asp-controller="Shops" asp-action="AddStaff">Thêm nhân viên</a></li>
+                        </ul>
+                    </li>
+                }
                 <li>
                     <button class="btn-dropdown">
                         <i class="fa fa-bar-chart-o"></i>

@@ -1,11 +1,14 @@
 ﻿using DoAnNhom11.Extensions;
 using DoAnNhom11.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace DoAnNhom11.Controllers
 {
+
+
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;

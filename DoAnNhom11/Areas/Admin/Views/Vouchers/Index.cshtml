@@ -28,6 +28,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.VoucherCategory)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonToiThieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GiamToiDa)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -49,6 +55,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.VoucherCategory.VoucherCategoryId)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonToiThieu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiamToiDa)
+                </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.VoucherId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.VoucherId">Details</a> |

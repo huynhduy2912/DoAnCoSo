@@ -11,7 +11,9 @@ using X.PagedList;
 namespace DoAnNhom11.Areas.Seller.Controllers
 {
     [Area("Seller")]
-    [Authorize]
+    [Authorize(Roles = "Developer,ShopStaff,ShopOwner")]
+
+
 
 
 

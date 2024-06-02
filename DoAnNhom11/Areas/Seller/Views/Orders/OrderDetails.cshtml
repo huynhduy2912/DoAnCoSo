@@ -105,7 +105,12 @@
             }
             else
             {
-                <dd class="col-sm-9">@Html.DisplayFor(model => model.VouCher.VoucherCode): giảm @Html.DisplayFor(model => model.VouCher.PhanTramGiam) % tổng đơn hàng</dd>
+                <dd class="col-sm-9">
+                    @Model.VouCher.VoucherCode: giảm @Model.VouCher.PhanTramGiam % tổng đơn hàng
+                    @(Model.VouCher.DonToiThieu > 0 ? ", đơn tối thiểu " + @StringFormat.CurrencyFormat(Model.VouCher.DonToiThieu ?? 0) : "")
+                    @(Model.VouCher.GiamToiDa > 0 ? ", giảm tối đa " + StringFormat.CurrencyFormat(Model.VouCher.GiamToiDa ?? 0) : "")
+                </dd>
+
             }
             <dt class="col-sm-3">
                 Phương Thức Thanh Toán:
