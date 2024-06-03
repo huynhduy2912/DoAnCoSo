@@ -112,63 +112,18 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             {
                 return NotFound();
             }
+            var role = await _roleManager.FindByNameAsync("ShopStaff");
+            var userIds = await _context.UserRoles
+                                    .Where(ur => ur.RoleId == role.Id)
+                                    .Select(ur => ur.UserId)
+                                    .ToListAsync();
             var staffInShop = await _context.Users
-             .Where(u => u.ShopId == id)
-             .ToListAsync();
+                                   .Where(u => userIds.Contains(u.Id)&&u.ShopId==seller.ShopId)
+                                   .ToListAsync();
 
             return View(staffInShop);
         }
 
-        /*[HttpPost]
-        public async Task<IActionResult> Staffs(string userName)
-        {
-            if (seller == null)
-            {
-                seller = await _userManager.GetUserAsync(User);
-            }
-            int id = seller.ShopId ?? 0;
-            if (id == 0)
-            {
-                return NotFound();
-            }
-
-            var staffInShop = await _context.Users
-             .Where(u => u.ShopId == id)
-             .ToListAsync();
-
-            if (string.IsNullOrEmpty(userName))
-            {
-                ViewBag.Message = -1;
-                return View(staffInShop);
-
-            }         
-            var staff = await _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
-            if(staff == null)
-            {
-                ViewBag.Message = 0;
-                return View(staffInShop);
-            }
-            if (staff.ShopId == seller.ShopId)
-            {
-                ViewBag.Message = 2;
-                return View(staffInShop);
-            }
-            else if(staff.ShopId != null)
-            {
-                ViewBag.Message = -2;
-                return View(staffInShop);
-            }
-
-
-            
-            staff.ShopId = id;
-            await _context.SaveChangesAsync();
-            ViewBag.Message = 1;
-            staffInShop = await _context.Users
-             .Where(u => u.ShopId == id)
-             .ToListAsync();
-            return View(staffInShop);
-        }*/
         public async Task<IActionResult> GetShopName()
         {
             if (seller == null)
@@ -283,5 +238,56 @@ namespace DoAnNhom11.Areas.Seller.Controllers
         {
             return _context.Shops.Any(e => e.ShopId == id);
         }
+
+        /*[HttpPost]
+        public async Task<IActionResult> Staffs(string userName)
+        {
+            if (seller == null)
+            {
+                seller = await _userManager.GetUserAsync(User);
+            }
+            int id = seller.ShopId ?? 0;
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+            var staffInShop = await _context.Users
+             .Where(u => u.ShopId == id)
+             .ToListAsync();
+
+            if (string.IsNullOrEmpty(userName))
+            {
+                ViewBag.Message = -1;
+                return View(staffInShop);
+
+            }         
+            var staff = await _context.Users.FirstOrDefaultAsync(u => u.UserName == userName);
+            if(staff == null)
+            {
+                ViewBag.Message = 0;
+                return View(staffInShop);
+            }
+            if (staff.ShopId == seller.ShopId)
+            {
+                ViewBag.Message = 2;
+                return View(staffInShop);
+            }
+            else if(staff.ShopId != null)
+            {
+                ViewBag.Message = -2;
+                return View(staffInShop);
+            }
+
+
+            
+            staff.ShopId = id;
+            await _context.SaveChangesAsync();
+            ViewBag.Message = 1;
+            staffInShop = await _context.Users
+             .Where(u => u.ShopId == id)
+             .ToListAsync();
+            return View(staffInShop);
+        }*/
     }
 }

@@ -10,8 +10,9 @@ using DoAnNhom11.Models;
 
 namespace DoAnNhom11.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "Admin,Developer")]
     [Area("Admin")]
+    [Authorize(Roles = "Admin,Developer")]
+    
     public class BrandsController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -22,7 +22,7 @@
             <button type="button" class="btn btn-fefault cart">
                 @if (item.Items.Count > 0)
                 {
-                    <a asp-action="CheckOut" asp-route-shopName="@item.shopName" style="color: white;" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'">Đặt hàng</a>
+                    <a asp-action="CheckOut" asp-route-shopId="@item.shopId" style="color: white;" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'">Đặt hàng</a>
                 }
             </button>
         </p>

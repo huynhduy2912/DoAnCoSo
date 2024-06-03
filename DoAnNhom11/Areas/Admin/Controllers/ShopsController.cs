@@ -28,13 +28,46 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
         }
-
         // GET: Admin/Shops
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Shops.Include(s => s.ShopCategories);
-            return View(await applicationDbContext.ToListAsync());
+            var role = await _roleManager.FindByNameAsync("ShopOwner");
+            var userIds = await _context.UserRoles
+                                    .Where(ur => ur.RoleId == role.Id)
+                                    .Select(ur => ur.UserId)
+                                    .ToListAsync();
+            var shopOwners = await _context.Users
+                                   .Where(u => userIds.Contains(u.Id))
+                                   .Include(s => s.MyShop)
+                                   .ToListAsync();
+
+            return View(shopOwners);
         }
+        [HttpPost]
+        public async Task<IActionResult> ResetShopPassword(string userId)
+        {
+            if (string.IsNullOrEmpty(userId))
+            {
+                return BadRequest("User ID is required.");
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user, token, "P@55W0rd");
+
+            if (result.Succeeded)
+            {
+
+                return RedirectToAction("Index", "Shops");
+            }
+
+            return BadRequest(result.Errors);
+        }
+       
 
         // GET: Admin/Shops/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -67,7 +100,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             {
                 var shop = new Shop
                 {
-                    TenCuaHang = " ",
+                    TenCuaHang = "newshop",
                     DiaChi = " ",
                     LienHe = " ",
                     AnhDaiDien = " ",

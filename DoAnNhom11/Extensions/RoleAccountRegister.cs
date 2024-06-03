@@ -6,5 +6,7 @@
         //public static string Role = "Admin";
         public static string Role = "Developer";
         //public static string Role = "Customer";
+        //public static string Role = "ShopOwner";
+        //public static string Role = "ShopStaff";
     }
 }

@@ -25,15 +25,18 @@ namespace DoAnNhom11.Controllers
             _userManager= userManager;
 
         }
-        public async Task<IActionResult> CheckOut(string shopName)
+        public IActionResult Index()
         {
-            var applicationDbContext = _context.Vouchers.Where(v=>v.SoLuongCon>0&&v.NgayHetHan>DateTime.Now).Include(v => v.VoucherCategory);
-            ViewBag.Voucher = applicationDbContext;
-            ViewData["VoucherName"] = new SelectList(_context.Vouchers, "VoucherId", "VoucherCode");
-            ViewData["Payment"] = new SelectList(_context.Payments, "PaymentId", "TenLoai");
-
             var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();
-            var cart = GetShoppingCartByShopId(listCart, shopName);
+            return View(listCart);
+        }
+        public async Task<IActionResult> CheckOut(int shopId)
+        {
+            var applicationDbContext = _context.Vouchers.Where(v=>v.SoLuongCon>0&&v.NgayHetHan>DateTime.Now&&(v.ShopId==shopId||v.ShopId==-1)).Include(v => v.VoucherCategory);
+            ViewBag.Voucher = applicationDbContext;
+            ViewData["Payment"] = new SelectList(_context.Payments, "PaymentId", "TenLoai");
+            var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();
+            var cart = GetShoppingCartByShopId(listCart, shopId);
             ViewBag.Cart = cart;
             var user = await _userManager.GetUserAsync(User);
             ViewBag.Address = user.Address;
@@ -41,10 +44,10 @@ namespace DoAnNhom11.Controllers
             return View(new Order());
         }
         [HttpPost]
-        public async Task<IActionResult> CheckOut(Order order,string shopName,int? voucherId)
+        public async Task<IActionResult> CheckOut(Order order,int shopId,int? voucherId)
         {
             var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();
-            var cart = GetShoppingCartByShopId(listCart, shopName);
+            var cart = GetShoppingCartByShopId(listCart, shopId);
             if (cart == null || !cart.Items.Any())
             {
                 return RedirectToAction("Index");
@@ -147,26 +150,22 @@ namespace DoAnNhom11.Controllers
         {
             return View();
         }
-        public IActionResult Index()
-        {
-            var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();
-            return View(listCart);
-        }
-        public ShoppingCart? GetShoppingCartByShopId(List<ShoppingCart> listCart,string shopName)
+        
+        public ShoppingCart? GetShoppingCartByShopId(List<ShoppingCart> listCart,int shopId)
         {
             foreach (var item in listCart)
             {
-                if (item.shopName == shopName)
+                if (item.shopId == shopId)
                 {
                     return item;
                 }
             }
             return null;
         }
-        public IActionResult RemoveFromCart(int productId,string shopName)
+        public IActionResult RemoveFromCart(int productId, int shopId)
         {
             var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart");
-            var cart= GetShoppingCartByShopId(listCart, shopName);
+            var cart= GetShoppingCartByShopId(listCart, shopId);
             if (cart is not null)
             {
                 cart.RemoveItem(productId);// Lưu lại giỏ hàng vào Session sau khi đã xóa mục
@@ -175,10 +174,10 @@ namespace DoAnNhom11.Controllers
             return RedirectToAction("Index");
         }
         
-        public ActionResult UpdateCart(int id, int quantity,string shopName)
+        public ActionResult UpdateCart(int id, int quantity, int shopId)
         {
             var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();
-            var cart = GetShoppingCartByShopId(listCart, shopName);
+            var cart = GetShoppingCartByShopId(listCart, shopId);
             var findCartItem = cart.Items.FirstOrDefault(i => i.ProductId == id);
             if (findCartItem != null)
             {

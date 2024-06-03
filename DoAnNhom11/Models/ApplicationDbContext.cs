@@ -82,7 +82,7 @@ namespace DoAnNhom11.Models
          .HasForeignKey(o => o.OrderStatusId)
          .OnDelete(DeleteBehavior.Cascade);
 
-          DataSeed.Seed(modelBuilder);
+          //DataSeed.Seed(modelBuilder);
 
         }
         public DbSet<DoAnNhom11.Models.VoucherCategory> VoucherCategory { get; set; } = default!;

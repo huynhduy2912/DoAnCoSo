@@ -298,6 +298,7 @@ namespace DoAnNhom11.Extensions
                 VoucherCategoryId = 1,
                 DonToiThieu = -1,
                 GiamToiDa = -1,
+                ShopId=-1,
             },
             new Voucher
             {
@@ -309,6 +310,7 @@ namespace DoAnNhom11.Extensions
                 VoucherCategoryId = 2,
                 DonToiThieu = 3000000,
                 GiamToiDa= 15000,
+                ShopId = -1,
             },
             new Voucher
             {
@@ -320,6 +322,7 @@ namespace DoAnNhom11.Extensions
                 VoucherCategoryId = 3,
                 DonToiThieu = 10000000,
                 GiamToiDa = 50000,
+                ShopId = -1,
             },
             new Voucher
             {
@@ -331,6 +334,7 @@ namespace DoAnNhom11.Extensions
                 VoucherCategoryId = 4,
                 DonToiThieu = 8000000,
                 GiamToiDa = 100000,
+                ShopId = -1,
             },
             new Voucher
             {
@@ -342,6 +346,7 @@ namespace DoAnNhom11.Extensions
                 VoucherCategoryId = 4,
                 DonToiThieu = 5000000,
                 GiamToiDa = 20000,
+                ShopId = -1,
             },
             new Voucher
             {
@@ -353,6 +358,7 @@ namespace DoAnNhom11.Extensions
                 VoucherCategoryId = 4,
                 DonToiThieu = -1,
                 GiamToiDa = -1,
+                ShopId = -1,
             },
             new Voucher
             {
@@ -364,6 +370,7 @@ namespace DoAnNhom11.Extensions
                 VoucherCategoryId = 4,
                 DonToiThieu = 12000000,
                 GiamToiDa = -1,
+                ShopId = -1,
             },
             new Voucher
             {
@@ -375,6 +382,7 @@ namespace DoAnNhom11.Extensions
                 VoucherCategoryId = 4,
                 DonToiThieu = -1,
                 GiamToiDa = 40000,
+                ShopId = -1,
             },
             new Voucher
             {
@@ -386,6 +394,7 @@ namespace DoAnNhom11.Extensions
                 VoucherCategoryId = 4,
                 DonToiThieu = 12000000,
                 GiamToiDa = 1000000,
+                ShopId = -1,
             }
             );
             count = 1;

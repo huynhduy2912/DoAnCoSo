@@ -61,6 +61,7 @@ namespace DoAnNhom11.Controllers
             listItemShow.Add(_context.Products.Where(p => p.ProductId == 34).FirstOrDefault());
             listItemShow.Add(_context.Products.Where(p => p.ProductId == 35).FirstOrDefault());
             ViewBag.categories = await _context.Categories.ToListAsync();
+            //.Where(c => c.Products != null && c.Products.Count > 0)
             ViewBag.listItemShow=listItemShow;
             return View(recommentProduct);
         }

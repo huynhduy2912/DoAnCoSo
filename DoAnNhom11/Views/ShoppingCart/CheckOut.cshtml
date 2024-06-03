@@ -14,7 +14,7 @@
 }
 <title>@ViewData["Title"]</title>
 
-<form asp-action="Checkout" asp-route-shopName="@ViewBag.Cart.shopName" method="post">
+<form asp-action="Checkout" asp-route-shopId="@ViewBag.Cart.shopId" method="post">
 
     <h2>Điền thông tin đơn hàng</h2>
     <div style="padding-left: 1em;">
@@ -95,7 +95,7 @@
         <label>Chi tiết thanh toán</label>
         <p>Tổng đơn hàng: @StringFormat.CurrencyFormat(tong)</p>
         <p id="percentDiscount">Giảm giá đơn hàng: 0 ₫</p>
-        <p id="totalOrderPrice">Tổng thanh toán: @StringFormat.CurrencyFormat(tong)</p>
+        <h3 style="color:red" id="totalOrderPrice">Tổng thanh toán: @StringFormat.CurrencyFormat(tong)</h3>
 
         <button type="submit" class="btn btn-primary">Hoàn thành đặt hàng</button>
     </div>

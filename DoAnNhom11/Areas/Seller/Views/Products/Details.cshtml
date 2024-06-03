@@ -39,13 +39,14 @@
             @Html.DisplayNameFor(model => model.GiaNhap)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.GiaNhap)
+            @StringFormat.CurrencyFormat(Model.GiaNhap)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.GiaBan)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.GiaBan)
+            @StringFormat.CurrencyFormat(Model.GiaBan)
+
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.SoLuongCon)

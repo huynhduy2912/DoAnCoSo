@@ -53,7 +53,10 @@
                                 <div style="background-color:lightgray" class="Box2">
                                     <ul>
                                         <li style="color:red">⚠️Đơn tối thiểu:@StringFormat.CurrencyFormat(item.DonToiThieu ?? 0)⚠️</li>
-                                        <li>Giảm tối đa:@StringFormat.CurrencyFormat(item.DonToiThieu ?? 0) </li>
+                                        @if (item.GiamToiDa > 0)
+                                        {
+                                            <li>Giảm tối đa:@StringFormat.CurrencyFormat(item.GiamToiDa ?? 0) </li>
+                                        }
                                         <li>Số lượng còn: @item.SoLuongCon</li>
                                     </ul>
                                 </div>
