@@ -1,7 +1,7 @@
 ﻿@model Order
 @{
     ViewData["Title"] = "Checkout";
-    
+
 }
 @{
     int tong = 0;
@@ -10,9 +10,10 @@
     {
         myVouchers.Add(item);
     }
-     
+
 }
 <title>@ViewData["Title"]</title>
+<script src="~/js/fetchAddress.js" asp-append-version="true"></script>
 
 <form asp-action="Checkout" asp-route-shopId="@ViewBag.Cart.shopId" method="post">
 
@@ -20,13 +21,29 @@
     <div style="padding-left: 1em;">
         <div class="form-group">
             <label asp-for="ShippingAddress">Địa chỉ giao hàng</label>
-            <input asp-for="ShippingAddress" class="form-control" value="@ViewBag.Address" />
+            <div style="display: inline-block;">
+                <select id="province" name="province" onchange="loadDistricts(this.value)">
+                </select>
+            </div>
+            <div style="display: inline-block;">
+                <select id="district" name="district" onchange="loadWards(this.value)">
+                    <option value="">Chọn quận/huyện</option>
+                </select>
+            </div>
+            <div style="display: inline-block;">
+                <select id="ward" name="ward" onchange="updateInput()" required>
+                    <option value="">Chọn xã/phường</option>
+                </select>
+            </div>   
+            <input name="specificAddress" placeholder="Địa chỉ cụ thể" required/>
+            
+            <input class="form-control" asp-for="ShippingAddress" id="address" type="text" style="width:500px;display:none" />
         </div>
         <hr>
         <div class="form-group">
             <label asp-for="Notes">Ghi Chú</label>
             <input asp-for="Notes" class="form-control" value="Đặt hàng" />
-        </div> 
+        </div>
     </div>
     <hr>
     <section id="cart_items">
@@ -52,7 +69,7 @@
                         @foreach (var item in ViewBag.cart.Items)
                         {
                             tong += @item.Price * @item.Quantity;
-                            
+
                             <tr>
                                 <td class="cart_product" style="width: 200px;">
                                     <a a asp-controller="Products" asp-action="Details" asp-route-ma="@item.ProductId"><img src="@item.ProductImage" alt="" width="120" height="90"></a>
@@ -89,7 +106,7 @@
         @{
             ViewData["tong"] = tong;
         }
-        @Html.Partial("~/Views/Shared/_ListVoucherPartial.cshtml", myVouchers,ViewData)
+        @Html.Partial("~/Views/Shared/_ListVoucherPartial.cshtml", myVouchers, ViewData)
 
         <hr>
         <label>Chi tiết thanh toán</label>
@@ -108,7 +125,7 @@
                 {
                     if (vouchers.VoucherId != 1&&vouchers.SoLuongCon>0)
                     {
-                        <option value="@vouchers.VoucherId" data-info="@vouchers.PhanTramGiam">@vouchers.VoucherCode -@vouchers.PhanTramGiam% tổng đơn hàng(@vouchers.SoLuongCon)</option>                       
+                        <option value="@vouchers.VoucherId" data-info="@vouchers.PhanTramGiam">@vouchers.VoucherCode -@vouchers.PhanTramGiam% tổng đơn hàng(@vouchers.SoLuongCon)</option>
                     }
                     else
                     {
@@ -119,7 +136,7 @@
             <button style="background: none; border: none;color:darkred" type="button" onclick="closePopup()">Hủy chọn</button>
         </div>
 <script>
-    
+
     document.getelementbyid('selectbox').addeventlistener('change', function () {
         updateorderpaymentdetail();
 

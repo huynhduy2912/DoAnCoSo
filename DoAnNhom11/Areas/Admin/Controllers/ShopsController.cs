@@ -67,6 +67,48 @@ namespace DoAnNhom11.Areas.Admin.Controllers
 
             return BadRequest(result.Errors);
         }
+        [HttpPost]
+        public async Task<IActionResult> BlockShop(string userId)
+        {
+            if (string.IsNullOrEmpty(userId))
+            {
+                return BadRequest("User ID is required.");
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+            var shop = await _context.Shops
+               .FirstOrDefaultAsync(m => m.ShopId == user.ShopId);
+            shop.BiChan = true;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Shops");
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> UnblockShop(string userId)
+        {
+            if (string.IsNullOrEmpty(userId))
+            {
+                return BadRequest("User ID is required.");
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+            var shop = await _context.Shops
+               .FirstOrDefaultAsync(m => m.ShopId == user.ShopId);
+            shop.BiChan = false;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Shops");
+
+        }
        
 
         // GET: Admin/Shops/Details/5

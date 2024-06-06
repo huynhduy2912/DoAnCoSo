@@ -31,7 +31,7 @@ namespace DoAnNhom11.Controllers
             var shop = await _context.Shops
                 .Include(s => s.ShopCategories)
                 .FirstOrDefaultAsync(m => m.ShopId == ma);
-            if (shop == null)
+            if (shop == null||shop.BiChan==true)
             {
                 return NotFound();
             }

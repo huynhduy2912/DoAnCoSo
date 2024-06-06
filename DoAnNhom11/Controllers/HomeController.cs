@@ -43,7 +43,7 @@ namespace DoAnNhom11.Controllers
 
                 foreach (int index in randomIndices)
                 {
-                    var product = await _context.Products.Where(p=>p.DaAn==false&&p.SoLuongCon>0).Skip(index).FirstOrDefaultAsync();
+                    var product = await _context.Products.Where(p=>p.DaAn==false&&p.SoLuongCon>0&&p.Shop.BiChan!=true).Skip(index).FirstOrDefaultAsync();
                     if (product != null)
                     {
                         randomProducts.Add(product);

@@ -16,10 +16,8 @@ namespace DoAnNhom11.Models
         public Payment? Payment { get; set; }
         public int? OrderStatusId { get; set; }
         public OrderStatus? OrderStatus { get; set; }
-        [ForeignKey("UserId")]
-        [ValidateNever]
-        public ApplicationUser? ApplicationUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
         public string UserId { get; set; }
-        public List<OrderDetail>? OrderDetails { get; set; }
+        public List<OrderDetail> OrderDetails { get; set; }
     }
 }

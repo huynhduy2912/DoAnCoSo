@@ -31,10 +31,10 @@
 
 
 <script>
-    function updateCart(productId,shopName) {
+    function updateCart(productId,shopId) {
         var quantity = document.getElementById('txtQuantity_' + productId).value;
         window.location.href = '/ShoppingCart/UpdateCart?id=' + productId +
-            '&quantity=' + quantity + '&shopName=' + shopName;
+            '&quantity=' + quantity + '&shopId=' + shopId;
 
     }
     function removeNegativeSign(productId) {

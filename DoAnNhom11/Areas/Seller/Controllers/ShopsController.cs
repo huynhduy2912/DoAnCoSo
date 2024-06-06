@@ -33,6 +33,25 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
         }
+        public async Task<IActionResult> BlockDetail()
+        {
+            if (seller == null)
+            {
+                seller = await _userManager.GetUserAsync(User);
+            }
+            int id = seller.ShopId ?? 0;
+            if (id == 0)
+            {
+                return NotFound();
+            }
+
+            var shop = await _context.Shops.FindAsync(id);
+            if (shop == null||shop.BiChan==false)
+            {
+                return NotFound();
+            }
+            return View();
+        }
         public async Task<IActionResult> Edit()
         {
             if (seller == null)
@@ -56,7 +75,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Shop shop, IFormFile imageAvatar, IFormFile imageBackground)
+        public async Task<IActionResult> Edit(Shop shop, IFormFile imageAvatar, IFormFile imageBackground,string specificAddress)
         {
             if (seller == null)
             {
@@ -82,9 +101,10 @@ namespace DoAnNhom11.Areas.Seller.Controllers
                 {
                     shop.AnhBia = await UploadImage.SaveImage(imageBackground);
                 }
-
+                shop.DiaChi = specificAddress+", " + shop.DiaChi;
                 _context.Update(shop);
                 await _context.SaveChangesAsync();
+                return RedirectToAction("Edit", "Shops");
             }
             catch (DbUpdateConcurrencyException)
             {

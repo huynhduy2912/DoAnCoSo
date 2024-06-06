@@ -37,7 +37,7 @@
                     <td>
                         <div>
                             <div class="form-group">
-                                        <input id="txtQuantity_@item.ProductId" onchange="updateCart(@item.ProductId,'@Model.shopName')" type="number" min="1" name="txtQuantity" value="@item.Quantity" style="width:100px" oninput="removeNegativeSign(@item.ProductId)" />
+                                        <input id="txtQuantity_@item.ProductId" onchange="updateCart(@item.ProductId,@Model.shopId)" type="number" min="1" name="txtQuantity" value="@item.Quantity" style="width:100px" oninput="removeNegativeSign(@item.ProductId)" />
                             </div>
                         </div>
                     </td>

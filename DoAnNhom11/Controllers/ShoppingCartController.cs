@@ -40,11 +40,10 @@ namespace DoAnNhom11.Controllers
             ViewBag.Cart = cart;
             var user = await _userManager.GetUserAsync(User);
             ViewBag.Address = user.Address;
-            //Response.WriteAsync("<script>alert('Data inserted successfully')</script>");
             return View(new Order());
         }
         [HttpPost]
-        public async Task<IActionResult> CheckOut(Order order,int shopId,int? voucherId)
+        public async Task<IActionResult> CheckOut(Order order,int shopId,int? voucherId,string specificAddress)
         {
             var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();
             var cart = GetShoppingCartByShopId(listCart, shopId);
@@ -64,6 +63,7 @@ namespace DoAnNhom11.Controllers
                 decreasePrice = voucher.GiamToiDa??decreasePrice;
             }
             order.TotalPrice = cartPrice-decreasePrice;
+            order.ShippingAddress = specificAddress + ", " + order.ShippingAddress;
             order.OrderStatusId = 1;
             foreach (var item in cart.Items)
             {

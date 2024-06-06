@@ -35,7 +35,6 @@ namespace DoAnNhom11.Controllers
             var applicationDbContext = await _context.Orders
                 .Where(p => p.UserId == user.Id)
                 .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
-                .Include(o => o.VouCher)
                 .Include(o => o.OrderStatus)
                 .ToListAsync();
             applicationDbContext.Reverse();
@@ -50,6 +49,7 @@ namespace DoAnNhom11.Controllers
             var order = await _context.Orders
                 .Include(o => o.ApplicationUser)
                 .Include(o => o.OrderStatus)
+                .Include(o=>o.VouCher)
                 .Include(o => o.VouCher)
                 .Include(o => o.Payment)
                 .FirstOrDefaultAsync(m => m.OrderId == ma);

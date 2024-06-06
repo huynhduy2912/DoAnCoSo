@@ -350,7 +350,7 @@ namespace DoAnNhom11.Extensions
             },
             new Voucher
             {
-                VoucherId = 5,
+                VoucherId = 6,
                 VoucherCode = "GIAMGIA5",
                 SoLuongCon = 100,
                 NgayHetHan = DateTime.Now.AddMonths(2),
@@ -362,7 +362,7 @@ namespace DoAnNhom11.Extensions
             },
             new Voucher
             {
-                VoucherId = 5,
+                VoucherId = 7,
                 VoucherCode = "GIAMGIA5",
                 SoLuongCon = 100,
                 NgayHetHan = DateTime.Now.AddMonths(2),
@@ -374,7 +374,7 @@ namespace DoAnNhom11.Extensions
             },
             new Voucher
             {
-                VoucherId = 5,
+                VoucherId = 8,
                 VoucherCode = "GIAMGIA5",
                 SoLuongCon = 100,
                 NgayHetHan = DateTime.Now.AddMonths(2),
@@ -386,7 +386,7 @@ namespace DoAnNhom11.Extensions
             },
             new Voucher
             {
-                VoucherId = 5,
+                VoucherId = 9,
                 VoucherCode = "GIAMGIA5",
                 SoLuongCon = 100,
                 NgayHetHan = DateTime.Now.AddMonths(2),

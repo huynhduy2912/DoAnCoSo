@@ -1,12 +1,25 @@
-﻿
-<div class="overlay"></div>
-<div class="rectangle" style="background-image: url('@ViewBag.Shop.AnhBia');">
-    <img class="circle" src="@ViewBag.Shop.AnhDaiDien" alt="Avatar">
-    <div class="content">
-        <h4>@ViewBag.Shop.TenCuaHang</h4>
+﻿<ul class="navbar-nav flex-grow-1">
+    <div class="overlay"></div>
+    <div class="rectangle" style="background-image: url('@ViewBag.Shop.AnhBia');">
+        <img class="circle" src="@ViewBag.Shop.AnhDaiDien" alt="Avatar">
+        <div class="content">
+            <h4>@ViewBag.Shop.TenCuaHang</h4>
+        </div>
     </div>
-</div>
+</ul>
+@if (ViewBag.Shop.BiChan==true)
+{
+    <p class="navbar-brand" style="color:red">
+        Shop đã bị chặn do vi phạm chính sách của hệ thống
+        <a asp-area="Seller" asp-controller="Shops" asp-action="BlockDetail">Xem chi tiết</a>
+    </p>
+
+}
+
+@Html.Partial("~/Areas/Seller/Views/Shared/SellerLoginPartial.cshtml")
+
 <style>
+
     :root {
         --col-height: 40px;
     }
@@ -17,7 +30,7 @@
         background-size: cover; /* Kích thước ảnh sẽ được hiển thị */
         background-position: center; /* Vị trí căn giữa của ảnh */
         background-repeat: no-repeat; /* Không lặp lại hình ảnh */
-        background-position-x:right;
+        background-position-x: right;
     }
 
     .circle {
@@ -43,12 +56,10 @@
     .overlay {
         position: absolute; /* Định vị tuyệt đối */
         width: 20%; /* Chiều rộng của overlay bằng với khối */
-        height: 80%; /* Chiều cao của overlay bằng với khối */
+        height: 75%; /* Chiều cao của overlay bằng với khối */
         background-color: rgba(0, 0, 0, 0.1); /* Màu xám mờ với độ mờ là 50% */
         border-radius: 5%; /* Làm cho hình ảnh tròn */
     }
-
-
 
 </style>
 

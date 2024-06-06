@@ -6,22 +6,15 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-
-@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-{
-   
-}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bán hàng</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/myLayout/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -32,15 +25,12 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1" id="myPartialViewContainer">
-                    </ul>
-                    @Html.Partial("~/Areas/Seller/Views/Shared/SellerLoginPartial.cshtml")
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="myPartialViewContainer">
+                   
                 </div>
             </div>
         </nav>
     </header>
-
     <div class="container">
         <nav class="vertical-nav">
             <ul>
@@ -195,7 +185,6 @@
             url: '/Seller/Shops/GetShopName',
             type: 'GET',
             success: function (result) {
-
                 $('#myPartialViewContainer').html(result);
             },
             error: function (error) {

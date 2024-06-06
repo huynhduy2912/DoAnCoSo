@@ -1,0 +1,23 @@
+﻿
+
+
+<h2>Chọn Địa Chỉ</h2>
+
+<form>
+    <label for="province">Tỉnh/Thành phố:</label>
+    <select id="province" name="province" onchange="loadDistricts(this.value)">
+    </select>
+
+    <label for="district">Quận/Huyện:</label>
+    <select id="district" name="district" onchange="loadWards(this.value)">
+        <option value="">Chọn quận/huyện</option>
+    </select>
+
+    <label for="ward">Xã/Phường:</label>
+    <select id="ward" name="ward" onchange="updateInput()" required>
+        <option value="">Chọn xã/phường</option>
+    </select>
+    <input id="address" type="text" style="width:500px"/>
+    <button type="submit">submit</button>
+</form>
+<script src="~/js/fetchAddress.js" asp-append-version="true"></script>

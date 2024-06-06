@@ -40,7 +40,7 @@
                 <h4 style="color:red;">@Model.OrderStatus.TenTrangThai</p>
             </div>
             <div class="col-md-6 text-right">
-                <h3 style="color: red;"><span>Thành tiền(-@Model.VouCher.PhanTramGiam%):</span>@StringFormat.CurrencyFormat(@Model.TotalPrice)</h3>
+                <h3 style="color: red;"><span>Thành tiền:</span>@StringFormat.CurrencyFormat(@Model.TotalPrice)</h3>
                 @if (action == "Details")
                 {
                     <button type="button" class="btn btn-fefault cart">

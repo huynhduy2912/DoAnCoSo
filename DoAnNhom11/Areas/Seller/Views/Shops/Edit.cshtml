@@ -6,6 +6,8 @@
 
 <h1 align="center">Thiết lập thông tin cửa hàng</h1>
 <hr />
+<script src="~/js/fetchAddress.js" ></script>
+
 <form asp-action="Edit" enctype="multipart/form-data">
 
     <div class="row justify-content-center">
@@ -19,8 +21,20 @@
                 <span asp-validation-for="TenCuaHang" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DiaChi" class="control-label"><strong>Địa Chỉ</strong></label>
-                <input asp-for="DiaChi" class="form-control" />
+                <label asp-for="DiaChi" class="control-label"><strong>Địa chỉ</strong></label><br />
+                <input class="form-control" asp-for="DiaChi" id="address" type="text" style="width:500px;display:none" />
+                <textarea asp-for="DiaChi" class="form-control" readonly></textarea>
+                <select id="province" name="province" onchange="loadDistricts(this.value)">
+                </select><br />
+                <select id="district" name="district" onchange="loadWards(this.value)">
+                    <option value="">Chọn quận/huyện</option>
+                </select><br />
+                <select id="ward" name="ward" onchange="updateInput()" required>
+                    <option value="">Chọn xã/phường</option>
+                </select><br />
+                <input name="specificAddress" placeholder="Địa chỉ cụ thể" required />
+                
+
                 <span asp-validation-for="DiaChi" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -54,12 +68,12 @@
                 <select asp-for="ShopCategoryId" class="form-control" asp-items="ViewBag.ShopCategoryId"></select>
                 <span asp-validation-for="ShopCategoryId" class="text-danger"></span>
             </div>
-           
+
         </div>
-        <div class="col-md-4 text-center" >
+        <div class="col-md-4 text-center">
             <div class="form-group" align="center">
                 <label asp-for="AnhDaiDien"><strong>Ảnh Đại Diện</strong></label>
-                <input type="file" asp-for="AnhDaiDien" name="imageAvatar" class="form-control" id="imageAvatar" style="display:none"/>
+                <input type="file" asp-for="AnhDaiDien" name="imageAvatar" class="form-control" id="imageAvatar" style="display:none" />
                 <br />
                 <img src="@Model.AnhDaiDien" id="previewAvatar" style="width:100px;height:100px;border-radius:50%;" alt="Image preview" />
                 <br />
@@ -70,7 +84,7 @@
                 <label asp-for="AnhBia"><strong>Ảnh Bìa</strong></label>
                 <input type="file" asp-for="AnhBia" name="imageBackground" class="form-control" id="imageBackground" style="display:none" />
                 <br />
-                <img src="@Model.AnhBia" id="previewBackground" style="height:200px;" alt="Image preview"/>
+                <img src="@Model.AnhBia" id="previewBackground" style="height:200px;" alt="Image preview" />
                 <br />
                 <button type="button" id="openBackgroundButton" onclick="openImageBox('imageBackground')" style="padding: 5px 10px;" class="btn btn-secondary"><icon class="fa fa-camera"></icon> Chọn Ảnh Bìa</button>
 

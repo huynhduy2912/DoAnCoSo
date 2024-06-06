@@ -12,11 +12,6 @@
             <th>Email</th>
             <th>Tên Shop</th>
             <th>
-
-            </th><th>
-
-            </th><th>
-
             </th>
         </tr>
     </thead>
@@ -28,21 +23,39 @@
                 <td>@user.FullName</td>
                 <td>@user.Email</td>
                 <td>@user.MyShop.TenCuaHang</td>
+
                 <td>
-                    <a asp-action="Details" asp-route-id="@user.MyShop.ShopId"><button class="btn btn-success">Chi tiết shop</button></a>
-                    
-                </td> <td>
-                   
-                    
-                    <form asp-action="ResetShopPassword" asp-route-userId="@user.Id" method="post">
-                        <button type="submit" onclick="return confirm('Bạn Có Chắc Chắn Muốn Reset Mật Khẩu Của chủ shop : @user.UserName?');" class="btn btn-primary">Reset Password</button>
-                    </form>
-                </td> @* <td>
-                   
-                    <form asp-action="DeleteShop" asp-route-username="@user.UserName" method="post">
-                        <button type="submit" onclick="return confirm('Bạn Có Chắc Chắn Muốn Xóa shop này : @user.UserName Khỏi Shop?');" class="btn btn-danger">Xóa shop</button>
-                    </form>
-                </td> *@
+
+                    <div style="display: inline-block;">
+                        <a asp-action="Details" asp-route-id="@user.MyShop.ShopId"><button class="btn btn-success">Chi tiết shop</button></a>
+
+                    </div>
+                    <div style="display: inline-block;">
+                        <form asp-action="ResetShopPassword" asp-route-userId="@user.Id" method="post">
+                            <button type="submit" onclick="return confirm('Bạn Có Chắc Chắn Muốn Reset Mật Khẩu Của chủ shop : @user.UserName?');" class="btn btn-primary">Reset Password</button>
+                        </form>
+
+                    </div>
+                    <div style="display: inline-block;">
+
+                        @if (user.MyShop.BiChan != true)
+                        {
+                            <form asp-action="BlockShop" asp-route-userId="@user.Id" method="post">
+                                <button type="submit" onclick="return confirm('Bạn Có Chắc Chắn Muốn Block shop : @user.MyShop.TenCuaHang?');" class="btn btn-danger">Block Shop</button>
+                            </form>
+                        }
+                        else
+
+                        {
+                            <form asp-action="UnblockShop" asp-route-userId="@user.Id" method="post">
+                                <button type="submit" onclick="return confirm('Bạn Có Chắc Chắn Muốn Unblock shop : @user.MyShop.TenCuaHang?');" class="btn btn-secondary">Unlock Shop</button>
+                            </form>
+                        }
+
+
+                    </div>
+
+                </td>
             </tr>
         }
     </tbody>

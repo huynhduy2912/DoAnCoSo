@@ -12,7 +12,7 @@
         public List<Order>? Orders { get; set; }
         public int VoucherCategoryId { get; set; }
         public VoucherCategory? VoucherCategory { get; set; }
-        public int ShopId { get; set; }
+        public int? ShopId { get; set; }
         public Shop? Shop { get; set; }
     }
 }

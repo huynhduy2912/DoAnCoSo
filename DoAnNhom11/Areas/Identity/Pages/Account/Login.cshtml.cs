@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.General;
+using DoAnNhom11.Extensions;
 
 namespace DoAnNhom11.Areas.Identity.Pages.Account
 {

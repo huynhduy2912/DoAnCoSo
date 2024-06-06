@@ -18,32 +18,13 @@ namespace DoAnNhom11.Controllers
         public List<string> SearchSuggestions(string query)
         {
             return _context.Products
+             .Where(p => p.Shop.BiChan != true)
             .Where(p => p.TenSp.StartsWith(query))
             .Select(p => p.TenSp)
             .ToList();
 
         }
-        public async Task<IActionResult> GetProductsByCategory(int categoryId, int page)
-        {
-            var listProductByCategory = await _context.Products.Where(p => p.SoLuongCon > 0).Where(p => p.DaAn == false).Include(p => p.Brand).Include(p => p.ProductCategory).AsNoTracking().OrderByDescending(x => x.ProductId).ToListAsync();
-            PagedList<Product> listProduct = new PagedList<Product>(listProductByCategory, 1, 6);
-            if (categoryId > 0)
-            {
-                listProductByCategory = await _context.Products.Where(p => p.SoLuongCon > 0)
-               .Where(p => p.ProductCategoryId == categoryId).AsNoTracking()
-               .OrderByDescending(x => x.ProductId).ToListAsync();
-                listProduct = new PagedList<Product>(listProductByCategory, page, 6);
-            }
-            return PartialView("ProductListPartial", listProduct);
-        }
-        public async Task<IActionResult> GetProductsByBrand(int brandId, int page)
-        {
-            var listProductByCategory = await _context.Products
-           .Where(p => p.BrandId == brandId).Where(p => p.SoLuongCon > 0).Where(p => p.DaAn == false).AsNoTracking()
-           .OrderByDescending(x => x.ProductId).ToListAsync();
-            PagedList<Product> listProduct = new PagedList<Product>(listProductByCategory, page, 6);
-            return PartialView("ProductListPartial", listProduct);
-        }
+        
         public async Task<IActionResult> Details(int ma)
         {
 
@@ -54,9 +35,9 @@ namespace DoAnNhom11.Controllers
                 .Include(p => p.ProductCategory)
                 .Include(p => p.Shop)
                 .FirstOrDefaultAsync(m => m.ProductId == ma);
-            if (product == null)
+            if (product == null||product.DaAn==true||product.Shop.BiChan==true)
             {
-                return NotFound();
+                return View("NotFound");
             }
             var productReviews = await _context.Reviews.Where(p => p.ProductId == ma).Include(r => r.Customer).Include(r => r.Product).ToListAsync();
             foreach (var productReview in productReviews)
@@ -102,7 +83,10 @@ namespace DoAnNhom11.Controllers
                 query = query.Where(p => p.ProductCategoryId==categoryId);
                 ViewBag.CategoryId = categoryId;
             }
-            query = query.Where(p => p.SoLuongCon >0).Where(p => p.DaAn != true).OrderByDescending(p=>p.ProductId);
+            query = query.Where(p => p.SoLuongCon >0)
+                .Where(p => p.DaAn != true)
+                .Where(p=>p.Shop.BiChan != true)
+                .OrderByDescending(p=>p.ProductId);
             var categories = await _context.Categories
                                         .Where(c => query.Select(p => p.ProductCategoryId).Distinct().Contains(c.ProductCategoryId))
                                         .ToListAsync();
@@ -140,6 +124,29 @@ namespace DoAnNhom11.Controllers
         {
             return _context.Products.Any(e => e.ProductId == id);
         }
-
+        /*public async Task<IActionResult> GetProductsByCategory(int categoryId, int page)
+        {
+            var listProductByCategory = await _context.Products.Where(p => p.SoLuongCon > 0).Where(p => p.Shop.BiChan != true).Where(p => p.DaAn == false).Include(p => p.Brand).Include(p => p.ProductCategory).AsNoTracking().OrderByDescending(x => x.ProductId).ToListAsync();
+            PagedList<Product> listProduct = new PagedList<Product>(listProductByCategory, 1, 6);
+            if (categoryId > 0)
+            {
+                listProductByCategory = await _context.Products.Where(p => p.SoLuongCon > 0)
+                    .Where(p => p.Shop.BiChan != true)
+               .Where(p => p.ProductCategoryId == categoryId).AsNoTracking()
+               .OrderByDescending(x => x.ProductId).ToListAsync();
+                listProduct = new PagedList<Product>(listProductByCategory, page, 6);
+            }
+            return PartialView("ProductListPartial", listProduct);
+        }
+        public async Task<IActionResult> GetProductsByBrand(int brandId, int page)
+        {
+            var listProductByCategory = await _context.Products
+           .Where(p => p.BrandId == brandId)
+           .Where(p => p.SoLuongCon > 0)
+           .Where(p => p.DaAn == false).AsNoTracking()
+           .OrderByDescending(x => x.ProductId).ToListAsync();
+            PagedList<Product> listProduct = new PagedList<Product>(listProductByCategory, page, 6);
+            return PartialView("ProductListPartial", listProduct);
+        }*/
     }
 }

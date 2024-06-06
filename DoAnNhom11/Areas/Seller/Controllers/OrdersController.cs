@@ -25,17 +25,12 @@ namespace DoAnNhom11.Areas.Seller.Controllers
         }
         public async Task<IActionResult> Index(int? page)
         {
-            
-            if (seller == null)
-            {
-                seller = await _userManager.GetUserAsync(User);
-            }
-            int pageSize = 9;
+            seller = await _userManager.GetUserAsync(User);
+            int pageSize = 5;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
             var applicationDbContext = await _context.Orders
                 .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId && p.OrderStatusId != 6)
                 .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
-                .Include(o => o.VouCher)
                 .Include(o => o.OrderStatus)
                 .ToListAsync();
             applicationDbContext.Reverse();
@@ -44,17 +39,13 @@ namespace DoAnNhom11.Areas.Seller.Controllers
         }
         public async Task<IActionResult> OrdersNotConfirm(int? page)
         {
-            
-            if (seller == null)
-            {
-                seller = await _userManager.GetUserAsync(User);
-            }
+
+            seller = await _userManager.GetUserAsync(User);
             int pageSize = 9;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
             var applicationDbContext = await _context.Orders
                 .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId && p.OrderStatusId == 1)
                 .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
-                .Include(o => o.VouCher)
                 .Include(o => o.OrderStatus)
                 .ToListAsync();
             applicationDbContext.Reverse();
@@ -65,13 +56,9 @@ namespace DoAnNhom11.Areas.Seller.Controllers
         {
             int pageSize = 9;
             int pageNumber = page == null || page < 0 ? 1 : page.Value;
-            if (seller == null)
-            {
-                seller = await _userManager.GetUserAsync(User);
-            }
+            seller = await _userManager.GetUserAsync(User);
             var applicationDbContext = await _context.Orders.Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId && p.OrderStatusId == 6)
                 .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
-                .Include(o => o.VouCher)
                 .Include(o => o.OrderStatus)
                 .ToListAsync();
             applicationDbContext.Reverse();
@@ -80,10 +67,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
         }
         public async Task<IActionResult> OrderDetails(int ma)
         {
-            if (seller == null)
-            {
-                seller = await _userManager.GetUserAsync(User);
-            }
+            seller = await _userManager.GetUserAsync(User);
             var orderdetails = await _context.OrderDetails.Where(p => p.OrderId == ma).Include(o => o.Order).Include(o => o.Product).Include(o => o.Product).ToListAsync();
             if (orderdetails[0].Product.ShopId != seller.ShopId)
             {
@@ -93,12 +77,12 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             var order = await _context.Orders
                 .Include(o => o.ApplicationUser)
                 .Include(o => o.OrderStatus)
-                .Include(o => o.VouCher)
                 .Include(o => o.Payment)
+                .Include(o=>o.VouCher)
                 .FirstOrDefaultAsync(m => m.OrderId == ma);
-            
-            ViewBag.OrderStatus=await _context.OrderStatuses.Select(p=>p.TenTrangThai).ToListAsync();
-            ViewBag.CustomerInfo= await _userManager.FindByIdAsync(order.UserId);
+
+            ViewBag.OrderStatus = await _context.OrderStatuses.Select(p => p.TenTrangThai).ToListAsync();
+            ViewBag.CustomerInfo = await _userManager.FindByIdAsync(order.UserId);
             if (order == null)
             {
                 return NotFound();
