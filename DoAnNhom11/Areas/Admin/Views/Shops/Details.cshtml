@@ -1,4 +1,4 @@
-﻿@model DoAnNhom11.Models.Shop
+﻿@model DoAnNhom11.Models.ApplicationUser
 
 @{
     ViewData["Title"] = "Details";
@@ -13,56 +13,107 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TenCuaHang)
+            @Html.DisplayNameFor(model => model.MyShop.TenCuaHang)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TenCuaHang)
+            @Html.DisplayFor(model => model.MyShop.TenCuaHang)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DiaChi)
+            @Html.DisplayNameFor(model => model.MyShop.DiaChi)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DiaChi)
+            @Html.DisplayFor(model => model.MyShop.DiaChi)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LienHe)
+            @Html.DisplayNameFor(model => model.MyShop.LienHe)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LienHe)
+            @Html.DisplayFor(model => model.MyShop.LienHe)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AnhDaiDien)
+            @Html.DisplayNameFor(model => model.Email)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnhDaiDien)
+            @Html.DisplayFor(model => model.Email)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AnhBia)
+            @Html.DisplayNameFor(model => model.PhoneNumber)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AnhBia)
+            @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NgayTao)
+            @Html.DisplayNameFor(model => model.MyShop.AnhDaiDien)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NgayTao)
+            <img width="100" height="100" style="border-radius:50%" src="@Model.MyShop.AnhDaiDien"/>
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MoTa)
+            @Html.DisplayNameFor(model => model.MyShop.AnhBia)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MoTa)
+            <img width="300" height="100" src="@Model.MyShop.AnhBia" />
+
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ShopCategories)
+            @Html.DisplayNameFor(model => model.MyShop.NgayTao)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ShopCategories.TenLoai)
+            @Html.DisplayFor(model => model.MyShop.NgayTao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MyShop.MoTa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MyShop.MoTa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MyShop.ShopCategories)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MyShop.ShopCategories.TenLoai)
         </dd>
     </dl>
 </div>
+<h3>Danh sách sản phẩm</h3>
+<div class="product-grid">
+    @foreach (var item in Model.MyShop.Products)
+    {
+        <div class="product">
+            <img src="@item.AnhDaiDien" alt="Ảnh Lỗi">
+            <p>@item.TenSp</p>
+        </div>
+    }
+
+    <!-- Thêm các sản phẩm khác tương tự -->
+</div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.ShopId">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+<style>
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+        padding: 20px;
+    }
+
+    .product {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+        background-color: #f9f9f9;
+    }
+
+        .product img {
+            width:50px;
+            height:50px;
+        }
+
+        .product p {
+            margin: 10px 0 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+</style>

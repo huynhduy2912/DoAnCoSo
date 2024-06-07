@@ -87,7 +87,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VoucherId,VoucherCode,PhanTramGiam,GiamToiDa,DonToiThieu,NgayHetHan,SoLuongCon,VoucherCategoryId")] Voucher voucher)
+        public async Task<IActionResult> Create([Bind("VoucherId,VoucherCode,PhanTramGiam,GiamToiDa,DonToiThieu,NgayHetHan,NgayBatDau,SoLuongCon,VoucherCategoryId")] Voucher voucher)
         {
             if (ModelState.IsValid)
             {
@@ -138,7 +138,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("VoucherId,VoucherCode,PhanTramGiam,GiamToiDa,DonToiThieu,NgayHetHan,SoLuongCon,VoucherCategoryId")] Voucher voucher)
+        public async Task<IActionResult> Edit(int id, [Bind("VoucherId,VoucherCode,PhanTramGiam,GiamToiDa,DonToiThieu,NgayHetHan,NgayBatDau,SoLuongCon,VoucherCategoryId")] Voucher voucher)
         {
             if (id != voucher.VoucherId)
             {

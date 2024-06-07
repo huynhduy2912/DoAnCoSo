@@ -121,7 +121,7 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null, IFormFile imageUrl=null)
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null, IFormFile imageUrl=null,string specificAddress=null)
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -138,7 +138,7 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account
                     user.Avatar = await UploadImage.SaveImage(imageUrl);
                 }
                 user.FullName = Input.FullName;
-                user.Address = Input.Address;
+                user.Address =specificAddress+", "+ Input.Address;
                 user.UserName = Input.UserName;
                 user.PhoneNumber = Input.PhoneNumber;
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

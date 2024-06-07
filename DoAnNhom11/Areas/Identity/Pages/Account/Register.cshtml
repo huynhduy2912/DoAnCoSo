@@ -18,11 +18,7 @@
                 <label asp-for="Input.FullName">Họ tên</label>
                 <span asp-validation-for="Input.FullName" class="text-danger"></span>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Address" class="form-control" aria-required="true" placeholder="Address" />
-                <label asp-for="Input.Address">Địa chỉ</label>
-                <span asp-validation-for="Input.Address" class="text-danger"></span>
-            </div>
+            
             <div class="form-floating mb-3">
                 <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Điền số điện thoại của bạn" />
                 <label asp-for="Input.PhoneNumber" class="form-label">Số Điện Thoại</label>
@@ -33,6 +29,26 @@
                 <label asp-for="Input.Email">Email</label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <div style="display: inline-block;">
+                    <select id="province" name="province" onchange="loadDistricts(this.value)">
+                    </select>
+                </div>
+                <div style="display: inline-block;">
+                    <select id="district" name="district" onchange="loadWards(this.value)">
+                        <option value="">Chọn quận/huyện</option>
+                    </select>
+                </div>
+                <div style="display: inline-block;">
+                    <select id="ward" name="ward" onchange="updateInput()" required>
+                        <option value="">Chọn xã/phường</option>
+                    </select>
+                </div>
+                <input name="specificAddress" placeholder="Địa chỉ cụ thể" required />
+
+                <input class="form-control" asp-for="Input.Address" id="address" type="text" style="width:500px;display:none" />
+            </div>
+            <br />
             <div class="form-floating mb-3">
                 <input asp-for="Input.UserName" class="form-control" aria-required="true" placeholder="UserName" />
                 <label asp-for="Input.UserName">Tên đăng nhập</label>
@@ -60,6 +76,7 @@
         </div>
     </div>
 </form>
+<script src="~/js/fetchAddress.js" asp-append-version="true"></script>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -7,6 +7,7 @@
         public int PhanTramGiam { get; set; }
         public decimal? GiamToiDa { get; set; }
         public decimal? DonToiThieu { get; set; }
+        public DateTime? NgayBatDau { get; set; }
         public DateTime NgayHetHan { get; set; }
         public int SoLuongCon { get; set; }
         public List<Order>? Orders { get; set; }

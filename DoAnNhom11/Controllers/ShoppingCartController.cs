@@ -32,7 +32,7 @@ namespace DoAnNhom11.Controllers
         }
         public async Task<IActionResult> CheckOut(int shopId)
         {
-            var applicationDbContext = _context.Vouchers.Where(v=>v.SoLuongCon>0&&v.NgayHetHan>DateTime.Now&&(v.ShopId==shopId||v.ShopId==-1)).Include(v => v.VoucherCategory);
+            var applicationDbContext = _context.Vouchers.Where(v=>v.SoLuongCon>0&&v.NgayHetHan>DateTime.Now&&(v.NgayBatDau<=DateTime.Now||v.NgayBatDau==null)&&(v.ShopId==shopId||v.ShopId==-1)).Include(v => v.VoucherCategory);
             ViewBag.Voucher = applicationDbContext;
             ViewData["Payment"] = new SelectList(_context.Payments, "PaymentId", "TenLoai");
             var listCart = HttpContext.Session.GetObjectFromJson<List<ShoppingCart>>("Cart") ?? new List<ShoppingCart>();

@@ -112,22 +112,23 @@ namespace DoAnNhom11.Areas.Admin.Controllers
        
 
         // GET: Admin/Shops/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
+            var shopOwner = await _context.Users
+                .Include(s => s.MyShop)
+                .ThenInclude(s=>s.Products)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
-            var shop = await _context.Shops
-                .Include(s => s.ShopCategories)
-                .FirstOrDefaultAsync(m => m.ShopId == id);
-            if (shop == null)
+            if (shopOwner == null)
             {
                 return NotFound();
             }
 
-            return View(shop);
+            return View(shopOwner);
         }
 
         public IActionResult AddShopOwner()

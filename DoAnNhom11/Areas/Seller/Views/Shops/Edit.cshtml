@@ -6,7 +6,6 @@
 
 <h1 align="center">Thiết lập thông tin cửa hàng</h1>
 <hr />
-<script src="~/js/fetchAddress.js" ></script>
 
 <form asp-action="Edit" enctype="multipart/form-data">
 
@@ -21,21 +20,25 @@
                 <span asp-validation-for="TenCuaHang" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DiaChi" class="control-label"><strong>Địa chỉ</strong></label><br />
-                <input class="form-control" asp-for="DiaChi" id="address" type="text" style="width:500px;display:none" />
-                <textarea asp-for="DiaChi" class="form-control" readonly></textarea>
-                <select id="province" name="province" onchange="loadDistricts(this.value)">
-                </select><br />
-                <select id="district" name="district" onchange="loadWards(this.value)">
-                    <option value="">Chọn quận/huyện</option>
-                </select><br />
-                <select id="ward" name="ward" onchange="updateInput()" required>
-                    <option value="">Chọn xã/phường</option>
-                </select><br />
-                <input name="specificAddress" placeholder="Địa chỉ cụ thể" required />
-                
+                <label asp-for="DiaChi"  class="control-label"><strong>Địa chỉ</strong></label><br />
+                <input class="form-control" name="address" id="address" type="text" style="width:500px;display:none" />
+                <textarea asp-for="DiaChi" id="currentAddress" class="form-control" readonly></textarea>
+                <div id="popup" style="display: none;" class="form-group">
+                    <select id="province" name="province" onchange="loadDistricts(this.value)" required>
+                    </select><br />
+                    <select id="district" name="district" onchange="loadWards(this.value)" required>
+                        <option value="">Chọn quận/huyện</option>
+                    </select><br />
+                    <select id="ward" name="ward" onchange="updateInput()" required>
+                        <option value="">Chọn xã/phường</option>
+                    </select><br />
+                    <input id="specificAddress" name="specificAddress" placeholder="Địa chỉ cụ thể" required />
+                    <button type="button" id="btnclose" onclick="closepopup()">Hủy</button>
 
-                <span asp-validation-for="DiaChi" class="text-danger"></span>
+                </div>
+                <button type="button" id="btnpopup" onclick="openpopup()">Sửa địa chỉ</button>
+
+                <span asp-validation-for="DiaChi"  class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="LienHe" class="control-label"><strong>Liên Hệ</strong></label>
@@ -97,8 +100,26 @@
     </div>
 </form>
 
+<script src="~/js/fetchAddress.js"></script>
 
 <script>
+    function openpopup() {
+        document.getElementById("btnpopup").style.display = "none";
+        document.getElementById("currentAddress").style.display = "none";
+        document.getElementById("popup").style.display = "block";
+
+    }
+
+    function closepopup() {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("btnpopup").style.display = "block";
+        document.getElementById("currentAddress").style.display = "block";
+        document.getElementById("specificAddress").value = null;
+        document.getElementById("address").value = null;
+        document.getElementById("province").selectedIndex = 0;
+        document.getElementById("district").selectedIndex = 0;
+        document.getElementById("ward").selectedIndex = 0;
+    }
     document.getElementById('imageAvatar').addEventListener('change', function (event) {
         var output = document.getElementById('previewAvatar');
         if (this.files && this.files[0]) {

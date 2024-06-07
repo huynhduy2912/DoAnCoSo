@@ -101,7 +101,7 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account.Manage
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(IFormFile imageUrl)
+        public async Task<IActionResult> OnPostAsync(IFormFile imageUrl,string specificAddress, string address)
         {
             var user = await _userManager.GetUserAsync(User);
 
@@ -151,6 +151,10 @@ namespace DoAnNhom11.Areas.Identity.Pages.Account.Manage
                 {
                     StatusMessage = "Thông tin bạn thay đổi không hợp lệ";
                 }
+            }
+            if (specificAddress != null && address != null)
+            {
+                Input.Address = specificAddress + ", " + address;
             }
             if (user.Address != Input.Address)
             {

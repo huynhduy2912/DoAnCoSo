@@ -31,16 +31,40 @@
                 <label asp-for="Input.FullName" class="form-label">Họ Tên</label>
                 <span asp-validation-for="Input.FullName" class="text-danger"></span>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.Address" class="form-control" placeholder="Điền địa chỉ của bạn" />
-                <label asp-for="Input.Address" class="form-label">Địa chỉ</label>
+            <label asp-for="Input.Address" class="control-label"><strong>Địa chỉ</strong></label>
+
+            <div class="form-group">
+                <input class="form-control" name="address" id="address" type="text" style="width:500px;display:none" />
+                <textarea asp-for="Input.Address" id="currentAddress" class="form-control" readonly></textarea>
+                <div id="popup" style="display: none;" class="form-group">
+                    <select id="province" name="province" onchange="loadDistricts(this.value)" required>
+                    </select>
+                    <select id="district" name="district" onchange="loadWards(this.value)" required>
+                        <option value="">Chọn quận/huyện</option>
+                    </select>
+                    <select id="ward" name="ward" onchange="updateInput()" required>
+                        <option value="">Chọn xã/phường</option>
+                    </select>
+                    <input id="specificAddress" name="specificAddress" placeholder="Địa chỉ cụ thể" required />
+                    <button type="button" id="btnclose" onclick="closepopup()">Hủy</button>
+
+                </div>
                 <span asp-validation-for="Input.Address" class="text-danger"></span>
             </div>
-
-            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-danger">Lưu Thông Tin</button>
+            <button type="button" id="btnpopup" onclick="openpopup()" class="btn btn-outline-danger">Sửa địa chỉ</button>
+            <br />
+            <br />
     </div>
+
     <div class="col-md-4 text-center">
-            <img id="previewImage" src="@ViewData["Avatar"]" width="200" height="200" style="margin:20px;border-radius: 50%;">
+            @if (ViewData["Avatar"] != null)
+            {
+                <img id="previewImage" src="@ViewData["Avatar"]" width="200" height="200" style="margin:20px;border-radius: 50%;">
+
+            }else{
+                <img id="previewImage" src="~/myLayout/images/home/avataruser.jpg" width="200" height="200" style="margin:20px;border-radius: 50%;">
+
+            }
         <br />
         <button type="button" id="openButton" onclick="openImageBox()" style="padding: 5px 10px;" class="btn btn-secondary"><icon class="fa fa-camera"></icon> Chọn Ảnh</button>
         <div class="form-group">
@@ -48,12 +72,35 @@
         </div>
     </div>
 </div>
+    <center><button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-danger">Lưu Thông Tin</button></center>
+
 </form>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+<script src="~/js/fetchAddress.js"></script>
+
+
+    
 <script>
+    function openpopup() {
+        document.getElementById("btnpopup").style.display = "none";
+        document.getElementById("currentAddress").style.display = "none";
+        document.getElementById("popup").style.display = "block";
+
+    }
+
+    function closepopup() {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("btnpopup").style.display = "block";
+        document.getElementById("currentAddress").style.display = "block";
+        document.getElementById("specificAddress").value = null;
+        document.getElementById("address").value = null;
+        document.getElementById("province").selectedIndex = 0;
+        document.getElementById("district").selectedIndex = 0;
+        document.getElementById("ward").selectedIndex = 0;
+    }
     document.getElementById('imageInput').addEventListener('change', function (event) {
         var output = document.getElementById('previewImage');
         if (this.files && this.files[0]) {

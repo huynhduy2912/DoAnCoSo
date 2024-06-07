@@ -75,7 +75,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Shop shop, IFormFile imageAvatar, IFormFile imageBackground,string specificAddress)
+        public async Task<IActionResult> Edit(Shop shop, IFormFile imageAvatar, IFormFile imageBackground,string specificAddress,string address)
         {
             if (seller == null)
             {
@@ -101,7 +101,10 @@ namespace DoAnNhom11.Areas.Seller.Controllers
                 {
                     shop.AnhBia = await UploadImage.SaveImage(imageBackground);
                 }
-                shop.DiaChi = specificAddress+", " + shop.DiaChi;
+                if(specificAddress != null&& address != null)
+                {
+                    shop.DiaChi = specificAddress + ", " + address;
+                }
                 _context.Update(shop);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Edit", "Shops");
