@@ -1,5 +1,6 @@
 using DoAnNhom11.Extensions;
 using DoAnNhom11.Models;
+using DoAnNhom11.Services.VnPay;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OfficeOpenXml;
@@ -23,6 +24,7 @@ builder.Services.AddSession(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<RandomProductService>();
+builder.Services.AddSingleton<IVnPayService, VnPayService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -181,22 +181,19 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             ViewData["VoucherCategoryId"] = new SelectList(_context.VoucherCategory, "VoucherCategoryId", "TenLoai", voucher.VoucherCategoryId);
             return View(voucher);
         }
-
-        /*// GET: Seller/Vouchers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
-            var voucher = await _context.Vouchers
-                .Include(v => v.VoucherCategory)
-                .FirstOrDefaultAsync(m => m.VoucherId == id);
             if (seller == null)
             {
                 seller = await _userManager.GetUserAsync(User);
             }
+            var voucher = await _context.Vouchers
+                .Include(v => v.VoucherCategory)
+                .FirstOrDefaultAsync(m => m.VoucherId == id);
             if (voucher == null || voucher.ShopId != seller.ShopId)
             {
                 return NotFound();
@@ -205,20 +202,21 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             return View(voucher);
         }
 
-        // POST: Seller/Vouchers/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Admin/Vouchers/Delete/5
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var voucher = await _context.Vouchers.FindAsync(id);
             if (voucher != null)
             {
-                _context.Vouchers.Remove(voucher);
+                voucher.NgayHetHan = DateTime.Now;
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }*/
+        }
+       
 
         private bool VoucherExists(int id)
         {

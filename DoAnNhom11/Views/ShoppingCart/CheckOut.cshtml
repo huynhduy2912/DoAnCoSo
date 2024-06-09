@@ -20,25 +20,31 @@
     <h2>Điền thông tin đơn hàng</h2>
     <div style="padding-left: 1em;">
         <div class="form-group">
-            <label asp-for="ShippingAddress">Địa chỉ giao hàng</label>
-            <div style="display: inline-block;">
-                <select id="province" name="province" onchange="loadDistricts(this.value)">
-                </select>
+            <label  class="control-label"><strong>Địa chỉ</strong></label><br />
+            <input class="form-control" name="address" id="address" type="text" style="width:500px;display:none" />
+            <textarea id="currentAddress" class="form-control" readonly>@ViewBag.Address</textarea>
+            <div id="popup" style="display: none;" class="form-group">
+                <div style="display: inline-block;">
+                    <select id="province" name="province" onchange="loadDistricts(this.value)" >
+                    </select>
+                </div>
+                <div style="display: inline-block;">
+                    <select id="district" name="district" onchange="loadWards(this.value)" >
+                        <option value="">Chọn quận/huyện</option>
+                    </select>
+                </div>
+                <div style="display: inline-block;">
+                    <select id="ward" name="ward" onchange="updateInput()" >
+                        <option value="">Chọn xã/phường</option>
+                    </select>
+                </div>
+                <input id="specificAddress" name="specificAddress" placeholder="Địa chỉ cụ thể" />
+                <button type="button" id="btnclose" onclick="closepopup()">Hủy</button>
+
             </div>
-            <div style="display: inline-block;">
-                <select id="district" name="district" onchange="loadWards(this.value)">
-                    <option value="">Chọn quận/huyện</option>
-                </select>
-            </div>
-            <div style="display: inline-block;">
-                <select id="ward" name="ward" onchange="updateInput()" required>
-                    <option value="">Chọn xã/phường</option>
-                </select>
-            </div>   
-            <input name="specificAddress" placeholder="Địa chỉ cụ thể" required/>
-            
-            <input class="form-control" asp-for="ShippingAddress" id="address" type="text" style="width:500px;display:none" />
+            <button type="button" id="btnpopup" onclick="openpopup()">Chọn địa chỉ khác</button>
         </div>
+
         <hr>
         <div class="form-group">
             <label asp-for="Notes">Ghi Chú</label>
@@ -98,10 +104,7 @@
     </section> <!--/#cart_items-->
     <div style="padding-left: 1em;">
         <hr>
-        <div class="form-group">
-            <label asp-for="PaymentId" class="control-label">Chọn phương thức thanh toán</label>
-            <select asp-for="PaymentId" class="form-control" asp-items="ViewBag.Payment"></select>
-        </div>
+        
         <hr>
         @{
             ViewData["tong"] = tong;
@@ -113,44 +116,57 @@
         <p>Tổng đơn hàng: @StringFormat.CurrencyFormat(tong)</p>
         <p id="percentDiscount">Giảm giá đơn hàng: 0 ₫</p>
         <h3 style="color:red" id="totalOrderPrice">Tổng thanh toán: @StringFormat.CurrencyFormat(tong)</h3>
+        <div class="form-group">
+            <label asp-for="PaymentId" class="control-label">Chọn phương thức thanh toán</label>
+            @if (ViewBag.Payment != null)
+            {
+                foreach (var item in ViewBag.Payment)
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" asp-for="PaymentId" value="@item.Value" id="payment_@item.Value" required />
+                        <label class="form-check-label" for="payment_@item.Value">@item.Text</label>
+                    </div>
+                }
+            }
+        </div>
+        <input type="submit" value="Đặt Hàng" class="btn btn-primary"  />
 
-        <button type="submit" class="btn btn-primary">Hoàn thành đặt hàng</button>
     </div>
 </form>
-
-@*  <div id="popup" style="display: none;" class="form-group">
-            <label asp-for="VoucherId" class="control-label">Chọn mã giảm giá</label>
-            <select asp-for="VoucherId" class="form-control" id="selectBox">
-                @foreach (var vouchers in ViewBag.Voucher)
-                {
-                    if (vouchers.VoucherId != 1&&vouchers.SoLuongCon>0)
-                    {
-                        <option value="@vouchers.VoucherId" data-info="@vouchers.PhanTramGiam">@vouchers.VoucherCode -@vouchers.PhanTramGiam% tổng đơn hàng(@vouchers.SoLuongCon)</option>
-                    }
-                    else
-                    {
-                        <option style=" display:none;" value="@vouchers.VoucherId" data-info="@vouchers.PhanTramGiam">Chọn mã giảm giá</option>
-                    }
-                }
-            </select>
-            <button style="background: none; border: none;color:darkred" type="button" onclick="closePopup()">Hủy chọn</button>
-        </div>
 <script>
-
-    document.getelementbyid('selectbox').addeventlistener('change', function () {
-        updateorderpaymentdetail();
-
-    });
     function openpopup() {
-        document.getelementbyid("popup").style.display = "block";
-        document.getelementbyid("btnpopup").style.display = "none";
+        document.getElementById("btnpopup").style.display = "none";
+        document.getElementById("currentAddress").style.display = "none";
+        document.getElementById("popup").style.display = "block";
+
+        document.getElementById('specificAddress').required = true;
+        document.getElementById('address').required = true;
+        document.getElementById('province').required = true;
+        document.getElementById('district').required = true;
+        document.getElementById('ward').required = true;
+
     }
 
     function closepopup() {
-        document.getelementbyid("popup").style.display = "none";
-        document.getelementbyid("btnpopup").style.display = "block";
-        document.getelementbyid("selectbox").selectedindex = 0;
-        updateorderpaymentdetail();
+
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("btnpopup").style.display = "block";
+        document.getElementById("currentAddress").style.display = "block";
+
+        document.getElementById("specificAddress").value = null;
+        document.getElementById('specificAddress').required = false;
+
+        document.getElementById("address").value = null;
+        document.getElementById('address').required = false;
+
+        document.getElementById("province").selectedIndex = 0;
+        document.getElementById('province').required = false;
+
+        document.getElementById("district").selectedIndex = 0;
+        document.getElementById('district').required = false;
+
+        document.getElementById("ward").selectedIndex = 0;
+        document.getElementById('ward').required = false;
 
     }
-</script> *@
+</script>
