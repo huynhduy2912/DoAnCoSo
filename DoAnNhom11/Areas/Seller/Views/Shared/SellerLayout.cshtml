@@ -12,9 +12,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bán hàng</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/myLayout/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -56,7 +58,10 @@
                     <ul class="submenu">
                         <li><a asp-area="Seller" asp-controller="Orders" asp-action="Index" asp-route-page="1">Tất Cả</a></li>
                         <li><a asp-area="Seller" asp-controller="Orders" asp-action="OrdersNotConfirm" asp-route-page="1">Chờ Xác Nhận</a></li>
+                        <li><a asp-area="Seller" asp-controller="Orders" asp-action="DeliveredOrders" asp-route-page="1">Đã Giao hàng</a></li>
                         <li><a asp-area="Seller" asp-controller="Orders" asp-action="CanceledOrders" asp-route-page="1">Đơn Hủy</a></li>
+                        <li><a asp-area="Seller" asp-controller="Orders" asp-action="RequestReturnOrders" asp-route-page="1">Yêu cầu trả hàng</a></li>
+                        <li><a asp-area="Seller" asp-controller="Orders" asp-action="ReturnedOrders" asp-route-page="1">Đã trả hàng</a></li>
                     </ul>
                 </li>  
                 <li>

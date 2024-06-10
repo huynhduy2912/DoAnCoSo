@@ -51,6 +51,48 @@ namespace DoAnNhom11.Areas.Seller.Controllers
             applicationDbContext.Reverse();
             PagedList<Order> listOrder = new PagedList<Order>(applicationDbContext, pageNumber, pageSize);
             return View(listOrder);
+        }public async Task<IActionResult> DeliveredOrders(int? page)
+        {
+
+            seller = await _userManager.GetUserAsync(User);
+            int pageSize = 9;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            var applicationDbContext = await _context.Orders
+                .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId && p.OrderStatusId == 5)
+                .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
+                .Include(o => o.OrderStatus)
+                .ToListAsync();
+            applicationDbContext.Reverse();
+            PagedList<Order> listOrder = new PagedList<Order>(applicationDbContext, pageNumber, pageSize);
+            return View(listOrder);
+        }public async Task<IActionResult> RequestReturnOrders(int? page)
+        {
+
+            seller = await _userManager.GetUserAsync(User);
+            int pageSize = 9;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            var applicationDbContext = await _context.Orders
+                .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId && p.OrderStatusId == 9)
+                .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
+                .Include(o => o.OrderStatus)
+                .ToListAsync();
+            applicationDbContext.Reverse();
+            PagedList<Order> listOrder = new PagedList<Order>(applicationDbContext, pageNumber, pageSize);
+            return View(listOrder);
+        }public async Task<IActionResult> ReturnedOrders(int? page)
+        {
+
+            seller = await _userManager.GetUserAsync(User);
+            int pageSize = 9;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
+            var applicationDbContext = await _context.Orders
+                .Where(p => p.OrderDetails[0].Product.ShopId == seller.ShopId && p.OrderStatusId == 11)
+                .Include(o => o.OrderDetails).ThenInclude(od => od.Product)
+                .Include(o => o.OrderStatus)
+                .ToListAsync();
+            applicationDbContext.Reverse();
+            PagedList<Order> listOrder = new PagedList<Order>(applicationDbContext, pageNumber, pageSize);
+            return View(listOrder);
         }
         public async Task<IActionResult> CanceledOrders(int? page)
         {
@@ -95,7 +137,7 @@ namespace DoAnNhom11.Areas.Seller.Controllers
         public async Task<IActionResult> UpdateOrder(int orderId)
         {
             var order = await _context.Orders.FirstOrDefaultAsync(m => m.OrderId == orderId);
-            if (order.OrderStatusId < 5)
+            if (order.OrderStatusId < 5|| order.OrderStatusId == 9 || order.OrderStatusId == 10)
             {
                 order.OrderStatusId++;
                 await _context.SaveChangesAsync();

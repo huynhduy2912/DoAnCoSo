@@ -1,6 +1,6 @@
 ﻿@model DoAnNhom11.Models.Order
 @{
-    
+
 }
 <section>
     <div class="container">
@@ -16,6 +16,18 @@
                 int nextStatusId = Model.OrderStatusId++ ?? 1;
                 <form asp-action="UpdateOrder" asp-route-orderId="@Model.OrderId" style="display:inline;padding-left:30px">
                     <button type="submit" class="btn btn-primary" style="color:lightgray">Cập Nhật: <p style="display:inline;color:white">@ViewBag.OrderStatus[nextStatusId]</p></button>
+                </form>
+            }
+            else if (Model.OrderStatusId==9)
+            {
+                <form asp-action="UpdateOrder" asp-route-orderId="@Model.OrderId" style="display:inline;padding-left:30px">
+                    <button type="submit" class="btn btn-primary" style="color:lightgray">Cập Nhật: <p style="display:inline;color:white">Xác nhận yêu cầu trả hàng</p></button>
+                </form>
+            }
+            else if (Model.OrderStatusId==10)
+            {
+                <form asp-action="UpdateOrder" asp-route-orderId="@Model.OrderId" style="display:inline;padding-left:30px">
+                    <button type="submit" class="btn btn-primary" style="color:lightgray">Cập Nhật: <p style="display:inline;color:white">Đã trả hàng</p></button>
                 </form>
             }
 

@@ -3,14 +3,14 @@
 }
 @using X.PagedList.Mvc.Core;
 @model X.PagedList.IPagedList<Order>;
-<h1 style="text-align:center">Đơn hàng chờ xác nhận</h1>
+<h1 style="text-align:center">Đơn hàng yêu cầu hoàn trả</h1>
 
 @foreach (var item in Model)
 {
     @Html.Partial("_OrderPartial", item)
 }
 <div class="center">
-    @Html.PagedListPager(Model, page => Url.Action("OrdersNotConfirm", new { page = page }))
+    @Html.PagedListPager(Model, page => Url.Action("CanceledOrders", new { page = page }))
 </div>
 <style>
     .center {

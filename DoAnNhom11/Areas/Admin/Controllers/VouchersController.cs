@@ -22,7 +22,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
         // GET: Admin/Vouchers
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Vouchers.Where(v=>v.ShopId==-1).Include(v => v.VoucherCategory);
+            var applicationDbContext = _context.Vouchers.Where(v=>v.ShopId==null).Include(v => v.VoucherCategory);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -37,7 +37,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             var voucher = await _context.Vouchers
                 .Include(v => v.VoucherCategory)
                 .FirstOrDefaultAsync(m => m.VoucherId == id);
-            if (voucher == null||voucher.ShopId!=-1)
+            if (voucher == null||voucher.ShopId!=null)
             {
                 return NotFound();
             }
@@ -70,7 +70,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
                 {
                     voucher.GiamToiDa = -1;
                 }
-                voucher.ShopId = -1;
+                voucher.ShopId = null;
                 _context.Add(voucher);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -88,7 +88,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             }
 
             var voucher = await _context.Vouchers.FindAsync(id);
-            if (voucher == null || voucher.ShopId != -1)
+            if (voucher == null || voucher.ShopId != null)
             {
                 return NotFound();
             }
@@ -120,7 +120,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
                     {
                         voucher.GiamToiDa = -1;
                     }
-                    voucher.ShopId = -1;
+                    voucher.ShopId = null;
                     _context.Update(voucher);
                     await _context.SaveChangesAsync();
                 }
@@ -152,7 +152,7 @@ namespace DoAnNhom11.Areas.Admin.Controllers
             var voucher = await _context.Vouchers
                 .Include(v => v.VoucherCategory)
                 .FirstOrDefaultAsync(m => m.VoucherId == id);
-            if (voucher == null || voucher.ShopId != -1)
+            if (voucher == null || voucher.ShopId != null)
             {
                 return NotFound();
             }

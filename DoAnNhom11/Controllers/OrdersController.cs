@@ -12,6 +12,7 @@ using Azure;
 using X.PagedList;
 using DoAnNhom11.Extensions;
 using OfficeOpenXml.Drawing.Controls;
+using DoAnNhom11.Services.VnPay;
 
 namespace DoAnNhom11.Controllers
 {
@@ -72,7 +73,23 @@ namespace DoAnNhom11.Controllers
                 order.OrderStatusId = 6;
             }
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Details", "Orders", new { ma = id });
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> GiveBackOrder(int id)
+        {
+
+            var order = await _context.Orders.FindAsync(id);
+            if (order != null)
+            {
+
+                order.OrderStatusId = 9;
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Details", "Orders", new { ma = id });
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -118,6 +118,48 @@ namespace DoAnNhom11.Migrations
                     b.HasKey("BrandId");
 
                     b.ToTable("Brands");
+
+                    b.HasData(
+                        new
+                        {
+                            BrandId = 1,
+                            TenNhanHieu = "XiaoMi"
+                        },
+                        new
+                        {
+                            BrandId = 2,
+                            TenNhanHieu = "Apple"
+                        },
+                        new
+                        {
+                            BrandId = 3,
+                            TenNhanHieu = "Samsung"
+                        },
+                        new
+                        {
+                            BrandId = 4,
+                            TenNhanHieu = "Dell"
+                        },
+                        new
+                        {
+                            BrandId = 5,
+                            TenNhanHieu = "HP"
+                        },
+                        new
+                        {
+                            BrandId = 6,
+                            TenNhanHieu = "Nokia"
+                        },
+                        new
+                        {
+                            BrandId = 7,
+                            TenNhanHieu = "ASUS"
+                        },
+                        new
+                        {
+                            BrandId = 8,
+                            TenNhanHieu = "MSI"
+                        });
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.Order", b =>
@@ -218,6 +260,53 @@ namespace DoAnNhom11.Migrations
                     b.HasKey("OrderStatusId");
 
                     b.ToTable("OrderStatuses");
+
+                    b.HasData(
+                        new
+                        {
+                            OrderStatusId = 1,
+                            TenTrangThai = "Chờ Xác Nhận Đơn Hàng"
+                        },
+                        new
+                        {
+                            OrderStatusId = 2,
+                            TenTrangThai = "Đã Xác Nhận Đơn Hàng"
+                        },
+                        new
+                        {
+                            OrderStatusId = 3,
+                            TenTrangThai = "Đang Giao Hàng"
+                        },
+                        new
+                        {
+                            OrderStatusId = 4,
+                            TenTrangThai = "Đã Giao Hàng"
+                        },
+                        new
+                        {
+                            OrderStatusId = 5,
+                            TenTrangThai = "Đã Đã Thanh Toán Và Nhận Hàng"
+                        },
+                        new
+                        {
+                            OrderStatusId = 6,
+                            TenTrangThai = "Đã Hủy Đơn"
+                        },
+                        new
+                        {
+                            OrderStatusId = 9,
+                            TenTrangThai = "Chờ xác nhận yêu cầu trả hàng"
+                        },
+                        new
+                        {
+                            OrderStatusId = 10,
+                            TenTrangThai = "Đã xác nhận yêu cầu trả hàng"
+                        },
+                        new
+                        {
+                            OrderStatusId = 11,
+                            TenTrangThai = "Đã trả hàng"
+                        });
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.Payment", b =>
@@ -235,6 +324,18 @@ namespace DoAnNhom11.Migrations
                     b.HasKey("PaymentId");
 
                     b.ToTable("Payments");
+
+                    b.HasData(
+                        new
+                        {
+                            PaymentId = 1,
+                            TenLoai = "Trực Tiếp"
+                        },
+                        new
+                        {
+                            PaymentId = 2,
+                            TenLoai = "Online"
+                        });
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.Product", b =>
@@ -297,6 +398,3784 @@ namespace DoAnNhom11.Migrations
                     b.HasIndex("ShopId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            AnhDaiDien = "/images/device (208).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 3000000m,
+                            GiaNhap = 38000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm1",
+                            PhanTramGiam = 20,
+                            ProductCategoryId = 17,
+                            ShopId = 6,
+                            SoLuongCon = 400,
+                            TenSp = "57wqIhQzXx1",
+                            ThongSo = "RAM:300GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            AnhDaiDien = "/images/device (162).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 4700000m,
+                            GiaNhap = 21000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm2",
+                            PhanTramGiam = 36,
+                            ProductCategoryId = 8,
+                            ShopId = 7,
+                            SoLuongCon = 300,
+                            TenSp = "OieCBuT9Sf2",
+                            ThongSo = "RAM:22Memory:461GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            AnhDaiDien = "/images/device (106).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 3600000m,
+                            GiaNhap = 12000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm3",
+                            PhanTramGiam = 9,
+                            ProductCategoryId = 10,
+                            ShopId = 3,
+                            SoLuongCon = 400,
+                            TenSp = "v5Y5P8wGpG3",
+                            ThongSo = "RAM:11Memory:263GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 4,
+                            AnhDaiDien = "/images/device (210).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 1300000m,
+                            GiaNhap = 45000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm4",
+                            PhanTramGiam = 29,
+                            ProductCategoryId = 16,
+                            ShopId = 7,
+                            SoLuongCon = 100,
+                            TenSp = "yqDpV4f8n94",
+                            ThongSo = "RAM:22Memory:306GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 5,
+                            AnhDaiDien = "/images/device (256).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 4700000m,
+                            GiaNhap = 40000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm5",
+                            PhanTramGiam = 30,
+                            ProductCategoryId = 10,
+                            ShopId = 1,
+                            SoLuongCon = 300,
+                            TenSp = "q2p4wL418E5",
+                            ThongSo = "RAM:25Memory:144GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 6,
+                            AnhDaiDien = "/images/device (128).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 3000000m,
+                            GiaNhap = 37000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm6",
+                            PhanTramGiam = 19,
+                            ProductCategoryId = 16,
+                            ShopId = 7,
+                            SoLuongCon = 200,
+                            TenSp = "STxfZnZUkU6",
+                            ThongSo = "RAM:14Memory:169GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 7,
+                            AnhDaiDien = "/images/device (18).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 1600000m,
+                            GiaNhap = 30000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm7",
+                            PhanTramGiam = 5,
+                            ProductCategoryId = 26,
+                            ShopId = 4,
+                            SoLuongCon = 400,
+                            TenSp = "ujjbUPJQOM7",
+                            ThongSo = "RAM:30Memory:250GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 8,
+                            AnhDaiDien = "/images/device (115).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 500000m,
+                            GiaNhap = 47000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm8",
+                            PhanTramGiam = 26,
+                            ProductCategoryId = 1,
+                            ShopId = 3,
+                            SoLuongCon = 400,
+                            TenSp = "fQ1ljW3qRA8",
+                            ThongSo = "RAM:29Memory:419GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 9,
+                            AnhDaiDien = "/images/device (131).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 4300000m,
+                            GiaNhap = 48000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm9",
+                            PhanTramGiam = 10,
+                            ProductCategoryId = 21,
+                            ShopId = 2,
+                            SoLuongCon = 100,
+                            TenSp = "4SAsu0mCZa9",
+                            ThongSo = "RAM:1Memory:479GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 10,
+                            AnhDaiDien = "/images/device (124).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 3100000m,
+                            GiaNhap = 12000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm10",
+                            PhanTramGiam = 28,
+                            ProductCategoryId = 4,
+                            ShopId = 5,
+                            SoLuongCon = 300,
+                            TenSp = "9H08wmpk1p10",
+                            ThongSo = "RAM:24Memory:49GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 11,
+                            AnhDaiDien = "/images/device (244).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 2100000m,
+                            GiaNhap = 42000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm11",
+                            PhanTramGiam = 36,
+                            ProductCategoryId = 24,
+                            ShopId = 2,
+                            SoLuongCon = 300,
+                            TenSp = "kLyjSrLlUv11",
+                            ThongSo = "RAM:13Memory:76GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 12,
+                            AnhDaiDien = "/images/device (157).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 800000m,
+                            GiaNhap = 38000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm12",
+                            PhanTramGiam = 30,
+                            ProductCategoryId = 18,
+                            ShopId = 3,
+                            SoLuongCon = 100,
+                            TenSp = "uztjNymOiG12",
+                            ThongSo = "RAM:11Memory:61GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 13,
+                            AnhDaiDien = "/images/device (231).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 3900000m,
+                            GiaNhap = 28000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm13",
+                            PhanTramGiam = 14,
+                            ProductCategoryId = 16,
+                            ShopId = 7,
+                            SoLuongCon = 300,
+                            TenSp = "mJsNEvEuqL13",
+                            ThongSo = "RAM:22Memory:491GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 14,
+                            AnhDaiDien = "/images/device (115).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 1000000m,
+                            GiaNhap = 43000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm14",
+                            PhanTramGiam = 36,
+                            ProductCategoryId = 20,
+                            ShopId = 6,
+                            SoLuongCon = 400,
+                            TenSp = "OGaUVaqKjX14",
+                            ThongSo = "RAM:16Memory:397GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 15,
+                            AnhDaiDien = "/images/device (62).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 2800000m,
+                            GiaNhap = 9000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm15",
+                            PhanTramGiam = 13,
+                            ProductCategoryId = 25,
+                            ShopId = 3,
+                            SoLuongCon = 200,
+                            TenSp = "kmRwKR5hHQ15",
+                            ThongSo = "RAM:6Memory:213GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 16,
+                            AnhDaiDien = "/images/device (264).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 4400000m,
+                            GiaNhap = 17000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm16",
+                            PhanTramGiam = 21,
+                            ProductCategoryId = 17,
+                            ShopId = 3,
+                            SoLuongCon = 400,
+                            TenSp = "Sb9ptfa1MK16",
+                            ThongSo = "RAM:9Memory:295GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 17,
+                            AnhDaiDien = "/images/device (211).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 300000m,
+                            GiaNhap = 16000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm17",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 18,
+                            ShopId = 2,
+                            SoLuongCon = 400,
+                            TenSp = "qKarTjwMeE17",
+                            ThongSo = "RAM:25Memory:499GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 18,
+                            AnhDaiDien = "/images/device (27).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 1100000m,
+                            GiaNhap = 22000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm18",
+                            PhanTramGiam = 30,
+                            ProductCategoryId = 20,
+                            ShopId = 8,
+                            SoLuongCon = 100,
+                            TenSp = "Fy57kcpS9S18",
+                            ThongSo = "RAM:18Memory:141GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 19,
+                            AnhDaiDien = "/images/device (151).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 1100000m,
+                            GiaNhap = 16000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm19",
+                            PhanTramGiam = 33,
+                            ProductCategoryId = 23,
+                            ShopId = 8,
+                            SoLuongCon = 300,
+                            TenSp = "R1U7XC73HX19",
+                            ThongSo = "RAM:17Memory:47GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 20,
+                            AnhDaiDien = "/images/device (67).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 4600000m,
+                            GiaNhap = 33000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm20",
+                            PhanTramGiam = 25,
+                            ProductCategoryId = 15,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "4lMszWhi3w20",
+                            ThongSo = "RAM:14Memory:85GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 21,
+                            AnhDaiDien = "/images/device (41).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 3000000m,
+                            GiaNhap = 32000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm21",
+                            PhanTramGiam = 25,
+                            ProductCategoryId = 12,
+                            ShopId = 2,
+                            SoLuongCon = 400,
+                            TenSp = "P9LVIMKTwK21",
+                            ThongSo = "RAM:23Memory:292GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 22,
+                            AnhDaiDien = "/images/device (206).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 900000m,
+                            GiaNhap = 2000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm22",
+                            PhanTramGiam = 27,
+                            ProductCategoryId = 1,
+                            ShopId = 5,
+                            SoLuongCon = 200,
+                            TenSp = "gCdm8M0UpP22",
+                            ThongSo = "RAM:3Memory:450GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 23,
+                            AnhDaiDien = "/images/device (238).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 2800000m,
+                            GiaNhap = 10000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm23",
+                            PhanTramGiam = 30,
+                            ProductCategoryId = 12,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "aQzLf9T9HV23",
+                            ThongSo = "RAM:11Memory:480GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 24,
+                            AnhDaiDien = "/images/device (148).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 1100000m,
+                            GiaNhap = 25000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm24",
+                            PhanTramGiam = 26,
+                            ProductCategoryId = 18,
+                            ShopId = 8,
+                            SoLuongCon = 400,
+                            TenSp = "KozgM4gMZ424",
+                            ThongSo = "RAM:6Memory:288GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 25,
+                            AnhDaiDien = "/images/device (242).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 500000m,
+                            GiaNhap = 13000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm25",
+                            PhanTramGiam = 25,
+                            ProductCategoryId = 20,
+                            ShopId = 8,
+                            SoLuongCon = 200,
+                            TenSp = "AqBYFzTiJq25",
+                            ThongSo = "RAM:10Memory:173GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 26,
+                            AnhDaiDien = "/images/device (36).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 1300000m,
+                            GiaNhap = 40000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm26",
+                            PhanTramGiam = 25,
+                            ProductCategoryId = 15,
+                            ShopId = 2,
+                            SoLuongCon = 300,
+                            TenSp = "Xq8DWMNftw26",
+                            ThongSo = "RAM:2Memory:305GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 27,
+                            AnhDaiDien = "/images/device (40).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 3600000m,
+                            GiaNhap = 20000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm27",
+                            PhanTramGiam = 10,
+                            ProductCategoryId = 6,
+                            ShopId = 7,
+                            SoLuongCon = 200,
+                            TenSp = "np990coiHw27",
+                            ThongSo = "RAM:20Memory:331GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 28,
+                            AnhDaiDien = "/images/device (181).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 1800000m,
+                            GiaNhap = 43000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm28",
+                            PhanTramGiam = 15,
+                            ProductCategoryId = 24,
+                            ShopId = 5,
+                            SoLuongCon = 200,
+                            TenSp = "ZkFmM4Ztih28",
+                            ThongSo = "RAM:30Memory:386GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 29,
+                            AnhDaiDien = "/images/device (52).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 4300000m,
+                            GiaNhap = 18000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm29",
+                            PhanTramGiam = 28,
+                            ProductCategoryId = 10,
+                            ShopId = 1,
+                            SoLuongCon = 100,
+                            TenSp = "N0QHiv0lpP29",
+                            ThongSo = "RAM:21Memory:253GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 30,
+                            AnhDaiDien = "/images/device (15).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 4300000m,
+                            GiaNhap = 45000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm30",
+                            PhanTramGiam = 38,
+                            ProductCategoryId = 21,
+                            ShopId = 3,
+                            SoLuongCon = 100,
+                            TenSp = "K6WTWrzcaO30",
+                            ThongSo = "RAM:23Memory:489GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 31,
+                            AnhDaiDien = "/images/device (104).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 4600000m,
+                            GiaNhap = 17000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm31",
+                            PhanTramGiam = 28,
+                            ProductCategoryId = 4,
+                            ShopId = 7,
+                            SoLuongCon = 200,
+                            TenSp = "elSx59WyFb31",
+                            ThongSo = "RAM:28Memory:433GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 32,
+                            AnhDaiDien = "/images/device (236).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 3400000m,
+                            GiaNhap = 14000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm32",
+                            PhanTramGiam = 26,
+                            ProductCategoryId = 19,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "rXwZCDepc432",
+                            ThongSo = "RAM:1Memory:380GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 33,
+                            AnhDaiDien = "/images/device (3).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 1400000m,
+                            GiaNhap = 16000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm33",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 11,
+                            ShopId = 1,
+                            SoLuongCon = 200,
+                            TenSp = "JJjS8JANtU33",
+                            ThongSo = "RAM:24Memory:147GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 34,
+                            AnhDaiDien = "/images/device (154).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 1200000m,
+                            GiaNhap = 40000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm34",
+                            PhanTramGiam = 27,
+                            ProductCategoryId = 22,
+                            ShopId = 2,
+                            SoLuongCon = 300,
+                            TenSp = "J10Uze8SJI34",
+                            ThongSo = "RAM:29Memory:339GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 35,
+                            AnhDaiDien = "/images/device (43).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 800000m,
+                            GiaNhap = 43000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm35",
+                            PhanTramGiam = 11,
+                            ProductCategoryId = 22,
+                            ShopId = 4,
+                            SoLuongCon = 300,
+                            TenSp = "yk3uAldaf735",
+                            ThongSo = "RAM:3Memory:438GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 36,
+                            AnhDaiDien = "/images/device (146).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 2600000m,
+                            GiaNhap = 23000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm36",
+                            PhanTramGiam = 31,
+                            ProductCategoryId = 20,
+                            ShopId = 6,
+                            SoLuongCon = 400,
+                            TenSp = "P46OeJacpB36",
+                            ThongSo = "RAM:5Memory:352GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 37,
+                            AnhDaiDien = "/images/device (205).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 3500000m,
+                            GiaNhap = 32000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm37",
+                            PhanTramGiam = 15,
+                            ProductCategoryId = 3,
+                            ShopId = 7,
+                            SoLuongCon = 300,
+                            TenSp = "H5eFenf9m137",
+                            ThongSo = "RAM:16Memory:296GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 38,
+                            AnhDaiDien = "/images/device (157).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 2000000m,
+                            GiaNhap = 30000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm38",
+                            PhanTramGiam = 25,
+                            ProductCategoryId = 9,
+                            ShopId = 4,
+                            SoLuongCon = 200,
+                            TenSp = "irLUH3mcf638",
+                            ThongSo = "RAM:22Memory:57GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 39,
+                            AnhDaiDien = "/images/device (270).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 500000m,
+                            GiaNhap = 40000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm39",
+                            PhanTramGiam = 20,
+                            ProductCategoryId = 24,
+                            ShopId = 2,
+                            SoLuongCon = 400,
+                            TenSp = "RAteE00SHz39",
+                            ThongSo = "RAM:31Memory:154GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 40,
+                            AnhDaiDien = "/images/device (224).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 2900000m,
+                            GiaNhap = 46000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm40",
+                            PhanTramGiam = 25,
+                            ProductCategoryId = 10,
+                            ShopId = 3,
+                            SoLuongCon = 200,
+                            TenSp = "r6Fhpo5bB340",
+                            ThongSo = "RAM:22Memory:58GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 41,
+                            AnhDaiDien = "/images/device (183).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 3200000m,
+                            GiaNhap = 43000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm41",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 10,
+                            ShopId = 6,
+                            SoLuongCon = 200,
+                            TenSp = "iK5b0hlvWg41",
+                            ThongSo = "RAM:29Memory:347GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 42,
+                            AnhDaiDien = "/images/device (245).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 3800000m,
+                            GiaNhap = 33000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm42",
+                            PhanTramGiam = 17,
+                            ProductCategoryId = 22,
+                            ShopId = 5,
+                            SoLuongCon = 300,
+                            TenSp = "4res8JgyHa42",
+                            ThongSo = "RAM:19Memory:77GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 43,
+                            AnhDaiDien = "/images/device (7).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 4000000m,
+                            GiaNhap = 6000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm43",
+                            PhanTramGiam = 25,
+                            ProductCategoryId = 2,
+                            ShopId = 3,
+                            SoLuongCon = 400,
+                            TenSp = "QhJHNdLeMV43",
+                            ThongSo = "RAM:26Memory:485GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 44,
+                            AnhDaiDien = "/images/device (68).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 1500000m,
+                            GiaNhap = 40000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm44",
+                            PhanTramGiam = 14,
+                            ProductCategoryId = 26,
+                            ShopId = 3,
+                            SoLuongCon = 300,
+                            TenSp = "ENHqngStDq44",
+                            ThongSo = "RAM:12Memory:431GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 45,
+                            AnhDaiDien = "/images/device (7).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 2000000m,
+                            GiaNhap = 14000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm45",
+                            PhanTramGiam = 16,
+                            ProductCategoryId = 18,
+                            ShopId = 7,
+                            SoLuongCon = 400,
+                            TenSp = "7QExgUAnoU45",
+                            ThongSo = "RAM:12Memory:337GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 46,
+                            AnhDaiDien = "/images/device (268).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 1300000m,
+                            GiaNhap = 1000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm46",
+                            PhanTramGiam = 33,
+                            ProductCategoryId = 7,
+                            ShopId = 6,
+                            SoLuongCon = 100,
+                            TenSp = "eLleIa0Jdp46",
+                            ThongSo = "RAM:2Memory:83GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 47,
+                            AnhDaiDien = "/images/device (29).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 4800000m,
+                            GiaNhap = 47000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm47",
+                            PhanTramGiam = 19,
+                            ProductCategoryId = 3,
+                            ShopId = 8,
+                            SoLuongCon = 400,
+                            TenSp = "c6KbUqsIAI47",
+                            ThongSo = "RAM:23Memory:250GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 48,
+                            AnhDaiDien = "/images/device (177).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 1900000m,
+                            GiaNhap = 23000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm48",
+                            PhanTramGiam = 37,
+                            ProductCategoryId = 26,
+                            ShopId = 3,
+                            SoLuongCon = 200,
+                            TenSp = "oUNQj5KiJQ48",
+                            ThongSo = "RAM:3Memory:505GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 49,
+                            AnhDaiDien = "/images/device (233).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 2600000m,
+                            GiaNhap = 42000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm49",
+                            PhanTramGiam = 21,
+                            ProductCategoryId = 3,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "RyW961BQ0449",
+                            ThongSo = "RAM:29Memory:198GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 50,
+                            AnhDaiDien = "/images/device (48).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 1500000m,
+                            GiaNhap = 3000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm50",
+                            PhanTramGiam = 14,
+                            ProductCategoryId = 27,
+                            ShopId = 5,
+                            SoLuongCon = 100,
+                            TenSp = "12iqg2jej850",
+                            ThongSo = "RAM:9Memory:455GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 51,
+                            AnhDaiDien = "/images/device (190).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 1600000m,
+                            GiaNhap = 14000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm51",
+                            PhanTramGiam = 13,
+                            ProductCategoryId = 4,
+                            ShopId = 4,
+                            SoLuongCon = 400,
+                            TenSp = "wozRhMMmQv51",
+                            ThongSo = "RAM:25Memory:92GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 52,
+                            AnhDaiDien = "/images/device (103).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 3900000m,
+                            GiaNhap = 39000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm52",
+                            PhanTramGiam = 9,
+                            ProductCategoryId = 15,
+                            ShopId = 5,
+                            SoLuongCon = 100,
+                            TenSp = "yotdNo3qPC52",
+                            ThongSo = "RAM:17Memory:321GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 53,
+                            AnhDaiDien = "/images/device (89).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 4100000m,
+                            GiaNhap = 26000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm53",
+                            PhanTramGiam = 31,
+                            ProductCategoryId = 3,
+                            ShopId = 6,
+                            SoLuongCon = 400,
+                            TenSp = "GqmIYWrPHV53",
+                            ThongSo = "RAM:7Memory:379GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 54,
+                            AnhDaiDien = "/images/device (73).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 4900000m,
+                            GiaNhap = 15000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm54",
+                            PhanTramGiam = 6,
+                            ProductCategoryId = 20,
+                            ShopId = 6,
+                            SoLuongCon = 100,
+                            TenSp = "EK5Oggk4R054",
+                            ThongSo = "RAM:6Memory:71GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 55,
+                            AnhDaiDien = "/images/device (251).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 100000m,
+                            GiaNhap = 12000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm55",
+                            PhanTramGiam = 19,
+                            ProductCategoryId = 3,
+                            ShopId = 1,
+                            SoLuongCon = 200,
+                            TenSp = "p1pkLm9qdC55",
+                            ThongSo = "RAM:9Memory:241GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 56,
+                            AnhDaiDien = "/images/device (23).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 2400000m,
+                            GiaNhap = 14000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm56",
+                            PhanTramGiam = 38,
+                            ProductCategoryId = 23,
+                            ShopId = 7,
+                            SoLuongCon = 100,
+                            TenSp = "n8ApR7cC4j56",
+                            ThongSo = "RAM:20Memory:243GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 57,
+                            AnhDaiDien = "/images/device (103).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 2700000m,
+                            GiaNhap = 18000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm57",
+                            PhanTramGiam = 23,
+                            ProductCategoryId = 10,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "oxx9OI2ifM57",
+                            ThongSo = "RAM:11Memory:141GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 58,
+                            AnhDaiDien = "/images/device (243).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 600000m,
+                            GiaNhap = 8000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm58",
+                            PhanTramGiam = 38,
+                            ProductCategoryId = 3,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "b93MitzCSs58",
+                            ThongSo = "RAM:24Memory:225GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 59,
+                            AnhDaiDien = "/images/device (249).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 3300000m,
+                            GiaNhap = 25000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm59",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 19,
+                            ShopId = 6,
+                            SoLuongCon = 200,
+                            TenSp = "7hKrKXjt1459",
+                            ThongSo = "RAM:26Memory:74GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 60,
+                            AnhDaiDien = "/images/device (136).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 2500000m,
+                            GiaNhap = 36000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm60",
+                            PhanTramGiam = 12,
+                            ProductCategoryId = 25,
+                            ShopId = 3,
+                            SoLuongCon = 100,
+                            TenSp = "9QASkacOg060",
+                            ThongSo = "RAM:5Memory:359GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 61,
+                            AnhDaiDien = "/images/device (75).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 700000m,
+                            GiaNhap = 25000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm61",
+                            PhanTramGiam = 38,
+                            ProductCategoryId = 16,
+                            ShopId = 2,
+                            SoLuongCon = 300,
+                            TenSp = "UjgdCTiDx361",
+                            ThongSo = "RAM:24Memory:95GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 62,
+                            AnhDaiDien = "/images/device (76).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 300000m,
+                            GiaNhap = 42000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm62",
+                            PhanTramGiam = 26,
+                            ProductCategoryId = 1,
+                            ShopId = 8,
+                            SoLuongCon = 200,
+                            TenSp = "ebqEt7s90h62",
+                            ThongSo = "RAM:13Memory:92GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 63,
+                            AnhDaiDien = "/images/device (227).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 1400000m,
+                            GiaNhap = 40000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm63",
+                            PhanTramGiam = 21,
+                            ProductCategoryId = 6,
+                            ShopId = 5,
+                            SoLuongCon = 100,
+                            TenSp = "ezbxDg6Eqg63",
+                            ThongSo = "RAM:22Memory:429GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 64,
+                            AnhDaiDien = "/images/device (250).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 3600000m,
+                            GiaNhap = 15000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm64",
+                            PhanTramGiam = 7,
+                            ProductCategoryId = 22,
+                            ShopId = 4,
+                            SoLuongCon = 400,
+                            TenSp = "lYvBupV8Pa64",
+                            ThongSo = "RAM:24Memory:173GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 65,
+                            AnhDaiDien = "/images/device (38).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 1600000m,
+                            GiaNhap = 15000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm65",
+                            PhanTramGiam = 31,
+                            ProductCategoryId = 6,
+                            ShopId = 8,
+                            SoLuongCon = 300,
+                            TenSp = "gffQz1W2DC65",
+                            ThongSo = "RAM:17Memory:96GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 66,
+                            AnhDaiDien = "/images/device (255).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 2100000m,
+                            GiaNhap = 30000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm66",
+                            PhanTramGiam = 28,
+                            ProductCategoryId = 15,
+                            ShopId = 2,
+                            SoLuongCon = 200,
+                            TenSp = "wmOuJx2Jr166",
+                            ThongSo = "RAM:6Memory:61GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 67,
+                            AnhDaiDien = "/images/device (108).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 1900000m,
+                            GiaNhap = 19000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm67",
+                            PhanTramGiam = 6,
+                            ProductCategoryId = 3,
+                            ShopId = 7,
+                            SoLuongCon = 200,
+                            TenSp = "32ENnKOXTU67",
+                            ThongSo = "RAM:8Memory:402GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 68,
+                            AnhDaiDien = "/images/device (223).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 3600000m,
+                            GiaNhap = 35000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm68",
+                            PhanTramGiam = 14,
+                            ProductCategoryId = 3,
+                            ShopId = 4,
+                            SoLuongCon = 200,
+                            TenSp = "gNiauwk2XP68",
+                            ThongSo = "RAM:22Memory:490GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 69,
+                            AnhDaiDien = "/images/device (249).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 1600000m,
+                            GiaNhap = 46000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm69",
+                            PhanTramGiam = 35,
+                            ProductCategoryId = 4,
+                            ShopId = 4,
+                            SoLuongCon = 400,
+                            TenSp = "XCCEFDksZ669",
+                            ThongSo = "RAM:5Memory:277GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 70,
+                            AnhDaiDien = "/images/device (204).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 2700000m,
+                            GiaNhap = 18000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm70",
+                            PhanTramGiam = 35,
+                            ProductCategoryId = 18,
+                            ShopId = 4,
+                            SoLuongCon = 300,
+                            TenSp = "MMJAJC5ezh70",
+                            ThongSo = "RAM:5Memory:348GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 71,
+                            AnhDaiDien = "/images/device (269).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 4900000m,
+                            GiaNhap = 42000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm71",
+                            PhanTramGiam = 37,
+                            ProductCategoryId = 13,
+                            ShopId = 4,
+                            SoLuongCon = 300,
+                            TenSp = "zhALg6KSxj71",
+                            ThongSo = "RAM:18Memory:56GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 72,
+                            AnhDaiDien = "/images/device (187).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 4600000m,
+                            GiaNhap = 18000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm72",
+                            PhanTramGiam = 35,
+                            ProductCategoryId = 19,
+                            ShopId = 5,
+                            SoLuongCon = 200,
+                            TenSp = "lWzCREk4lF72",
+                            ThongSo = "RAM:7Memory:498GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 73,
+                            AnhDaiDien = "/images/device (55).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 1500000m,
+                            GiaNhap = 6000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm73",
+                            PhanTramGiam = 18,
+                            ProductCategoryId = 4,
+                            ShopId = 6,
+                            SoLuongCon = 400,
+                            TenSp = "W82uoWi98p73",
+                            ThongSo = "RAM:5Memory:94GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 74,
+                            AnhDaiDien = "/images/device (71).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 2500000m,
+                            GiaNhap = 6000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm74",
+                            PhanTramGiam = 25,
+                            ProductCategoryId = 20,
+                            ShopId = 7,
+                            SoLuongCon = 100,
+                            TenSp = "vyEBeq1HDH74",
+                            ThongSo = "RAM:4Memory:389GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 75,
+                            AnhDaiDien = "/images/device (261).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 500000m,
+                            GiaNhap = 33000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm75",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 8,
+                            ShopId = 6,
+                            SoLuongCon = 200,
+                            TenSp = "lVASyL3CVl75",
+                            ThongSo = "RAM:23Memory:76GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 76,
+                            AnhDaiDien = "/images/device (215).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 2700000m,
+                            GiaNhap = 38000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm76",
+                            PhanTramGiam = 18,
+                            ProductCategoryId = 25,
+                            ShopId = 8,
+                            SoLuongCon = 100,
+                            TenSp = "0CxlUIl9rk76",
+                            ThongSo = "RAM:29Memory:319GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 77,
+                            AnhDaiDien = "/images/device (15).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 2800000m,
+                            GiaNhap = 46000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm77",
+                            PhanTramGiam = 22,
+                            ProductCategoryId = 24,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "TYfwjdStH377",
+                            ThongSo = "RAM:15Memory:278GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 78,
+                            AnhDaiDien = "/images/device (44).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 2000000m,
+                            GiaNhap = 9000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm78",
+                            PhanTramGiam = 24,
+                            ProductCategoryId = 2,
+                            ShopId = 2,
+                            SoLuongCon = 200,
+                            TenSp = "P0Ls6QfdYx78",
+                            ThongSo = "RAM:15Memory:419GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 79,
+                            AnhDaiDien = "/images/device (244).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 1500000m,
+                            GiaNhap = 34000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm79",
+                            PhanTramGiam = 14,
+                            ProductCategoryId = 3,
+                            ShopId = 3,
+                            SoLuongCon = 200,
+                            TenSp = "394qR75fOJ79",
+                            ThongSo = "RAM:14Memory:460GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 80,
+                            AnhDaiDien = "/images/device (87).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 3100000m,
+                            GiaNhap = 35000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm80",
+                            PhanTramGiam = 17,
+                            ProductCategoryId = 15,
+                            ShopId = 3,
+                            SoLuongCon = 200,
+                            TenSp = "KrEnIird6l80",
+                            ThongSo = "RAM:17Memory:244GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 81,
+                            AnhDaiDien = "/images/device (2).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 4400000m,
+                            GiaNhap = 7000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm81",
+                            PhanTramGiam = 26,
+                            ProductCategoryId = 12,
+                            ShopId = 3,
+                            SoLuongCon = 300,
+                            TenSp = "L9L0C58wCh81",
+                            ThongSo = "RAM:19Memory:486GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 82,
+                            AnhDaiDien = "/images/device (188).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 1300000m,
+                            GiaNhap = 47000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm82",
+                            PhanTramGiam = 32,
+                            ProductCategoryId = 8,
+                            ShopId = 7,
+                            SoLuongCon = 200,
+                            TenSp = "pBOREDdCkK82",
+                            ThongSo = "RAM:25Memory:137GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 83,
+                            AnhDaiDien = "/images/device (23).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 4800000m,
+                            GiaNhap = 49000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm83",
+                            PhanTramGiam = 33,
+                            ProductCategoryId = 4,
+                            ShopId = 1,
+                            SoLuongCon = 100,
+                            TenSp = "6MGHmMIQFp83",
+                            ThongSo = "RAM:14Memory:229GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 84,
+                            AnhDaiDien = "/images/device (83).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 3100000m,
+                            GiaNhap = 8000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm84",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 18,
+                            ShopId = 3,
+                            SoLuongCon = 400,
+                            TenSp = "CI077Cr5dg84",
+                            ThongSo = "RAM:16Memory:205GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 85,
+                            AnhDaiDien = "/images/device (17).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 3100000m,
+                            GiaNhap = 42000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm85",
+                            PhanTramGiam = 7,
+                            ProductCategoryId = 18,
+                            ShopId = 5,
+                            SoLuongCon = 400,
+                            TenSp = "Tfp0RiZh1l85",
+                            ThongSo = "RAM:27Memory:424GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 86,
+                            AnhDaiDien = "/images/device (32).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 2300000m,
+                            GiaNhap = 5000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm86",
+                            PhanTramGiam = 15,
+                            ProductCategoryId = 10,
+                            ShopId = 5,
+                            SoLuongCon = 400,
+                            TenSp = "FZoPx4FMMS86",
+                            ThongSo = "RAM:24Memory:204GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 87,
+                            AnhDaiDien = "/images/device (12).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 3800000m,
+                            GiaNhap = 23000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm87",
+                            PhanTramGiam = 5,
+                            ProductCategoryId = 2,
+                            ShopId = 4,
+                            SoLuongCon = 100,
+                            TenSp = "SxvMVzOfjp87",
+                            ThongSo = "RAM:12Memory:151GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 88,
+                            AnhDaiDien = "/images/device (43).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 3000000m,
+                            GiaNhap = 5000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm88",
+                            PhanTramGiam = 12,
+                            ProductCategoryId = 17,
+                            ShopId = 8,
+                            SoLuongCon = 300,
+                            TenSp = "t1Fafmv5Dn88",
+                            ThongSo = "RAM:29Memory:425GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 89,
+                            AnhDaiDien = "/images/device (59).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 2700000m,
+                            GiaNhap = 28000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm89",
+                            PhanTramGiam = 24,
+                            ProductCategoryId = 26,
+                            ShopId = 7,
+                            SoLuongCon = 400,
+                            TenSp = "LwvLLXZitC89",
+                            ThongSo = "RAM:7Memory:280GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 90,
+                            AnhDaiDien = "/images/device (188).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 2800000m,
+                            GiaNhap = 47000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm90",
+                            PhanTramGiam = 24,
+                            ProductCategoryId = 25,
+                            ShopId = 2,
+                            SoLuongCon = 100,
+                            TenSp = "4c3vZaNZQh90",
+                            ThongSo = "RAM:2Memory:404GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 91,
+                            AnhDaiDien = "/images/device (71).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 3500000m,
+                            GiaNhap = 17000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm91",
+                            PhanTramGiam = 33,
+                            ProductCategoryId = 2,
+                            ShopId = 4,
+                            SoLuongCon = 400,
+                            TenSp = "tbNSac0Lfr91",
+                            ThongSo = "RAM:10Memory:432GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 92,
+                            AnhDaiDien = "/images/device (212).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 3700000m,
+                            GiaNhap = 48000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm92",
+                            PhanTramGiam = 6,
+                            ProductCategoryId = 6,
+                            ShopId = 3,
+                            SoLuongCon = 100,
+                            TenSp = "sAbHqR441o92",
+                            ThongSo = "RAM:27Memory:93GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 93,
+                            AnhDaiDien = "/images/device (144).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 1400000m,
+                            GiaNhap = 11000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm93",
+                            PhanTramGiam = 8,
+                            ProductCategoryId = 20,
+                            ShopId = 5,
+                            SoLuongCon = 200,
+                            TenSp = "D86KFZwjOq93",
+                            ThongSo = "RAM:9Memory:125GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 94,
+                            AnhDaiDien = "/images/device (231).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 4900000m,
+                            GiaNhap = 15000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm94",
+                            PhanTramGiam = 19,
+                            ProductCategoryId = 27,
+                            ShopId = 1,
+                            SoLuongCon = 100,
+                            TenSp = "xVlQv8KVPQ94",
+                            ThongSo = "RAM:1Memory:235GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 95,
+                            AnhDaiDien = "/images/device (81).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 2200000m,
+                            GiaNhap = 45000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm95",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 26,
+                            ShopId = 7,
+                            SoLuongCon = 100,
+                            TenSp = "lSrRGHubQw95",
+                            ThongSo = "RAM:3Memory:469GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 96,
+                            AnhDaiDien = "/images/device (28).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 3900000m,
+                            GiaNhap = 40000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm96",
+                            PhanTramGiam = 6,
+                            ProductCategoryId = 4,
+                            ShopId = 8,
+                            SoLuongCon = 300,
+                            TenSp = "Nqf52YFOMA96",
+                            ThongSo = "RAM:17Memory:368GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 97,
+                            AnhDaiDien = "/images/device (237).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 3700000m,
+                            GiaNhap = 40000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm97",
+                            PhanTramGiam = 17,
+                            ProductCategoryId = 16,
+                            ShopId = 3,
+                            SoLuongCon = 200,
+                            TenSp = "6CdjFqP5NR97",
+                            ThongSo = "RAM:24Memory:197GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 98,
+                            AnhDaiDien = "/images/device (195).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 300000m,
+                            GiaNhap = 24000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm98",
+                            PhanTramGiam = 26,
+                            ProductCategoryId = 22,
+                            ShopId = 4,
+                            SoLuongCon = 100,
+                            TenSp = "OEedcWQpBO98",
+                            ThongSo = "RAM:27Memory:169GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 99,
+                            AnhDaiDien = "/images/device (264).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 1600000m,
+                            GiaNhap = 15000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm99",
+                            PhanTramGiam = 31,
+                            ProductCategoryId = 8,
+                            ShopId = 7,
+                            SoLuongCon = 400,
+                            TenSp = "HWEoM0jzVM99",
+                            ThongSo = "RAM:24Memory:196GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 100,
+                            AnhDaiDien = "/images/device (215).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 400000m,
+                            GiaNhap = 43000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm100",
+                            PhanTramGiam = 35,
+                            ProductCategoryId = 12,
+                            ShopId = 8,
+                            SoLuongCon = 400,
+                            TenSp = "BgKNOM0MV7100",
+                            ThongSo = "RAM:22Memory:360GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 101,
+                            AnhDaiDien = "/images/device (176).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 4100000m,
+                            GiaNhap = 38000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm101",
+                            PhanTramGiam = 5,
+                            ProductCategoryId = 26,
+                            ShopId = 6,
+                            SoLuongCon = 200,
+                            TenSp = "Ud5HHO9cPi101",
+                            ThongSo = "RAM:31Memory:437GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 102,
+                            AnhDaiDien = "/images/device (68).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 600000m,
+                            GiaNhap = 19000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm102",
+                            PhanTramGiam = 11,
+                            ProductCategoryId = 19,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "HFeMzy7QjX102",
+                            ThongSo = "RAM:17Memory:350GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 103,
+                            AnhDaiDien = "/images/device (43).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 900000m,
+                            GiaNhap = 37000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm103",
+                            PhanTramGiam = 36,
+                            ProductCategoryId = 23,
+                            ShopId = 4,
+                            SoLuongCon = 100,
+                            TenSp = "nEqMlpJqo4103",
+                            ThongSo = "RAM:20Memory:262GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 104,
+                            AnhDaiDien = "/images/device (54).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 2500000m,
+                            GiaNhap = 49000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm104",
+                            PhanTramGiam = 32,
+                            ProductCategoryId = 21,
+                            ShopId = 1,
+                            SoLuongCon = 400,
+                            TenSp = "NLk5YJapxs104",
+                            ThongSo = "RAM:27Memory:305GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 105,
+                            AnhDaiDien = "/images/device (147).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 1400000m,
+                            GiaNhap = 7000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm105",
+                            PhanTramGiam = 23,
+                            ProductCategoryId = 9,
+                            ShopId = 1,
+                            SoLuongCon = 400,
+                            TenSp = "6W3Of4H5bf105",
+                            ThongSo = "RAM:18Memory:397GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 106,
+                            AnhDaiDien = "/images/device (103).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 1800000m,
+                            GiaNhap = 37000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm106",
+                            PhanTramGiam = 14,
+                            ProductCategoryId = 19,
+                            ShopId = 8,
+                            SoLuongCon = 100,
+                            TenSp = "DKEp8sft2t106",
+                            ThongSo = "RAM:8Memory:77GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 107,
+                            AnhDaiDien = "/images/device (78).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 4400000m,
+                            GiaNhap = 48000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm107",
+                            PhanTramGiam = 32,
+                            ProductCategoryId = 9,
+                            ShopId = 4,
+                            SoLuongCon = 300,
+                            TenSp = "Q6wiWjAHc4107",
+                            ThongSo = "RAM:15Memory:99GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 108,
+                            AnhDaiDien = "/images/device (200).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 3300000m,
+                            GiaNhap = 48000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm108",
+                            PhanTramGiam = 33,
+                            ProductCategoryId = 24,
+                            ShopId = 1,
+                            SoLuongCon = 100,
+                            TenSp = "gpmankvYj6108",
+                            ThongSo = "RAM:6Memory:261GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 109,
+                            AnhDaiDien = "/images/device (230).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 3000000m,
+                            GiaNhap = 44000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm109",
+                            PhanTramGiam = 11,
+                            ProductCategoryId = 26,
+                            ShopId = 8,
+                            SoLuongCon = 100,
+                            TenSp = "tU91F3F2rz109",
+                            ThongSo = "RAM:25Memory:231GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 110,
+                            AnhDaiDien = "/images/device (31).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 1800000m,
+                            GiaNhap = 1000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm110",
+                            PhanTramGiam = 10,
+                            ProductCategoryId = 27,
+                            ShopId = 5,
+                            SoLuongCon = 200,
+                            TenSp = "3sTmFUEvD9110",
+                            ThongSo = "RAM:28Memory:276GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 111,
+                            AnhDaiDien = "/images/device (168).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 1800000m,
+                            GiaNhap = 44000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm111",
+                            PhanTramGiam = 21,
+                            ProductCategoryId = 3,
+                            ShopId = 5,
+                            SoLuongCon = 400,
+                            TenSp = "fayUZ8HMd5111",
+                            ThongSo = "RAM:15Memory:490GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 112,
+                            AnhDaiDien = "/images/device (57).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 2200000m,
+                            GiaNhap = 36000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm112",
+                            PhanTramGiam = 16,
+                            ProductCategoryId = 23,
+                            ShopId = 1,
+                            SoLuongCon = 300,
+                            TenSp = "tdu55OOc3B112",
+                            ThongSo = "RAM:12Memory:228GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 113,
+                            AnhDaiDien = "/images/device (205).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 4900000m,
+                            GiaNhap = 6000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm113",
+                            PhanTramGiam = 8,
+                            ProductCategoryId = 10,
+                            ShopId = 6,
+                            SoLuongCon = 400,
+                            TenSp = "3rG3RFaTGU113",
+                            ThongSo = "RAM:11Memory:229GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 114,
+                            AnhDaiDien = "/images/device (224).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 2800000m,
+                            GiaNhap = 17000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm114",
+                            PhanTramGiam = 26,
+                            ProductCategoryId = 9,
+                            ShopId = 1,
+                            SoLuongCon = 400,
+                            TenSp = "ow8MM7irTe114",
+                            ThongSo = "RAM:31Memory:158GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 115,
+                            AnhDaiDien = "/images/device (98).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 4300000m,
+                            GiaNhap = 32000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm115",
+                            PhanTramGiam = 26,
+                            ProductCategoryId = 14,
+                            ShopId = 3,
+                            SoLuongCon = 300,
+                            TenSp = "TCcqcVvbjg115",
+                            ThongSo = "RAM:22Memory:394GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 116,
+                            AnhDaiDien = "/images/device (24).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 2500000m,
+                            GiaNhap = 13000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm116",
+                            PhanTramGiam = 14,
+                            ProductCategoryId = 27,
+                            ShopId = 5,
+                            SoLuongCon = 100,
+                            TenSp = "MJNeXMpy5I116",
+                            ThongSo = "RAM:17Memory:493GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 117,
+                            AnhDaiDien = "/images/device (40).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 3100000m,
+                            GiaNhap = 46000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm117",
+                            PhanTramGiam = 22,
+                            ProductCategoryId = 25,
+                            ShopId = 6,
+                            SoLuongCon = 400,
+                            TenSp = "nx19GHfTBa117",
+                            ThongSo = "RAM:28Memory:34GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 118,
+                            AnhDaiDien = "/images/device (147).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 2700000m,
+                            GiaNhap = 25000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm118",
+                            PhanTramGiam = 5,
+                            ProductCategoryId = 4,
+                            ShopId = 8,
+                            SoLuongCon = 300,
+                            TenSp = "3syxJ5DHQb118",
+                            ThongSo = "RAM:15Memory:149GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 119,
+                            AnhDaiDien = "/images/device (83).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 1200000m,
+                            GiaNhap = 8000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm119",
+                            PhanTramGiam = 31,
+                            ProductCategoryId = 25,
+                            ShopId = 4,
+                            SoLuongCon = 100,
+                            TenSp = "ixTWkOdcwf119",
+                            ThongSo = "RAM:30Memory:467GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 120,
+                            AnhDaiDien = "/images/device (212).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 2900000m,
+                            GiaNhap = 3000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm120",
+                            PhanTramGiam = 36,
+                            ProductCategoryId = 8,
+                            ShopId = 2,
+                            SoLuongCon = 100,
+                            TenSp = "wZp0UfrHAX120",
+                            ThongSo = "RAM:12Memory:233GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 121,
+                            AnhDaiDien = "/images/device (274).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 3700000m,
+                            GiaNhap = 34000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm121",
+                            PhanTramGiam = 9,
+                            ProductCategoryId = 23,
+                            ShopId = 5,
+                            SoLuongCon = 100,
+                            TenSp = "zFY39NaQYH121",
+                            ThongSo = "RAM:10Memory:316GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 122,
+                            AnhDaiDien = "/images/device (17).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 4500000m,
+                            GiaNhap = 1000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm122",
+                            PhanTramGiam = 33,
+                            ProductCategoryId = 20,
+                            ShopId = 4,
+                            SoLuongCon = 300,
+                            TenSp = "RDhtcdJPGL122",
+                            ThongSo = "RAM:31Memory:155GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 123,
+                            AnhDaiDien = "/images/device (237).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 700000m,
+                            GiaNhap = 41000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm123",
+                            PhanTramGiam = 31,
+                            ProductCategoryId = 4,
+                            ShopId = 4,
+                            SoLuongCon = 100,
+                            TenSp = "QUoWQCWnLl123",
+                            ThongSo = "RAM:26Memory:319GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 124,
+                            AnhDaiDien = "/images/device (19).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 800000m,
+                            GiaNhap = 4000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm124",
+                            PhanTramGiam = 14,
+                            ProductCategoryId = 10,
+                            ShopId = 4,
+                            SoLuongCon = 100,
+                            TenSp = "EvPMZAycDD124",
+                            ThongSo = "RAM:16Memory:90GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 125,
+                            AnhDaiDien = "/images/device (105).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 2300000m,
+                            GiaNhap = 11000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm125",
+                            PhanTramGiam = 22,
+                            ProductCategoryId = 10,
+                            ShopId = 4,
+                            SoLuongCon = 400,
+                            TenSp = "9swNTNpYVM125",
+                            ThongSo = "RAM:20Memory:311GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 126,
+                            AnhDaiDien = "/images/device (5).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 2700000m,
+                            GiaNhap = 24000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm126",
+                            PhanTramGiam = 20,
+                            ProductCategoryId = 22,
+                            ShopId = 8,
+                            SoLuongCon = 100,
+                            TenSp = "Q4WClqbMU9126",
+                            ThongSo = "RAM:11Memory:452GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 127,
+                            AnhDaiDien = "/images/device (199).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 1200000m,
+                            GiaNhap = 33000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm127",
+                            PhanTramGiam = 11,
+                            ProductCategoryId = 11,
+                            ShopId = 2,
+                            SoLuongCon = 400,
+                            TenSp = "8LL6JAQnS9127",
+                            ThongSo = "RAM:22Memory:277GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 128,
+                            AnhDaiDien = "/images/device (190).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 1100000m,
+                            GiaNhap = 41000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm128",
+                            PhanTramGiam = 17,
+                            ProductCategoryId = 24,
+                            ShopId = 3,
+                            SoLuongCon = 100,
+                            TenSp = "G0wY8KPGUx128",
+                            ThongSo = "RAM:27Memory:239GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 129,
+                            AnhDaiDien = "/images/device (103).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 800000m,
+                            GiaNhap = 14000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm129",
+                            PhanTramGiam = 17,
+                            ProductCategoryId = 23,
+                            ShopId = 4,
+                            SoLuongCon = 300,
+                            TenSp = "SaqOVmbZD1129",
+                            ThongSo = "RAM:31Memory:243GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 130,
+                            AnhDaiDien = "/images/device (150).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 4100000m,
+                            GiaNhap = 46000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm130",
+                            PhanTramGiam = 15,
+                            ProductCategoryId = 18,
+                            ShopId = 2,
+                            SoLuongCon = 300,
+                            TenSp = "HLODeE3LSj130",
+                            ThongSo = "RAM:23Memory:304GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 131,
+                            AnhDaiDien = "/images/device (100).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 2700000m,
+                            GiaNhap = 48000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm131",
+                            PhanTramGiam = 16,
+                            ProductCategoryId = 4,
+                            ShopId = 8,
+                            SoLuongCon = 400,
+                            TenSp = "oL1yJ8aeiW131",
+                            ThongSo = "RAM:4Memory:47GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 132,
+                            AnhDaiDien = "/images/device (228).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 3400000m,
+                            GiaNhap = 21000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm132",
+                            PhanTramGiam = 5,
+                            ProductCategoryId = 15,
+                            ShopId = 5,
+                            SoLuongCon = 200,
+                            TenSp = "Z6r0yYaoXO132",
+                            ThongSo = "RAM:4Memory:347GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 133,
+                            AnhDaiDien = "/images/device (255).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 4700000m,
+                            GiaNhap = 18000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm133",
+                            PhanTramGiam = 26,
+                            ProductCategoryId = 23,
+                            ShopId = 6,
+                            SoLuongCon = 400,
+                            TenSp = "7lPb2IzZmg133",
+                            ThongSo = "RAM:26Memory:97GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 134,
+                            AnhDaiDien = "/images/device (166).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 2300000m,
+                            GiaNhap = 45000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm134",
+                            PhanTramGiam = 16,
+                            ProductCategoryId = 1,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "hgFjwVU2By134",
+                            ThongSo = "RAM:14Memory:232GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 135,
+                            AnhDaiDien = "/images/device (171).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 1800000m,
+                            GiaNhap = 32000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm135",
+                            PhanTramGiam = 15,
+                            ProductCategoryId = 19,
+                            ShopId = 5,
+                            SoLuongCon = 300,
+                            TenSp = "waQ3V8wcXo135",
+                            ThongSo = "RAM:18Memory:112GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 136,
+                            AnhDaiDien = "/images/device (45).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 3600000m,
+                            GiaNhap = 48000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm136",
+                            PhanTramGiam = 19,
+                            ProductCategoryId = 26,
+                            ShopId = 4,
+                            SoLuongCon = 300,
+                            TenSp = "nIH7rj3JR9136",
+                            ThongSo = "RAM:21Memory:240GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 137,
+                            AnhDaiDien = "/images/device (80).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 1000000m,
+                            GiaNhap = 24000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm137",
+                            PhanTramGiam = 31,
+                            ProductCategoryId = 1,
+                            ShopId = 5,
+                            SoLuongCon = 200,
+                            TenSp = "jiAXapIjsF137",
+                            ThongSo = "RAM:8Memory:39GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 138,
+                            AnhDaiDien = "/images/device (218).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 4500000m,
+                            GiaNhap = 31000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm138",
+                            PhanTramGiam = 23,
+                            ProductCategoryId = 19,
+                            ShopId = 6,
+                            SoLuongCon = 200,
+                            TenSp = "M6UFRrser9138",
+                            ThongSo = "RAM:6Memory:374GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 139,
+                            AnhDaiDien = "/images/device (155).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 4200000m,
+                            GiaNhap = 22000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm139",
+                            PhanTramGiam = 7,
+                            ProductCategoryId = 7,
+                            ShopId = 2,
+                            SoLuongCon = 300,
+                            TenSp = "DaZ0a2DwTc139",
+                            ThongSo = "RAM:21Memory:415GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 140,
+                            AnhDaiDien = "/images/device (244).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 1700000m,
+                            GiaNhap = 15000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm140",
+                            PhanTramGiam = 33,
+                            ProductCategoryId = 20,
+                            ShopId = 4,
+                            SoLuongCon = 200,
+                            TenSp = "tCvvIWAIcR140",
+                            ThongSo = "RAM:14Memory:471GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 141,
+                            AnhDaiDien = "/images/device (78).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 3900000m,
+                            GiaNhap = 16000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm141",
+                            PhanTramGiam = 6,
+                            ProductCategoryId = 2,
+                            ShopId = 5,
+                            SoLuongCon = 200,
+                            TenSp = "75yZiKE207141",
+                            ThongSo = "RAM:25Memory:310GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 142,
+                            AnhDaiDien = "/images/device (18).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 4500000m,
+                            GiaNhap = 17000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm142",
+                            PhanTramGiam = 6,
+                            ProductCategoryId = 22,
+                            ShopId = 3,
+                            SoLuongCon = 400,
+                            TenSp = "xlkrZ9m94T142",
+                            ThongSo = "RAM:30Memory:199GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 143,
+                            AnhDaiDien = "/images/device (103).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 4300000m,
+                            GiaNhap = 35000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm143",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 16,
+                            ShopId = 8,
+                            SoLuongCon = 200,
+                            TenSp = "qhvrCyaePE143",
+                            ThongSo = "RAM:23Memory:142GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 144,
+                            AnhDaiDien = "/images/device (161).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 3900000m,
+                            GiaNhap = 31000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm144",
+                            PhanTramGiam = 32,
+                            ProductCategoryId = 10,
+                            ShopId = 2,
+                            SoLuongCon = 400,
+                            TenSp = "b2W7WO2MPp144",
+                            ThongSo = "RAM:18Memory:183GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 145,
+                            AnhDaiDien = "/images/device (7).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 3200000m,
+                            GiaNhap = 28000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm145",
+                            PhanTramGiam = 27,
+                            ProductCategoryId = 6,
+                            ShopId = 1,
+                            SoLuongCon = 200,
+                            TenSp = "UVFkY1EJaU145",
+                            ThongSo = "RAM:22Memory:424GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 146,
+                            AnhDaiDien = "/images/device (224).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 600000m,
+                            GiaNhap = 6000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm146",
+                            PhanTramGiam = 36,
+                            ProductCategoryId = 11,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "yLvlyLy9xa146",
+                            ThongSo = "RAM:12Memory:308GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 147,
+                            AnhDaiDien = "/images/device (60).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 3100000m,
+                            GiaNhap = 44000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm147",
+                            PhanTramGiam = 38,
+                            ProductCategoryId = 27,
+                            ShopId = 4,
+                            SoLuongCon = 200,
+                            TenSp = "I8TFHl6xmm147",
+                            ThongSo = "RAM:21Memory:169GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 148,
+                            AnhDaiDien = "/images/device (119).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 2300000m,
+                            GiaNhap = 9000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm148",
+                            PhanTramGiam = 30,
+                            ProductCategoryId = 15,
+                            ShopId = 6,
+                            SoLuongCon = 100,
+                            TenSp = "XuygTEZD67148",
+                            ThongSo = "RAM:2Memory:127GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 149,
+                            AnhDaiDien = "/images/device (79).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 800000m,
+                            GiaNhap = 35000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm149",
+                            PhanTramGiam = 22,
+                            ProductCategoryId = 24,
+                            ShopId = 4,
+                            SoLuongCon = 300,
+                            TenSp = "JjHikiIIWu149",
+                            ThongSo = "RAM:5Memory:347GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 150,
+                            AnhDaiDien = "/images/device (132).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 3200000m,
+                            GiaNhap = 9000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm150",
+                            PhanTramGiam = 23,
+                            ProductCategoryId = 12,
+                            ShopId = 6,
+                            SoLuongCon = 400,
+                            TenSp = "twTB0r5pME150",
+                            ThongSo = "RAM:13Memory:205GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 151,
+                            AnhDaiDien = "/images/device (203).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 3600000m,
+                            GiaNhap = 35000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm151",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 27,
+                            ShopId = 8,
+                            SoLuongCon = 400,
+                            TenSp = "P4ovqG5gms151",
+                            ThongSo = "RAM:21Memory:405GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 152,
+                            AnhDaiDien = "/images/device (115).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 400000m,
+                            GiaNhap = 21000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm152",
+                            PhanTramGiam = 18,
+                            ProductCategoryId = 21,
+                            ShopId = 1,
+                            SoLuongCon = 200,
+                            TenSp = "E8mpN354kF152",
+                            ThongSo = "RAM:6Memory:362GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 153,
+                            AnhDaiDien = "/images/device (16).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 1800000m,
+                            GiaNhap = 28000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm153",
+                            PhanTramGiam = 14,
+                            ProductCategoryId = 11,
+                            ShopId = 3,
+                            SoLuongCon = 300,
+                            TenSp = "DmxkviNpqm153",
+                            ThongSo = "RAM:30Memory:285GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 154,
+                            AnhDaiDien = "/images/device (138).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 2300000m,
+                            GiaNhap = 49000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm154",
+                            PhanTramGiam = 24,
+                            ProductCategoryId = 25,
+                            ShopId = 3,
+                            SoLuongCon = 400,
+                            TenSp = "1tA85ApNOz154",
+                            ThongSo = "RAM:23Memory:457GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 155,
+                            AnhDaiDien = "/images/device (164).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 1200000m,
+                            GiaNhap = 24000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm155",
+                            PhanTramGiam = 9,
+                            ProductCategoryId = 11,
+                            ShopId = 4,
+                            SoLuongCon = 300,
+                            TenSp = "1wfXsg4Tbo155",
+                            ThongSo = "RAM:24Memory:289GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 156,
+                            AnhDaiDien = "/images/device (131).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 1300000m,
+                            GiaNhap = 37000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm156",
+                            PhanTramGiam = 29,
+                            ProductCategoryId = 10,
+                            ShopId = 1,
+                            SoLuongCon = 400,
+                            TenSp = "5zgCPTge7H156",
+                            ThongSo = "RAM:2Memory:81GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 157,
+                            AnhDaiDien = "/images/device (237).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 2300000m,
+                            GiaNhap = 11000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm157",
+                            PhanTramGiam = 19,
+                            ProductCategoryId = 23,
+                            ShopId = 1,
+                            SoLuongCon = 300,
+                            TenSp = "PH8cvixKxE157",
+                            ThongSo = "RAM:4Memory:168GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 158,
+                            AnhDaiDien = "/images/device (73).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 1700000m,
+                            GiaNhap = 49000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm158",
+                            PhanTramGiam = 12,
+                            ProductCategoryId = 23,
+                            ShopId = 1,
+                            SoLuongCon = 200,
+                            TenSp = "kS39qRmXGO158",
+                            ThongSo = "RAM:18Memory:345GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 159,
+                            AnhDaiDien = "/images/device (48).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 2500000m,
+                            GiaNhap = 8000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm159",
+                            PhanTramGiam = 24,
+                            ProductCategoryId = 2,
+                            ShopId = 7,
+                            SoLuongCon = 400,
+                            TenSp = "yC9YHPJoJo159",
+                            ThongSo = "RAM:1Memory:304GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 160,
+                            AnhDaiDien = "/images/device (89).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 1100000m,
+                            GiaNhap = 46000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm160",
+                            PhanTramGiam = 28,
+                            ProductCategoryId = 17,
+                            ShopId = 7,
+                            SoLuongCon = 400,
+                            TenSp = "xVlGRUFQp9160",
+                            ThongSo = "RAM:14Memory:220GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 161,
+                            AnhDaiDien = "/images/device (196).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 700000m,
+                            GiaNhap = 43000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm161",
+                            PhanTramGiam = 14,
+                            ProductCategoryId = 11,
+                            ShopId = 5,
+                            SoLuongCon = 400,
+                            TenSp = "gmxuV1DpSC161",
+                            ThongSo = "RAM:25Memory:78GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 162,
+                            AnhDaiDien = "/images/device (126).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 4400000m,
+                            GiaNhap = 28000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm162",
+                            PhanTramGiam = 29,
+                            ProductCategoryId = 1,
+                            ShopId = 7,
+                            SoLuongCon = 400,
+                            TenSp = "h11IldomZz162",
+                            ThongSo = "RAM:22Memory:420GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 163,
+                            AnhDaiDien = "/images/device (60).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 4700000m,
+                            GiaNhap = 25000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm163",
+                            PhanTramGiam = 16,
+                            ProductCategoryId = 2,
+                            ShopId = 8,
+                            SoLuongCon = 200,
+                            TenSp = "zOjVqiZx61163",
+                            ThongSo = "RAM:18Memory:139GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 164,
+                            AnhDaiDien = "/images/device (46).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 1200000m,
+                            GiaNhap = 39000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm164",
+                            PhanTramGiam = 27,
+                            ProductCategoryId = 21,
+                            ShopId = 6,
+                            SoLuongCon = 200,
+                            TenSp = "I5vrIyv60y164",
+                            ThongSo = "RAM:7Memory:244GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 165,
+                            AnhDaiDien = "/images/device (79).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 600000m,
+                            GiaNhap = 22000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm165",
+                            PhanTramGiam = 32,
+                            ProductCategoryId = 4,
+                            ShopId = 1,
+                            SoLuongCon = 300,
+                            TenSp = "DbIqlKvlls165",
+                            ThongSo = "RAM:1Memory:125GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 166,
+                            AnhDaiDien = "/images/device (254).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 3300000m,
+                            GiaNhap = 10000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm166",
+                            PhanTramGiam = 30,
+                            ProductCategoryId = 26,
+                            ShopId = 2,
+                            SoLuongCon = 300,
+                            TenSp = "YxQ3JAMLso166",
+                            ThongSo = "RAM:10Memory:106GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 167,
+                            AnhDaiDien = "/images/device (146).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 3800000m,
+                            GiaNhap = 26000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm167",
+                            PhanTramGiam = 17,
+                            ProductCategoryId = 26,
+                            ShopId = 5,
+                            SoLuongCon = 300,
+                            TenSp = "xohuuTns0q167",
+                            ThongSo = "RAM:12Memory:438GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 168,
+                            AnhDaiDien = "/images/device (267).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 3200000m,
+                            GiaNhap = 31000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm168",
+                            PhanTramGiam = 24,
+                            ProductCategoryId = 17,
+                            ShopId = 8,
+                            SoLuongCon = 100,
+                            TenSp = "6r8wTcOtbP168",
+                            ThongSo = "RAM:12Memory:422GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 169,
+                            AnhDaiDien = "/images/device (243).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 200000m,
+                            GiaNhap = 14000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm169",
+                            PhanTramGiam = 32,
+                            ProductCategoryId = 14,
+                            ShopId = 4,
+                            SoLuongCon = 400,
+                            TenSp = "ifTkNKl1N6169",
+                            ThongSo = "RAM:31Memory:439GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 170,
+                            AnhDaiDien = "/images/device (75).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 1600000m,
+                            GiaNhap = 35000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm170",
+                            PhanTramGiam = 6,
+                            ProductCategoryId = 16,
+                            ShopId = 7,
+                            SoLuongCon = 200,
+                            TenSp = "oct8sDPtFl170",
+                            ThongSo = "RAM:19Memory:132GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 171,
+                            AnhDaiDien = "/images/device (1).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 3800000m,
+                            GiaNhap = 20000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm171",
+                            PhanTramGiam = 32,
+                            ProductCategoryId = 19,
+                            ShopId = 1,
+                            SoLuongCon = 300,
+                            TenSp = "vWBhSAWkPC171",
+                            ThongSo = "RAM:21Memory:345GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 172,
+                            AnhDaiDien = "/images/device (167).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 700000m,
+                            GiaNhap = 46000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm172",
+                            PhanTramGiam = 21,
+                            ProductCategoryId = 11,
+                            ShopId = 3,
+                            SoLuongCon = 200,
+                            TenSp = "yQTKObgysu172",
+                            ThongSo = "RAM:1Memory:288GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 173,
+                            AnhDaiDien = "/images/device (238).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 1300000m,
+                            GiaNhap = 35000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm173",
+                            PhanTramGiam = 20,
+                            ProductCategoryId = 9,
+                            ShopId = 8,
+                            SoLuongCon = 200,
+                            TenSp = "FSSX0HGW3f173",
+                            ThongSo = "RAM:18Memory:46GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 174,
+                            AnhDaiDien = "/images/device (212).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 600000m,
+                            GiaNhap = 47000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm174",
+                            PhanTramGiam = 17,
+                            ProductCategoryId = 27,
+                            ShopId = 1,
+                            SoLuongCon = 200,
+                            TenSp = "IyP37X8Xrx174",
+                            ThongSo = "RAM:17Memory:488GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 175,
+                            AnhDaiDien = "/images/device (141).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 2300000m,
+                            GiaNhap = 49000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm175",
+                            PhanTramGiam = 9,
+                            ProductCategoryId = 23,
+                            ShopId = 6,
+                            SoLuongCon = 200,
+                            TenSp = "wkeb33d1LL175",
+                            ThongSo = "RAM:9Memory:52GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 176,
+                            AnhDaiDien = "/images/device (258).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 3800000m,
+                            GiaNhap = 47000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm176",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 26,
+                            ShopId = 3,
+                            SoLuongCon = 400,
+                            TenSp = "QG1uGQbL5E176",
+                            ThongSo = "RAM:10Memory:495GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 177,
+                            AnhDaiDien = "/images/device (99).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 1300000m,
+                            GiaNhap = 35000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm177",
+                            PhanTramGiam = 5,
+                            ProductCategoryId = 9,
+                            ShopId = 8,
+                            SoLuongCon = 400,
+                            TenSp = "8QzbCY8vIE177",
+                            ThongSo = "RAM:13Memory:141GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 178,
+                            AnhDaiDien = "/images/device (106).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 3100000m,
+                            GiaNhap = 34000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm178",
+                            PhanTramGiam = 21,
+                            ProductCategoryId = 8,
+                            ShopId = 3,
+                            SoLuongCon = 300,
+                            TenSp = "416ewFe2qZ178",
+                            ThongSo = "RAM:5Memory:216GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 179,
+                            AnhDaiDien = "/images/device (204).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 3500000m,
+                            GiaNhap = 41000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm179",
+                            PhanTramGiam = 10,
+                            ProductCategoryId = 11,
+                            ShopId = 2,
+                            SoLuongCon = 400,
+                            TenSp = "Oc8DzvkzZj179",
+                            ThongSo = "RAM:29Memory:156GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 180,
+                            AnhDaiDien = "/images/device (247).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 400000m,
+                            GiaNhap = 1000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm180",
+                            PhanTramGiam = 9,
+                            ProductCategoryId = 26,
+                            ShopId = 8,
+                            SoLuongCon = 200,
+                            TenSp = "akv0lywCqH180",
+                            ThongSo = "RAM:10Memory:33GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 181,
+                            AnhDaiDien = "/images/device (217).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 4600000m,
+                            GiaNhap = 12000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm181",
+                            PhanTramGiam = 20,
+                            ProductCategoryId = 13,
+                            ShopId = 7,
+                            SoLuongCon = 300,
+                            TenSp = "NGKcCrVZ4z181",
+                            ThongSo = "RAM:31Memory:441GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 182,
+                            AnhDaiDien = "/images/device (9).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 3100000m,
+                            GiaNhap = 41000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm182",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 25,
+                            ShopId = 7,
+                            SoLuongCon = 100,
+                            TenSp = "OaW6WZ3nXK182",
+                            ThongSo = "RAM:2Memory:175GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 183,
+                            AnhDaiDien = "/images/device (17).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 800000m,
+                            GiaNhap = 43000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm183",
+                            PhanTramGiam = 14,
+                            ProductCategoryId = 12,
+                            ShopId = 7,
+                            SoLuongCon = 200,
+                            TenSp = "suecdFlEMi183",
+                            ThongSo = "RAM:6Memory:105GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 184,
+                            AnhDaiDien = "/images/device (89).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 900000m,
+                            GiaNhap = 35000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm184",
+                            PhanTramGiam = 29,
+                            ProductCategoryId = 17,
+                            ShopId = 3,
+                            SoLuongCon = 200,
+                            TenSp = "P2og6aXkvm184",
+                            ThongSo = "RAM:12Memory:159GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 185,
+                            AnhDaiDien = "/images/device (53).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 3300000m,
+                            GiaNhap = 8000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm185",
+                            PhanTramGiam = 6,
+                            ProductCategoryId = 20,
+                            ShopId = 5,
+                            SoLuongCon = 300,
+                            TenSp = "45ycXpMt1B185",
+                            ThongSo = "RAM:9Memory:416GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 186,
+                            AnhDaiDien = "/images/device (90).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 1000000m,
+                            GiaNhap = 34000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm186",
+                            PhanTramGiam = 32,
+                            ProductCategoryId = 3,
+                            ShopId = 4,
+                            SoLuongCon = 300,
+                            TenSp = "DhfpovflK1186",
+                            ThongSo = "RAM:12Memory:418GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 187,
+                            AnhDaiDien = "/images/device (212).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 4100000m,
+                            GiaNhap = 27000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm187",
+                            PhanTramGiam = 11,
+                            ProductCategoryId = 22,
+                            ShopId = 1,
+                            SoLuongCon = 400,
+                            TenSp = "Jgnn2w2vXz187",
+                            ThongSo = "RAM:25Memory:215GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 188,
+                            AnhDaiDien = "/images/device (94).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 300000m,
+                            GiaNhap = 4000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm188",
+                            PhanTramGiam = 12,
+                            ProductCategoryId = 27,
+                            ShopId = 3,
+                            SoLuongCon = 300,
+                            TenSp = "KXFIn5hr9q188",
+                            ThongSo = "RAM:16Memory:37GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 189,
+                            AnhDaiDien = "/images/device (135).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 1500000m,
+                            GiaNhap = 48000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm189",
+                            PhanTramGiam = 27,
+                            ProductCategoryId = 15,
+                            ShopId = 3,
+                            SoLuongCon = 400,
+                            TenSp = "kImgarG2RX189",
+                            ThongSo = "RAM:22Memory:153GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 190,
+                            AnhDaiDien = "/images/device (199).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 600000m,
+                            GiaNhap = 16000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm190",
+                            PhanTramGiam = 10,
+                            ProductCategoryId = 26,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "Is7qhdPpIK190",
+                            ThongSo = "RAM:21Memory:208GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 191,
+                            AnhDaiDien = "/images/device (38).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 2200000m,
+                            GiaNhap = 13000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm191",
+                            PhanTramGiam = 25,
+                            ProductCategoryId = 14,
+                            ShopId = 2,
+                            SoLuongCon = 300,
+                            TenSp = "ZlT0u1hES8191",
+                            ThongSo = "RAM:25Memory:343GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 192,
+                            AnhDaiDien = "/images/device (244).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 800000m,
+                            GiaNhap = 20000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm192",
+                            PhanTramGiam = 18,
+                            ProductCategoryId = 8,
+                            ShopId = 6,
+                            SoLuongCon = 200,
+                            TenSp = "EnFTCaL53R192",
+                            ThongSo = "RAM:5Memory:95GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 193,
+                            AnhDaiDien = "/images/device (166).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 400000m,
+                            GiaNhap = 2000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm193",
+                            PhanTramGiam = 31,
+                            ProductCategoryId = 27,
+                            ShopId = 5,
+                            SoLuongCon = 200,
+                            TenSp = "en1H8Bssql193",
+                            ThongSo = "RAM:6Memory:427GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 194,
+                            AnhDaiDien = "/images/device (14).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 2600000m,
+                            GiaNhap = 21000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm194",
+                            PhanTramGiam = 10,
+                            ProductCategoryId = 4,
+                            ShopId = 6,
+                            SoLuongCon = 400,
+                            TenSp = "S7PdoUmSw4194",
+                            ThongSo = "RAM:14Memory:248GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 195,
+                            AnhDaiDien = "/images/device (81).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 4300000m,
+                            GiaNhap = 47000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm195",
+                            PhanTramGiam = 22,
+                            ProductCategoryId = 6,
+                            ShopId = 8,
+                            SoLuongCon = 300,
+                            TenSp = "9qZNX7kocL195",
+                            ThongSo = "RAM:24Memory:85GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 196,
+                            AnhDaiDien = "/images/device (240).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 4100000m,
+                            GiaNhap = 6000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm196",
+                            PhanTramGiam = 37,
+                            ProductCategoryId = 24,
+                            ShopId = 8,
+                            SoLuongCon = 100,
+                            TenSp = "dNsftb6D7F196",
+                            ThongSo = "RAM:9Memory:342GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 197,
+                            AnhDaiDien = "/images/device (106).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 3800000m,
+                            GiaNhap = 18000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm197",
+                            PhanTramGiam = 30,
+                            ProductCategoryId = 20,
+                            ShopId = 7,
+                            SoLuongCon = 400,
+                            TenSp = "OorapfYtvX197",
+                            ThongSo = "RAM:9Memory:246GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 198,
+                            AnhDaiDien = "/images/device (269).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 4100000m,
+                            GiaNhap = 45000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm198",
+                            PhanTramGiam = 32,
+                            ProductCategoryId = 15,
+                            ShopId = 4,
+                            SoLuongCon = 100,
+                            TenSp = "qiMywRdDkV198",
+                            ThongSo = "RAM:25Memory:149GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 199,
+                            AnhDaiDien = "/images/device (41).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 200000m,
+                            GiaNhap = 34000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm199",
+                            PhanTramGiam = 18,
+                            ProductCategoryId = 2,
+                            ShopId = 6,
+                            SoLuongCon = 200,
+                            TenSp = "pGwn0T4RwS199",
+                            ThongSo = "RAM:30Memory:242GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 200,
+                            AnhDaiDien = "/images/device (161).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 4200000m,
+                            GiaNhap = 1000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm200",
+                            PhanTramGiam = 7,
+                            ProductCategoryId = 12,
+                            ShopId = 3,
+                            SoLuongCon = 100,
+                            TenSp = "BVwgzyrXFC200",
+                            ThongSo = "RAM:17Memory:75GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 201,
+                            AnhDaiDien = "/images/device (57).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 4800000m,
+                            GiaNhap = 39000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm201",
+                            PhanTramGiam = 38,
+                            ProductCategoryId = 8,
+                            ShopId = 7,
+                            SoLuongCon = 200,
+                            TenSp = "8mETY5Adux201",
+                            ThongSo = "RAM:1Memory:163GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 202,
+                            AnhDaiDien = "/images/device (217).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 4300000m,
+                            GiaNhap = 47000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm202",
+                            PhanTramGiam = 36,
+                            ProductCategoryId = 9,
+                            ShopId = 3,
+                            SoLuongCon = 300,
+                            TenSp = "bMqUkWIwkM202",
+                            ThongSo = "RAM:8Memory:387GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 203,
+                            AnhDaiDien = "/images/device (250).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 4800000m,
+                            GiaNhap = 27000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm203",
+                            PhanTramGiam = 16,
+                            ProductCategoryId = 21,
+                            ShopId = 3,
+                            SoLuongCon = 400,
+                            TenSp = "gCqmfYhUGI203",
+                            ThongSo = "RAM:7Memory:408GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 204,
+                            AnhDaiDien = "/images/device (253).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 4300000m,
+                            GiaNhap = 36000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm204",
+                            PhanTramGiam = 16,
+                            ProductCategoryId = 24,
+                            ShopId = 5,
+                            SoLuongCon = 400,
+                            TenSp = "P0PC6fPpqg204",
+                            ThongSo = "RAM:3Memory:231GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 205,
+                            AnhDaiDien = "/images/device (80).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 3800000m,
+                            GiaNhap = 6000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm205",
+                            PhanTramGiam = 34,
+                            ProductCategoryId = 17,
+                            ShopId = 7,
+                            SoLuongCon = 200,
+                            TenSp = "kxmbUNINjh205",
+                            ThongSo = "RAM:17Memory:439GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 206,
+                            AnhDaiDien = "/images/device (91).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 300000m,
+                            GiaNhap = 10000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm206",
+                            PhanTramGiam = 29,
+                            ProductCategoryId = 11,
+                            ShopId = 2,
+                            SoLuongCon = 100,
+                            TenSp = "rAiDCaZKSv206",
+                            ThongSo = "RAM:25Memory:188GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 207,
+                            AnhDaiDien = "/images/device (134).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 1800000m,
+                            GiaNhap = 48000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm207",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 10,
+                            ShopId = 8,
+                            SoLuongCon = 300,
+                            TenSp = "tmCRYobZBu207",
+                            ThongSo = "RAM:12Memory:315GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 208,
+                            AnhDaiDien = "/images/device (116).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 4400000m,
+                            GiaNhap = 24000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm208",
+                            PhanTramGiam = 31,
+                            ProductCategoryId = 13,
+                            ShopId = 2,
+                            SoLuongCon = 200,
+                            TenSp = "626uVjY1av208",
+                            ThongSo = "RAM:14Memory:365GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 209,
+                            AnhDaiDien = "/images/device (27).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 700000m,
+                            GiaNhap = 6000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm209",
+                            PhanTramGiam = 34,
+                            ProductCategoryId = 15,
+                            ShopId = 5,
+                            SoLuongCon = 100,
+                            TenSp = "LpWN5cfQb2209",
+                            ThongSo = "RAM:30Memory:505GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 210,
+                            AnhDaiDien = "/images/device (11).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 1400000m,
+                            GiaNhap = 8000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm210",
+                            PhanTramGiam = 19,
+                            ProductCategoryId = 2,
+                            ShopId = 5,
+                            SoLuongCon = 400,
+                            TenSp = "NuhZ7eY1vK210",
+                            ThongSo = "RAM:10Memory:387GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 211,
+                            AnhDaiDien = "/images/device (44).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 4300000m,
+                            GiaNhap = 34000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm211",
+                            PhanTramGiam = 23,
+                            ProductCategoryId = 5,
+                            ShopId = 5,
+                            SoLuongCon = 400,
+                            TenSp = "7GaC91HKGO211",
+                            ThongSo = "RAM:7Memory:399GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 212,
+                            AnhDaiDien = "/images/device (207).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 1800000m,
+                            GiaNhap = 45000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm212",
+                            PhanTramGiam = 17,
+                            ProductCategoryId = 21,
+                            ShopId = 3,
+                            SoLuongCon = 400,
+                            TenSp = "HHZgT52ghN212",
+                            ThongSo = "RAM:7Memory:498GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 213,
+                            AnhDaiDien = "/images/device (235).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 2500000m,
+                            GiaNhap = 37000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm213",
+                            PhanTramGiam = 37,
+                            ProductCategoryId = 10,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "lIKVzeuAYo213",
+                            ThongSo = "RAM:20Memory:277GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 214,
+                            AnhDaiDien = "/images/device (71).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 1200000m,
+                            GiaNhap = 3000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm214",
+                            PhanTramGiam = 19,
+                            ProductCategoryId = 7,
+                            ShopId = 4,
+                            SoLuongCon = 300,
+                            TenSp = "uCWDyIKgJW214",
+                            ThongSo = "RAM:15Memory:104GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 215,
+                            AnhDaiDien = "/images/device (212).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 200000m,
+                            GiaNhap = 15000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm215",
+                            PhanTramGiam = 29,
+                            ProductCategoryId = 20,
+                            ShopId = 5,
+                            SoLuongCon = 100,
+                            TenSp = "EKiltte1OD215",
+                            ThongSo = "RAM:21Memory:73GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 216,
+                            AnhDaiDien = "/images/device (226).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 3500000m,
+                            GiaNhap = 45000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm216",
+                            PhanTramGiam = 9,
+                            ProductCategoryId = 19,
+                            ShopId = 2,
+                            SoLuongCon = 100,
+                            TenSp = "jWCy4gIzTi216",
+                            ThongSo = "RAM:4Memory:241GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 217,
+                            AnhDaiDien = "/images/device (69).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 100000m,
+                            GiaNhap = 42000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm217",
+                            PhanTramGiam = 34,
+                            ProductCategoryId = 17,
+                            ShopId = 1,
+                            SoLuongCon = 100,
+                            TenSp = "fT0C3RSHbx217",
+                            ThongSo = "RAM:28Memory:290GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 218,
+                            AnhDaiDien = "/images/device (230).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 2000000m,
+                            GiaNhap = 26000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm218",
+                            PhanTramGiam = 39,
+                            ProductCategoryId = 10,
+                            ShopId = 6,
+                            SoLuongCon = 100,
+                            TenSp = "NmIkVDxDAa218",
+                            ThongSo = "RAM:29Memory:452GB Man hinh :4inch"
+                        },
+                        new
+                        {
+                            ProductId = 219,
+                            AnhDaiDien = "/images/device (76).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 1400000m,
+                            GiaNhap = 23000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm219",
+                            PhanTramGiam = 16,
+                            ProductCategoryId = 22,
+                            ShopId = 8,
+                            SoLuongCon = 300,
+                            TenSp = "A0i3jCP3YK219",
+                            ThongSo = "RAM:23Memory:355GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 220,
+                            AnhDaiDien = "/images/device (8).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 4400000m,
+                            GiaNhap = 35000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm220",
+                            PhanTramGiam = 29,
+                            ProductCategoryId = 23,
+                            ShopId = 6,
+                            SoLuongCon = 200,
+                            TenSp = "KH4uBOhgJm220",
+                            ThongSo = "RAM:30Memory:78GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 221,
+                            AnhDaiDien = "/images/device (175).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 300000m,
+                            GiaNhap = 31000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm221",
+                            PhanTramGiam = 29,
+                            ProductCategoryId = 15,
+                            ShopId = 2,
+                            SoLuongCon = 200,
+                            TenSp = "lqT7oPLux4221",
+                            ThongSo = "RAM:31Memory:505GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 222,
+                            AnhDaiDien = "/images/device (224).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 3100000m,
+                            GiaNhap = 3000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm222",
+                            PhanTramGiam = 27,
+                            ProductCategoryId = 11,
+                            ShopId = 6,
+                            SoLuongCon = 200,
+                            TenSp = "Nic2QFb0WI222",
+                            ThongSo = "RAM:15Memory:68GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 223,
+                            AnhDaiDien = "/images/device (254).png",
+                            BrandId = 6,
+                            DaAn = false,
+                            GiaBan = 1500000m,
+                            GiaNhap = 42000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm223",
+                            PhanTramGiam = 10,
+                            ProductCategoryId = 27,
+                            ShopId = 1,
+                            SoLuongCon = 200,
+                            TenSp = "2dOgasCE60223",
+                            ThongSo = "RAM:19Memory:493GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 224,
+                            AnhDaiDien = "/images/device (73).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 1100000m,
+                            GiaNhap = 31000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm224",
+                            PhanTramGiam = 15,
+                            ProductCategoryId = 27,
+                            ShopId = 7,
+                            SoLuongCon = 300,
+                            TenSp = "X6nmCEgabv224",
+                            ThongSo = "RAM:28Memory:471GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 225,
+                            AnhDaiDien = "/images/device (14).png",
+                            BrandId = 5,
+                            DaAn = false,
+                            GiaBan = 4500000m,
+                            GiaNhap = 40000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm225",
+                            PhanTramGiam = 37,
+                            ProductCategoryId = 17,
+                            ShopId = 7,
+                            SoLuongCon = 100,
+                            TenSp = "HoSULfygrZ225",
+                            ThongSo = "RAM:26Memory:56GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 226,
+                            AnhDaiDien = "/images/device (271).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 3400000m,
+                            GiaNhap = 21000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm226",
+                            PhanTramGiam = 29,
+                            ProductCategoryId = 12,
+                            ShopId = 6,
+                            SoLuongCon = 400,
+                            TenSp = "Ig077vqwss226",
+                            ThongSo = "RAM:20Memory:285GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 227,
+                            AnhDaiDien = "/images/device (61).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 4300000m,
+                            GiaNhap = 24000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm227",
+                            PhanTramGiam = 6,
+                            ProductCategoryId = 9,
+                            ShopId = 5,
+                            SoLuongCon = 100,
+                            TenSp = "2SW8g9X5rA227",
+                            ThongSo = "RAM:19Memory:476GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 228,
+                            AnhDaiDien = "/images/device (250).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 1300000m,
+                            GiaNhap = 9000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm228",
+                            PhanTramGiam = 10,
+                            ProductCategoryId = 7,
+                            ShopId = 6,
+                            SoLuongCon = 200,
+                            TenSp = "xNi4R6cawn228",
+                            ThongSo = "RAM:3Memory:88GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 229,
+                            AnhDaiDien = "/images/device (99).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 2000000m,
+                            GiaNhap = 7000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm229",
+                            PhanTramGiam = 14,
+                            ProductCategoryId = 22,
+                            ShopId = 2,
+                            SoLuongCon = 400,
+                            TenSp = "9vIYCbdwdU229",
+                            ThongSo = "RAM:28Memory:365GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 230,
+                            AnhDaiDien = "/images/device (80).png",
+                            BrandId = 4,
+                            DaAn = false,
+                            GiaBan = 2600000m,
+                            GiaNhap = 33000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm230",
+                            PhanTramGiam = 33,
+                            ProductCategoryId = 14,
+                            ShopId = 8,
+                            SoLuongCon = 200,
+                            TenSp = "Hos7DJqjze230",
+                            ThongSo = "RAM:24Memory:120GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 231,
+                            AnhDaiDien = "/images/device (91).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 3300000m,
+                            GiaNhap = 21000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm231",
+                            PhanTramGiam = 11,
+                            ProductCategoryId = 6,
+                            ShopId = 7,
+                            SoLuongCon = 300,
+                            TenSp = "1KeJfXFTkU231",
+                            ThongSo = "RAM:19Memory:60GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 232,
+                            AnhDaiDien = "/images/device (239).png",
+                            BrandId = 8,
+                            DaAn = false,
+                            GiaBan = 2700000m,
+                            GiaNhap = 21000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm232",
+                            PhanTramGiam = 33,
+                            ProductCategoryId = 17,
+                            ShopId = 1,
+                            SoLuongCon = 200,
+                            TenSp = "MS6REpoBrO232",
+                            ThongSo = "RAM:14Memory:76GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 233,
+                            AnhDaiDien = "/images/device (50).png",
+                            BrandId = 2,
+                            DaAn = false,
+                            GiaBan = 800000m,
+                            GiaNhap = 46000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm233",
+                            PhanTramGiam = 12,
+                            ProductCategoryId = 18,
+                            ShopId = 8,
+                            SoLuongCon = 400,
+                            TenSp = "IkytQ42Muw233",
+                            ThongSo = "RAM:25Memory:99GB Man hinh :8inch"
+                        },
+                        new
+                        {
+                            ProductId = 234,
+                            AnhDaiDien = "/images/device (2).png",
+                            BrandId = 3,
+                            DaAn = false,
+                            GiaBan = 600000m,
+                            GiaNhap = 37000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm234",
+                            PhanTramGiam = 16,
+                            ProductCategoryId = 26,
+                            ShopId = 6,
+                            SoLuongCon = 300,
+                            TenSp = "KHw8VDHZt9234",
+                            ThongSo = "RAM:26Memory:345GB Man hinh :12inch"
+                        },
+                        new
+                        {
+                            ProductId = 235,
+                            AnhDaiDien = "/images/device (12).png",
+                            BrandId = 1,
+                            DaAn = false,
+                            GiaBan = 3300000m,
+                            GiaNhap = 25000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm235",
+                            PhanTramGiam = 5,
+                            ProductCategoryId = 22,
+                            ShopId = 3,
+                            SoLuongCon = 300,
+                            TenSp = "5fDv29hXwx235",
+                            ThongSo = "RAM:13Memory:351GB Man hinh :16inch"
+                        },
+                        new
+                        {
+                            ProductId = 236,
+                            AnhDaiDien = "/images/device (86).png",
+                            BrandId = 7,
+                            DaAn = false,
+                            GiaBan = 3500000m,
+                            GiaNhap = 44000000m,
+                            MoTa = "Mô tả mẫu của sản phẩm236",
+                            PhanTramGiam = 38,
+                            ProductCategoryId = 25,
+                            ShopId = 1,
+                            SoLuongCon = 100,
+                            TenSp = "qxpoX00H4u236",
+                            ThongSo = "RAM:30Memory:476GB Man hinh :4inch"
+                        });
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.ProductCategory", b =>
@@ -316,6 +4195,170 @@ namespace DoAnNhom11.Migrations
                     b.HasKey("ProductCategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductCategoryId = 1,
+                            AnhDaiDien = "/categoryImg/balotuivi.png",
+                            TenLoai = "Balo & Túi Ví"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 2,
+                            AnhDaiDien = "/categoryImg/dienthoai.png",
+                            TenLoai = "Điện Thoại"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 3,
+                            AnhDaiDien = "/categoryImg/dientu.png",
+                            TenLoai = "Điện tử"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 4,
+                            AnhDaiDien = "/categoryImg/doan.png",
+                            TenLoai = "Thực phẩm"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 5,
+                            AnhDaiDien = "/categoryImg/dobep.png",
+                            TenLoai = "Đồ bếp"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 6,
+                            AnhDaiDien = "/categoryImg/dochoi.png",
+                            TenLoai = "Đồ chơi"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 7,
+                            AnhDaiDien = "/categoryImg/dongho.png",
+                            TenLoai = "Đồng hồ"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 8,
+                            AnhDaiDien = "/categoryImg/giadung.png",
+                            TenLoai = "Đồ gia dụng"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 9,
+                            AnhDaiDien = "/categoryImg/giaydepnam.png",
+                            TenLoai = "Giày dép nam"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 10,
+                            AnhDaiDien = "/categoryImg/giaydepnu.png",
+                            TenLoai = "Giày dép nữ"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 11,
+                            AnhDaiDien = "/categoryImg/mayanh.png",
+                            TenLoai = "Máy Ảnh"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 12,
+                            AnhDaiDien = "/categoryImg/maytinh.png",
+                            TenLoai = "Máy tính"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 13,
+                            AnhDaiDien = "/categoryImg/noitro.png",
+                            TenLoai = "Đồ nội trợ"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 14,
+                            AnhDaiDien = "/categoryImg/phuongtien.png",
+                            TenLoai = "Phương tiện"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 15,
+                            AnhDaiDien = "/categoryImg/sacdep.png",
+                            TenLoai = "Sắc đẹp"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 16,
+                            AnhDaiDien = "/categoryImg/sach.png",
+                            TenLoai = "Sách"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 17,
+                            AnhDaiDien = "/categoryImg/thethao.png",
+                            TenLoai = "Thể thao"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 18,
+                            AnhDaiDien = "/categoryImg/thietbi.png",
+                            TenLoai = "Thiết bị"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 19,
+                            AnhDaiDien = "/categoryImg/thoitrangnam.png",
+                            TenLoai = "Thời trang nam"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 20,
+                            AnhDaiDien = "/categoryImg/thoitrangnu.png",
+                            TenLoai = "Thời trang nữ"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 21,
+                            AnhDaiDien = "/categoryImg/thoitrangtreem.png",
+                            TenLoai = "Thời trang trẻ em"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 22,
+                            AnhDaiDien = "/categoryImg/thucung'.png",
+                            TenLoai = "Thú cưng"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 23,
+                            AnhDaiDien = "/categoryImg/trangsuc.png",
+                            TenLoai = "Trang sức"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 24,
+                            AnhDaiDien = "/categoryImg/treem.png",
+                            TenLoai = "Trẻ em"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 25,
+                            AnhDaiDien = "/categoryImg/tuivinu.png",
+                            TenLoai = "Túi Ví Nữ"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 26,
+                            AnhDaiDien = "/categoryImg/voucherdichvu.png",
+                            TenLoai = "Dịch vụ"
+                        },
+                        new
+                        {
+                            ProductCategoryId = 27,
+                            AnhDaiDien = "/categoryImg/yte.png",
+                            TenLoai = "Y tế"
+                        });
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.ProductImage", b =>
@@ -338,6 +4381,4508 @@ namespace DoAnNhom11.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductImage");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductImageId = 1,
+                            ProductId = 36,
+                            Url = "/images/device (144).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 2,
+                            ProductId = 105,
+                            Url = "/images/device (212).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 3,
+                            ProductId = 57,
+                            Url = "/images/device (62).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 4,
+                            ProductId = 21,
+                            Url = "/images/device (184).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 5,
+                            ProductId = 106,
+                            Url = "/images/device (227).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 6,
+                            ProductId = 62,
+                            Url = "/images/device (16).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 7,
+                            ProductId = 154,
+                            Url = "/images/device (39).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 8,
+                            ProductId = 233,
+                            Url = "/images/device (121).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 9,
+                            ProductId = 133,
+                            Url = "/images/device (221).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 10,
+                            ProductId = 192,
+                            Url = "/images/device (215).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 11,
+                            ProductId = 2,
+                            Url = "/images/device (76).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 12,
+                            ProductId = 162,
+                            Url = "/images/device (63).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 13,
+                            ProductId = 49,
+                            Url = "/images/device (251).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 14,
+                            ProductId = 21,
+                            Url = "/images/device (251).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 15,
+                            ProductId = 131,
+                            Url = "/images/device (108).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 16,
+                            ProductId = 151,
+                            Url = "/images/device (1).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 17,
+                            ProductId = 67,
+                            Url = "/images/device (239).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 18,
+                            ProductId = 61,
+                            Url = "/images/device (75).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 19,
+                            ProductId = 30,
+                            Url = "/images/device (44).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 20,
+                            ProductId = 170,
+                            Url = "/images/device (110).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 21,
+                            ProductId = 179,
+                            Url = "/images/device (240).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 22,
+                            ProductId = 103,
+                            Url = "/images/device (231).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 23,
+                            ProductId = 207,
+                            Url = "/images/device (72).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 24,
+                            ProductId = 10,
+                            Url = "/images/device (117).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 25,
+                            ProductId = 113,
+                            Url = "/images/device (130).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 26,
+                            ProductId = 122,
+                            Url = "/images/device (115).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 27,
+                            ProductId = 62,
+                            Url = "/images/device (209).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 28,
+                            ProductId = 39,
+                            Url = "/images/device (269).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 29,
+                            ProductId = 64,
+                            Url = "/images/device (233).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 30,
+                            ProductId = 130,
+                            Url = "/images/device (109).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 31,
+                            ProductId = 220,
+                            Url = "/images/device (149).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 32,
+                            ProductId = 6,
+                            Url = "/images/device (92).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 33,
+                            ProductId = 202,
+                            Url = "/images/device (248).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 34,
+                            ProductId = 198,
+                            Url = "/images/device (206).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 35,
+                            ProductId = 194,
+                            Url = "/images/device (89).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 36,
+                            ProductId = 228,
+                            Url = "/images/device (214).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 37,
+                            ProductId = 233,
+                            Url = "/images/device (64).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 38,
+                            ProductId = 191,
+                            Url = "/images/device (42).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 39,
+                            ProductId = 101,
+                            Url = "/images/device (234).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 40,
+                            ProductId = 232,
+                            Url = "/images/device (89).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 41,
+                            ProductId = 41,
+                            Url = "/images/device (173).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 42,
+                            ProductId = 155,
+                            Url = "/images/device (190).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 43,
+                            ProductId = 84,
+                            Url = "/images/device (33).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 44,
+                            ProductId = 5,
+                            Url = "/images/device (150).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 45,
+                            ProductId = 35,
+                            Url = "/images/device (164).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 46,
+                            ProductId = 236,
+                            Url = "/images/device (168).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 47,
+                            ProductId = 83,
+                            Url = "/images/device (202).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 48,
+                            ProductId = 125,
+                            Url = "/images/device (50).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 49,
+                            ProductId = 153,
+                            Url = "/images/device (201).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 50,
+                            ProductId = 133,
+                            Url = "/images/device (174).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 51,
+                            ProductId = 58,
+                            Url = "/images/device (64).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 52,
+                            ProductId = 183,
+                            Url = "/images/device (268).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 53,
+                            ProductId = 178,
+                            Url = "/images/device (223).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 54,
+                            ProductId = 181,
+                            Url = "/images/device (74).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 55,
+                            ProductId = 206,
+                            Url = "/images/device (105).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 56,
+                            ProductId = 48,
+                            Url = "/images/device (271).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 57,
+                            ProductId = 87,
+                            Url = "/images/device (100).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 58,
+                            ProductId = 56,
+                            Url = "/images/device (88).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 59,
+                            ProductId = 23,
+                            Url = "/images/device (263).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 60,
+                            ProductId = 142,
+                            Url = "/images/device (58).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 61,
+                            ProductId = 127,
+                            Url = "/images/device (205).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 62,
+                            ProductId = 197,
+                            Url = "/images/device (165).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 63,
+                            ProductId = 189,
+                            Url = "/images/device (4).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 64,
+                            ProductId = 188,
+                            Url = "/images/device (94).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 65,
+                            ProductId = 23,
+                            Url = "/images/device (223).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 66,
+                            ProductId = 201,
+                            Url = "/images/device (196).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 67,
+                            ProductId = 74,
+                            Url = "/images/device (160).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 68,
+                            ProductId = 66,
+                            Url = "/images/device (161).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 69,
+                            ProductId = 136,
+                            Url = "/images/device (236).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 70,
+                            ProductId = 229,
+                            Url = "/images/device (138).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 71,
+                            ProductId = 17,
+                            Url = "/images/device (144).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 72,
+                            ProductId = 36,
+                            Url = "/images/device (262).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 73,
+                            ProductId = 113,
+                            Url = "/images/device (3).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 74,
+                            ProductId = 229,
+                            Url = "/images/device (171).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 75,
+                            ProductId = 227,
+                            Url = "/images/device (62).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 76,
+                            ProductId = 48,
+                            Url = "/images/device (91).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 77,
+                            ProductId = 55,
+                            Url = "/images/device (90).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 78,
+                            ProductId = 79,
+                            Url = "/images/device (75).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 79,
+                            ProductId = 51,
+                            Url = "/images/device (215).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 80,
+                            ProductId = 106,
+                            Url = "/images/device (67).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 81,
+                            ProductId = 224,
+                            Url = "/images/device (201).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 82,
+                            ProductId = 53,
+                            Url = "/images/device (81).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 83,
+                            ProductId = 186,
+                            Url = "/images/device (18).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 84,
+                            ProductId = 40,
+                            Url = "/images/device (160).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 85,
+                            ProductId = 203,
+                            Url = "/images/device (25).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 86,
+                            ProductId = 87,
+                            Url = "/images/device (147).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 87,
+                            ProductId = 40,
+                            Url = "/images/device (63).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 88,
+                            ProductId = 121,
+                            Url = "/images/device (118).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 89,
+                            ProductId = 111,
+                            Url = "/images/device (159).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 90,
+                            ProductId = 42,
+                            Url = "/images/device (182).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 91,
+                            ProductId = 193,
+                            Url = "/images/device (69).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 92,
+                            ProductId = 108,
+                            Url = "/images/device (123).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 93,
+                            ProductId = 65,
+                            Url = "/images/device (72).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 94,
+                            ProductId = 180,
+                            Url = "/images/device (211).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 95,
+                            ProductId = 230,
+                            Url = "/images/device (88).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 96,
+                            ProductId = 30,
+                            Url = "/images/device (221).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 97,
+                            ProductId = 83,
+                            Url = "/images/device (241).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 98,
+                            ProductId = 216,
+                            Url = "/images/device (167).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 99,
+                            ProductId = 40,
+                            Url = "/images/device (135).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 100,
+                            ProductId = 36,
+                            Url = "/images/device (199).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 101,
+                            ProductId = 127,
+                            Url = "/images/device (240).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 102,
+                            ProductId = 23,
+                            Url = "/images/device (132).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 103,
+                            ProductId = 176,
+                            Url = "/images/device (154).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 104,
+                            ProductId = 29,
+                            Url = "/images/device (210).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 105,
+                            ProductId = 16,
+                            Url = "/images/device (58).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 106,
+                            ProductId = 164,
+                            Url = "/images/device (64).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 107,
+                            ProductId = 193,
+                            Url = "/images/device (9).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 108,
+                            ProductId = 11,
+                            Url = "/images/device (252).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 109,
+                            ProductId = 144,
+                            Url = "/images/device (126).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 110,
+                            ProductId = 158,
+                            Url = "/images/device (25).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 111,
+                            ProductId = 18,
+                            Url = "/images/device (92).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 112,
+                            ProductId = 170,
+                            Url = "/images/device (158).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 113,
+                            ProductId = 184,
+                            Url = "/images/device (195).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 114,
+                            ProductId = 209,
+                            Url = "/images/device (251).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 115,
+                            ProductId = 131,
+                            Url = "/images/device (73).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 116,
+                            ProductId = 57,
+                            Url = "/images/device (148).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 117,
+                            ProductId = 45,
+                            Url = "/images/device (52).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 118,
+                            ProductId = 27,
+                            Url = "/images/device (19).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 119,
+                            ProductId = 20,
+                            Url = "/images/device (19).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 120,
+                            ProductId = 128,
+                            Url = "/images/device (12).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 121,
+                            ProductId = 104,
+                            Url = "/images/device (227).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 122,
+                            ProductId = 100,
+                            Url = "/images/device (173).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 123,
+                            ProductId = 53,
+                            Url = "/images/device (191).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 124,
+                            ProductId = 39,
+                            Url = "/images/device (269).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 125,
+                            ProductId = 27,
+                            Url = "/images/device (209).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 126,
+                            ProductId = 94,
+                            Url = "/images/device (53).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 127,
+                            ProductId = 219,
+                            Url = "/images/device (127).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 128,
+                            ProductId = 82,
+                            Url = "/images/device (51).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 129,
+                            ProductId = 141,
+                            Url = "/images/device (80).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 130,
+                            ProductId = 198,
+                            Url = "/images/device (258).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 131,
+                            ProductId = 144,
+                            Url = "/images/device (124).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 132,
+                            ProductId = 50,
+                            Url = "/images/device (185).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 133,
+                            ProductId = 30,
+                            Url = "/images/device (249).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 134,
+                            ProductId = 156,
+                            Url = "/images/device (124).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 135,
+                            ProductId = 176,
+                            Url = "/images/device (44).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 136,
+                            ProductId = 138,
+                            Url = "/images/device (87).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 137,
+                            ProductId = 59,
+                            Url = "/images/device (121).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 138,
+                            ProductId = 80,
+                            Url = "/images/device (107).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 139,
+                            ProductId = 21,
+                            Url = "/images/device (264).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 140,
+                            ProductId = 141,
+                            Url = "/images/device (189).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 141,
+                            ProductId = 121,
+                            Url = "/images/device (270).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 142,
+                            ProductId = 41,
+                            Url = "/images/device (32).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 143,
+                            ProductId = 211,
+                            Url = "/images/device (247).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 144,
+                            ProductId = 53,
+                            Url = "/images/device (42).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 145,
+                            ProductId = 144,
+                            Url = "/images/device (22).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 146,
+                            ProductId = 117,
+                            Url = "/images/device (8).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 147,
+                            ProductId = 223,
+                            Url = "/images/device (19).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 148,
+                            ProductId = 189,
+                            Url = "/images/device (218).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 149,
+                            ProductId = 168,
+                            Url = "/images/device (90).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 150,
+                            ProductId = 219,
+                            Url = "/images/device (59).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 151,
+                            ProductId = 148,
+                            Url = "/images/device (258).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 152,
+                            ProductId = 70,
+                            Url = "/images/device (233).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 153,
+                            ProductId = 72,
+                            Url = "/images/device (71).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 154,
+                            ProductId = 173,
+                            Url = "/images/device (32).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 155,
+                            ProductId = 93,
+                            Url = "/images/device (12).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 156,
+                            ProductId = 51,
+                            Url = "/images/device (128).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 157,
+                            ProductId = 11,
+                            Url = "/images/device (31).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 158,
+                            ProductId = 190,
+                            Url = "/images/device (30).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 159,
+                            ProductId = 175,
+                            Url = "/images/device (147).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 160,
+                            ProductId = 225,
+                            Url = "/images/device (147).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 161,
+                            ProductId = 59,
+                            Url = "/images/device (125).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 162,
+                            ProductId = 80,
+                            Url = "/images/device (69).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 163,
+                            ProductId = 71,
+                            Url = "/images/device (175).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 164,
+                            ProductId = 51,
+                            Url = "/images/device (1).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 165,
+                            ProductId = 147,
+                            Url = "/images/device (150).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 166,
+                            ProductId = 105,
+                            Url = "/images/device (138).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 167,
+                            ProductId = 227,
+                            Url = "/images/device (130).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 168,
+                            ProductId = 170,
+                            Url = "/images/device (98).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 169,
+                            ProductId = 227,
+                            Url = "/images/device (69).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 170,
+                            ProductId = 66,
+                            Url = "/images/device (198).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 171,
+                            ProductId = 231,
+                            Url = "/images/device (97).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 172,
+                            ProductId = 221,
+                            Url = "/images/device (122).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 173,
+                            ProductId = 102,
+                            Url = "/images/device (121).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 174,
+                            ProductId = 207,
+                            Url = "/images/device (231).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 175,
+                            ProductId = 76,
+                            Url = "/images/device (252).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 176,
+                            ProductId = 107,
+                            Url = "/images/device (195).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 177,
+                            ProductId = 106,
+                            Url = "/images/device (79).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 178,
+                            ProductId = 98,
+                            Url = "/images/device (14).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 179,
+                            ProductId = 227,
+                            Url = "/images/device (102).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 180,
+                            ProductId = 134,
+                            Url = "/images/device (208).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 181,
+                            ProductId = 126,
+                            Url = "/images/device (178).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 182,
+                            ProductId = 25,
+                            Url = "/images/device (151).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 183,
+                            ProductId = 54,
+                            Url = "/images/device (235).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 184,
+                            ProductId = 57,
+                            Url = "/images/device (135).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 185,
+                            ProductId = 212,
+                            Url = "/images/device (249).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 186,
+                            ProductId = 52,
+                            Url = "/images/device (11).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 187,
+                            ProductId = 42,
+                            Url = "/images/device (23).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 188,
+                            ProductId = 62,
+                            Url = "/images/device (206).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 189,
+                            ProductId = 235,
+                            Url = "/images/device (214).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 190,
+                            ProductId = 97,
+                            Url = "/images/device (240).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 191,
+                            ProductId = 98,
+                            Url = "/images/device (42).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 192,
+                            ProductId = 137,
+                            Url = "/images/device (35).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 193,
+                            ProductId = 181,
+                            Url = "/images/device (17).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 194,
+                            ProductId = 231,
+                            Url = "/images/device (41).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 195,
+                            ProductId = 229,
+                            Url = "/images/device (104).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 196,
+                            ProductId = 40,
+                            Url = "/images/device (190).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 197,
+                            ProductId = 140,
+                            Url = "/images/device (48).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 198,
+                            ProductId = 82,
+                            Url = "/images/device (183).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 199,
+                            ProductId = 119,
+                            Url = "/images/device (270).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 200,
+                            ProductId = 59,
+                            Url = "/images/device (219).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 201,
+                            ProductId = 30,
+                            Url = "/images/device (84).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 202,
+                            ProductId = 9,
+                            Url = "/images/device (233).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 203,
+                            ProductId = 170,
+                            Url = "/images/device (193).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 204,
+                            ProductId = 9,
+                            Url = "/images/device (87).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 205,
+                            ProductId = 229,
+                            Url = "/images/device (32).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 206,
+                            ProductId = 162,
+                            Url = "/images/device (118).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 207,
+                            ProductId = 215,
+                            Url = "/images/device (255).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 208,
+                            ProductId = 232,
+                            Url = "/images/device (227).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 209,
+                            ProductId = 11,
+                            Url = "/images/device (99).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 210,
+                            ProductId = 236,
+                            Url = "/images/device (114).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 211,
+                            ProductId = 180,
+                            Url = "/images/device (53).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 212,
+                            ProductId = 183,
+                            Url = "/images/device (186).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 213,
+                            ProductId = 83,
+                            Url = "/images/device (200).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 214,
+                            ProductId = 217,
+                            Url = "/images/device (188).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 215,
+                            ProductId = 159,
+                            Url = "/images/device (138).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 216,
+                            ProductId = 45,
+                            Url = "/images/device (117).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 217,
+                            ProductId = 144,
+                            Url = "/images/device (25).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 218,
+                            ProductId = 170,
+                            Url = "/images/device (60).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 219,
+                            ProductId = 130,
+                            Url = "/images/device (15).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 220,
+                            ProductId = 216,
+                            Url = "/images/device (20).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 221,
+                            ProductId = 226,
+                            Url = "/images/device (31).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 222,
+                            ProductId = 18,
+                            Url = "/images/device (145).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 223,
+                            ProductId = 45,
+                            Url = "/images/device (91).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 224,
+                            ProductId = 136,
+                            Url = "/images/device (70).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 225,
+                            ProductId = 127,
+                            Url = "/images/device (85).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 226,
+                            ProductId = 133,
+                            Url = "/images/device (192).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 227,
+                            ProductId = 165,
+                            Url = "/images/device (105).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 228,
+                            ProductId = 230,
+                            Url = "/images/device (112).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 229,
+                            ProductId = 147,
+                            Url = "/images/device (34).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 230,
+                            ProductId = 71,
+                            Url = "/images/device (180).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 231,
+                            ProductId = 207,
+                            Url = "/images/device (102).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 232,
+                            ProductId = 90,
+                            Url = "/images/device (248).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 233,
+                            ProductId = 110,
+                            Url = "/images/device (271).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 234,
+                            ProductId = 213,
+                            Url = "/images/device (35).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 235,
+                            ProductId = 103,
+                            Url = "/images/device (68).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 236,
+                            ProductId = 215,
+                            Url = "/images/device (21).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 237,
+                            ProductId = 142,
+                            Url = "/images/device (236).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 238,
+                            ProductId = 159,
+                            Url = "/images/device (57).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 239,
+                            ProductId = 94,
+                            Url = "/images/device (23).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 240,
+                            ProductId = 149,
+                            Url = "/images/device (3).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 241,
+                            ProductId = 16,
+                            Url = "/images/device (39).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 242,
+                            ProductId = 189,
+                            Url = "/images/device (179).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 243,
+                            ProductId = 100,
+                            Url = "/images/device (221).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 244,
+                            ProductId = 123,
+                            Url = "/images/device (146).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 245,
+                            ProductId = 225,
+                            Url = "/images/device (17).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 246,
+                            ProductId = 80,
+                            Url = "/images/device (87).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 247,
+                            ProductId = 76,
+                            Url = "/images/device (102).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 248,
+                            ProductId = 161,
+                            Url = "/images/device (47).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 249,
+                            ProductId = 93,
+                            Url = "/images/device (193).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 250,
+                            ProductId = 114,
+                            Url = "/images/device (173).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 251,
+                            ProductId = 116,
+                            Url = "/images/device (19).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 252,
+                            ProductId = 187,
+                            Url = "/images/device (21).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 253,
+                            ProductId = 230,
+                            Url = "/images/device (142).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 254,
+                            ProductId = 82,
+                            Url = "/images/device (127).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 255,
+                            ProductId = 25,
+                            Url = "/images/device (174).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 256,
+                            ProductId = 167,
+                            Url = "/images/device (258).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 257,
+                            ProductId = 26,
+                            Url = "/images/device (208).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 258,
+                            ProductId = 106,
+                            Url = "/images/device (20).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 259,
+                            ProductId = 17,
+                            Url = "/images/device (50).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 260,
+                            ProductId = 130,
+                            Url = "/images/device (138).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 261,
+                            ProductId = 173,
+                            Url = "/images/device (70).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 262,
+                            ProductId = 184,
+                            Url = "/images/device (268).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 263,
+                            ProductId = 128,
+                            Url = "/images/device (225).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 264,
+                            ProductId = 178,
+                            Url = "/images/device (130).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 265,
+                            ProductId = 218,
+                            Url = "/images/device (220).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 266,
+                            ProductId = 106,
+                            Url = "/images/device (34).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 267,
+                            ProductId = 43,
+                            Url = "/images/device (55).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 268,
+                            ProductId = 119,
+                            Url = "/images/device (37).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 269,
+                            ProductId = 7,
+                            Url = "/images/device (208).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 270,
+                            ProductId = 61,
+                            Url = "/images/device (24).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 271,
+                            ProductId = 155,
+                            Url = "/images/device (110).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 272,
+                            ProductId = 178,
+                            Url = "/images/device (242).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 273,
+                            ProductId = 200,
+                            Url = "/images/device (37).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 274,
+                            ProductId = 140,
+                            Url = "/images/device (63).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 275,
+                            ProductId = 49,
+                            Url = "/images/device (146).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 276,
+                            ProductId = 160,
+                            Url = "/images/device (27).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 277,
+                            ProductId = 70,
+                            Url = "/images/device (227).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 278,
+                            ProductId = 68,
+                            Url = "/images/device (62).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 279,
+                            ProductId = 12,
+                            Url = "/images/device (131).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 280,
+                            ProductId = 58,
+                            Url = "/images/device (198).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 281,
+                            ProductId = 169,
+                            Url = "/images/device (97).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 282,
+                            ProductId = 99,
+                            Url = "/images/device (167).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 283,
+                            ProductId = 80,
+                            Url = "/images/device (62).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 284,
+                            ProductId = 108,
+                            Url = "/images/device (205).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 285,
+                            ProductId = 64,
+                            Url = "/images/device (132).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 286,
+                            ProductId = 59,
+                            Url = "/images/device (1).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 287,
+                            ProductId = 172,
+                            Url = "/images/device (189).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 288,
+                            ProductId = 210,
+                            Url = "/images/device (197).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 289,
+                            ProductId = 200,
+                            Url = "/images/device (261).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 290,
+                            ProductId = 42,
+                            Url = "/images/device (86).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 291,
+                            ProductId = 91,
+                            Url = "/images/device (259).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 292,
+                            ProductId = 99,
+                            Url = "/images/device (8).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 293,
+                            ProductId = 203,
+                            Url = "/images/device (162).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 294,
+                            ProductId = 41,
+                            Url = "/images/device (62).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 295,
+                            ProductId = 37,
+                            Url = "/images/device (116).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 296,
+                            ProductId = 101,
+                            Url = "/images/device (204).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 297,
+                            ProductId = 80,
+                            Url = "/images/device (225).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 298,
+                            ProductId = 149,
+                            Url = "/images/device (111).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 299,
+                            ProductId = 167,
+                            Url = "/images/device (146).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 300,
+                            ProductId = 138,
+                            Url = "/images/device (2).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 301,
+                            ProductId = 74,
+                            Url = "/images/device (196).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 302,
+                            ProductId = 28,
+                            Url = "/images/device (259).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 303,
+                            ProductId = 19,
+                            Url = "/images/device (111).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 304,
+                            ProductId = 50,
+                            Url = "/images/device (119).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 305,
+                            ProductId = 139,
+                            Url = "/images/device (247).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 306,
+                            ProductId = 201,
+                            Url = "/images/device (101).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 307,
+                            ProductId = 107,
+                            Url = "/images/device (184).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 308,
+                            ProductId = 139,
+                            Url = "/images/device (219).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 309,
+                            ProductId = 205,
+                            Url = "/images/device (64).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 310,
+                            ProductId = 170,
+                            Url = "/images/device (34).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 311,
+                            ProductId = 32,
+                            Url = "/images/device (182).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 312,
+                            ProductId = 3,
+                            Url = "/images/device (77).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 313,
+                            ProductId = 186,
+                            Url = "/images/device (92).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 314,
+                            ProductId = 23,
+                            Url = "/images/device (5).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 315,
+                            ProductId = 222,
+                            Url = "/images/device (269).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 316,
+                            ProductId = 179,
+                            Url = "/images/device (239).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 317,
+                            ProductId = 44,
+                            Url = "/images/device (57).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 318,
+                            ProductId = 85,
+                            Url = "/images/device (215).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 319,
+                            ProductId = 232,
+                            Url = "/images/device (213).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 320,
+                            ProductId = 132,
+                            Url = "/images/device (51).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 321,
+                            ProductId = 159,
+                            Url = "/images/device (106).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 322,
+                            ProductId = 204,
+                            Url = "/images/device (114).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 323,
+                            ProductId = 115,
+                            Url = "/images/device (234).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 324,
+                            ProductId = 21,
+                            Url = "/images/device (102).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 325,
+                            ProductId = 54,
+                            Url = "/images/device (139).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 326,
+                            ProductId = 220,
+                            Url = "/images/device (216).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 327,
+                            ProductId = 68,
+                            Url = "/images/device (157).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 328,
+                            ProductId = 8,
+                            Url = "/images/device (181).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 329,
+                            ProductId = 95,
+                            Url = "/images/device (227).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 330,
+                            ProductId = 187,
+                            Url = "/images/device (32).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 331,
+                            ProductId = 228,
+                            Url = "/images/device (109).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 332,
+                            ProductId = 145,
+                            Url = "/images/device (39).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 333,
+                            ProductId = 74,
+                            Url = "/images/device (243).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 334,
+                            ProductId = 12,
+                            Url = "/images/device (182).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 335,
+                            ProductId = 112,
+                            Url = "/images/device (248).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 336,
+                            ProductId = 176,
+                            Url = "/images/device (120).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 337,
+                            ProductId = 38,
+                            Url = "/images/device (225).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 338,
+                            ProductId = 148,
+                            Url = "/images/device (36).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 339,
+                            ProductId = 20,
+                            Url = "/images/device (19).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 340,
+                            ProductId = 198,
+                            Url = "/images/device (8).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 341,
+                            ProductId = 169,
+                            Url = "/images/device (11).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 342,
+                            ProductId = 68,
+                            Url = "/images/device (117).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 343,
+                            ProductId = 223,
+                            Url = "/images/device (44).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 344,
+                            ProductId = 20,
+                            Url = "/images/device (242).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 345,
+                            ProductId = 53,
+                            Url = "/images/device (249).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 346,
+                            ProductId = 183,
+                            Url = "/images/device (128).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 347,
+                            ProductId = 231,
+                            Url = "/images/device (232).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 348,
+                            ProductId = 9,
+                            Url = "/images/device (42).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 349,
+                            ProductId = 189,
+                            Url = "/images/device (207).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 350,
+                            ProductId = 22,
+                            Url = "/images/device (162).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 351,
+                            ProductId = 96,
+                            Url = "/images/device (101).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 352,
+                            ProductId = 18,
+                            Url = "/images/device (209).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 353,
+                            ProductId = 96,
+                            Url = "/images/device (104).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 354,
+                            ProductId = 211,
+                            Url = "/images/device (28).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 355,
+                            ProductId = 16,
+                            Url = "/images/device (135).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 356,
+                            ProductId = 217,
+                            Url = "/images/device (132).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 357,
+                            ProductId = 97,
+                            Url = "/images/device (80).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 358,
+                            ProductId = 231,
+                            Url = "/images/device (129).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 359,
+                            ProductId = 234,
+                            Url = "/images/device (32).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 360,
+                            ProductId = 223,
+                            Url = "/images/device (180).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 361,
+                            ProductId = 10,
+                            Url = "/images/device (75).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 362,
+                            ProductId = 34,
+                            Url = "/images/device (245).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 363,
+                            ProductId = 16,
+                            Url = "/images/device (159).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 364,
+                            ProductId = 19,
+                            Url = "/images/device (62).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 365,
+                            ProductId = 141,
+                            Url = "/images/device (149).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 366,
+                            ProductId = 135,
+                            Url = "/images/device (77).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 367,
+                            ProductId = 172,
+                            Url = "/images/device (216).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 368,
+                            ProductId = 169,
+                            Url = "/images/device (27).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 369,
+                            ProductId = 122,
+                            Url = "/images/device (227).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 370,
+                            ProductId = 179,
+                            Url = "/images/device (129).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 371,
+                            ProductId = 3,
+                            Url = "/images/device (165).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 372,
+                            ProductId = 51,
+                            Url = "/images/device (37).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 373,
+                            ProductId = 173,
+                            Url = "/images/device (201).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 374,
+                            ProductId = 52,
+                            Url = "/images/device (227).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 375,
+                            ProductId = 226,
+                            Url = "/images/device (91).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 376,
+                            ProductId = 160,
+                            Url = "/images/device (145).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 377,
+                            ProductId = 61,
+                            Url = "/images/device (216).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 378,
+                            ProductId = 107,
+                            Url = "/images/device (104).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 379,
+                            ProductId = 94,
+                            Url = "/images/device (122).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 380,
+                            ProductId = 44,
+                            Url = "/images/device (53).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 381,
+                            ProductId = 206,
+                            Url = "/images/device (215).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 382,
+                            ProductId = 136,
+                            Url = "/images/device (169).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 383,
+                            ProductId = 79,
+                            Url = "/images/device (37).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 384,
+                            ProductId = 120,
+                            Url = "/images/device (168).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 385,
+                            ProductId = 16,
+                            Url = "/images/device (106).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 386,
+                            ProductId = 157,
+                            Url = "/images/device (5).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 387,
+                            ProductId = 191,
+                            Url = "/images/device (16).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 388,
+                            ProductId = 13,
+                            Url = "/images/device (90).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 389,
+                            ProductId = 13,
+                            Url = "/images/device (193).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 390,
+                            ProductId = 134,
+                            Url = "/images/device (105).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 391,
+                            ProductId = 188,
+                            Url = "/images/device (177).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 392,
+                            ProductId = 100,
+                            Url = "/images/device (7).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 393,
+                            ProductId = 5,
+                            Url = "/images/device (227).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 394,
+                            ProductId = 112,
+                            Url = "/images/device (13).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 395,
+                            ProductId = 234,
+                            Url = "/images/device (113).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 396,
+                            ProductId = 139,
+                            Url = "/images/device (164).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 397,
+                            ProductId = 78,
+                            Url = "/images/device (97).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 398,
+                            ProductId = 31,
+                            Url = "/images/device (5).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 399,
+                            ProductId = 133,
+                            Url = "/images/device (52).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 400,
+                            ProductId = 143,
+                            Url = "/images/device (45).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 401,
+                            ProductId = 140,
+                            Url = "/images/device (225).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 402,
+                            ProductId = 191,
+                            Url = "/images/device (273).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 403,
+                            ProductId = 119,
+                            Url = "/images/device (3).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 404,
+                            ProductId = 186,
+                            Url = "/images/device (204).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 405,
+                            ProductId = 193,
+                            Url = "/images/device (17).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 406,
+                            ProductId = 80,
+                            Url = "/images/device (146).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 407,
+                            ProductId = 80,
+                            Url = "/images/device (246).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 408,
+                            ProductId = 19,
+                            Url = "/images/device (18).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 409,
+                            ProductId = 104,
+                            Url = "/images/device (265).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 410,
+                            ProductId = 119,
+                            Url = "/images/device (274).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 411,
+                            ProductId = 40,
+                            Url = "/images/device (257).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 412,
+                            ProductId = 23,
+                            Url = "/images/device (42).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 413,
+                            ProductId = 216,
+                            Url = "/images/device (15).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 414,
+                            ProductId = 171,
+                            Url = "/images/device (140).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 415,
+                            ProductId = 214,
+                            Url = "/images/device (210).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 416,
+                            ProductId = 174,
+                            Url = "/images/device (169).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 417,
+                            ProductId = 146,
+                            Url = "/images/device (124).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 418,
+                            ProductId = 103,
+                            Url = "/images/device (41).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 419,
+                            ProductId = 196,
+                            Url = "/images/device (26).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 420,
+                            ProductId = 70,
+                            Url = "/images/device (143).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 421,
+                            ProductId = 186,
+                            Url = "/images/device (247).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 422,
+                            ProductId = 132,
+                            Url = "/images/device (259).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 423,
+                            ProductId = 229,
+                            Url = "/images/device (3).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 424,
+                            ProductId = 176,
+                            Url = "/images/device (161).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 425,
+                            ProductId = 60,
+                            Url = "/images/device (199).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 426,
+                            ProductId = 46,
+                            Url = "/images/device (181).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 427,
+                            ProductId = 189,
+                            Url = "/images/device (46).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 428,
+                            ProductId = 192,
+                            Url = "/images/device (43).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 429,
+                            ProductId = 15,
+                            Url = "/images/device (96).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 430,
+                            ProductId = 190,
+                            Url = "/images/device (121).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 431,
+                            ProductId = 51,
+                            Url = "/images/device (166).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 432,
+                            ProductId = 107,
+                            Url = "/images/device (169).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 433,
+                            ProductId = 11,
+                            Url = "/images/device (130).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 434,
+                            ProductId = 97,
+                            Url = "/images/device (101).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 435,
+                            ProductId = 74,
+                            Url = "/images/device (195).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 436,
+                            ProductId = 32,
+                            Url = "/images/device (196).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 437,
+                            ProductId = 35,
+                            Url = "/images/device (248).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 438,
+                            ProductId = 224,
+                            Url = "/images/device (44).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 439,
+                            ProductId = 15,
+                            Url = "/images/device (22).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 440,
+                            ProductId = 161,
+                            Url = "/images/device (273).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 441,
+                            ProductId = 92,
+                            Url = "/images/device (153).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 442,
+                            ProductId = 102,
+                            Url = "/images/device (63).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 443,
+                            ProductId = 53,
+                            Url = "/images/device (104).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 444,
+                            ProductId = 205,
+                            Url = "/images/device (9).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 445,
+                            ProductId = 147,
+                            Url = "/images/device (68).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 446,
+                            ProductId = 183,
+                            Url = "/images/device (222).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 447,
+                            ProductId = 141,
+                            Url = "/images/device (194).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 448,
+                            ProductId = 225,
+                            Url = "/images/device (70).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 449,
+                            ProductId = 181,
+                            Url = "/images/device (182).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 450,
+                            ProductId = 184,
+                            Url = "/images/device (162).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 451,
+                            ProductId = 219,
+                            Url = "/images/device (112).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 452,
+                            ProductId = 29,
+                            Url = "/images/device (12).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 453,
+                            ProductId = 9,
+                            Url = "/images/device (211).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 454,
+                            ProductId = 20,
+                            Url = "/images/device (134).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 455,
+                            ProductId = 6,
+                            Url = "/images/device (68).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 456,
+                            ProductId = 130,
+                            Url = "/images/device (183).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 457,
+                            ProductId = 193,
+                            Url = "/images/device (51).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 458,
+                            ProductId = 117,
+                            Url = "/images/device (163).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 459,
+                            ProductId = 168,
+                            Url = "/images/device (30).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 460,
+                            ProductId = 169,
+                            Url = "/images/device (63).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 461,
+                            ProductId = 129,
+                            Url = "/images/device (87).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 462,
+                            ProductId = 40,
+                            Url = "/images/device (197).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 463,
+                            ProductId = 1,
+                            Url = "/images/device (53).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 464,
+                            ProductId = 155,
+                            Url = "/images/device (249).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 465,
+                            ProductId = 21,
+                            Url = "/images/device (246).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 466,
+                            ProductId = 151,
+                            Url = "/images/device (75).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 467,
+                            ProductId = 217,
+                            Url = "/images/device (95).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 468,
+                            ProductId = 213,
+                            Url = "/images/device (141).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 469,
+                            ProductId = 97,
+                            Url = "/images/device (226).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 470,
+                            ProductId = 120,
+                            Url = "/images/device (33).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 471,
+                            ProductId = 35,
+                            Url = "/images/device (231).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 472,
+                            ProductId = 71,
+                            Url = "/images/device (204).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 473,
+                            ProductId = 87,
+                            Url = "/images/device (194).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 474,
+                            ProductId = 88,
+                            Url = "/images/device (147).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 475,
+                            ProductId = 221,
+                            Url = "/images/device (60).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 476,
+                            ProductId = 126,
+                            Url = "/images/device (4).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 477,
+                            ProductId = 32,
+                            Url = "/images/device (69).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 478,
+                            ProductId = 199,
+                            Url = "/images/device (26).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 479,
+                            ProductId = 219,
+                            Url = "/images/device (242).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 480,
+                            ProductId = 178,
+                            Url = "/images/device (128).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 481,
+                            ProductId = 97,
+                            Url = "/images/device (217).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 482,
+                            ProductId = 151,
+                            Url = "/images/device (90).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 483,
+                            ProductId = 205,
+                            Url = "/images/device (28).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 484,
+                            ProductId = 236,
+                            Url = "/images/device (27).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 485,
+                            ProductId = 66,
+                            Url = "/images/device (94).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 486,
+                            ProductId = 23,
+                            Url = "/images/device (59).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 487,
+                            ProductId = 226,
+                            Url = "/images/device (184).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 488,
+                            ProductId = 2,
+                            Url = "/images/device (185).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 489,
+                            ProductId = 53,
+                            Url = "/images/device (41).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 490,
+                            ProductId = 175,
+                            Url = "/images/device (86).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 491,
+                            ProductId = 193,
+                            Url = "/images/device (209).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 492,
+                            ProductId = 235,
+                            Url = "/images/device (160).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 493,
+                            ProductId = 53,
+                            Url = "/images/device (265).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 494,
+                            ProductId = 77,
+                            Url = "/images/device (203).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 495,
+                            ProductId = 114,
+                            Url = "/images/device (269).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 496,
+                            ProductId = 198,
+                            Url = "/images/device (215).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 497,
+                            ProductId = 26,
+                            Url = "/images/device (198).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 498,
+                            ProductId = 87,
+                            Url = "/images/device (250).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 499,
+                            ProductId = 146,
+                            Url = "/images/device (24).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 500,
+                            ProductId = 75,
+                            Url = "/images/device (215).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 501,
+                            ProductId = 74,
+                            Url = "/images/device (117).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 502,
+                            ProductId = 66,
+                            Url = "/images/device (190).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 503,
+                            ProductId = 189,
+                            Url = "/images/device (91).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 504,
+                            ProductId = 106,
+                            Url = "/images/device (83).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 505,
+                            ProductId = 223,
+                            Url = "/images/device (110).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 506,
+                            ProductId = 167,
+                            Url = "/images/device (243).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 507,
+                            ProductId = 132,
+                            Url = "/images/device (263).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 508,
+                            ProductId = 207,
+                            Url = "/images/device (125).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 509,
+                            ProductId = 217,
+                            Url = "/images/device (64).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 510,
+                            ProductId = 82,
+                            Url = "/images/device (124).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 511,
+                            ProductId = 213,
+                            Url = "/images/device (104).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 512,
+                            ProductId = 142,
+                            Url = "/images/device (109).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 513,
+                            ProductId = 207,
+                            Url = "/images/device (180).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 514,
+                            ProductId = 164,
+                            Url = "/images/device (151).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 515,
+                            ProductId = 96,
+                            Url = "/images/device (45).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 516,
+                            ProductId = 5,
+                            Url = "/images/device (101).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 517,
+                            ProductId = 63,
+                            Url = "/images/device (163).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 518,
+                            ProductId = 130,
+                            Url = "/images/device (63).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 519,
+                            ProductId = 36,
+                            Url = "/images/device (260).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 520,
+                            ProductId = 193,
+                            Url = "/images/device (182).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 521,
+                            ProductId = 40,
+                            Url = "/images/device (93).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 522,
+                            ProductId = 35,
+                            Url = "/images/device (176).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 523,
+                            ProductId = 111,
+                            Url = "/images/device (70).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 524,
+                            ProductId = 183,
+                            Url = "/images/device (8).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 525,
+                            ProductId = 167,
+                            Url = "/images/device (143).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 526,
+                            ProductId = 167,
+                            Url = "/images/device (119).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 527,
+                            ProductId = 130,
+                            Url = "/images/device (73).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 528,
+                            ProductId = 67,
+                            Url = "/images/device (129).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 529,
+                            ProductId = 178,
+                            Url = "/images/device (49).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 530,
+                            ProductId = 168,
+                            Url = "/images/device (53).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 531,
+                            ProductId = 17,
+                            Url = "/images/device (265).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 532,
+                            ProductId = 189,
+                            Url = "/images/device (212).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 533,
+                            ProductId = 87,
+                            Url = "/images/device (70).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 534,
+                            ProductId = 199,
+                            Url = "/images/device (157).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 535,
+                            ProductId = 143,
+                            Url = "/images/device (136).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 536,
+                            ProductId = 177,
+                            Url = "/images/device (236).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 537,
+                            ProductId = 133,
+                            Url = "/images/device (104).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 538,
+                            ProductId = 230,
+                            Url = "/images/device (252).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 539,
+                            ProductId = 82,
+                            Url = "/images/device (93).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 540,
+                            ProductId = 108,
+                            Url = "/images/device (198).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 541,
+                            ProductId = 198,
+                            Url = "/images/device (268).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 542,
+                            ProductId = 204,
+                            Url = "/images/device (170).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 543,
+                            ProductId = 3,
+                            Url = "/images/device (254).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 544,
+                            ProductId = 236,
+                            Url = "/images/device (149).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 545,
+                            ProductId = 128,
+                            Url = "/images/device (255).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 546,
+                            ProductId = 44,
+                            Url = "/images/device (8).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 547,
+                            ProductId = 95,
+                            Url = "/images/device (128).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 548,
+                            ProductId = 200,
+                            Url = "/images/device (193).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 549,
+                            ProductId = 133,
+                            Url = "/images/device (260).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 550,
+                            ProductId = 97,
+                            Url = "/images/device (201).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 551,
+                            ProductId = 118,
+                            Url = "/images/device (139).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 552,
+                            ProductId = 157,
+                            Url = "/images/device (250).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 553,
+                            ProductId = 153,
+                            Url = "/images/device (75).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 554,
+                            ProductId = 83,
+                            Url = "/images/device (106).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 555,
+                            ProductId = 135,
+                            Url = "/images/device (96).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 556,
+                            ProductId = 225,
+                            Url = "/images/device (239).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 557,
+                            ProductId = 104,
+                            Url = "/images/device (32).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 558,
+                            ProductId = 185,
+                            Url = "/images/device (96).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 559,
+                            ProductId = 210,
+                            Url = "/images/device (228).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 560,
+                            ProductId = 121,
+                            Url = "/images/device (54).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 561,
+                            ProductId = 76,
+                            Url = "/images/device (147).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 562,
+                            ProductId = 95,
+                            Url = "/images/device (31).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 563,
+                            ProductId = 84,
+                            Url = "/images/device (55).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 564,
+                            ProductId = 168,
+                            Url = "/images/device (31).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 565,
+                            ProductId = 174,
+                            Url = "/images/device (145).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 566,
+                            ProductId = 82,
+                            Url = "/images/device (75).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 567,
+                            ProductId = 50,
+                            Url = "/images/device (243).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 568,
+                            ProductId = 30,
+                            Url = "/images/device (150).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 569,
+                            ProductId = 161,
+                            Url = "/images/device (71).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 570,
+                            ProductId = 67,
+                            Url = "/images/device (77).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 571,
+                            ProductId = 86,
+                            Url = "/images/device (128).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 572,
+                            ProductId = 84,
+                            Url = "/images/device (188).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 573,
+                            ProductId = 101,
+                            Url = "/images/device (94).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 574,
+                            ProductId = 151,
+                            Url = "/images/device (211).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 575,
+                            ProductId = 80,
+                            Url = "/images/device (49).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 576,
+                            ProductId = 11,
+                            Url = "/images/device (209).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 577,
+                            ProductId = 147,
+                            Url = "/images/device (139).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 578,
+                            ProductId = 2,
+                            Url = "/images/device (74).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 579,
+                            ProductId = 16,
+                            Url = "/images/device (153).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 580,
+                            ProductId = 30,
+                            Url = "/images/device (213).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 581,
+                            ProductId = 116,
+                            Url = "/images/device (26).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 582,
+                            ProductId = 101,
+                            Url = "/images/device (269).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 583,
+                            ProductId = 216,
+                            Url = "/images/device (147).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 584,
+                            ProductId = 28,
+                            Url = "/images/device (127).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 585,
+                            ProductId = 158,
+                            Url = "/images/device (157).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 586,
+                            ProductId = 51,
+                            Url = "/images/device (204).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 587,
+                            ProductId = 40,
+                            Url = "/images/device (87).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 588,
+                            ProductId = 175,
+                            Url = "/images/device (33).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 589,
+                            ProductId = 231,
+                            Url = "/images/device (75).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 590,
+                            ProductId = 24,
+                            Url = "/images/device (38).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 591,
+                            ProductId = 90,
+                            Url = "/images/device (198).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 592,
+                            ProductId = 161,
+                            Url = "/images/device (101).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 593,
+                            ProductId = 101,
+                            Url = "/images/device (198).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 594,
+                            ProductId = 63,
+                            Url = "/images/device (114).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 595,
+                            ProductId = 135,
+                            Url = "/images/device (258).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 596,
+                            ProductId = 135,
+                            Url = "/images/device (211).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 597,
+                            ProductId = 24,
+                            Url = "/images/device (187).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 598,
+                            ProductId = 207,
+                            Url = "/images/device (82).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 599,
+                            ProductId = 13,
+                            Url = "/images/device (115).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 600,
+                            ProductId = 23,
+                            Url = "/images/device (137).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 601,
+                            ProductId = 156,
+                            Url = "/images/device (162).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 602,
+                            ProductId = 177,
+                            Url = "/images/device (230).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 603,
+                            ProductId = 208,
+                            Url = "/images/device (267).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 604,
+                            ProductId = 192,
+                            Url = "/images/device (30).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 605,
+                            ProductId = 185,
+                            Url = "/images/device (187).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 606,
+                            ProductId = 3,
+                            Url = "/images/device (98).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 607,
+                            ProductId = 226,
+                            Url = "/images/device (185).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 608,
+                            ProductId = 16,
+                            Url = "/images/device (156).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 609,
+                            ProductId = 4,
+                            Url = "/images/device (36).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 610,
+                            ProductId = 172,
+                            Url = "/images/device (246).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 611,
+                            ProductId = 171,
+                            Url = "/images/device (18).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 612,
+                            ProductId = 220,
+                            Url = "/images/device (28).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 613,
+                            ProductId = 105,
+                            Url = "/images/device (7).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 614,
+                            ProductId = 25,
+                            Url = "/images/device (8).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 615,
+                            ProductId = 63,
+                            Url = "/images/device (18).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 616,
+                            ProductId = 77,
+                            Url = "/images/device (14).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 617,
+                            ProductId = 42,
+                            Url = "/images/device (272).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 618,
+                            ProductId = 1,
+                            Url = "/images/device (152).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 619,
+                            ProductId = 149,
+                            Url = "/images/device (21).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 620,
+                            ProductId = 184,
+                            Url = "/images/device (168).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 621,
+                            ProductId = 233,
+                            Url = "/images/device (194).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 622,
+                            ProductId = 181,
+                            Url = "/images/device (50).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 623,
+                            ProductId = 190,
+                            Url = "/images/device (173).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 624,
+                            ProductId = 1,
+                            Url = "/images/device (7).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 625,
+                            ProductId = 142,
+                            Url = "/images/device (12).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 626,
+                            ProductId = 68,
+                            Url = "/images/device (181).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 627,
+                            ProductId = 6,
+                            Url = "/images/device (81).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 628,
+                            ProductId = 63,
+                            Url = "/images/device (241).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 629,
+                            ProductId = 213,
+                            Url = "/images/device (228).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 630,
+                            ProductId = 216,
+                            Url = "/images/device (203).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 631,
+                            ProductId = 134,
+                            Url = "/images/device (12).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 632,
+                            ProductId = 182,
+                            Url = "/images/device (33).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 633,
+                            ProductId = 113,
+                            Url = "/images/device (21).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 634,
+                            ProductId = 197,
+                            Url = "/images/device (26).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 635,
+                            ProductId = 132,
+                            Url = "/images/device (41).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 636,
+                            ProductId = 56,
+                            Url = "/images/device (265).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 637,
+                            ProductId = 148,
+                            Url = "/images/device (246).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 638,
+                            ProductId = 186,
+                            Url = "/images/device (192).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 639,
+                            ProductId = 131,
+                            Url = "/images/device (210).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 640,
+                            ProductId = 14,
+                            Url = "/images/device (31).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 641,
+                            ProductId = 5,
+                            Url = "/images/device (20).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 642,
+                            ProductId = 110,
+                            Url = "/images/device (68).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 643,
+                            ProductId = 165,
+                            Url = "/images/device (78).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 644,
+                            ProductId = 20,
+                            Url = "/images/device (228).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 645,
+                            ProductId = 49,
+                            Url = "/images/device (48).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 646,
+                            ProductId = 224,
+                            Url = "/images/device (243).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 647,
+                            ProductId = 48,
+                            Url = "/images/device (259).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 648,
+                            ProductId = 151,
+                            Url = "/images/device (161).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 649,
+                            ProductId = 188,
+                            Url = "/images/device (273).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 650,
+                            ProductId = 145,
+                            Url = "/images/device (5).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 651,
+                            ProductId = 170,
+                            Url = "/images/device (13).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 652,
+                            ProductId = 96,
+                            Url = "/images/device (179).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 653,
+                            ProductId = 190,
+                            Url = "/images/device (266).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 654,
+                            ProductId = 66,
+                            Url = "/images/device (73).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 655,
+                            ProductId = 20,
+                            Url = "/images/device (177).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 656,
+                            ProductId = 190,
+                            Url = "/images/device (251).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 657,
+                            ProductId = 81,
+                            Url = "/images/device (21).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 658,
+                            ProductId = 186,
+                            Url = "/images/device (32).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 659,
+                            ProductId = 178,
+                            Url = "/images/device (166).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 660,
+                            ProductId = 31,
+                            Url = "/images/device (93).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 661,
+                            ProductId = 95,
+                            Url = "/images/device (110).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 662,
+                            ProductId = 201,
+                            Url = "/images/device (209).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 663,
+                            ProductId = 92,
+                            Url = "/images/device (107).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 664,
+                            ProductId = 136,
+                            Url = "/images/device (22).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 665,
+                            ProductId = 225,
+                            Url = "/images/device (200).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 666,
+                            ProductId = 209,
+                            Url = "/images/device (117).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 667,
+                            ProductId = 66,
+                            Url = "/images/device (33).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 668,
+                            ProductId = 106,
+                            Url = "/images/device (148).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 669,
+                            ProductId = 105,
+                            Url = "/images/device (149).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 670,
+                            ProductId = 42,
+                            Url = "/images/device (153).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 671,
+                            ProductId = 191,
+                            Url = "/images/device (39).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 672,
+                            ProductId = 135,
+                            Url = "/images/device (102).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 673,
+                            ProductId = 164,
+                            Url = "/images/device (123).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 674,
+                            ProductId = 100,
+                            Url = "/images/device (110).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 675,
+                            ProductId = 136,
+                            Url = "/images/device (40).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 676,
+                            ProductId = 106,
+                            Url = "/images/device (27).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 677,
+                            ProductId = 207,
+                            Url = "/images/device (41).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 678,
+                            ProductId = 44,
+                            Url = "/images/device (264).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 679,
+                            ProductId = 193,
+                            Url = "/images/device (36).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 680,
+                            ProductId = 112,
+                            Url = "/images/device (151).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 681,
+                            ProductId = 183,
+                            Url = "/images/device (253).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 682,
+                            ProductId = 70,
+                            Url = "/images/device (126).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 683,
+                            ProductId = 156,
+                            Url = "/images/device (46).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 684,
+                            ProductId = 173,
+                            Url = "/images/device (205).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 685,
+                            ProductId = 187,
+                            Url = "/images/device (238).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 686,
+                            ProductId = 130,
+                            Url = "/images/device (192).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 687,
+                            ProductId = 4,
+                            Url = "/images/device (6).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 688,
+                            ProductId = 27,
+                            Url = "/images/device (260).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 689,
+                            ProductId = 186,
+                            Url = "/images/device (25).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 690,
+                            ProductId = 113,
+                            Url = "/images/device (63).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 691,
+                            ProductId = 122,
+                            Url = "/images/device (64).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 692,
+                            ProductId = 58,
+                            Url = "/images/device (37).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 693,
+                            ProductId = 200,
+                            Url = "/images/device (55).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 694,
+                            ProductId = 48,
+                            Url = "/images/device (207).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 695,
+                            ProductId = 78,
+                            Url = "/images/device (168).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 696,
+                            ProductId = 87,
+                            Url = "/images/device (120).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 697,
+                            ProductId = 216,
+                            Url = "/images/device (155).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 698,
+                            ProductId = 126,
+                            Url = "/images/device (137).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 699,
+                            ProductId = 204,
+                            Url = "/images/device (186).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 700,
+                            ProductId = 226,
+                            Url = "/images/device (67).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 701,
+                            ProductId = 83,
+                            Url = "/images/device (273).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 702,
+                            ProductId = 231,
+                            Url = "/images/device (139).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 703,
+                            ProductId = 65,
+                            Url = "/images/device (52).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 704,
+                            ProductId = 104,
+                            Url = "/images/device (25).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 705,
+                            ProductId = 69,
+                            Url = "/images/device (210).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 706,
+                            ProductId = 79,
+                            Url = "/images/device (110).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 707,
+                            ProductId = 204,
+                            Url = "/images/device (264).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 708,
+                            ProductId = 156,
+                            Url = "/images/device (191).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 709,
+                            ProductId = 212,
+                            Url = "/images/device (274).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 710,
+                            ProductId = 19,
+                            Url = "/images/device (211).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 711,
+                            ProductId = 177,
+                            Url = "/images/device (182).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 712,
+                            ProductId = 125,
+                            Url = "/images/device (68).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 713,
+                            ProductId = 3,
+                            Url = "/images/device (267).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 714,
+                            ProductId = 4,
+                            Url = "/images/device (103).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 715,
+                            ProductId = 75,
+                            Url = "/images/device (17).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 716,
+                            ProductId = 216,
+                            Url = "/images/device (247).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 717,
+                            ProductId = 109,
+                            Url = "/images/device (221).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 718,
+                            ProductId = 91,
+                            Url = "/images/device (50).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 719,
+                            ProductId = 69,
+                            Url = "/images/device (264).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 720,
+                            ProductId = 57,
+                            Url = "/images/device (223).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 721,
+                            ProductId = 193,
+                            Url = "/images/device (108).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 722,
+                            ProductId = 138,
+                            Url = "/images/device (28).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 723,
+                            ProductId = 1,
+                            Url = "/images/device (212).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 724,
+                            ProductId = 100,
+                            Url = "/images/device (90).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 725,
+                            ProductId = 36,
+                            Url = "/images/device (239).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 726,
+                            ProductId = 143,
+                            Url = "/images/device (229).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 727,
+                            ProductId = 67,
+                            Url = "/images/device (69).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 728,
+                            ProductId = 137,
+                            Url = "/images/device (102).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 729,
+                            ProductId = 158,
+                            Url = "/images/device (201).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 730,
+                            ProductId = 134,
+                            Url = "/images/device (200).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 731,
+                            ProductId = 50,
+                            Url = "/images/device (193).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 732,
+                            ProductId = 171,
+                            Url = "/images/device (218).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 733,
+                            ProductId = 107,
+                            Url = "/images/device (235).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 734,
+                            ProductId = 55,
+                            Url = "/images/device (67).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 735,
+                            ProductId = 116,
+                            Url = "/images/device (68).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 736,
+                            ProductId = 105,
+                            Url = "/images/device (258).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 737,
+                            ProductId = 34,
+                            Url = "/images/device (233).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 738,
+                            ProductId = 184,
+                            Url = "/images/device (52).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 739,
+                            ProductId = 188,
+                            Url = "/images/device (270).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 740,
+                            ProductId = 46,
+                            Url = "/images/device (114).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 741,
+                            ProductId = 121,
+                            Url = "/images/device (253).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 742,
+                            ProductId = 88,
+                            Url = "/images/device (66).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 743,
+                            ProductId = 94,
+                            Url = "/images/device (171).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 744,
+                            ProductId = 80,
+                            Url = "/images/device (156).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 745,
+                            ProductId = 18,
+                            Url = "/images/device (216).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 746,
+                            ProductId = 110,
+                            Url = "/images/device (85).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 747,
+                            ProductId = 22,
+                            Url = "/images/device (211).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 748,
+                            ProductId = 122,
+                            Url = "/images/device (195).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 749,
+                            ProductId = 147,
+                            Url = "/images/device (81).png"
+                        },
+                        new
+                        {
+                            ProductImageId = 750,
+                            ProductId = 24,
+                            Url = "/images/device (187).png"
+                        });
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.Reviews", b =>
@@ -410,6 +8955,9 @@ namespace DoAnNhom11.Migrations
                     b.Property<string>("AnhDaiDien")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("BiChan")
+                        .HasColumnType("bit");
+
                     b.Property<string>("DiaChi")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -425,7 +8973,7 @@ namespace DoAnNhom11.Migrations
                     b.Property<DateTime>("NgayTao")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ShopCategoryId")
+                    b.Property<int?>("ShopCategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("TenCuaHang")
@@ -437,6 +8985,104 @@ namespace DoAnNhom11.Migrations
                     b.HasIndex("ShopCategoryId");
 
                     b.ToTable("Shops");
+
+                    b.HasData(
+                        new
+                        {
+                            ShopId = 1,
+                            AnhBia = "/images/device (38).png",
+                            AnhDaiDien = "/images/device (147).png",
+                            DiaChi = "yUuDPJdP06,B9lCVoAIEg,w3jsej96tq",
+                            LienHe = "6ov6q6RD4i",
+                            MoTa = "Mô tả mẫu của sản phẩm2",
+                            NgayTao = new DateTime(2024, 6, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3215),
+                            ShopCategoryId = 6,
+                            TenCuaHang = "Shop:PJtUceJWUC1"
+                        },
+                        new
+                        {
+                            ShopId = 2,
+                            AnhBia = "/images/device (119).png",
+                            AnhDaiDien = "/images/device (84).png",
+                            DiaChi = "rX99G9bE0G,7beMsYJTzl,eQi5YiOLFX",
+                            LienHe = "hQCsnMtK5g",
+                            MoTa = "Mô tả mẫu của cửa hàng3",
+                            NgayTao = new DateTime(2024, 6, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3246),
+                            ShopCategoryId = 7,
+                            TenCuaHang = "ShopuM1WqYbZKy2"
+                        },
+                        new
+                        {
+                            ShopId = 3,
+                            AnhBia = "/images/device (42).png",
+                            AnhDaiDien = "/images/device (54).png",
+                            DiaChi = "OjBQiZQRXN,jRRtpBFJMT,da4HrZEldy",
+                            LienHe = "JUa1uGMYnc",
+                            MoTa = "Mô tả mẫu của sản phẩm4",
+                            NgayTao = new DateTime(2024, 6, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3333),
+                            ShopCategoryId = 5,
+                            TenCuaHang = "Shop:6YwyLS2V6M3"
+                        },
+                        new
+                        {
+                            ShopId = 4,
+                            AnhBia = "/images/device (66).png",
+                            AnhDaiDien = "/images/device (124).png",
+                            DiaChi = "aD3WvwQDCT,sYSRfI5V6T,jKtbJTurhF",
+                            LienHe = "LHgDZakSOp",
+                            MoTa = "Mô tả mẫu của sản phẩm5",
+                            NgayTao = new DateTime(2024, 6, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3353),
+                            ShopCategoryId = 6,
+                            TenCuaHang = "Shop:u8Sp2uOMqo4"
+                        },
+                        new
+                        {
+                            ShopId = 5,
+                            AnhBia = "/images/device (79).png",
+                            AnhDaiDien = "/images/device (216).png",
+                            DiaChi = "iigkH96TMs,yy5t5VIiYq,e9imsLxX13",
+                            LienHe = "yRy2pdiTcc",
+                            MoTa = "Mô tả mẫu của sản phẩm6",
+                            NgayTao = new DateTime(2024, 6, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3374),
+                            ShopCategoryId = 1,
+                            TenCuaHang = "Shop:6qDncIb3Mo5"
+                        },
+                        new
+                        {
+                            ShopId = 6,
+                            AnhBia = "/images/device (174).png",
+                            AnhDaiDien = "/images/device (181).png",
+                            DiaChi = "UifiQLHp98,vp7m1iHSQq,syRvwlHCKE",
+                            LienHe = "QpdlFhQqnN",
+                            MoTa = "Mô tả mẫu của sản phẩm7",
+                            NgayTao = new DateTime(2024, 6, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3392),
+                            ShopCategoryId = 7,
+                            TenCuaHang = "Shop:DWyZgzJpw86"
+                        },
+                        new
+                        {
+                            ShopId = 7,
+                            AnhBia = "/images/device (78).png",
+                            AnhDaiDien = "/images/device (179).png",
+                            DiaChi = "KCtqHH1gkx,Sw9FhBG4fX,Nwp8X2XEiH",
+                            LienHe = "417W7Bcn7D",
+                            MoTa = "Mô tả mẫu của sản phẩm8",
+                            NgayTao = new DateTime(2024, 6, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3412),
+                            ShopCategoryId = 4,
+                            TenCuaHang = "Shop:VqPeh9RCnC7"
+                        },
+                        new
+                        {
+                            ShopId = 8,
+                            AnhBia = "/images/device (265).png",
+                            AnhDaiDien = "/images/device (184).png",
+                            DiaChi = "QXrb5YLRdb,R1TWTykY64,0e3sAYFfZ8",
+                            LienHe = "BD2hQxLz8e",
+                            MoTa = "Mô tả mẫu của sản phẩm9",
+                            NgayTao = new DateTime(2024, 6, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3433),
+                            ShopCategoryId = 1,
+                            TenCuaHang = "Shop:baIUX06AB98"
+                        });
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.ShopCategory", b =>
@@ -454,6 +9100,53 @@ namespace DoAnNhom11.Migrations
                     b.HasKey("ShopCategoryId");
 
                     b.ToTable("ShopCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            ShopCategoryId = 1,
+                            TenLoai = "Tạp Hóa"
+                        },
+                        new
+                        {
+                            ShopCategoryId = 2,
+                            TenLoai = "Thời Trang"
+                        },
+                        new
+                        {
+                            ShopCategoryId = 3,
+                            TenLoai = "Trang Sức"
+                        },
+                        new
+                        {
+                            ShopCategoryId = 4,
+                            TenLoai = "Thực Phẩm"
+                        },
+                        new
+                        {
+                            ShopCategoryId = 5,
+                            TenLoai = "Sách"
+                        },
+                        new
+                        {
+                            ShopCategoryId = 6,
+                            TenLoai = "Làm Đẹp"
+                        },
+                        new
+                        {
+                            ShopCategoryId = 7,
+                            TenLoai = "Đồ Chơi"
+                        },
+                        new
+                        {
+                            ShopCategoryId = 8,
+                            TenLoai = "Đồ Gia Dụng"
+                        },
+                        new
+                        {
+                            ShopCategoryId = 9,
+                            TenLoai = "công nghệ"
+                        });
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.Voucher", b =>
@@ -464,10 +9157,22 @@ namespace DoAnNhom11.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VoucherId"));
 
+                    b.Property<decimal?>("DonToiThieu")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("GiamToiDa")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("NgayBatDau")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("NgayHetHan")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("PhanTramGiam")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ShopId")
                         .HasColumnType("int");
 
                     b.Property<int>("SoLuongCon")
@@ -482,9 +9187,112 @@ namespace DoAnNhom11.Migrations
 
                     b.HasKey("VoucherId");
 
+                    b.HasIndex("ShopId");
+
                     b.HasIndex("VoucherCategoryId");
 
                     b.ToTable("Vouchers");
+
+                    b.HasData(
+                        new
+                        {
+                            VoucherId = 1,
+                            DonToiThieu = -1m,
+                            GiamToiDa = -1m,
+                            NgayHetHan = new DateTime(2024, 8, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3055),
+                            PhanTramGiam = 0,
+                            SoLuongCon = 100,
+                            VoucherCategoryId = 1,
+                            VoucherCode = "mặc định"
+                        },
+                        new
+                        {
+                            VoucherId = 2,
+                            DonToiThieu = 3000000m,
+                            GiamToiDa = 15000m,
+                            NgayHetHan = new DateTime(2024, 8, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3084),
+                            PhanTramGiam = 10,
+                            SoLuongCon = 100,
+                            VoucherCategoryId = 2,
+                            VoucherCode = "GIAMGIA2"
+                        },
+                        new
+                        {
+                            VoucherId = 3,
+                            DonToiThieu = 10000000m,
+                            GiamToiDa = 50000m,
+                            NgayHetHan = new DateTime(2024, 8, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3088),
+                            PhanTramGiam = 15,
+                            SoLuongCon = 100,
+                            VoucherCategoryId = 3,
+                            VoucherCode = "GIAMGIA3"
+                        },
+                        new
+                        {
+                            VoucherId = 4,
+                            DonToiThieu = 8000000m,
+                            GiamToiDa = 100000m,
+                            NgayHetHan = new DateTime(2024, 8, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3092),
+                            PhanTramGiam = 12,
+                            SoLuongCon = 100,
+                            VoucherCategoryId = 4,
+                            VoucherCode = "GIAMGIA4"
+                        },
+                        new
+                        {
+                            VoucherId = 5,
+                            DonToiThieu = 5000000m,
+                            GiamToiDa = 20000m,
+                            NgayHetHan = new DateTime(2024, 8, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3095),
+                            PhanTramGiam = 7,
+                            SoLuongCon = 100,
+                            VoucherCategoryId = 4,
+                            VoucherCode = "GIAMGIA5"
+                        },
+                        new
+                        {
+                            VoucherId = 6,
+                            DonToiThieu = -1m,
+                            GiamToiDa = -1m,
+                            NgayHetHan = new DateTime(2024, 8, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3098),
+                            PhanTramGiam = 8,
+                            SoLuongCon = 100,
+                            VoucherCategoryId = 4,
+                            VoucherCode = "GIAMGIA5"
+                        },
+                        new
+                        {
+                            VoucherId = 7,
+                            DonToiThieu = 12000000m,
+                            GiamToiDa = -1m,
+                            NgayHetHan = new DateTime(2024, 8, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3102),
+                            PhanTramGiam = 15,
+                            SoLuongCon = 100,
+                            VoucherCategoryId = 4,
+                            VoucherCode = "GIAMGIA5"
+                        },
+                        new
+                        {
+                            VoucherId = 8,
+                            DonToiThieu = -1m,
+                            GiamToiDa = 40000m,
+                            NgayHetHan = new DateTime(2024, 8, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3104),
+                            PhanTramGiam = 21,
+                            SoLuongCon = 100,
+                            VoucherCategoryId = 4,
+                            VoucherCode = "GIAMGIA5"
+                        },
+                        new
+                        {
+                            VoucherId = 9,
+                            DonToiThieu = 12000000m,
+                            GiamToiDa = 1000000m,
+                            NgayHetHan = new DateTime(2024, 8, 10, 15, 6, 28, 297, DateTimeKind.Local).AddTicks(3107),
+                            PhanTramGiam = 16,
+                            SoLuongCon = 100,
+                            VoucherCategoryId = 4,
+                            VoucherCode = "GIAMGIA5"
+                        });
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.VoucherCategory", b =>
@@ -502,6 +9310,28 @@ namespace DoAnNhom11.Migrations
                     b.HasKey("VoucherCategoryId");
 
                     b.ToTable("VoucherCategory");
+
+                    b.HasData(
+                        new
+                        {
+                            VoucherCategoryId = 1,
+                            TenLoai = "GIAMGIAXIAOMI"
+                        },
+                        new
+                        {
+                            VoucherCategoryId = 2,
+                            TenLoai = "GIAMGIADELL"
+                        },
+                        new
+                        {
+                            VoucherCategoryId = 3,
+                            TenLoai = "GIAMGIALAPTOP"
+                        },
+                        new
+                        {
+                            VoucherCategoryId = 4,
+                            TenLoai = "GIAMGIAMAYTINHBANG"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -529,6 +9359,32 @@ namespace DoAnNhom11.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "2c5e174e-3b0e-446f-86af-483d56fd7211",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = "2c5e174e-3b0e-446f-86af-483d56fd7212",
+                            Name = "ShopOwner",
+                            NormalizedName = "SHOPOWNER"
+                        },
+                        new
+                        {
+                            Id = "2c5e174e-3b0e-446f-86af-483d56fd7213",
+                            Name = "ShopStaff",
+                            NormalizedName = "SHOPSTAFF"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -771,20 +9627,24 @@ namespace DoAnNhom11.Migrations
                 {
                     b.HasOne("DoAnNhom11.Models.ShopCategory", "ShopCategories")
                         .WithMany("Shops")
-                        .HasForeignKey("ShopCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ShopCategoryId");
 
                     b.Navigation("ShopCategories");
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.Voucher", b =>
                 {
+                    b.HasOne("DoAnNhom11.Models.Shop", "Shop")
+                        .WithMany("Vouchers")
+                        .HasForeignKey("ShopId");
+
                     b.HasOne("DoAnNhom11.Models.VoucherCategory", "VoucherCategory")
                         .WithMany("Vouchers")
                         .HasForeignKey("VoucherCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Shop");
 
                     b.Navigation("VoucherCategory");
                 });
@@ -889,6 +9749,8 @@ namespace DoAnNhom11.Migrations
                     b.Navigation("Products");
 
                     b.Navigation("Sellers");
+
+                    b.Navigation("Vouchers");
                 });
 
             modelBuilder.Entity("DoAnNhom11.Models.ShopCategory", b =>
