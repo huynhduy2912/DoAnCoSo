@@ -14,8 +14,12 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.ProductCategoryId)
-            </th><th>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.TenLoai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnhDaiDien)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AnhDaiDien)
@@ -23,17 +27,23 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductCategoryId)
-            </td><td>
-                @Html.DisplayFor(modelItem => item.TenLoai)
-            </td>
-            <td>
-                <img src="@item.AnhDaiDien" width="75" height="75"/>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductCategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenLoai)
+                </td>
+                <td>
+                    <img src="@item.AnhDaiDien" width="75" height="75" />
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProductCategoryId">Sửa</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProductCategoryId">Chi tiết</a> |
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
